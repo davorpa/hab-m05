@@ -1,0 +1,1415 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>HaB: SQL</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<style>
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+			font-family: "Quicksand", sans-serif
+		}
+
+		.reveal h1{
+			font-size: 2.2em;
+		}
+
+
+		.reveal h2{
+			font-size: 1.6em;
+		}
+
+
+		.reveal h3{
+			font-size: 1.2em;
+		}
+
+
+		.reveal h4{
+			font-size: 1.05em;
+		}
+
+		body, body p, body ul {
+			font-size: 1.8rem;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+		.italic{
+			font-style: italic;
+		}
+		.s-500{
+			width: 500px;
+		}
+		.s-400{
+			width: 400px;
+		}
+		.mysql-code{
+			font-size: 1rem;
+			box-shadow: none;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+
+		<section>
+
+			<h2>HaB: Introducción a SQL</h2>
+
+			<p>Por: <span class="italic">Fernando Batlle López</span></p>
+			<br>
+			<p><a href="http://www.linkedin.com/in/fernando-batlle-55333738">Linkedin</a> | <a href="http://lapisoft.es">Lapisoft Projects S.L.</a></p>
+		</section>
+		<section>
+			<h2>Resumen: Modelo Entidad-Relación</h2>
+			<ul>
+				<li class="fragment">Modelo Entidad-Relación.</li>
+				<li class="fragment">Definición de Entidad.</li>
+				<li class="fragment">Clasves de Entidad: superclave, clave candidata y clave primaria.</li>
+				<li class="fragment">Definición de Relación.</li>
+				<li class="fragment">Definición de Atributo.</li>
+				<li class="fragment">Cardinalidad de las Relaciones.</li>
+				<li class="fragment">Pasos para definir un Diagrama de Entidad-Relación.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h1> Paso Modelo Entidad-Relación a tablas</h1>
+		</section>
+
+		<section>
+			<h2>Introducción</h2>
+
+			<ul>
+				<li class="fragment">Un paso más cerca para tener la base de datos final.</li>
+				<li class="fragment">Modelo conceptual.</li>
+				<li class="fragment">Pero no hay un modelo lógico ni físico.</li>
+				<li class="fragment">Modelo E-R es un diseño de alto nivel, próximo al usuario y alejado del diseño físico de la BD.</li>
+				<li class="fragment">Siguiente paso es usar un diseño lógico: Modelo Relacional.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Modelo Relacional</h2>
+			<p>Recordemos:</p>
+			<ul>
+				<li class="fragment">Los datos son ordenados en forma de tablas o Relaciones.</li>
+				<li class="fragment">Se componen de columnas y filas.</li>
+				<li class="fragment">Las columnas definen los atributos (nombre, teléfono, código).</li>
+				<li class="fragment">Al conjunto de todos los atributos de una relación se denomina Dominio.</li>
+				<li class="fragment">Modelo muy próximo al modelo físico de BD.</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h2>Modelo Relacional</h2>
+			<p>Motivos del éxito del modelo relacional:</p>
+			<ul>
+				<li class="fragment">Se basan en el álgebra relacional (modelo matemático con sólidos fundamentos).
+					Ofrecen sistemas simples y eficaces para representar y manipular los datos.</li>
+				<li class="fragment">La estructura fundamental del modelo relacional es precisamente esa, la «relación», es decir una tabla bidimensional constituida por filas (registros o tuplas) y columnas (atributos o campos).</li>
+			</ul>
+			<p class="fragment">Las relaciones o tablas representan las entidades del modelo Entidad-Relación.</p>
+			<p class="fragment">Los atributos de la relación representarán las propiedades o atributos de dichas entidades.</p>
+
+		</section>
+
+		<section>
+			<h2>Modelo Relacional</h2>
+			<p>Dada la siguiente entidad:</p>
+
+			<img class="fragment s-400" src="images/vehiculo.PNG" alt="dato"/>
+
+		</section>
+
+		<section>
+			<h2>Modelo Relacional</h2>
+			<p>Se da la siguiente relación:</p>
+			<img class="fragment" src="images/tabla%20vehiculo.PNG" alt="dato" style="width: 500px"/>
+			<p class="fragment">Cada fila representa un vehículo concreto.</p>
+
+		</section>
+
+		<section>
+			<h2>Modelo Relacional</h2>
+			<p>Los datos no forman parte del modelo Relacional.</p>
+			<p class="fragment">Cada relación es la definición de la estructura de la tabla: su nombre y la lista de los atributos que la componen.</p>
+			<p class="fragment">Una posible representación:</p>
+			<img class="fragment" src="images/tabla%20vehiculo%20formal.PNG" alt="dato" style="width: 200px"/>
+
+		</section>
+
+		<section>
+			<h2>Claves</h2>
+			<p class="fragment">Al igual que en modelo Entidad-Relación exinten atributos o propiedades que se usan
+				para identificar a los registros.</p>
+			<p class="fragment">Para distinguir un registro de otro, se usa la "clave primaria o clave principal".</p>
+			<p class="fragment">Esta clave se escoge de entre todas las "claves candidatas" (todas las posibles
+				combinaciones de atributos que permiten identificar inequívocamente a un registro).</p>
+			<p class="fragment">Los atributos de la clave primaria no pueden asumir el valor nulo.</p>
+
+		</section>
+
+		<section>
+			<h2>Modelo Relacional</h2>
+			<p>Elementos y propiedades del modelo relacional:</p>
+			<ul>
+				<li class="fragment">Relación (tabla): Representan las entidades de las que se quiere almacenar información en la BD. Esta formada por:
+					<ul>
+						<li class="fragment">Filas (Registros o Tuplas): Corresponden a cada ocurrencia de la entidad.</li>
+						<li class="fragment">Columnas (Atributos o campos): Corresponden a las propiedades de la entidad (sin datos).</li>
+					</ul>
+				</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h2>Modelo Relacional</h2>
+			<p>Elementos y propiedades del modelo relacional:</p>
+			<ul>
+				<li class="fragment">Las relaciones tienen las siguientes propiedades:
+					<ul>
+						<li class="fragment">Cada relación tiene un nombre y éste es distinto del nombre de todas las demás relaciones de la misma BD.</li>
+						<li class="fragment">No hay dos atributos que se llamen igual en la misma relación.</li>
+						<li class="fragment">El orden de los atributos no importa: los atributos no están ordenados.</li>
+						<li class="fragment">Cada tupla es distinta de las demás: no hay tuplas duplicadas. (Como mínimo se diferenciarán en la clave principal).</li>
+						<li class="fragment">El orden de las tuplas no importa: las tuplas no están ordenadas.</li>
+					</ul>
+				</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h2>Modelo Relacional</h2>
+			<p>Elementos y propiedades del modelo relacional:</p>
+			<ul>
+				<li class="fragment">Clave candidata: atributo que identifica unívocamente una tupla. Cualquiera de las claves candidatas se podría elegir como clave principal.</li>
+				<li class="fragment">Clave Principal: Clave candidata que elegimos como identificador de la tuplas.</li>
+				<li class="fragment">Clave Alternativa: Toda clave candidata que no es clave primaria (las que no hayamos elegido como clave principal).</li>
+				<li class="fragment">Una clave principal no puede asumir el valor nulo (Integridad de la entidad).</li>
+				<li class="fragment">Dominio de un atributo: Conjunto de valores que pueden ser asumidos por dicho atributo.</li>
+				<li class="fragment">Clave Externa o foránea o ajena: el atributo o conjunto de atributos que forman la clave principal de otra relación.</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h2>Clave foránea</h2>
+			<p class="fragment">Que un atributo sea clave ajena en una tabla significa que para introducir datos en ese atributo, previamente han debido introducirse en la tabla de origen.</p>
+			<p class="fragment">Los valores presentes en la clave externa tienen que corresponder a valores presentes en la clave principal correspondiente.</p>
+			<p class="fragment"><strong>Integridad Referencial</strong></p>
+
+		</section>
+
+
+		<section>
+			<h3>Transformación de un esquema Entidad-Relación a esquema relacional</h3>
+			<p>Importante:</p>
+			<p class="fragment">Se deben elaborar los diagramas relacionales de tal forma que, posteriormente al introducir datos,
+				no quede ninguna clave foránea a valor nulo (NULL).</p>
+
+		</section>
+
+		<section>
+			<h3>Transformación de Entidades (1)</h3>
+			<p>Dado un diagrama, se recolectan todas las entidades y se transforman en tablas.</p>
+			<p class="fragment">El identificador (o identificadores) de la entidad se convierte en la Clave principal.</p>
+
+		</section>
+
+		<section>
+			<h3>Transformación de Entidades (2)</h3>
+			<p class="fragment">Esta clave debe destacar sobre el resto. En algunas herramientas se subrayará.
+				En otros, como Visio, se destaca mediante la indicación "CP" o "PK".</p>
+			<p class="fragment">Si hay claves alternativas se ponen en "negrita".</p>
+			<img class="fragment" src="images/tabla%20vehiculo%20formal.PNG" alt="dato" style="width: 200px"/>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones N:M (1)</h3>
+			<p>Ya se han convertido las Entidades. El siguiente paso implica transformar las Relaciones.</p>
+			<p class="fragment"><strong>Relaciones N:M:</strong></p>
+			<p class="fragment">Este tipo de Relaciones siempre genera una tabla extra.</p>
+			<p class="fragment">Son consideradas <span class="italic">Tablas de asociación</span>.</p>
+			<p class="fragment">Cada una de las Claves primarias de las dos Entidades involucradas se recogen como Claves foráneas en esta Tabla de asociación.</p>
+			<p class="fragment">La Clave Primaria de esta Tabla se compone de estas dos Claves foráneas.</p>
+			<p class="fragment">Nota: no son dos claves primarias, si no una única clave compuesta por dos campos.</p>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones N:M (2)</h3>
+			<p class="fragment">Si hay campos propios (en la Relación), se incorporarán a la tabla.</p>
+			<p class="fragment">Las Claves foráneas se debein indicar con "CF" o "FK" y un número indicando el orden (sin repetirse).</p>
+			<p class="fragment">El orden de los atributos que forman la clave vendrá determinado por las consultas que se vayan a realizar.</p>
+			<p class="fragment">No importa si la Participación es 0 (es decir, opcional), ya que se no existiría una fila en dicha tabla.</p>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones N:M (y 3)</h3>
+			<p class="fragment">Ejemplo: <span class="italic">Vehículo - Conductor</span>.</p>
+			<img class="fragment" src="images/MR%20Vehiculo-conductor.PNG" alt="dato" style="width: 650px"/>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones 1:N (1)</h3>
+			<p class="fragment">Este tipo de Relaciones no suele generar una tabla extra.</p>
+			<p class="fragment">Dos casos posibles.</p>
+			<p class="fragment">Caso 1:</p>
+			<ul>
+				<li class="fragment">Si la entidad del lado "1" presenta participación (0,1), entonces se crea
+					una nueva tabla para la relación.</li>
+				<li class="fragment">Cada una de las Claves primarias de las dos Entidades involucradas se recogen como Claves foráneas en esta nueva tabla.</li>
+				<li class="fragment">La clave principal de la relación será sólo la clave de la entidad del lado "N".</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones 1:N (2)</h3>
+			<p class="fragment">Ejemplo Caso 1.</p>
+			<img class="fragment" src="images/MR%20Empresa-persona.PNG" alt="dato" style="width: 650px"/>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones 1:N (3)</h3>
+			<p class="fragment">Caso 2:</p>
+			<ul>
+				<li class="fragment">Para el resto de situaciones, la entidad del lado "N" recibe como clave ajena la clave de la entidad del lado "1".</li>
+				<li class="fragment">Los atributos propios de la relación pasan a la tabla donde se ha incorporado la clave ajena.</li>
+			</ul>
+			<img class="fragment" src="images/MR%20Empresa-trabajador.PNG" alt="dato" style="width: 650px"/>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones 1:N Caso 1 vs. Caso 2</h3>
+			<div class="fragment">
+				<img src="images/MR%20Empresa-persona.PNG" alt="dato" style="width: 550px"/>
+				<img src="images/MR%20Empresa-trabajador.PNG" alt="dato" style="width: 350px"/>
+			</div>
+			<p class="fragment">¿Diferencia?</p>
+			<p class="fragment">Una persona puede o no trabajar en una empresa. Por ejemplo, un niño no puede trabajar.</p>
+			<p class="fragment">Un trabajador siempre trabaja en una empresa (olvidémonos de los pobres autónomos).</p>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones 1:1 (1)</h3>
+			<p class="fragment">Este tipo de Relaciones no suele generar una tabla extra.</p>
+			<p class="fragment">Tres casos posibles.</p>
+			<p class="fragment">Caso 1:</p>
+			<ul>
+				<li class="fragment">Si las dos entidades participan con participación (0,1), entonces se crea una nueva tabla para la relación.</li>
+				<li class="fragment">Cada una de las Claves primarias de las dos Entidades involucradas se recogen como Claves foráneas en esta nueva tabla.</li>
+				<li class="fragment">Se escoge como clave principal una de las claves foráneas.</li>
+				<li class="fragment">La otra clave foránea debe ser única (con el fin de evitar duplicados, y conservar la relación 1:1).</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones 1:1 (2)</h3>
+			<p class="fragment">Ejemplo Caso 1.</p>
+			<img class="fragment" src="images/MR%20Mujer-hombre.PNG" alt="dato" style="width: 650px"/>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones 1:1 (3)</h3>
+			<p class="fragment">Caso 2:</p>
+			<ul>
+				<li class="fragment">Si alguna entidad, pero no las dos, participa con participación mínima 0 (0,1),
+					entonces se pone la clave ajena en dicha entidad.</li>
+				<li class="fragment">Con ello se evita los valores nulos.</li>
+			</ul>
+			<img class="fragment" src="images/MR%20Barco-capitan.PNG" alt="dato" style="width: 500px"/>
+		</section>
+
+		<section>
+			<h3>Transformación de Relaciones 1:1 (3)</h3>
+			<p class="fragment">Caso 3:</p>
+			<ul>
+				<li class="fragment">Si ninguna de las entidades tiene participación mínima 0 (0,1),
+					se escoge una de las claves primarias y se expone como clave foránea y primaria en la otra entidad.</li>
+				<li class="fragment">Se elegirá una u otra forma en función de como se quiera organizar la información
+					para facilitar las consultas.</li>
+			</ul>
+			<img class="fragment" src="images/MR%20Pais-capital.PNG" alt="dato" style="width: 500px"/>
+		</section>
+
+		<section>
+			<h5>Caso de estudio: Transformación del esquema Entidad-Relación a esquema relacional</h5>
+			<p class="fragment">Recordemos nuestro flamante diagrama.</p>
+			<img class="fragment" src="images/Relaciones%20ATM%20g.PNG" alt="dato" style="width: 750px"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 1. Conversión de Entidades a tablas.</h3>
+			<p class="fragment">Usuario</p>
+			<img class="fragment " src="images/Atr%20usuario.PNG" alt="dato" style="width: 460px"/>
+			<img class="fragment " src="images/MR%20Usuario.PNG" alt="dato" style="width: 202px"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 1. Conversión de Entidades a tablas.</h3>
+			<p class="fragment">DNI</p>
+			<img class="fragment " src="images/Atr%20dni.PNG" alt="dato" style="width: 250px"/>
+			<img class="fragment " src="images/MR%20Dni.PNG" alt="dato" style="width: 220px"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 1. Conversión de Entidades a tablas.</h3>
+			<p class="fragment">Información empleado</p>
+			<img class="fragment " src="images/Atr%20info%20empleado.PNG" alt="dato" style="width: 364px"/>
+			<img class="fragment " src="images/MR%20Info%20empleado.PNG" alt="dato" style="width: 220px"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 1. Conversión de Entidades a tablas.</h3>
+			<p class="fragment">Cuenta</p>
+			<img class="fragment " src="images/Atr%20cuenta.PNG" alt="dato" style="width: 400px"/>
+			<img class="fragment " src="images/MR%20Cuenta.PNG" alt="dato" style="width: 220px"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 1. Conversión de Entidades a tablas.</h3>
+			<p class="fragment">Tarjeta</p>
+			<img class="fragment " src="images/Atr%20tarjeta.PNG" alt="dato" style="width: 400px"/>
+			<img class="fragment " src="images/MR%20Tarjeta.PNG" alt="dato" style="width: 220px"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 1. Conversión de Entidades a tablas.</h3>
+			<p class="fragment">Movimiento Cuenta</p>
+			<img class="fragment " src="images/Atr%20movimiento%20cuenta.PNG" alt="dato" style="width: 400px"/>
+			<img class="fragment " src="images/MR%20Movimiento%20cuenta.PNG" alt="dato" style="width: 220px"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 1. Conversión de Entidades a tablas.</h3>
+			<p class="fragment">Movimiento Tarjeta</p>
+			<img class="fragment " src="images/Atr%20movimiento%20tarjeta.PNG" alt="dato" style="width: 400px"/>
+			<img class="fragment " src="images/MR%20Movimiento%20tarjeta.PNG" alt="dato" style="width: 220px"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 1. Tablas.</h3>
+
+			<img class="fragment" src="images/MR%20Total.PNG" alt="dato" style="width: 650px"/>
+		</section>
+
+		<section>
+			<h4>Caso de estudio: Paso 2. Conversión de Relaciones.</h4>
+			<p class="fragment">Usuario - DNI</p>
+			<img class="fragment" src="images/Relacion%20usu-dni%20c.PNG" alt="dato" style="width: 400px"/>
+			<br>
+			<img class="fragment" src="images/MR%20Usuario-dni.PNG" alt="dato" style="width: 400px"/>
+		</section>
+
+		<section>
+			<h4>Caso de estudio: Paso 2. Conversión de Relaciones.</h4>
+			<p class="fragment">Usuario - Información Empleado</p>
+
+			<img class="fragment" src="images/Relacion%20usu-info%20b.PNG" alt="dato" style="width: 400px"/>
+			<br>
+			<img class="fragment" src="images/MR%20Usuario-info%20empleado.PNG" alt="dato" style="width: 400px"/>
+		</section>
+
+		<section>
+			<h4>Caso de estudio: Paso 2. Conversión de Relaciones.</h4>
+			<p class="fragment">Usuario - Cuenta</p>
+
+			<img class="fragment" src="images/Relacion%20usu-cuenta%20c.PNG" alt="dato" style="width: 400px"/>
+			<br>
+			<img class="fragment" src="images/MR%20Usuario-cuenta.PNG" alt="dato" style="width: 400px"/>
+		</section>
+
+		<section>
+			<h4>Caso de estudio: Paso 2. Conversión de Relaciones.</h4>
+			<p class="fragment">Usuario - Tarjeta</p>
+
+			<img class="fragment" src="images/Relacion%20usu-tarjeta%20c.PNG" alt="dato" style="width: 400px"/>
+			<br>
+			<img class="fragment" src="images/MR%20Usuario-tarjeta.PNG" alt="dato" style="width: 400px"/>
+		</section>
+
+		<section>
+			<h4>Caso de estudio: Paso 2. Conversión de Relaciones.</h4>
+			<p class="fragment">Cuenta - Tarjeta</p>
+
+			<img class="fragment" src="images/Relacion%20cuenta-tarjeta%20c.PNG" alt="dato" style="width: 400px"/>
+			<br>
+			<img class="fragment" src="images/MR%20Cuenta-tarjeta.PNG" alt="dato" style="width: 400px"/>
+		</section>
+
+		<section>
+			<h4>Caso de estudio: Paso 2. Conversión de Relaciones.</h4>
+			<p class="fragment">Cuenta - Movimiento Cuenta</p>
+
+			<img class="fragment" src="images/Relacion%20cuenta-mov%20c.PNG" alt="dato" style="width: 400px"/>
+			<br>
+			<img class="fragment" src="images/MR%20Cuenta-mov.PNG" alt="dato" style="width: 400px"/>
+		</section>
+
+		<section>
+			<h4>Caso de estudio: Paso 2. Conversión de Relaciones.</h4>
+			<p class="fragment">Tarjeta - Movimiento Tarjeta</p>
+
+			<img class="fragment" src="images/Relacion%20tarjeta-mov.PNG" alt="dato" style="width: 400px"/>
+			<br>
+			<img class="fragment" src="images/MR%20Tarjeta-mov.PNG" alt="dato" style="width: 400px"/>
+		</section>
+
+		<section>
+			<h4>Caso de estudio: Paso 3. Diagrama final Modelo Relacional.</h4>
+
+			<img class="fragment" src="images/Relaciones%20ATM%20h.PNG" alt="dato" style="width: 750px"/>
+		</section>
+
+		<section>
+			<h3>¿Y ahora qué?</h3>
+
+			<ul>
+				<li class="fragment">Y otro paso más (o menos, según se mire).</li>
+				<li class="fragment">Disponemos del Modelo conceptual (Modelo Entidad-Relación) y el modelo lógico (Modelo Relacional).</li>
+				<li class="fragment">Falta el modelo físico.</li>
+				<li class="fragment">¿Cómo obtenemos ese modelo físico?</li>
+				<li class="fragment">La solución: SQL. Transformaremos el último diagrama en un conjunto de instrucciones SQL (llamado "script" o "dump").</li>
+				<li class="fragment">Para posteriormente ejecutarlo a través de algún cliente de bases de datos.</li>
+			</ul>
+		</section>
+		<section>
+			<h3>SQL</h3>
+			<p>Recordemos las principales características de SQL.</p>
+			<p class="fragment">SQL: Structured Query Language. Lenguaje de consulta estructurado.</p>
+			<p class="fragment">Es un lenguaje declarativo de acceso a bases de datos relacionales que permite especificar diversos tipos de operaciones en ellas.</p>
+			<p class="fragment">Mediante manejo del álgebra y el cálculo relacional se permite efectuar consultas con el
+				fin de recuperar la información así como hacer cambios en ella.</p>
+
+			<p class="fragment">Estas consultas se realizan mediante comandos de SQL (llamadas Sentencias o Instrucciones).</p>
+			<p class="fragment">Explota la flexibilidad y potencia de los sistemas relacionales y permite así gran variedad de operaciones.</p>
+		</section>
+
+		<section>
+			<h3>SQL: Structured Query Language</h3>
+
+			<ul style="font-size: 1.6rem">
+				<li class="fragment">DDL (Data definition Language)
+					<ul style="font-size: 1.6rem">
+						<li>Lenguaje de definición de datos</li>
+						<li>Esquema conceptual</li>
+						<li>Permite crear, definir y estructurar la Base de datos (Sus entidades y relaciones)</li>
+						<li>P.e. en SQL: CREATE o DROP</li>
+					</ul>
+				</li>
+				<li class="fragment">DML (Data Management Language)
+					<ul style="font-size: 1.6rem">
+						<li>Lenguaje de manipulación de datos</li>
+						<li>Permite acceder a los datos. No permiten cambios sobre la estructura</li>
+						<li>P.e. en SQL: INSERT o SELECT</li>
+					</ul>
+				</li>
+				<li class="fragment">DCL (Data Control Language)
+					<ul style="font-size: 1.6rem">
+						<li>Lenguaje de control de datos</li>
+						<li>Permite crear, definir usuarios, roles y permisos.</li>
+						<li>P.e. en SQL: CREATE USER, GRANT PRIVILEGES</li>
+					</ul>
+				</li>
+			</ul>
+			<p class="fragment" style="font-size: 1.6rem">Para poder usar el DML, previamente se debe de haber utilizado el DDL.</p>
+		</section>
+
+		<section>
+			<h4>Proceso de ejecución de sentencia SQL</h4>
+
+			<p class="fragment">El proceso de una instrucción SQL es el siguiente:</p>
+			<ul>
+				<li class="fragment">Se analiza la instrucción y se comprueba su sintaxis.</li>
+				<li class="fragment">Si es correcta se valora si los metadatos de la misma son correctos (a través del diccionario de datos).</li>
+				<li class="fragment">Si es correcta, se optimiza, a fin de consumir los mínimos recursos posibles.</li>
+				<li class="fragment">Se ejecuta la sentencia y se muestra el resultado al emisor de la misma.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h4>Criterios de notación</h4>
+			<ul>
+				<li class="fragment">Palabras clave de la sintaxis SQL en MAYÚSCULAS.</li>
+				<li class="fragment">Los corchetes [ ] indican opcionalidad.</li>
+				<li class="fragment">Las llaves {} delimitan alternativas separadas por | de las que se debe elegir una.</li>
+				<li class="fragment">Los puntos suspensivos … indican repetición varias veces de la opción anterior.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h4>Normas de escritura</h4>
+
+			<p class="fragment">En SQL no se distingue entre mayúsculas y minúsculas. Da lo mismo como se escriba. El final de una instrucción o sentencia lo marca el signo de punto y coma.</p>
+
+			<p class="fragment">Las sentencias SQL (SELECT, INSERT, …) se pueden escribir en varias líneas siempre que las palabras no sean partidas.</p>
+			<p class="fragment">Los comentarios en el código SQL pueden ser de 2 tipos:</p>
+			<ul>
+				<li class="fragment">De bloque: comienzan por /* y terminan por */.</li>
+				<li class="fragment">De línea: comienzan por – y terminan en final de línea.</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h2> Creación tablas SQL</h2>
+			<h4>LENGUAJE DE DEFINICIÓN DE DATOS: DDL</h4>
+		</section>
+		<section>
+			<h2>Tipos de datos SQL (1)</h2>
+
+			<p class="fragment">Cada uno de los atributos de las entidades o tablas tiene sus propias características.</p>
+
+			<p class="fragment">Es aquí donde entran los tipos de datos, la representación de cada uno de ellos.</p>
+
+			<p class="fragment">No es lo mismo una fecha que una cadena de texto o incluso un fichero.</p>
+		</section>
+		<section>
+			<h2>Tipos de datos SQL (2)</h2>
+
+			<p class="fragment">Es importante describir profundamente las propiedades, para que queden bien definidas en la BD.</p>
+
+			<p class="fragment">Es una de las tareas iniciales del diseño de la base de datos.</p>
+
+			<p class="fragment">Es una tarea crítica, ya que con ello se asegura que se usen correctamente en comparaciones, ordenación...
+				(las fechas se comparan de forma distinta a los números)</p>
+		</section>
+		<section>
+			<h2>Tipos de datos SQL (3)</h2>
+
+			<p class="fragment">Permiten a otros desarrolladores entender los datos del sistema gracias al esquema de BD.</p>
+
+			<p class="fragment">Finalmente los tipos de datos permiten validación de datos.</p>
+		</section>
+		<section>
+			<h2>Tipos de datos SQL (y 4)</h2>
+			<p class="fragment">Como se ha visto anteriormente, hay distintas implementaciones de SQL.</p>
+
+			<p class="fragment">Cada una tiene su propia representación. Y por tanto, no son interoperables.</p>
+
+			<p class="fragment">Es decir, para migrar una BD de MySQL a Oracle, se necesita un procesado, o no será exitosa.</p>
+		</section>
+		<section>
+			<h2>Clasificación de tipos de datos SQL</h2>
+
+			<ul>
+				<li class="fragment">Numéricos</li>
+				<li class="fragment">Fecha y Hora</li>
+				<li class="fragment">Cadenas de texto (strings en inglés)</li>
+				<li class="fragment">JSON</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Tipos de datos: numéricos (1)</h2>
+			<h3>Enteros</h3>
+
+			<ul>
+				<li class="fragment">TINYINT</li>
+				<li class="fragment">SMALLINT</li>
+				<li class="fragment">MEDIUMINT</li>
+				<li class="fragment">INTEGER</li>
+				<li class="fragment">BIGINT</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Tipos de datos: numéricos (2)</h2>
+
+			<h3>Punto flotante</h3>
+			<ul>
+				<li class="fragment">FLOAT</li>
+				<li class="fragment">DOUBLE</li>
+				<li class="fragment">DECIMAL</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Tipos de datos: Enteros (1)</h2>
+			<ul>
+				<li class="fragment">Subconjunto de los números reales.</li>
+				<li class="fragment">Sin parte decimal</li>
+				<li class="fragment">Conceptualmente, los enteros son infinitos, pero en computación, tienen capacidad finita.</li>
+				<li class="fragment">Correcto: 5 monedas. Incorrecto: 6,65 euros.</li>
+				<li class="fragment">Pueden ser:
+					<ul>
+						<li class="fragment">Con signo, 'signed', incluidos números negativos</li>
+						<li class="fragment">Sin signo, 'unsigned', que empiezan en 0</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Tipos de datos: Enteros (y 2)</h2>
+			<p class="fragment">Los datos tipo Enteros difieren en su tamaño.</p>
+			<p class="fragment">Recae en el desarrollador en decidir el tamaño oportuno</p>
+			<p class="fragment">Cuanto más grande sea el tamaño, más espacio ocupará en memoria y en disco</p>
+			<p class="fragment">Por contra, si se escoge uno sin tamaño suficiente, la BD dará error al introducir datos</p>
+		</section>
+		<section>
+			<h2>Tipos de datos: Enteros con signo (1)</h2>
+			<table style="font-size: 2rem">
+				<tr>
+					<th>Data type</th>
+					<th>Bytes</th>
+					<th>Mínimo valor</th>
+					<th>Máximo valor</th>
+				</tr>
+				<tr>
+					<td>TINYINT</td>
+					<td>1</td>
+					<td>-128</td>
+					<td>127</td>
+				<tr>
+					<td>SMALLINT</td>
+					<td>2</td>
+					<td>-32768</td>
+					<td>32767</td>
+				<tr>
+					<td>MEDIUMINT</td>
+					<td>3</td>
+					<td>-8388608</td>
+					<td>8388607
+				<tr>
+					<td>INTEGER</td>
+					<td>4</td>
+					<td>-2147483648</td>
+					<td>2147483647</td>
+				<tr>
+					<td>BIGINT</td>
+					<td>8</td>
+					<td>-9223372036854775808</td>
+					<td>9223372036854775807</td>
+			</table>
+		</section>
+		<section>
+			<h2>Tipos de datos: Enteros con signo (2)</h2>
+			<p class="fragment">Caso práctico: deseamos crear un campo donde se almacene la EDAD.</p>
+			<p class="fragment">Mejor selección: <b>TINYINT</b></p>
+			<p class="fragment">A lo sumo se llega a los 110 años</p>
+
+		</section>
+		<section>
+			<h2>Tipos de datos: Enteros con signo (3)</h2>
+			<img src="images/130%20anhos.png" alt="mujer de 130 años!" class="fragment s-500">
+			<p class="fragment italic">¿Quiero llegar tan lejos :-O?</p>
+		</section>
+		<section>
+			<h2>Tipos de datos: Enteros con signo (y 4)</h2>
+			<p class="fragment">No vale TINYINT en este caso. El sistema lanzará un error</p>
+			<p class="fragment">Segunda mejor opción: <b>SMALLINT</b></p>
+			<p class="fragment italic">Nadie vive tanto... si es un ser humano</p>
+		</section>
+		<section>
+			<h2>Tipos de datos: Enteros sin signo (1)</h2>
+			<table style="font-size: 2rem">
+				<tr>
+					<th>Data type</th>
+					<th>Bytes</th>
+					<th>Mínimo valor</th>
+					<th>Máximo valor</th>
+				</tr>
+				<tr>
+					<td>TINYINT</td>
+					<td>1</td>
+					<td>0</td>
+					<td>255</td>
+				<tr>
+					<td>SMALLINT</td>
+					<td>2</td>
+					<td>0</td>
+					<td>65535</td>
+				<tr>
+					<td>MEDIUMINT</td>
+					<td>3</td>
+					<td>0</td>
+					<td>16777215
+				<tr>
+					<td>INTEGER</td>
+					<td>4</td>
+					<td>0</td>
+					<td>4294967295</td>
+				<tr>
+					<td>BIGINT</td>
+					<td>8</td>
+					<td>0</td>
+					<td>18446744073709551615</td>
+			</table>
+		</section>
+		<section>
+			<h2>Tipos de datos: Enteros sin signo (y2)</h2>
+			<p class="fragment">Retomando el ejemplo de la edad, ahora existe una mejor solución que SMALLINT</p>
+			<p class="fragment"><b>TINYINT UNSIGNED</b>: hasta 255 años!</p>
+			<p class="fragment">Este cambio implica ahorrarse un Byte por cada entrada de datos</p>
+		</section>
+		<section>
+			<h2>Tipos de datos: Números de punto flotante</h2>
+			<p class="fragment">Representan números reales en computación. Miden cantidades contínuas, como por ejemplo, peso, altura, velocidad</p>
+			<p class="fragment">En Mysql, los decimales se representan con "." en vez de ",".</p>
+
+			<p class="fragment">MySQL posee dos tipos para aproximaciones: FLOAT (4 Bytes) y DOUBLE (8 Bytes)</p>
+		</section>
+		<section>
+			<h2>Tipos de datos: Números de punto flotante</h2>
+			<p class="fragment">Y uno para punto-fijo: DECIMAL</p>
+			<p class="fragment">Éste último es usado cuando se requiere conservar la precisión <span class="italic">(Rockefeller no quiere perder ni un céntimo!!)</span></p>
+			<p class="fragment">A costa de velocidad (el procesamiento de los DECIMAL es mucho mayor que el de los FLOAT)</p>
+		</section>
+		<section>
+			<h2>Tipos de datos: Números de punto flotante</h2>
+
+			<p class="fragment">En DECIMAL se debe especificar su alcance: [M, D]</p>
+			<p class="fragment">M es el número máximo de digitos (la precisión)</p>
+			<p class="fragment">D es el número de digitos a la derecha del punto decimal (la escala)</p>
+			<p class="fragment">Ejemplo: DECIMAL(5, 2) permite insertar números de cinco dígitos, de los cuales, 3 antes del punto decimal, 2 después</p>
+		</section>
+		<section>
+			<h2>Tipos de datos: Números de punto flotante</h2>
+			<h3>Cuidado con la precisón!!!</h3>
+
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 3rem">
+				<code class="mysql" data-trim data-noescape>
+					mysql> CREATE TABLE Numbers (Id TINYINT, Floats FLOAT, Decimals DECIMAL(3, 2));
+					mysql> INSERT INTO Numbers VALUES (1, 1.1, 1.1), (2, 1.1, 1.1), (3, 1.1, 1.1);
+				</code>
+			</pre>
+
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 11rem">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT * FROM Numbers;
+					+------+--------+----------+
+					| Id   | Floats | Decimals |
+					+------+--------+----------+
+					|    1 |    1.1 |     1.10 |
+					|    2 |    1.1 |     1.10 |
+					|    3 |    1.1 |     1.10 |
+					+------+--------+----------+
+					3 rows in set (0,00 sec)
+				</code>
+			</pre>
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT SUM(Floats), SUM(Decimals) FROM Numbers;
+					+--------------------+---------------+
+					| SUM(Floats)        | SUM(Decimals) |
+					+--------------------+---------------+
+					| 3.3000000715255737 |          3.30 |
+					+--------------------+---------------+
+					1 row in set (0,08 sec)
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h2>Tipos de datos: Numéricos</h2>
+			<h3>Otras operaciones</h3>
+
+			<p class="fragment">Además de las operaciones típicas con valores numéricos (+, -, *, /), otras funciones útiles son:</p>
+			<ul>
+				<li class="fragment">ABS(num): devuelve el valor absoluto.</li>
+				<li class="fragment">SQRT(num): devuelve la raíz cuadrada.</li>
+				<li class="fragment">POWER(b,e): devuelve la potencia de b elevado a e.</li>
+			</ul>
+
+			<p class="fragment">Existen otras funciones para grupos de valores (suma, media, máximo, …) que se verán en apartados posteriores.</p>
+
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<ul>
+				<li>DATE</li>
+				<li>TIME</li>
+				<li>DATETIME</li>
+				<li>YEAR</li>
+				<li>TIMESTAMP</li>
+			</ul>
+			<p class="fragment">MySQL intenta interpretar las fechas en diferentes formatos, pero siempre deben insertarse en el siguiente order: Año/Mes/Día</p>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>DATE</h3>
+			<p class="fragment">Para almacenar fechas. En MySQL se visualiza en formato AAAA-MM-DD.</p>
+			<p class="fragment">Rango: 1000-01-01 a 9999-12-31</p>
+
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>DATE: funciones y ejemplos</h3>
+
+			<p>Ejemplo: función para obtener la fecha actual</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT CURDATE();
+					+------------+
+					| CURDATE()  |
+					+------------+
+					| 2020-11-20 |
+					+------------+
+				</code>
+				</pre>
+			</div>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>DATE: funciones y ejemplos</h3>
+
+			<p>Ejemplo: función para obtener la fecha de una fecha y hora</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT DATE('2020-10-31 12:01:00');
+					+-----------------------------+
+					| DATE('2020-10-31 12:01:00') |
+					+-----------------------------+
+					| 2020-10-31                  |
+					+-----------------------------+
+				</code>
+				</pre>
+			</div>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>DATE: funciones y ejemplos</h3>
+
+			<p>Ejemplo: función para sumar días a una fecha</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT ADDDATE('2020-11-20', 8);
+					+--------------------------+
+					| ADDDATE('2020-11-20', 8) |
+					+--------------------------+
+					| 2020-11-28               |
+					+--------------------------+
+				</code>
+				</pre>
+			</div>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>DATE: funciones y ejemplos</h3>
+
+			<p>Ejemplo: formatos posibles interpretados</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> CREATE TABLE Dates(Id TINYINT, Dates DATE);
+					mysql> INSERT INTO Dates VALUES(1, '2020-01-24');
+					mysql> INSERT INTO Dates VALUES(2, '2020/01/25');
+					mysql> INSERT INTO Dates VALUES(3, '20200126');
+					mysql> INSERT INTO Dates VALUES(4, '200127');
+					mysql> INSERT INTO Dates VALUES(5, '2020+01+28');
+
+					mysql> SELECT * FROM Dates;
+					+------+------------+
+					| Id   | Dates      |
+					+------+------------+
+					|    1 | 2020-01-24 |
+					|    2 | 2020-01-25 |
+					|    3 | 2020-01-26 |
+					|    4 | 2020-01-27 |
+					|    5 | 2020-01-28 |
+					+------+------------+
+				</code>
+				</pre>
+			</div>
+		</section>
+
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>TIME</h3>
+			<p>Para almacenar horas. En MySQL se visualiza en formato HH:MM:SS.</p>
+			<p>Rango: -838:59:59 a 838:59:59</p>
+			<p class="fragment">La parte de hora puede ser superior a 24 e inferior a 0, ya que se utilizan para almacenar intervalos</p>
+
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>TIME: funciones y ejemplos</h3>
+
+			<p>Ejemplo: función para obtener la hora actual</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT CURTIME();
+					+-----------+
+					| CURTIME() |
+					+-----------+
+					| 11:47:36  |
+					+-----------+
+				</code>
+				</pre>
+			</div>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>TIME: funciones y ejemplos</h3>
+
+			<p>Ejemplo: función para restar dos horas</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT TIMEDIFF('23:34:32', '22:00:00');
+					+----------------------------------+
+					| TIMEDIFF('23:34:32', '22:00:00') |
+					+----------------------------------+
+					| 01:34:32                         |
+					+----------------------------------+
+				</code>
+				</pre>
+			</div>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>TIME: funciones y ejemplos</h3>
+
+			<p>Ejemplo: función para obtener la hora de una fecha y hora</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT TIME('2020-01-31 11:06:43');
+					+-----------------------------+
+					| TIME('2020-01-31 11:06:43') |
+					+-----------------------------+
+					| 11:06:43                    |
+					+-----------------------------+
+				</code>
+				</pre>
+			</div>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>DATETIME</h3>
+			<p class="fragment">Para almacenar fechas y horas de manera conjunta. En MySQL se visualiza en formato YYYY-MM-DD HH:MM:SS.</p>
+			<p class="fragment">Rango: 1000-01-01 00:00:00 a 9999-12-31 23:59:59</p>
+			<p class="fragment">La parte de hora puede ser superior a 24 e inferior a 0, ya que se utilizan para almacenar intervalos</p>
+			<p class="fragment">MySQL acepta varios formatos de entrada, pero sólo lo muestra en el formato mencionado arriba</p>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>DATETIME: funciones y ejemplos</h3>
+
+			<p>Ejemplo: función para obtener la fecha y hora actual</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT NOW();
+					+---------------------+
+					| NOW()               |
+					+---------------------+
+					| 2020-11-20 11:57:53 |
+					+---------------------+
+				</code>
+				</pre>
+			</div>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>DATETIME: funciones y ejemplos</h3>
+
+			<p>Ejemplo: función para obtener el nombre del día de la fecha y hora deseada</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT DAYNAME('2020@11@31 11@12@12');
+					+--------------------------------+
+					| DAYNAME('2020@11@30 11@12@12') |
+					+--------------------------------+
+					| Monday                         |
+					+--------------------------------+
+				</code>
+				</pre>
+			</div>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>YEAR</h3>
+			<p class="fragment">Para almacenar años. En MySQL se visualiza en formato YYYY</p>
+			<p class="fragment">Rango: 1901 a 2155</p>
+			<p class="fragment">Acepta también 0000</p>
+			<p class="fragment">Años no en esos rangos, serán convertidos a 0000</p>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>YEAR: funciones y ejemplos</h3>
+
+			<p>Ejemplo: función para obtener el año actual</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT YEAR(CURDATE()) AS 'Anho actual';
+					+---------------+
+					|  Anho actual  |
+					+---------------+
+					|          2020 |
+					+---------------+
+				</code>
+				</pre>
+			</div>
+		</section>
+
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>TIMESTAMP</h3>
+			<p class="fragment">Secuencia de caracteres que denotan la fecha y la hora</p>
+			<p class="fragment">Típicamente para registrar eventos ocurridos</p>
+			<p class="fragment">Utilizados a la hora de hacer una operación de INSERCIÓN y ACTUALIZACIÓN</p>
+			<p class="fragment">Rango: 1970-01-01 00:00:01 UTC a 2038-01-19 03:14:07 UTC</p>
+			<p class="fragment">Si no se proporciona un valor en el momento de la operación, el campo es actualizado en ese momento</p>
+		</section>
+
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>TIMESTAMP</h3>
+			<p>Posibles formatos</p>
+			<table style="font-size: 1.8rem">
+				<tr>
+					<th>Tipo</th>
+					<th>Formato</th>
+				</tr>
+				<tr>
+					<td>TIMESTAMP(14)</td>
+					<td>YYYYMMDDHHMMSS</td>
+				</tr>
+				<tr>
+					<td>TIMESTAMP(12)</td>
+					<td>YYMMDDHHMMSS</td>
+				</tr>
+				<tr>
+					<td>TIMESTAMP(10)</td>
+					<td>YYMMDDHHMM</td>
+				</tr>
+				<tr>
+					<td>TIMESTAMP(8)</td>
+					<td>YYYYMMDD</td>
+				</tr>
+				<tr>
+					<td>TIMESTAMP(6)</td>
+					<td>YYMMDD</td>
+				</tr>
+				<tr>
+					<td>TIMESTAMP(4)</td>
+					<td>YYMM</td>
+				</tr>
+				<tr>
+					<td>TIMESTAMP(2)</td>
+					<td>YY</td>
+				</tr>
+			</table>
+		</section>
+		<section>
+			<h2>Tipos de datos: Fecha y Hora</h2>
+			<h3>TIMESTAMP: funciones y ejemplos</h3>
+
+			<p>Ejemplo de cómo funciona la auto-inicialización</p>
+			<div class="fragment">
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> CREATE TABLE Prices(Id TINYINT PRIMARY KEY, Price DECIMAL(8, 2), Stamp TIMESTAMP);
+					mysql> INSERT INTO Prices(Id, Price) VALUES(1, 234.34);
+					mysql> INSERT INTO Prices(Id, Price) VALUES(2, 344.12);
+
+					mysql> SELECT * FROM Prices;
+					+----+--------+---------------------+
+					| Id | Price  | Stamp               |
+					+----+--------+---------------------+
+					|  1 | 234.34 | 2020-10-31 12:12:25 |
+					|  2 | 344.12 | 2020-10-31 12:15:10 |
+					+----+--------+---------------------+
+
+				</code>
+				</pre>
+				<p>Stamp se inicia automáticamente</p>
+			</div>
+		</section>
+
+		<section>
+			<h2>Tipos de datos: Cadenas</h2>
+			<ul>
+				<li>CHAR</li>
+				<li>VARCHAR</li>
+				<li>BINARY</li>
+				<li>VARBINARY</li>
+				<li>BLOB</li>
+				<li>TEXT</li>
+				<li>ENUM</li>
+				<li>SET</li>
+			</ul>
+
+		</section>
+		<section>
+			<h2>Tipos de datos: Cadenas</h2>
+			<h3>Char</h3>
+
+			<p>Tipo de dato de tamaño en memoria fijo usado para almacenar cadenas.</p>
+			<p class="fragment">Se declara con un tamaño: CHAR(x), donde el rango de X es 0 a 255.</p>
+			<p class="fragment">Si se define un CHAR(10), todas las entradas ocuparán diez bytes en memoria, aunque se use para almacenar cadenas de dos caracteres ("xD").</p>
+			<p class="fragment">En caso de que no se "llene" el elemento, se añadirán espacios en blanco hasta llegar al tamaño definido.</p>
+			<p class="fragment">Esos espacios son eliminados automáticamente cuando se consultan.</p>
+
+		</section>
+		<section>
+			<h2>Tipos de datos: Cadenas</h2>
+			<h3>Varchar</h3>
+
+			<p>Tipo de dato de tamaño en memoria variable.</p>
+			<p class="fragment">Se declara con un tamaño: VARCHAR(x), donde el rango de X es 0 a 65535.</p>
+			<p class="fragment">En contraposición con el tipo anterior, si se define un VARCHAR(10), si se almacena "xD", el tamaño será de dos bytes.</p>
+			<p class="fragment">No se añaden espacios en blanco.</p>
+			<p class="fragment">Ampliamente usado, ya que son muy versátiles. Por ejemplo, en nombres, emails...</p>
+
+		</section>
+		<section>
+			<h2>Tipos de datos: Cadenas</h2>
+			<h3>Binary y varbinary</h3>
+
+			<p>Se usan para almacenar datos binarios.</p>
+			<p class="fragment">Almacenan bytes en vez de caracteres.</p>
+			<p class="fragment">No tienen codificaciones, tipo UTF-8.</p>
+			<p class="fragment">La ordenación y comparación se basa en los valores numéricos de los bytes.</p>
+			<p class="fragment">El rango de BINARY va desde 0 a 255. Como su homólogo CHAR, el tamaño en memoria es fijo. The range of the VARBINARY is from 0 to 65535.</p>
+			<p class="fragment">El rango de VARBINARY va desde 0 a 65535. Tamaño variable.</p>
+			<p class="fragment">Por ejemplo, se usa para almacenar información encriptada.</p>
+
+		</section>
+		<section>
+			<h2>Tipos de datos: Cadenas</h2>
+			<h3>Blob</h3>
+
+			<p class="fragment">BLOB es un tipo de dato binario de gran tamaño (de forma variable).</p>
+			<p class="fragment">Se usa para almacenar imagenes o documentos.</p>
+
+			<p>Cuatro tipos:</p>
+
+			<table style="font-size: 2rem">
+				<tr>
+					<th>Tipo</th>
+					<th>Tamaño (bytes)</th>
+				</tr>
+				<tr>
+					<td>TINYBLOB</td>
+					<td>0 - 255</td>
+				</tr>
+				<tr>
+					<td>BLOB</td>
+					<td>0 - 65535</td>
+				</tr>
+				<tr>
+					<td>MEDIUMBLOB</td>
+					<td>0 - 16777215</td>
+				</tr>
+				<tr>
+					<td>LONGBLOB</td>
+					<td>0 - 4294967295</td>
+				</tr>
+			</table>
+
+		</section>
+
+		<section>
+			<h2>Tipos de datos: Cadenas</h2>
+			<h3>Blob</h3>
+
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 1.5rem">
+				<code class="mysql" data-trim data-noescape>
+					mysql> CREATE TABLE Images(Id INT PRIMARY KEY, Img LONGBLOB);
+				</code>
+			</pre>
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 1.5rem">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> INSERT INTO Images VALUES (1, LOAD_FILE('/var/lib/mysql-files/image1.jpg'));
+				</code>
+			</pre>
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 1.5rem">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> SELECT Img FROM Images WHERE Id=1 INTO DUMPFILE '/var/lib/mysql-files/image_bck.jpg';
+				</code>
+			</pre>
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="bash"  data-trim data-noescape>
+					$ sudo ls /var/lib/mysql-files/ -l
+					total 608
+					-rw-r--r-- 1 root  root  309262 jan 31 13:08 image1.jpg
+					-rw-rw-rw- 1 mysql mysql 309262 jan 31 13:12 image_bck.jpg
+				</code>
+			</pre>
+		</section>
+
+
+		<section>
+			<h2>Tipos de datos: Cadenas</h2>
+			<h3>Text</h3>
+
+
+			<p class="fragment">TEXT se utiliza para almacenar grandes cantidades de datos textuales: artículos, blogs,... un tipo de dato binario de gran tamaño (de forma variable).</p>
+			<p class="fragment">TEXT son mejores que VARCHAR cuando los datos son demasiado grandes.</p>
+
+			<table style="font-size: 1.8rem">
+				<tr>
+					<th>Tipo</th>
+					<th>Tamaño (bytes)</th>
+				</tr>
+				<tr>
+					<td>TINYTEXT</td>
+					<td>0 - 255</td>
+				</tr>
+				<tr>
+					<td>TEXT</td>
+					<td>0 - 65535</td>
+				</tr>
+				<tr>
+					<td>MEDIUMTEXT</td>
+					<td>0 - 16777215</td>
+				</tr>
+				<tr>
+					<td>LONGTEXT</td>
+					<td>0 - 4294967295</td>
+				</tr>
+			</table>
+		</section>
+		<section>
+			<h2>Tipos de datos: Cadenas</h2>
+			<h3>Enum</h3>
+
+			<p>Listas de valores (en forma de cadena).</p>
+			<p class="fragment">Sólo se puede seleccionar una en el momento de almacenaje.</p>
+			<p class="fragment">ENUM('S', 'M', 'L', 'XL', 'XXL')</p>
+
+		</section>
+		<section>
+			<h2>Tipos de datos: Cadenas</h2>
+			<h3>Set</h3>
+
+			<p>También son listas de valores (en forma de cadena).</p>
+			<p class="fragment">Se diferencia de ENUM en que puede almacenar uno o más valores.</p>
+
+		</section>
+		<section>
+			<h2>Tipos de datos: Cadenas</h2>
+			<h3>Otras operaciones</h3>
+
+			<p class="fragment">Además de los operadores de igualdad ( =, !=, …) otras funciones útiles para trabajar con cadenas son:</p>
+			<ul>
+				<li class="fragment">CONTACT(cad1, cad2): concatena dos cadenas.</li>
+				<li class="fragment">LENGTH(cad): devuelve la longitud de la cadena.</li>
+				<li class="fragment">LOWER(cad): convierte todas las letras de la cadena a minúsculas.</li>
+				<li class="fragment">UPPER(cad): ídem a mayúsculas.</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h2>Tipos de datos: JSON</h2>
+
+			<p>JSON (JavaScript Object Notation) es un formato ligero de intercambio de datos</p>
+			<p class="fragment">Muy legible para los humanos en lectura y escritura.</p>
+			<p class="fragment">Y fácil de convertir y generar por parte de las máquinas.</p>
+			<p class="fragment">En el momento de inserción de JSON, MySQL lo valida automáticamente.</p>
+			<p class="fragment">NO pueden tener valores por defecto.</p>
+
+		</section>
+
+		<section>
+			<h2>Tipos de datos: JSON</h2>
+
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 12rem">
+				<code class="mysql" data-trim data-noescape>
+					mysql> INSERT INTO t1 VALUES('{"chair": "5", "table": "4", "lamp": "6"}');
+
+					mysql> SELECT * FROM t1;
+					+-------------------------------------------+
+					| Doc                                       |
+					+-------------------------------------------+
+					| {"lamp": "6", "chair": "5", "table": "4"} |
+					+-------------------------------------------+
+				</code>
+			</pre>
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 10rem">
+				<code class="mysql" data-trim data-noescape>
+					mysql> SELECT JSON_ARRAY('pen', 4, 'pencil', 2, 'rubber', 1);
+					+------------------------------------------------+
+					| JSON_ARRAY('pen', 4, 'pencil', 2, 'rubber', 1) |
+					+------------------------------------------------+
+					| ["pen", 4, "pencil", 2, "rubber", 1]           |
+					+------------------------------------------------+
+				</code>
+			</pre>
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 8rem">
+				<code class="mysql" data-trim data-noescape>
+					mysql> SELECT JSON_OBJECT('pen', 4, 'pencil', 2, 'rubber', 1);
+					+-------------------------------------------------+
+					| JSON_OBJECT('pen', 4, 'pencil', 2, 'rubber', 1) |
+					+-------------------------------------------------+
+					| {"pen": 4, "pencil": 2, "rubber": 1}            |
+					+-------------------------------------------------+
+				</code>
+			</pre>
+
+
+		</section>
+		<section>
+			<h3>Conversión entre datos</h3>
+			<p class="fragment">En algunas sentencias, se puede dar el caso de intentar operar dos tipos de dato distinto.</p>
+			<p class="fragment">Es aquí donde se producen las conversiones.</p>
+			<p class="fragment">Implícita, es decir, de manera automática (p.e. sumar un número y una cadena).</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 1.5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 1+'1';
+				</code>
+			</pre>
+			<pre class="fragment" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					+-------+
+					| 1+'1' |
+					+-------+
+					|     2 |
+					+-------+
+				</code>
+			</pre>
+			<p class="fragment">O explícita, a través de una función (p.e. CAST, con el tipo de dato deseado - "CHAR", "INTEGER"...).</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT CAST(38.8 AS CHAR);
+				</code>
+			</pre>
+			<p class="fragment"><a href="https://dev.mysql.com/doc/refman/8.0/en/type-conversion.html" target="_blank">Doc. Referencia MySQL</a></p>
+
+		</section>
+
+		<section>
+			<h1>¿Preguntas?</h1>
+			<p>Muchas gracias por vuestra atención.</p>
+		</section>
+
+	</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+	});
+</script>
+</body>
+</html>

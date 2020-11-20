@@ -1,0 +1,901 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>HaB: SQL</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<style>
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+			font-family: "Quicksand", sans-serif
+		}
+
+		.reveal h1{
+			font-size: 2.2em;
+		}
+
+
+		.reveal h2{
+			font-size: 1.6em;
+		}
+
+
+		.reveal h3{
+			font-size: 1.2em;
+		}
+
+
+		.reveal h4{
+			font-size: 1.05em;
+		}
+
+		body, body p, body ul {
+			font-size: 1.8rem;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+		.italic{
+			font-style: italic;
+		}
+		.s-500{
+			width: 500px;
+		}
+		.s-400{
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+
+		<section>
+
+			<h2>HaB: Introducción a SQL</h2>
+
+			<p>Por: <span class="italic">Fernando Batlle López</span></p>
+			<br>
+			<p><a href="http://www.linkedin.com/in/fernando-batlle-55333738">Linkedin</a> | <a href="http://lapisoft.es">Lapisoft Projects S.L.</a></p>
+		</section>
+		<section>
+			<h2>Resumen (1)</h2>
+
+			<ul>
+				<li class="fragment">Concepto de base de datos: conjunto de información estructurada, que será analizada y manipulada.</li>
+				<li class="fragment">Diferencias entre BBDD y ficheros.</li>
+				<li class="fragment">Conceptos fundamentales de una BD: atributo, tupla y tabla.</li>
+				<li class="fragment">Diferentes clasificaciones.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Resumen (2)</h2>
+			<ul>
+				<li class="fragment">Bases de datos relacionales.</li>
+				<li class="fragment">Componentes de las bases de datos: Datos, Metadatos, SGBD.</li>
+				<li class="fragment">Control de usuarios.</li>
+				<li class="fragment">Las relaciones de las bases de datos: cocepto CLAVE.</li>
+				<li class="fragment">Cómo mantener consistentes los datos: RESTRICCIONES.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Resumen (3)</h2>
+			<ul>
+				<li class="fragment">Los actores de las bases de datos.</li>
+				<li class="fragment">Concepto de SQL: DDL y DML.</li>
+				<li class="fragment">Concepto de modelo.</li>
+				<li class="fragment">Tipos de modelo.</li>
+				<li class="fragment">Fases diseño de una base de datos: diseño conceptual, diseño lógico y diseño físico.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Diseño conceptual</h2>
+			<h3> Modelo Entidad-Relación</h3>
+			<p class="fragment">¡Uno de los que vamos a usar en este curso!</p>
+		</section>
+		<section>
+			<h2>Características</h2>
+			<p class="fragment">Capta las relaciones entre entidades del mundo real (similar al modelo de red).</p>
+			<p class="fragment">Se diferencia del modelo de red en que no está ligado a una estructura física de datos.</p>
+			<p class="fragment">Diseño  de más alto nivel, más próximo al usuario y más alejado del diseño físico de la BD.</p>
+			<p class="fragment">Se compone de:</p>
+			<ul>
+				<li class="fragment">Entidades: personas, lugares, objetos...</li>
+				<li class="fragment">Atributos: características de esas entidades (nombres, modelo,...).</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Diagrama entidad-relación (DER)</h2>
+			<p class="fragment">Tipo de diagrama de flujo que ilustra cómo las "entidades", como personas, objetos o conceptos,
+				se relacionan entre sí dentro de un sistema</p>
+
+			<p class="fragment">Emplean un conjunto definido de símbolos, tales como rectángulos, diamantes, óvalos y
+				líneas de conexión para representar la interconexión de entidades, relaciones y sus atributos.</p>
+
+		</section>
+		<section>
+			<h2>Uso del Diagrama entidad-relación</h2>
+
+			<ul>
+				<li class="fragment">Diseño de bases de datos.</li>
+				<li class="fragment">Solución de problemas de bases de datos.</li>
+				<li class="fragment">Sistemas de información empresarial.</li>
+				<li class="fragment">Reingeniería de procesos de negocio (BPR).</li>
+				<li class="fragment">Educación.</li>
+				<li class="fragment">Investigación.</li>
+			</ul>
+
+		</section>
+		<section>
+			<h2>Componentes del Diagrama entidad-relación</h2>
+
+		</section>
+		<section>
+			<h2>Entidad (1)</h2>
+			<p class="fragment">Algo que se puede definir, como una persona, objeto, concepto u evento, que puede tener datos almacenados acerca de este.</p>
+			<p class="fragment">Se representan en forma de rectángulos.</p>
+			<p class="fragment">Se usan sustantivos para definirlos.</p>
+			<p class="fragment">Ejemplos: persona, tienda, producto.</p>
+
+		</section>
+		<section>
+			<h2>Entidad (y 2)</h2>
+			<p class="fragment">Tipos:</p>
+			<ul>
+				<li class="fragment">Entidad fuerte (o Entidad a secas): no depende de nadie. P.e: Persona</li>
+				<li class="fragment">Entidad débil: depende de otra entidad para existir. Por ejemplo, un empleado depende de que exista una empresa</li>
+			</ul>
+			<img class="fragment" src="images/Entidad.PNG" alt="dato"/>
+			<img class="fragment" src="images/Entidad%20debil.PNG" alt="dato"/>
+
+		</section>
+		<section>
+			<h2>Claves de entidad</h2>
+
+			<p class="fragment">Atributo que define únicamente una entidad en un conjunto de entidades.</p>
+			<ul>
+				<li class="fragment">Superclave: un conjunto de atributos (uno o más) que juntos definen una entidad
+					en un conjunto de entidades</li>
+				<li class="fragment">Clave candidata: es una superclave mínima, es decir, contiene el menor número posible
+					de atributos para seguir siendo una superclave. Un conjunto de entidades puede tener más de una clave candidata.</li>
+				<li class="fragment">Clave primaria: clave candidata seleccionada por el diseñador de la base de datos
+					para identificar únicamente al conjunto de entidades.</li>
+				<li class="fragment">Clave extranjera o foránea: Identifica la relación entre las entidades.</li>
+			</ul>
+
+		</section>
+		<section>
+			<h2>Relación</h2>
+			<p class="fragment">Cómo las entidades interactúan o se asocian entre sí.</p>
+			<p class="fragment">Se representan en forma de diamantes.</p>
+			<p class="fragment">Se usan verbos para definirlos.</p>
+			<p class="fragment">Ejemplos: Matricularse (entre las entidades Curso y Estudiante).</p>
+
+			<img class="fragment" src="images/Relacion.PNG" alt="dato"/>
+
+		</section>
+		<section>
+			<h2>Atributo (1)</h2>
+			<p class="fragment">Una propiedad o característica de una entidad.</p>
+			<p class="fragment">Se representan en forma de óvalo o circulo.</p>
+			<p class="fragment">Se usan adjetivos, adverbios y sustantivos para definirlos.</p>
+			<p class="fragment">Ejemplos: Rubio, Nombre (en la entidad Persona).</p>
+
+		</section>
+		<section>
+			<h2>Atributo (y 2)</h2>
+			<p class="fragment">Tipos:</p>
+			<ul>
+				<li class="fragment">Atributo simple (o simplemente Atributo)</li>
+				<li class="fragment">Atributo clave: hace referencia a una clave primaria de entidad</li>
+				<li class="fragment">Atributo derivado: p.e. la edad se calcula a partir de la fecha de nacimiento</li>
+			</ul>
+			<img class="fragment" src="images/Attributos.PNG" alt="dato"/>
+
+		</section>
+
+		<section>
+			<h2>Cardinalidad (1)</h2>
+			<p class="fragment">Define los atributos numéricos de la relación entre dos entidades o conjuntos de entidades.</p>
+			<p class="fragment">Tipos:</p>
+			<ul>
+				<li class="fragment">Uno a uno (1:1): País - Capital</li>
+				<li class="fragment">Uno a muchos (o muchos a uno) (1:N): Autor - Libros</li>
+				<li class="fragment">Muchos a muchos (N:M): Vehículo - Conductor</li>
+			</ul>
+
+		</section>
+		<section>
+			<h2>Cardinalidad (y 2)</h2>
+			<img class="fragment" src="images/Relaciones.PNG" alt="dato"/>
+		</section>
+		<section>
+			<h2>La Participación de una entidad</h2>
+			<p class="fragment">La participación de una entidad también se conoce como cardinalidad de la entidad dentro de una relación.</p>
+			<p class="fragment">Una misma entidad puede tener distinta cardinalidad dentro de distintas relaciones.</p>
+			<p class="fragment">Para obtener la participación, se debe fijar una ocurrencia concreta de una entidad y
+				averiguar cuántas ocurrencias de la otra entidad le corresponden como mínimo y como máximo.</p>
+			<p class="fragment">Después realizar lo mismo en el otro sentido.</p>
+			<p class="fragment">Se representarán entre paréntesis y con letras minúsculas en el lado de la relación opuesto a la entidad cuyas ocurrencias se fijan.</p>
+		</section>
+
+		<section>
+			<h3>Ejemplos de Participación</h3>
+			<p class="fragment">¿Cuál es la correcta?</p>
+			<img class="fragment s-500" src="images/participacion.PNG" alt="dato"/>
+			<p class="fragment">Todas son. Cada una representa la solución a un problema.</p>
+		</section>
+
+		<section>
+			<h3>Ejemplos de Participación</h3>
+			<p class="">¿Cuál es la correcta?</p>
+			<img class="s-400" src="images/participacion.PNG" alt="dato"/>
+			<p class="fragment">La primera, por ejemplo, puede representar, los transportes de un día en concreto.</p>
+			<p class="fragment">La segunda, que una persona en concreto sólo puede estar en un transporte en un momento determinado (o caminando).</p>
+			<p class="fragment">Y la tercera, muestra que, para que un transporte se ponga en movimiento, debe tener al menos una persona.</p>
+		</section>
+
+		<section>
+			<h2>Limitaciones de los modelos y diagramas ER</h2>
+			<ul>
+				<li class="fragment">Exclusivo para datos relacionales: su propósito es solo mostrar las
+					relaciones (la estructura relacional).</li>
+				<li class="fragment">Inadecuado para datos no estructurados:  uso limitado si los datos no se pueden
+					representar bajo campos, filas y columnas.</li>
+				<li class="fragment">Complicaciones al realizar una integración con una base de datos existente.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Cómo dibujar un diagrama ER básico</h2>
+			<ul>
+				<li class="fragment">Propósito y alcance: definen el propósito y el alcance de lo que estás analizando o modelando.</li>
+				<li class="fragment">Identificar las entidades involucradas. Representarlas con rectángulos y etiquertarlas con sustantivos.</li>
+				<li class="fragment">Dibujar las relaciones (diamantes) y emplazarlas entre cada conjunto de entidades relacionadas.
+					Unir cada entidad con la relación con una línea de conexión.</li>
+				<li class="fragment">Detallar las propiedades de las entidades mediante Atributos (óvalos). Especificar cual de sus atributos es Atributo clave.</li>
+				<li class="fragment">Especificar la Cardinalidad: si la relación es uno a uno (1:1), 1 a muchos (1:N) o muchos a muchos (N:M).</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Más consejos sobre diagramas ER</h2>
+			<ul>
+				<li class="fragment">Muestra el nivel de detalle necesario para tu propósito.</li>
+				<li class="fragment">Presta atención a las relaciones o entidades redundantes.</li>
+				<li class="fragment">Presta atención a los vacíos en las relaciones o los atributos o entidades que faltan.</li>
+				<li class="fragment">Asegúrate de que todas tus entidades y relaciones estén etiquetadas.</li>
+				<li class="fragment">Puedes convertir tablas relacionales a diagramas ER, y viceversa.</li>
+				<li class="fragment">Asegúrate de que el diagrama ER admita todos los datos que necesitas guardar.</li>
+				<li class="fragment">Puede haber diferentes enfoques válidos para un diagrama ER.
+					Mientras brinde la información necesaria para su alcance y propósito, es apropiado.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Resumen: Modelo Entidad-Relación</h2>
+			<ul>
+				<li class="fragment">Modelo Entidad-Relación.</li>
+				<li class="fragment">Definición de Entidad.</li>
+				<li class="fragment">Claves de Entidad: superclave, clave candidata y clave primaria.</li>
+				<li class="fragment">Definición de Relación.</li>
+				<li class="fragment">Definición de Atributo.</li>
+				<li class="fragment">Cardinalidad de las Relaciones.</li>
+				<li class="fragment">Participación de las Relaciones.</li>
+				<li class="fragment">Pasos para definir un Diagrama de Entidad-Relación.</li>
+			</ul>
+		</section>
+
+
+		<!-- Posibles QUIZ -->
+
+		<section>
+			<h2></h2>
+			<img src="images/quiztime.png" alt="dato"/>
+		</section>
+
+		<section>
+			<h2>QUIZ 1</h2>
+			<p class="fragment"> En una base de datos relacional, para establecer una relación entre dos tablas, éstas...</p>
+			<ul>
+				<li class="fragment">a. han de tener el mismo número de campos</li>
+				<li class="fragment">b. han de tener el mismo número de registros</li>
+				<li class="fragment">c. han de tener un campo común entre ambas</li>
+				<li class="fragment">d. son ciertas las opciones a y c</li>
+			</ul>
+			<p class="fragment">Correcta: c</p>
+		</section>
+
+		<section>
+			<h2>QUIZ 2</h2>
+			<p class="fragment">¿De qué tipo es la relación entre estas dos tablas de la base de datos de una biblioteca?</p>
+			<img class="fragment" src="images/quiz4.PNG" alt="dato"/>
+			<ul>
+				<li class="fragment">a. Uno a muchos</li>
+				<li class="fragment">b. Muchos a muchos</li>
+				<li class="fragment">c. Uno a uno</li>
+				<li class="fragment">d. Ninguna de las anteriores</li>
+			</ul>
+			<p class="fragment">Correcta: a</p>
+		</section>
+
+		<section>
+			<h2>QUIZ 3</h2>
+			<p class="fragment">¿De qué tipo es la relación entre estas dos tablas de la base de datos de un videoclub?</p>
+			<img class="fragment" src="images/quiz5.PNG" alt="dato"/>
+			<ul>
+				<li class="fragment">a. Uno a muchos</li>
+				<li class="fragment">b. Muchos a muchos</li>
+				<li class="fragment">c. Uno a uno</li>
+				<li class="fragment">d. Ninguna de las anteriores</li>
+			</ul>
+			<p class="fragment">Correcta: b</p>
+		</section>
+
+		<section>
+			<h2>QUIZ 4</h2>
+			<p class="fragment">¿Qué es una clave principal?</p>
+			<ul>
+				<li class="fragment">a.  Una clave principal identifica exclusivamente cada registro almacenado en la tabla</li>
+				<li class="fragment">b. Una clave principal no permite duplicar registros en una tabla</li>
+				<li class="fragment">c. Las dos anteriores son correctas</li>
+				<li class="fragment">d. Ninguna de las anteriores es cierta</li>
+			</ul>
+			<p class="fragment">Correcta: c</p>
+		</section>
+
+		<section>
+			<h2>QUIZ 5</h2>
+			<p class="fragment">De los siguientes campos de la tabla de una base de datos, indica cual podría ser una clave (o llave) primaria (o principal):</p>
+			<ul>
+				<li class="fragment">a. Nombre y apellidos de un usuario</li>
+				<li class="fragment">b. Profesión</li>
+				<li class="fragment">c. DNI</li>
+				<li class="fragment">d. Cualquiera de los anteriores</li>
+			</ul>
+			<p class="fragment">Correcta: c</p>
+		</section>
+
+		<section>
+			<h1>Caso de estudio: <span class="italic">AllTheMoney Bank</span></h1>
+		</section>
+		<section>
+			<h2>Pasos a seguir para diseñar un Diagrama Entidad-Relación</h2>
+			<ul>
+				<li class="fragment">Propósito y alcance: definen el propósito y el alcance de lo que estás analizando o modelando.</li>
+				<li class="fragment">Identificar las entidades involucradas. Representarlas con rectángulos y etiquertarlas con sustantivos.</li>
+				<li class="fragment">Dibujar las relaciones (diamantes) y emplazarlas entre cada conjunto de entidades relacionadas.
+					Unir cada entidad con la relación con una línea de conexión.</li>
+				<li class="fragment">Detallar las propiedades de las entidades mediante Atributos (óvalos). Especificar cual de sus atributos es Atributo clave.</li>
+				<li class="fragment">Especificar la Cardinalidad: si la relación es 1-1, 1-muchos o muchos a muchos.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Paso 1: Propósito y alcance</h2>
+
+		</section>
+		<section>
+			<h3>Caso de estudio: Propósito y alcance (1)</h3>
+
+			<p class="fragment">En este paso, actuaremos como el Actor Analista.</p>
+			<p class="fragment">Deberemos consultar al cliente sobre todos los requisitos y necesidades que este sistema debe implementar.</p>
+			<p class="fragment">A través de preguntas orientadas, lo primero será describir a grandes rasgos el sistema final.</p>
+
+		</section>
+		<section>
+			<h3>Caso de estudio: Propósito y alcance (y 2)</h3>
+			<p>Después de una primera ronda de preguntas, hemos sacado las siguientes conclusiones.</p>
+			<ul>
+				<li class="fragment">Nuestra banquera quiere montar su propio banco. Quiere comerse el mundo.</li>
+				<li class="fragment">Eso sí, dada su naturaleza, los datos deben estar seguros.</li>
+				<li class="fragment">Además, quiere que cada cliente pueda contratar sus productos y consultar su propio estado y operaciones.</li>
+				<li class="fragment">Por otra parte, también habrá empleados que supervisen las contrataciones. Como los empleados pueden ser además clientes, pueden contratar productos para ellos mismos.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Paso 2: Identificar las entidades involucradas</h2>
+		</section>
+		<section>
+			<h3>Caso de estudio: Identificar las entidades involucradas (1)</h3>
+			<p>El primer paso ha sido un éxito. Hemos conseguido definir ¿todas? las funcionalidades necesarias.</p>
+			<p class="fragment">¿A lo mejor no está del todo bien definido el alcance?</p>
+		</section>
+			<section>
+			<h3>Caso de estudio: Identificar las entidades involucradas (2)</h3>
+			<p class="italic">Nuestra banquera quiere montar su propio banco. Quiere comerse el mundo.</p>
+			<p class="italic">Eso sí, dada su naturaleza, los datos deben estar seguros.</p>
+
+			<p class="fragment">Detectamos alguna entidad en estas 2 frases?</p>
+			<p class="fragment">No se detectan entidades</p>
+		</section>
+		<section>
+			<h3>Caso de estudio: Identificar las entidades involucradas (3)</h3>
+			<p class="italic">Además, quiere que cada cliente pueda contratar sus productos y consultar su propio estado y operaciones.</p>
+			<p class="fragment">Aquí sí ya detectamos alguna Entidad.</p>
+
+			<ul>
+				<li class="fragment"><span class="italic">Cliente</span>. Alguien que va a usar el sistema. Vamos a denominarla "Usuario".</li>
+				<li class="fragment"><span class="italic">Contratar sus productos</span>. Probablemente una de las entidades más importantes del sistema! Entidad "Producto".</li>
+				<li class="fragment"><span class="italic">Consultar su propio estado y operaciones</span>. Parece un concepto demasiado amplio. Temporalmente la vamos a denominar "Operación"</li>
+			</ul>
+			<p class="fragment">Esta frase sí que ha resultado exitosa.</p>
+		</section>
+		<section>
+			<h3>Caso de estudio: Identificar las entidades involucradas (4)</h3>
+			<p class="italic">Por otra parte, también habrá empleados que supervisen las contrataciones. Como los empleados pueden ser además clientes, pueden contratar productos para ellos mismos.</p>
+			<p class="fragment">Veamos si podemos encontrar alguna Entidad.</p>
+
+			<ul>
+				<li class="fragment"><span class="italic">También habrá empleados</span>. Otro actor dentro del sistema. Denominémoslo "Empleado".</li>
+				<li class="fragment"><span class="italic">pueden contratar productos para ellos mismos</span>.
+
+					Vamos, va a ser un "Usuario" también, pero va a poder hacer más operaciones.</li>
+				<li class="fragment">Parece que tiene sentido replantearse el primer punto. Al fin y al cabo, un empleado es un "Usuario" con información extra. </li>
+				<li class="fragment">Por tanto, en vez de "Empleado", denominaremos a esta entidad "Información Empleado".</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Caso de estudio: Identificar las entidades involucradas (y 5)</h3>
+			<p>Toca representarlas.</p>
+			<img class="fragment s-500" src="images/Entidades%20ATM.PNG" alt="dato"/>
+
+		</section>
+		<section>
+			<h2>Paso 3: Dibujar las relaciones</h2>
+		</section>
+		<section>
+			<h3>Caso de estudio: Dibujar las relaciones (1)</h3>
+
+			<p>Al igual que en el anterior paso, exploramos minuciosamente el alcance para exponer las relaciones entre entidades.</p>
+			<p class="fragment"><span class="italic">Cada cliente pueda contratar sus productos</span>.
+				Entre la Entidad "Usuario" y "Producto", la relación es "contratar".</p>
+			<p class="fragment">Y la relación entre "Producto" y "Operación" puede ser realizar.</p>
+			<p class="fragment">Sólo queda "Información Empleado", que se enlaza con "Usuario" mediante la relación "ampliar"</p>
+
+		</section>
+		<section>
+			<h3>Caso de estudio: Dibujar las relaciones (2)</h3>
+			<img class="fragment s-500" src="images/Relaciones%20ATM%20a.PNG" alt="dato"/>
+		</section>
+		<section>
+			<h3>Caso de estudio: Dibujar las relaciones (3)</h3>
+			<img class="fragment s-500" src="images/Relaciones%20ATM%20b.PNG" alt="dato"/>
+		</section>
+		<section>
+			<h3>Caso de estudio: Dibujar las relaciones (y 4)</h3>
+			<img class="fragment s-500" src="images/Relaciones%20ATM.PNG" alt="dato"/>
+		</section>
+		<section>
+			<h2>Paso 4: Detallar los atributos</h2>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Detallar los atributos</h3>
+
+			<p>En este punto, pausaremos el rol de diseñador, y volveremos al rol analista.</p>
+			<p class="fragment">Se debe preguntar concienzudamente al cliente qué información desea almacenar para cada entidad.</p>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: atributos "Usuario"</h3>
+
+			<h3>¿Qué información describe (en este sistema) al "Usuario"?</h3>
+			<p class="fragment">Propiedades obtenidas de la conversación con el cliente:</p>
+			<ul>
+				<li class="fragment">Nombre</li>
+				<li class="fragment">Apellido 1</li>
+				<li class="fragment">Apellido 2</li>
+				<li class="fragment">Fecha de nacimiento</li>
+				<li class="fragment">Email</li>
+				<li class="fragment">DNI</li>
+			</ul>
+
+		</section>
+		<section>
+			<h3>Caso de estudio: atributos "Usuario"</h3>
+
+			<h3>¿Qué información describe (en este sistema) al "Usuario"?</h3>
+			<p class="fragment">Propiedades especificas de la propia experiencia del analista / diseñador:</p>
+			<ul>
+				<li class="fragment">Nombre Completo (atributo derivado de nombre, apellido 1 y Apellido 2)</li>
+				<li class="fragment">Empleado</li>
+				<li class="fragment">Activo</li>
+				<li class="fragment">Notas</li>
+				<li class="fragment">Fecha expedición DNI</li>
+				<li class="fragment">Fecha validez DNI</li>
+			</ul>
+
+		</section>
+		<section>
+			<h3>Caso de estudio: atributos "Usuario"</h3>
+
+			<h4>Definir las superclaves, claves candidatas y clave primaria</h4>
+			<p class="fragment">De los atributos listados anteriormente, ¿cuáles son superclaves?</p>
+			<ul>
+				<li class="fragment">Nombre Completo</li>
+				<li class="fragment">Nombre, apellido 1, apellido 2</li>
+				<li class="fragment">Email</li>
+				<li class="fragment">DNI</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Caso de estudio: atributos "Usuario"</h3>
+
+			<h4>Definir las superclaves, claves candidatas y clave primaria</h4>
+			<p class="fragment">De las anteriores, ¿cuáles son claves candidatas?</p>
+			<ul>
+				<li class="fragment"><s>Nombre Completo</s></li>
+				<li class="fragment"><s>Nombre, apellido 1, apellido 2</s></li>
+				<li class="fragment">Email</li>
+				<li class="fragment">DNI</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Caso de estudio: atributos "Usuario"</h3>
+
+			<h4>Definir las superclaves, claves candidatas y clave primaria</h4>
+			<p class="fragment">De las dos restantes, la mejor es DNI:</p>
+			<ul>
+				<li class="fragment">Identifica inequívocamente al usuario. El email puede cambiar o ser compartido.</li>
+				<li class="fragment">Al cambiar (email), se debe actualizar en todas las claves foráneas (otras entidades).</li>
+			</ul>
+			<p class="fragment">Tenemos nuestra clave primaria!</p>
+			<p class="fragment">Pero...</p>
+		</section>
+		<section>
+			<h3>Caso de estudio: atributos "Usuario"</h3>
+
+			<p class="fragment">Uno de los principios del modelo Entidad-Relación, es que si se puede, las entidades sean lo más concisas posibles.</p>
+			<p class="fragment">DNI tiene sentido que sea una entidad aparte de la entidad "Usuario".</p>
+			<p class="fragment">Es un documento, con su propia información.</p>
+			<p class="fragment">En este ejemplo sólo vamos a guardar la versión actual del DNI, pero en un futuro, se puede desear almacenar un histórico de todos los DNI proporcionados por el Usuario.</p>
+			<p class="fragment">Si hubiera un histórico, ¿cómo se almacenaría esta información en la Entidad Usuario?</p>
+
+		</section>
+		<section>
+			<h3>Caso de estudio: Actualización diagrama</h3>
+			<p class="fragment">Nueva relación: DNI</p>
+			<img class="fragment s-500" src="images/Relaciones%20ATM%20c.PNG" alt="dato"/>
+		</section>
+		<section>
+			<h3>Caso de estudio: Actualización diagrama</h3>
+			<p>El diseño de un diagrama Entidad-Relación es un proceso iterativo, que muchas veces implica volver a pasos anteriores.</p>
+			<p class="fragment">Y que acarrean problemas...</p>
+			<p class="fragment">Recordad que se había seleccionado DNI como clave primaria de la entidad Usuario.</p>
+			<p class="fragment">Pero ya no está... Y Email no es una buena opción.</p>
+			<p class="fragment">Podríamos usar nombre completo, pero si el nombre es muy común, podrían existir dos usuarios con el mismo nombre. Por tanto no es factible.</p>
+			<p class="fragment">Nueva clave candidata: nombre completo + fecha de nacimiento. Es poco probable que se de este caso. Pero, es un engorro de clave.</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Actualización diagrama</h3>
+			<p class="fragment">¿Qué hacer en estos casos?</p>
+			<p class="fragment">Una práctica muy común (y recomendable) es crear un atributo independiente que sirva de identificador.</p>
+			<p class="fragment">Gracias a las Restricciones, nunca va a variar y será único.</p>
+			<p class="fragment">Y al definirlo como Entero (Integer), es muy legible.</p>
+			<p class="fragment">Nuevo atributo y clave primaria. Id</p>
+		</section>
+
+
+		<section>
+			<h3>Caso de estudio: Representación de Usuario</h3>
+			<img class="fragment " src="images/Atr%20usuario.PNG" alt="dato" style="width: 600px"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: atributos "DNI"</h3>
+
+			<p class="fragment">Ya estaban definidas en Usuario, simplemente las trasladamos a esta entidad</p>
+			<ul>
+				<li class="fragment">DNI</li>
+				<li class="fragment">Fecha expedición DNI</li>
+				<li class="fragment">Fecha validez DNI</li>
+			</ul>
+			<p class="fragment">Sólo falta enlazarla con Usuario a través de una clave foránea:</p>
+			<p class="fragment">Id usuario. Que a su vez será una clave primaria.</p>
+			<p class="fragment">Puntualización: esta entidad depende de Usuario, por tanto es una Entidad débil.</p>
+		</section>
+		<section>
+			<h3>Caso de estudio: Representación de DNI</h3>
+			<img class="fragment s-400" src="images/Atr%20dni.PNG" alt="dato" />
+		</section>
+
+		<section>
+			<h3>Caso de estudio: atributos "Información Empleado"</h3>
+
+			<ul>
+				<li class="fragment">Administrador</li>
+				<li class="fragment">Empleado en</li>
+				<li class="fragment">Activo</li>
+				<li class="fragment">Cuenta empleado</li>
+				<li class="fragment">Y como en DNI, añadimos Id usuario, como clave primaria y foránea</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Caso de estudio: Representación de Información Empleado</h3>
+			<img class="fragment s-500" src="images/Atr%20info%20empleado.PNG" alt="dato" />
+		</section>
+
+		<section>
+			<h3>Caso de estudio: atributos "Producto"</h3>
+
+			<p class="fragment">La entidad más compleja que hay en este sistema.</p>
+			<p class="fragment">¿Qué es un producto?</p>
+			<p class="fragment">¿Qué información se debe guardar?</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: atributos "Producto"</h3>
+			<p class="fragment">Al tratar con el cliente, se toman los siguientes atributos:</p>
+			<ul>
+				<li class="fragment">Número de producto (Id)</li>
+				<li class="fragment">Tipo: cuenta, tarjerta (por simplicidad, dos tipos en este caso de estudio)</li>
+				<li class="fragment">Subtipo: si es una cuenta de ahorro o una tarjeta de débito...</li>
+				<li class="fragment">Id usuario</li>
+				<li class="fragment">Activo</li>
+				<li class="fragment">Bloqueado</li>
+				<li class="fragment">Fondos actuales</li>
+				<li class="fragment">Fecha contratación</li>
+				<li class="fragment">CVV (en caso de tarjeta)</li>
+				<li class="fragment">Límite (en caso de tarjeta)</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: atributos "Producto"</h3>
+			<p class="fragment">Muchos campos, de los cuales no todos siempre estarán "activos", dependiendo del tipo de producto.</p>
+			<p class="fragment">¿No tiene más sentido dividirla en varias Entidades?</p>
+			<p class="fragment">Desaparece la Entidad "Producto".</p>
+			<p class="fragment">Se definen dos nuevas entidades: "Cuenta" y "Tarjeta".</p>
+		</section>
+		<section>
+			<h3>Caso de estudio: Vuelta al diagrama</h3>
+			<img class="fragment" src="images/Relaciones%20ATM%20d.PNG" alt="dato" style="width: 600px"/>
+			<p class="fragment">Se va complicando el diagrama.</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: atributos "Cuenta"</h3>
+			<p class="fragment">Reorganizamos los atributos</p>
+			<ul>
+				<li class="fragment">Número de cuenta (Id)</li>
+				<li class="fragment">Tipo: 'ahorro', 'bursatil', 'infantil', 'autonomo'</li>
+				<li class="fragment">Id usuario</li>
+				<li class="fragment">Activa</li>
+				<li class="fragment">Bloqueada</li>
+				<li class="fragment">Fondos actuales</li>
+				<li class="fragment">Fecha contratación</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: atributos "Tarjeta"</h3>
+			<ul>
+				<li class="fragment">Número de tarjeta (Id)</li>
+				<li class="fragment">Tipo: 'ahorro', 'bursatil', 'infantil', 'autonomo'</li>
+				<li class="fragment">Id usuario</li>
+				<li class="fragment">Id cuenta</li>
+				<li class="fragment">Activa</li>
+				<li class="fragment">Bloqueada</li>
+				<li class="fragment">Pendiente amortizar</li>
+				<li class="fragment">Fecha contratación</li>
+				<li class="fragment">CVV (en caso de tarjeta)</li>
+				<li class="fragment">Límite (en caso de tarjeta)</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Caso de estudio: Representación Cuenta-Tarjeta</h3>
+			<img class="fragment" src="images/Atr%20cuenta-tarjeta.PNG" alt="dato" style="width: 350px"/>
+		</section>
+		<section>
+			<h3>Caso de estudio: atributos "Operación"</h3>
+			<p class="fragment">Esta entidad estaba relacionad con la antigua entidad Producto.</p>
+			<p class="fragment">Pero ya no existe, con lo que hay que reconvertirla.</p>
+			<p class="fragment">Se generán dos entidades, una para Cuenta y otra para Tarjeta.</p>
+			<p class="fragment">Y por simplizidad, seleccionaremos una operación concreta: movimiento.</p>
+			<p class="fragment">Por tanto, dos nuevas entidades: Movimiento Cuenta y Movimiento Tarjeta.</p>
+		</section>
+		<section>
+			<h3>Caso de estudio: Vuelta al diagrama</h3>
+			<img class="fragment" src="images/Relaciones%20ATM%20e.PNG" alt="dato" style="width: 600px"/>
+			<p class="fragment">Diagrama final!</p>
+		</section>
+		<section>
+			<h3>Caso de estudio: Atributos Cuenta-Tarjeta</h3>
+			<img class="fragment" src="images/Atr%20movimientos.PNG" alt="dato" style="width: 700px"/>
+			<p class="fragment">Similares, salvo las claves primarias y el atributo tipo del movimiento Cuenta.</p>
+		</section>
+
+		<section>
+			<h4>Caso de estudio: Diagrama con atributos</h4>
+			<img class="fragment" src="images/Relaciones%20ATM%20f.PNG" alt="dato" style="width: 750px"/>
+			<p class="fragment">¿Algo raro? Comprobad la relación "utiliza".</p>
+		</section>
+		<section>
+			<h2>Paso 5: Especificar la Cardinalidad</h2>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+
+			<p class="fragment">Como punto final en la elaboración del diagrama, se calculará la cardinalidad.</p>
+			<p class="fragment">Es decir, en las relaciones entre entidades, cuantas instancias de entidad están
+				relacionadas con el resto de entintades involucradas.</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<p class="fragment">Recordemos:</p>
+			<ul>
+				<li class="fragment">Uno a uno (1:1): País - Capital</li>
+				<li class="fragment">Uno a muchos (o muchos a uno) (1:N): Autor - Libros</li>
+				<li class="fragment">Muchos a muchos (N:M): Vehículo - Conductor</li>
+			</ul>
+			<img class="fragment s-500" src="images/Relaciones.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Usuario-DNI</h4>
+			<img class="s-400" src="images/Relacion%20usu-dni.PNG" alt="dato"/>
+			<p class="fragment">Un Usuario sólo puede tener un DNI válido.</p>
+			<p class="fragment">Además ese DNI es sólo para un Usuario. No se aplica a otro Usuario.</p>
+			<p class="fragment">Por tanto, la relación es 1 a 1.</p>
+			<img class="fragment s-400" src="images/Relacion%20usu-dni%20b.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Usuario-DNI</h4>
+			<p class="fragment">La cardinalidad no sólo se expresa entre entidades, sino que se debe especificar entra cada una de las entidades y la propia relación.</p>
+			<p class="fragment">¿Por qué? Porque puede aportar información extra, como por ejemplo si la relación es opcional (se verá más claro en otros ejemplos).</p>
+			<p class="fragment">En este caso, la relación global es 1:1, pero, ¿y las relaciones?</p>
+			<p class="fragment">El DNI es obligatorio. Un usuario no puede estar en el sistema sin tener un DNI, por temas de seguridad.</p>
+			<p class="fragment">Y un DNI no puede existir sin un Usuario (es una entidad débil).</p>
+			<p class="fragment">Por tanto, la cardinalidad entre cada una de las entidades y la relación es (1,1).</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Usuario-DNI: representación final</h4>
+			<img class=" s-400" src="images/Relacion%20usu-dni%20c.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Usuario-Información Empleado</h4>
+			<img class="s-400" src="images/Relacion%20usu-info%201.PNG" alt="dato"/>
+			<p class="fragment">Un Usuario sólo puede tener un dossier Información Empleado.</p>
+			<p class="fragment">Ese dossier, sólo aplica a un Usuario</p>
+			<p class="fragment">De nuevo estamos ante una relación  1 a 1.</p>
+			<img class="fragment s-400" src="images/Relacion%20usu-info.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Usuario-Información Empleado</h4>
+			<p class="fragment">A diferencia del DNI, el dossier Información Empleado no es obligatorio.</p>
+			<p class="fragment">¿Por qué? Pues porque no todos los usuarios son empleados. Es una relación opcional (0,1).</p>
+			<p class="fragment">Pero Información Empleado no puede existir sin un Usuario (1,1).</p>
+			<img class="fragment s-400" src="images/Relacion%20usu-info%20b.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Usuario-Cuenta</h4>
+			<img class="s-400" src="images/Relacion%20usu-cuenta.PNG" alt="dato"/>
+			<p class="fragment">Un Usuario puede contratar múltiples Cuentas.</p>
+			<p class="fragment">Y las Cuentas pueden tener multiples beneficiarios (Usuarios).</p>
+			<p class="fragment">Relación N:M.</p>
+			<img class="fragment s-400" src="images/Relacion%20usu-cuenta%20b.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Usuario-Cuenta</h4>
+			<p class="fragment">Normalmente en los bancos, un Usuario normalmente tiene que contratar al menos una Cuenta, pero pueden ser varias (1,N).</p>
+			<p class="fragment">Las Cuentas normalmente tienen que tener al menos un beneficiario (1,N).</p>
+			<img class="fragment s-400" src="images/Relacion%20usu-cuenta%20c.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Usuario-Tarjeta</h4>
+			<img class="s-400" src="images/Relacion%20usu-tarjeta.PNG" alt="dato"/>
+			<p class="fragment">Un Usuario puede contratar múltiples Tarjetas.</p>
+			<p class="fragment">Pero las Tarjetas son intransferibles (1 único Usuario).</p>
+			<p class="fragment">Relación 1:N.</p>
+			<img class="fragment s-400" src="images/Relacion%20usu-tarjeta%20b.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Usuario-Tarjeta</h4>
+			<p class="fragment">Un Usuario no tiene porqué contratar Tarjetas, pero si lo desea, puede tener varias (0,N).</p>
+			<p class="fragment">Las Tarjetas (entidad débil) necesitan de un Usuario (1,1).</p>
+			<img class="fragment s-400" src="images/Relacion%20usu-tarjeta%20c.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Cuenta-Tarjeta</h4>
+			<img class="s-400" src="images/Relacion%20cuenta-tarjeta.PNG" alt="dato"/>
+			<p class="fragment">Un Cuenta puede tener asociadas múltiples Tarjetas.</p>
+			<p class="fragment">Pero cada Tarjeta sólo se enlaza a una única Cuenta.</p>
+			<p class="fragment">Relación 1:N.</p>
+			<img class="fragment s-400" src="images/Relacion%20cuenta-tarjeta%20b.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Cuenta-Tarjeta</h4>
+			<p class="fragment">Las Cuentas pueden no tener asociada ninguna Tarjeta (0,N).</p>
+			<p class="fragment">Las Tarjetas necesitan de una Cuenta (1,1).</p>
+			<img class="fragment s-400" src="images/Relacion%20cuenta-tarjeta%20c.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Cuenta-Movimiento Cuenta</h4>
+			<img class="s-400" src="images/Relacion%20cuenta-mov.PNG" alt="dato"/>
+			<p class="fragment">Un Cuenta puede tener multiples Movimientos.</p>
+			<p class="fragment">Pero cada Movimiento sólo se enlaza a una única Cuenta.</p>
+			<p class="fragment">Relación 1:N.</p>
+			<img class="fragment s-400" src="images/Relacion%20cuenta-mov%20b.PNG" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Cuenta-Movimiento Cuenta</h4>
+			<p class="fragment">Cuando se abre una Cuenta, te obligan a hacer un ingreso. Por tanto siempre va a haber al menos un Movimiento Cuenta (1,N).</p>
+			<p class="fragment">No va a haber Movimientos sin Cuenta (1,1).</p>
+			<img class="fragment s-400" src="images/Relacion%20cuenta-mov%20c.PNG" alt="dato"/>
+		</section>
+		<section>
+			<h3>Caso de estudio: Especificar la Cardinalidad</h3>
+			<h4>Cardinalidad Tarjeta-Movimiento Tarjeta</h4>
+			<p class="fragment">Igual que la anterior relación, salvo que no hay un movimiento inicial obligatorio (0,N).</p>
+			<img class="fragment s-400" src="images/Relacion%20tarjeta-mov.PNG" alt="dato"/>
+		</section>
+		<section>
+			<h2>Paso 6: ¡Disfrutad de vuestro duro trabajo!</h2>
+		</section>
+		<section>
+			<h4>Caso de estudio: Diagrama final</h4>
+			<p class="fragment">Hemos finalizado el diagrama!</p>
+			<img class="fragment" src="images/Relaciones%20ATM%20g.PNG" alt="dato" style="width: 750px"/>
+		</section>
+		<section>
+			<h1>¿Preguntas?</h1>
+			<p>Muchas gracias por vuestra atención.</p>
+		</section>
+	</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,2006 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>HaB: SQL</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<style>
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+			font-family: "Quicksand", sans-serif
+		}
+
+		.reveal h1{
+			font-size: 2.2em;
+		}
+
+
+		.reveal h2{
+			font-size: 1.6em;
+		}
+
+
+		.reveal h3{
+			font-size: 1.2em;
+		}
+
+
+		.reveal h4{
+			font-size: 1.05em;
+		}
+
+		body, body p, body ul {
+			font-size: 1.8rem;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+		.italic{
+			font-style: italic;
+		}
+		.s-500{
+			width: 500px;
+		}
+		.s-400{
+			width: 400px;
+		}
+		.mysql-code{
+			font-size: 1rem;
+			box-shadow: none;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+
+		<section>
+
+			<h2>HaB: Introducción a SQL</h2>
+
+			<p>Por: <span class="italic">Fernando Batlle López</span></p>
+			<br>
+			<p><a href="http://www.linkedin.com/in/fernando-batlle-55333738">Linkedin</a> | <a href="http://lapisoft.es">Lapisoft Projects S.L.</a></p>
+		</section>
+
+
+		<section>
+			<h3>Retomando la clase anterior</h3>
+
+			<ul>
+				<li class="fragment">Disponemos del Modelo conceptual (Modelo Entidad-Relación) y el modelo lógico (Modelo Relacional).</li>
+				<li class="fragment">Falta el modelo físico.</li>
+				<li class="fragment">¿Cómo obtenemos ese modelo físico?</li>
+				<li class="fragment">La solución: SQL. Transformaremos el último diagrama en un conjunto de instrucciones SQL (llamado "script" o "dump").</li>
+				<li class="fragment">Para posteriormente ejecutarlo a través de algún cliente de bases de datos.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Expresiones y operadores condicionales</h2>
+			<p class="fragment">Las condiciones son expresiones lógicas que se sitúan normalmente junto a una sentencia SQL.</p>
+			<p class="fragment">Devuelven verdadero o falso (TRUE o FALSE).</p>
+
+			<p class="fragment">Recordemos la restricción CHECK: condición que deben cumplir los valores para que se almacenen en una tabla.</p>
+
+			<p class="fragment">Las condiciones se construyen utilizando los operadores de comparación y los operadores lógicos.</p>
+		</section>
+		<section>
+			<h3>Precedencia</h3>
+			<p class="fragment">La precendencia de operadores se muestra en la siguiente tabla, de mayor a menor precendencia.</p>
+
+			<p class="fragment">Operadores en la misma línea, tienen la misma precedencia.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					INTERVAL
+					BINARY, COLLATE
+					!
+					- (unary minus), ~ (unary bit inversion)
+					^
+					*, /, DIV, %, MOD
+					-, +
+					<<, >>
+					&
+					|
+					= (comparison), <=>, >=, >, <=, <, <>, !=, IS, LIKE, REGEXP, IN, MEMBER OF
+					BETWEEN, CASE, WHEN, THEN, ELSE
+					NOT
+					AND, &&
+					XOR
+					OR, ||
+					= (asignación), :=
+				</code>
+			</pre>
+			<p class="fragment"><a href="https://dev.mysql.com/doc/refman/8.0/en/operator-precedence.html" target="_blank">Doc. Referencia MySQL</a></p>
+		</section>
+		<section>
+			<h3>Precedencia</h3>
+			<p class="fragment">Ejemplo</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 1+2*3;
+				</code>
+			</pre>
+			<p class="fragment">El operador multiplicación tiene más precedencia que la suma: 7.</p>
+		</section>
+		<section>
+			<h3>Operadores de comparación</h3>
+
+			<p class="fragment">Los resultados de comparación son: 1 (TRUE), 0 (FALSE), o NULL.</p>
+			<p class="fragment">Funcionan con números y cadenas. Las cadenas son convertidos a números y viceversa cuando sea necesario.</p>
+
+			<p class="fragment">Los siguiente operadores pueden ser usados para comparar no sólo operandos escalares, si no filas de operandos:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					=  >  <  >=  <=  <>  !=
+				</code>
+			</pre>
+			<p class="fragment">Con ellos podemos realizar comparaciones de igualdad, desigualdad...</p>
+			<p class="fragment">Ejemplo de comparación de filas de operandos: (a, b) = (x, y) es equivalente a</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					(a = x) AND (b = y)
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Operadores de comparación</h3>
+			<p class="fragment">expr BETWEEN min AND max</p>
+			<p class="fragment">Si expr es mayor o igual que min y expr es menor o igual que max, devuelve 1, 0 en otro caso</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 1 BETWEEN 2 AND 3;
+					-> 0
+				</code>
+			</pre>
+			<p class="fragment">expr NOT BETWEEN min AND max</p>
+			<p class="fragment">Lo opuesto a la expresión anterior: NOT (expr BETWEEN min AND max)</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 1 NOT BETWEEN 2 AND 3;
+					-> 1
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>Operadores de comparación</h3>
+			<p class="fragment">COALESCE(value,...)</p>
+			<p class="fragment">Devuelve el primer valor no NULL en la lista, o NULL si no hay ningún valor no-NULL.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT COALESCE(NULL,2);
+						-> 2
+				</code>
+			</pre>
+			<p class="fragment">GREATEST(value1,value2,...)</p>
+			<p class="fragment">Devuelve el valor más elevado de la lista. El opuesto es LEAST(value1,value2,...).</p>
+			<p class="fragment">Devuelven NULL si alguno de sus valores es NULL.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT GREATEST(34.0,3.0,5.0,767.0);
+						-> 767.0
+					mysql> SELECT LEAST(34.0,3.0,5.0,767.0);
+						-> 3.0
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>Operadores de comparación</h3>
+			<p class="fragment">expr IN (value,...)</p>
+			<p class="fragment">Retorna 1 (true) si expr es igual en alguno de los valores de la lista de valores, sino retorna 0 (false).</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 2 IN (0,3,5,7);
+						-> 0
+				</code>
+			</pre>
+			<p class="fragment">expr NOT IN (value,...)</p>
+			<p class="fragment">Lo opuesto a la expresión anterior: NOT (expr IN (value,...))</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 2 NOT IN (0,3,5,7);
+						-> 1
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Operadores de comparación</h3>
+			<p class="fragment">INTERVAL(N,N1,N2,N3,...)</p>
+			<p class="fragment">Retorna 0 si N < N1, 1 si N < N2... o -1 si N is NULL. Para enteros. N1 < N2 < N3 < ... < Nn para que funcione correctamente.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT INTERVAL(23, 1, 15, 17, 30, 44, 200);
+						-> 3
+				</code>
+			</pre>
+			<p class="fragment">IS boolean_value</p>
+			<p class="fragment">Comprueba si el valor es igual al valor booleano, donde boolean_value puede ser TRUE, FALSE, o UNKNOWN.</p>
+			<p class="fragment">IS NOT boolean_value es la función opuesta.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 1 IS TRUE, 0 IS FALSE, NULL IS UNKNOWN;
+						-> 1, 1, 1
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Operadores de comparación</h3>
+			<p class="fragment">IS NULL</p>
+			<p class="fragment">Comprueba si el valor es NULL.</p>
+			<p class="fragment">IS NOT NULL retorna lo opuesto a la función.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 1 IS NULL, 0 IS NULL, NULL IS NULL;
+						-> 0, 0, 1
+				</code>
+			</pre>
+			<p class="fragment">ISNULL(expr)</p>
+			<p class="fragment">Si expr es NULL, ISNULL() returna 1, 0 en otro caso.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT ISNULL(1+1);
+						-> 0
+					mysql> SELECT ISNULL(1/0);
+						-> 1
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Operadores lógicos</h3>
+
+			<table class="fragment"  style="font-size: 1.5rem">
+				<tr>
+					<th>Nombre</th>
+					<th>Ejemplo</th>
+				</tr>
+				<tr>
+					<td>AND, &&</td>
+					<td>condición1 AND condición2: Cierto sólo en caso de que las 2 condiciones sean ciertas</td>
+				</tr>
+				<tr>
+					<td>NOT, !</td>
+					<td>Niega el valor</td>
+				</tr>
+				<tr>
+					<td>OR, ||</td>
+					<td>condición1 OR condición2: Cierto en todos los casos, salvo que las 2 condiciones sean falsas</td>
+				</tr>
+				<tr>
+					<td>XOR</td>
+					<td>condición1 XOR condición2: Cierto en los casos en que sean distintos.</td>
+				</tr>
+			</table>
+
+			<p class="fragment">En SQL, todos los operadores lógicos retornan TRUE, FALSE, o NULL (UNKNOWN)</p>
+			<p class="fragment">Los operadores lógicos junto con el uso de paréntesis permiten combinar condiciones simples obteniendo otras más complejas.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 1 AND 1, 0 AND 1,1 OR 1, 0 OR 1,1 XOR 1, 0 XOR 1;
+        				-> 1, 0, 1, 1, 0, 1
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Restricciones en la nomenclatura</h3>
+			<p class="fragment">Ciertos elementos, como base de datos, tabla, columnas son conocidos como identificadores.</p>
+			<p class="fragment">Estos identificadores tienen unas restricciones en cuanto a cómo nombrarse.</p>
+			<p class="fragment">Pueden estar entre comillas o no.</p>
+			<p class="fragment">El caracter usado para las comillas es backtick (`).</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT * FROM `select` WHERE `select`.id > 100;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Restricciones en la nomenclatura</h3>
+			<p class="fragment">Si contiene un caracter especial o si es una palabra <a href="https://dev.mysql.com/doc/refman/8.0/en/keywords.html">reservada</a>,
+				deber ponerse entre comillas siempre que se cite.</p>
+
+			<p class="fragment">Caracteres permitidos:</p>
+			<ul>
+				<li class="fragment">ASCII: [0-9,a-z,A-Z$_] (letras latinas básicas, dígitos 0-9, dólar, barra baja)</li>
+				<li class="fragment">Extendida: U+0080 .. U+FFFF: incluye ñ y acentos</li>
+			</ul>
+			<p class="fragment">ASCII NUL (U+0000) no está permitido ya que se usa con otros fines.</p>
+			<p class="fragment">Pueden empezar con un dígito, pero, a no ser que se nombren entre comillas, no pueden ser sólo dígitos.</p>
+			<p class="fragment">Base de datos, tabla y columnas no pueden finalizar con espacios en blanco.</p>
+		</section>
+		<section>
+			<h3>Restricciones en la nomenclatura</h3>
+
+
+			<p class="fragment">La longitud máxima de los identificadores viene dada por la siguiente tabla:</p>
+
+			<table class="fragment" style="font-size: 1.5rem">
+				<tr>
+					<th>Elemento</th>
+					<th>Longitud máxima (caracteres)</th>
+				</tr>
+				<tr>
+					<td>Base de datos</td>
+					<td>64</td>
+				</tr>
+				<tr>
+					<td>Tabla</td>
+					<td>64</td>
+				</tr>
+				<tr>
+					<td>Columna</td>
+					<td>64</td>
+				</tr>
+				<tr>
+					<td>Alias</td>
+					<td>16</td>
+				</tr>
+			</table>
+		</section>
+		<section>
+			<h3>Creación de bases de datos</h3>
+			<p class="fragment">Conocimiento adquirido de tipos de datos.</p>
+			<p class="fragment">¿Cómo continuar?</p>
+			<p class="fragment">Creando la estructura real de la base de datos.</p>
+			<p class="fragment">Para ello, a través del SGDB, debemos crear la base de datos para el sistema deseado.</p>
+		</section>
+
+		<section>
+			<h3>Creación de bases de datos</h3>
+
+			<p class="fragment">Se necesita privilegios de administración (como un DBA) para crear bases de datos: <span class="italic">"permiso CREATE"</span>.</p>
+			<p class="fragment">La sintaxis del comando es la siguiente:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE DATABASE [IF NOT EXISTS] db_name
+						[create_option]
+				</code>
+			</pre>
+			<p class="fragment">"IF NOT EXISTS" previene la aparición de un error. En ese caso, la base de datos no se creará ni sobrescribirá.</p>
+			<p class="fragment">[create_option]:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CHARACTER SET [=] charset_name
+					| COLLATE [=] collation_name
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Creación de bases de datos</h3>
+			<h4>CHARACTER SET vs. COLLATION</h4>
+
+			<p class="fragment">Un CHARACTER SET es un conjunto de caracteres.</p>
+			<p class="fragment">Mientras que COLLATION es el conjunto de reglas para comparar y ordenar un CHARSET específico.</p>
+			<p class="fragment">Por ejemplo, un CHARACTER SET podría declarar las letras A, C y B. Y COLLATION especificaría su orden: A, B y C.</p>
+			<p class="fragment">Imaginemos un CHARACTER SET que no distinga entre mayúsculas y minúsculas, "A" y "a" se evaluarían de la misma manera.</p>
+			<p class="fragment">Un CHARACTER SET puede tener más de una COLLATION, pero cada una de ellas sólo está asociada a un CHARACTER SET.</p>
+			<p class="fragment">"latin1" tiene como COLLATION por defecto "latin1_swedish_ci".</p>
+
+		</section>
+
+		<section>
+			<h3>Creación de bases de datos</h3>
+
+			<p class="fragment">Si no usamos el CHARACTER SET oportuno, letras como la "ñ" pueden no ser almacenadas correctamente o incluso producir un error.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> CREATE DATABASE prueba_genial CHARACTER SET="latin7";
+					mysql> CREATE TABLE genio (nombre VARCHAR(20));
+					mysql> INSERT INTO genio VALUES("ñu"),("vacío"),("€"),("€");
+				</code>
+			</pre>
+			<p class="fragment">Produce el siguiente error:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 1366. Incorrect string value: '\xC3\xB1u' for column 'nombre' at row 1
+				</code>
+			</pre>
+
+			<p class="fragment">CHARSET recomendado: utf8mb4. COLLATE: utf8mb4_spanish_ci.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> CREATE DATABASE prueba_genial CHARACTER SET="utf8mb4" COLLATE="utf8mb4_spanish_ci";
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>Elminación de bases de datos</h3>
+
+			<p class="fragment">Así como se crean bases de datos, también se deben eliminar.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+			<code class="mysql-code" data-trim data-noescape>
+					DROP DATABASE [IF EXISTS] db_name
+				</code>
+			</pre>
+			<p class="fragment">Si la base de datos no existe y se intenta eliminar, se preoducirá un error.</p>
+			<p class="fragment">Por contra, si se especifica "IF EXISTS" la base de datos sólo se eliminará si exista, evitando error en caso contrario.</p>
+			<p class="fragment">DROP DATABASE borra la base de datos, y con ella, todas las tablas y demás elementos que se hayan creado antes.</p>
+			<p class="fragment">Una vez borrada, no se podrá recuperar, así que tened cuidado con esta instrucción.</p>
+
+		</section>
+		<section>
+			<h3>Modificación de bases de datos</h3>
+
+			<p class="fragment">También se pueden modificar:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER DATABASE db_name
+						[alter_option]
+				</code>
+			</pre>
+			<p class="fragment">Donde [create_option]:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CHARACTER SET [=] charset_name
+					| COLLATE [=] collation_name
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Creación de tablas</h3>
+
+			<p class="fragment">El nombre de las tablas debe cumplir las reglas menicionadas en "Restricciones en la nomenclatura".</p>
+			<p class="fragment">No puede haber dos tablas con el mismo nombre, salvo que se definan en bases de datos diferentes.</p>
+			<p class="fragment">Para la creación de tablas con SQL se utiliza el comando CREATE TABLE.</p>
+			<p class="fragment">Es un comando muy complejo. Sólo veremos parte de las opciones.</p>
+			<p class="fragment">Para ver todas las opciones, consultar <a href="https://dev.mysql.com/doc/refman/8.0/en/create-table.html">la guía MySQL para crear tablas</a>.</p>
+		</section>
+		<section>
+			<h3>Creación de tablas</h3>
+			<p class="fragment">Para realizar las separaciones se utiliza la coma. La última línea, antes del paréntesis de cierre, no lleva coma.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 10rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS] nombre_tabla (
+						  columna1  tipo_dato  [ restricciones de columna1 ],
+						  columna2  tipo_dato  [ restricciones de columna2 ],
+						  columna3  tipo_dato  [ restricciones de columna3 ],
+						  ...
+						  [ restricciones de tabla ]
+						);
+				</code>
+			</pre>
+			<p class="fragment">Donde las restricciones de columna tienen la siguiente sintaxis:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CONSTRAINT nombre_restricción {
+					  [NOT] NULL | AUTO_INCREMENT | UNIQUE | PRIMARY KEY | DEFAULT valor | CHECK (condición)
+					}
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Creación de tablas</h3>
+
+			<p class="fragment">Y las restricciones de tabla tienen la siguiente sintaxis:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 12rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CONSTRAINT nombre_restricción {
+						  PRIMARY KEY (columna1 [,columna2] ... )
+						| UNIQUE (columna1 [,columna2] ... )
+						| FOREIGN KEY (columna1 [,columna2] ... )
+							REFERENCES nombre_tabla (columna1 [,columna2] ... )
+							[ON DELETE {RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT}]
+						| CHECK (condición)
+					}
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Creación de tablas</h3>
+
+			<p class="fragment">Aparentemente, algunas las restricciones de columna y de tabla son iguales (p.e. PRIMARY KEY).</p>
+			<p class="fragment">¿Por qué repetirlas?</p>
+			<p class="fragment">Pues por el simple motivo de que las de tablan pueden depender de varias columnas. En este caso, se debe definir una restricción de tabla.</p>
+			<p class="fragment">En este caso, se podrían eliminar las de columan, pero proporcionan legibilidad en el script de creacción.</p>
+			<p class="fragment">Sin embargo, se desaconseja:
+			<ul>
+				<li class="fragment">Si se da una violación de integridad en una inserción de datos, será mejor algo identificable que algo aleatorio sin sentido.</li>
+				<li class="fragment">Si en el futuro se desea modificar esa restricción, será más fácil localizarla mediante un nombre no aleatorio.</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Creación de tablas</h3>
+
+			<p class="fragment">El significado de las distintas opciones que aparecen en la sintaxis CREATE TABLE es:</p>
+
+			<p class="fragment"><b>PRIMARY KEY</b>: establece ese atributo o conjunto de atributos como la clave primaria de la tabla. Esta restricción ya implica las restricciones UNIQUE y NOT NULL.</p>
+			<p class="fragment">UNIQUE: impide que se introduzcan valores repetidos para ese atributo o conjunto de atributos. Se utiliza para claves alternativas (anteriormente candidatas).</p>
+		</section>
+		<section>
+			<h3>Creación de tablas</h3>
+			<p class="fragment">NOT NULL: evita que se introduzcan filas en la tabla con valor NULL para ese atributo. No se utiliza con PRIMARY KEY.</p>
+			<p class="fragment">DEFAULT valor_por_defecto: permite asignar un valor por defecto al campo que se está definiendo.</p>
+		</section>
+		<section>
+			<h3>Creación de tablas</h3>
+			<p class="fragment">AUTOINCREMENT: usado en las primary keys con el fin de delegar la generación de claves. Como su nombre indica, autoincrementa el valor para que la próxima inserción sea distinto (en una unidad).</p>
+			<p class="fragment">CHECK (condición): permite establecer condiciones que deben cumplir los valores de la tabla que se introducirán en dicha columna.</p>
+		</section>
+		<section>
+			<h3>Creación de tablas</h3>
+			<div class="fragment"><p class="fragment">FOREIGN KEY: define una clave externa de la tabla respecto de otra tabla.</p>
+				<p class="fragment">Esta restricción especifica una o varias columnas como clave externa de una tabla referenciada.</p>
+				<p class="fragment">La clave externa debe referenciar a una clave primaria completa de la tabla padre (nunca parcialmente).</p>
+				<ul style="font-size: 1.6rem;">
+					<li class="fragment" style="margin-bottom: 20px">ON DELETE CASCADE: especifica que se borren los valores de la llave externa correspondientes a un valor borrado de la tabla referenciada (tabla padre).</li>
+					<li class="fragment" style="margin-bottom: 20px">ON DELETE SET NULL: especifica que se ponga a NULL los valores de la llave externa correspondientes a un valor borrado de la tabla referenciada (tabla padre).</li>
+					<li class="fragment" style="margin-bottom: 20px">ON DELETE RESTRICT (NO ACTION): especifica que se evite el borrado si existen tablas que referencian a esta instancia en concreto.</li>
+					<li class="fragment" style="margin-bottom: 20px">ON DELETE DEFAULT: especifica que se ponga al valor por defecto si se borra el elemento padre.</li>
+				</ul>
+			</div>
+		</section>
+		<section>
+			<h3>Creación de tablas</h3>
+			<p class="fragment">ON UPDATE dispone las mismas opciones que on DELETE.</p>
+			<p class="fragment">Pero se aplica en la actualización de la columna, no en el borrado.</p>
+			<p class="fragment">Si ON DELETE o ON UPDATE no están especificados, se producirá la acción predeterminada NO ACTION.</p>
+			<p class="fragment">En la definición de una tabla pueden aparecer varias cláusulas FOREIGN KEY, tantas como llaves externas tenga la tabla.</p>
+			<p class="fragment">Sin embargo sólo puede existir una llave primaria, si bien esta llave primaria puede estar formada por varios atributos.</p>
+		</section>
+		<section>
+			<h3>Creación de tablas</h3>
+			<p class="fragment">La utilización de la cláusula CONSTRAINT nombre_restricción establece un nombre determinado para la restricción.</p>
+			<p class="fragment">Si no se se especifica CONSTRAINT, el sistema genera un valor por defecto.</p>
+			<p class="fragment">Esta forma no es recomendable puesto que si deseamos modificar posteriormente el diseño de la tabla nos será muy difícil gestionar las restricciones.</p>
+			<p class="fragment">Sugerencia en cómo nombrar las restricciones:</p>
+			<ul>
+				<li class="fragment">Clave primaria: CONSTRAINT tabla_campo_pk PRIMARY KEY.</li>
+				<li class="fragment">Clave foránea: CONSTRAINT tabla_campo_fkN FOREIGN KEY, donde N es un número.</li>
+				<li class="fragment">Check: CONSTRAINT tabla_campo_ckN CHECK, donde N es un número.</li>
+				<li class="fragment">UNIQUE: CONSTRAINT tabla_campo_uqN UNIQUE, donde N es un número.</li>
+			</ul>
+		</section>
+
+
+		<section>
+			<h3>Creación de tablas</h3>
+			<h4>Ejemplo de tabla bien definida.</h4>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 12rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE COCHES (
+					  matricula             VARCHAR(8),
+					  marca                 VARCHAR(15) NOT NULL,
+					  color                 VARCHAR(15),
+					  cod_taller             VARCHAR(10),
+					  cod_prop               VARCHAR(10),
+					  CONSTRAINT coches_matricula_pk PRIMARY KEY (matricula),
+					  CONSTRAINT coches_codtaller_fk1 FOREIGN KEY (cod_taller)
+						  REFERENCES TALLER(cod_taller),
+					  CONSTRAINT coches_codprop_fk2 FOREIGN KEY (cod_prop)
+						  REFERENCES PROPIETARIO(cod_prop),
+					  CONSTRAINT coches_color_ck1
+						  CHECK (color IN ('ROJO','AZUL','BLANCO','GRIS','VERDE','NEGRO'))
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Comandos útiles relacionados con CREATE</h3>
+			<p class="fragment">DESCRIBE: describe los campos de la tabla especificada.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 1.8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> DESCRIBE COCHES;
+				</code>
+			</pre>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 10rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Campo 		tipo 		NULL	Default
+					matricula	varchar(8)	NO 	PRI
+					marca		varchar(15)	NO
+					color		varchar(15)	YES
+					cod_taller	varchar(10)	YES 	MUL
+					cod_prop	varchar(10)	YES 	MUL
+					</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>Comandos útiles relacionados con CREATE</h3>
+			<p class="fragment">SHOW CREATE TABLE: muestra el comando de creación de la tabla.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 10rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE `coches` (
+					   `matricula` varchar(8) COLLATE utf8mb4_spanish_ci NOT NULL,
+					   `marca` varchar(15) COLLATE utf8mb4_spanish_ci NOT NULL,
+					   `color` varchar(15) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+					   `cod_taller` varchar(10) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+					   `cod_prop` varchar(10) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+					   PRIMARY KEY (`matricula`),
+					   KEY `coches_codtaller_fk1` (`cod_taller`),
+					   KEY `coches_codprop_fk2` (`cod_prop`),
+					   CONSTRAINT `coches_codprop_fk2` FOREIGN KEY (`cod_prop`) REFERENCES `propietario` (`cod_prop`),
+					   CONSTRAINT `coches_codtaller_fk1` FOREIGN KEY (`cod_taller`) REFERENCES `taller` (`cod_taller`),
+					   CONSTRAINT `coches_color_ck1` CHECK ((`color` in (_latin1'ROJO',_latin1'AZUL',_latin1'BLANCO',_latin1'GRIS',_latin1'VERDE',_latin1'NEGRO')))
+					 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h3>Eliminación de tablas</h3>
+			<p class="fragment">El comando DROP TABLE se utiliza para eliminar tablas (y todos sus contenidos!).</p>
+			<p class="fragment">Requiere del permiso DROP.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					DROP TABLE [IF EXISTS]
+						tbl_name [, tbl_name] ...
+				</code>
+			</pre>
+			<p class="fragment">Permite el borrado de múltiples tablas a la vez.</p>
+			<p class="fragment">En ese caso, si el comando falla en el proceso de eliminación de al menos una de ellas (no existe ya la tabla), el resto no se borra.</p>
+			<p class="fragment">Para evitar ese caso, se debe usar IF EXISTS, ya que así no habrá error.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> DROP TABLE COCHES;
+				</code>
+			</pre>
+			<p class="fragment">Se eliminará la tabla COCHES, siempre que su clave principal no sea clave foránea de ninguna tabla de la BD.</p>
+
+
+		</section>
+
+		<section>
+			<h3>Renombrar tablas</h3>
+			<p class="fragment">RENAME TABLE es el comando SQL mayormente utilizado para llevar a cabo esta función.</p>
+			<p class="fragment">Requiere de los permisos  ALTER y DROP para la tabla original, y CREATE y INSERT para la nueva tabla.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					RENAME TABLE
+						tbl_name TO new_tbl_name
+						[, tbl_name2 TO new_tbl_name2] ...
+				</code>
+			</pre>
+			<p class="fragment">Equivalente a la siguiente instrucción, salvo que permite el renombrado de múltiples tablas.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE old_table RENAME new_table;
+				</code>
+			</pre>
+			<p class="fragment">Ej. Cambio de nombre de COCHES a AUTOMOVILES.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> RENAME COCHES TO AUTOMOVILES;
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>Eliminar datos de tablas</h3>
+			<p class="fragment">TRUNCATE TABLE vacía completamente una tabla.</p>
+			<p class="fragment">Requiere del permiso DROP.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					TRUNCATE [TABLE] tbl_name
+				</code>
+			</pre>
+			<p class="fragment">Equivalente a la cláusula DELETE que borre todas las filas de la tabla.</p>
+			<p class="fragment">Se diferencia de DELETE en que TRUNCATE borra la tabla y la recrea, mucho más rápido que borrar cada fila individualmente.</p>
+			<p class="fragment">Por eso se considera parte de DDL y no de DML.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> TRUNCATE TABLE AUTOMOVILES;
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>Modificar tablas</h3>
+			<p class="fragment">La cláusula ALTER TABLE permite hacer cambios en la estructura de una tabla: añadir columna, borrar columna, modificar columna.</p>
+			<p class="fragment">Requiere del permiso ALTER.</p>
+			<p class="fragment">Es un comando muy complejo. Sólo veremos parte de las opciones.</p>
+			<p class="fragment">Para ver todas las opciones, consultar <a href="https://dev.mysql.com/doc/refman/8.0/en/alter-table.html">la guía MySQL para modificar tablas</a>.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE tbl_name
+						[alter_option [, alter_option] ...]
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Modificar tablas</h3>
+			<h5>Añadir Columnas</h5>
+			<p class="fragment">Permite añadir nuevas columnas a la tabla.</p>
+			<p class="fragment">Se deben indicar su tipo de datos y sus propiedades si es necesario (al estilo de CREATE TABLE).</p>
+			<p class="fragment">Las nuevas columnas se añaden al final, salvo que se indique [FIRST | AFTER col_name].</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE tbl_name ADD
+						col_name column_definition [FIRST | AFTER col_name]
+
+				</code>
+			</pre>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> ALTER TABLE AUTOMOVILES ADD modificado_en TIMESTAMP, ADD creado_en TIMESTAMP FIRST;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Modificar tablas</h3>
+			<h5>Borrar Columnas</h5>
+			<p class="fragment">Permite borrar columnas de una tabla.</p>
+			<p class="fragment">Operación irreversible. Además, borra todos los datos de esa columna.</p>
+			<p class="fragment">Si sólo hay un campo en la tabla, se debe usar DROP TABLE en vez de esta cláusula.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> ALTER TABLE AUTOMOVILES DROP COLUMN modificado_en;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Modificar tablas</h3>
+			<h5>Modificar Columnas</h5>
+			<p class="fragment">MODIFY permite cambiar el tipo de datos y propiedades de una determinada columna.</p>
+			<p class="fragment">Los cambios de datos deben ser compatibles: una cadena no es compatible con un número.</p>
+			<p class="fragment">Pueden truncarse los datos, es decir, perderse parte de la información.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE tbl_name MODIFY [COLUMN] col_name column_definition
+						[FIRST | AFTER col_name]
+
+				</code>
+			</pre>
+			<p class="fragment">Ejemplo:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> ALTER TABLE tabla MODIFY a TINYINT NOT NULL;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Modificar tablas</h3>
+			<h5>Modificar Columnas</h5>
+			<p class="fragment">CHANGE es similar a MODIFY salvo que permite cambiar también el nombre de la columna.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE tbl_name CHANGE [COLUMN] old_col_name new_col_name column_definition
+						[FIRST | AFTER col_name]
+
+				</code>
+			</pre>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> ALTER TABLE tbl_name CHANGE a b SMALLINT NOT NULL AFTER d_col;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Modificar tablas</h3>
+			<h5>Añadir restricciones</h5>
+
+			<p class="fragment">Una restricción es una condición de obligado cumplimiento para una o más columnas de la tabla.</p>
+			<p class="fragment">A cada restricción se le pone un nombre (symbol), en el caso de no poner un nombre se autogenera.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE tbl_name ADD [CONSTRAINT] [symbol] constraint_type
+        				 (col_name | expression,...) reference_definition
+				</code>
+			</pre>
+			<p class="fragment">Expression se define en las restricciones CHECK.</p>
+			<p class="fragment">reference_definition se define en las restricciones FOREIGN KEY.</p>
+		</section>
+		<section>
+			<h3>Modificar tablas</h3>
+			<h5>Añadir restricciones</h5>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> ALTER TABLE tbl_name ADD CONSTRAINT tbl_name_col_uq1 UNIQUE (col),
+						 ADD CONSTRAINT tbl_name_col3_fk1 FOREIGN KEY  (col3) REFERENCES tbl_name2 (col_from),
+						 ADD CONSTRAINT tbl_name_col_ck1 CHECK (col > col2);
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Modificar tablas</h3>
+			<h5>Borrar restricciones</h5>
+
+			<p class="fragment">Borra restricciones de una tabla.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE tbl_name DROP [CONSTRAINT] constraint_type [symbol]
+				</code>
+			</pre>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> ALTER TABLE tbl_name DROP CONSTRAINT tbl_name_col_ck1;
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h3>Problemas relacionados con las restricciones</h3>
+			<p class="fragment">Definamos las siguientes tablas:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE LIGA(
+						cod_liga VARCHAR(9),
+						nombre VARCHAR(9),
+						fecha_ini      DATE,
+						fecha_fin      DATE,
+						 CONSTRAINT liga_pk PRIMARY KEY (cod_liga),
+						 CONSTRAINT liga_ck1 CHECK (fecha_fin > fecha_ini)
+					);
+
+					CREATE TABLE EQUIPO(
+						cod_equipo VARCHAR(9),
+						cod_liga VARCHAR(9),
+						nombre VARCHAR(9),
+						CONSTRAINT equipo_pk PRIMARY KEY (cod_equipo),
+						CONSTRAINT equipo_codliga_fk1 FOREIGN KEY (cod_liga)
+						  REFERENCES LIGA(cod_liga) ON DELETE  RESTRICT
+					);
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h3>Problemas relacionados con las restricciones</h3>
+			<p class="fragment">Insertemos un par de filas:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					INSERT INTO LIGA VALUES('LIG1', 'LIGA 1', '2020-01-01', '2020-12-31');
+					INSERT INTO EQUIPO VALUES('EQUI1', 'LIG1', 'EQ PONG');
+				</code>
+			</pre>
+			<p class="fragment">Si ahora intentamos borrar la liga:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					DELETE FROM LIGA WHERE cod_liga = 'LIG1';
+				</code>
+			</pre>
+			<p class="fragment">El sistema nos devolverá un error:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails (`prueba_genial`.`equipo`,
+					CONSTRAINT `equipo_codliga_fk1` FOREIGN KEY (`cod_liga`) REFERENCES `liga` (`cod_liga`) ON DELETE RESTRICT)
+				</code>
+			</pre>
+			<p class="fragment">Esto se debe a restricción impuesta en la clave foránea:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CONSTRAINT equipo_codliga_fk1 FOREIGN KEY (cod_liga) REFERENCES LIGA(cod_liga) ON DELETE  RESTRICT
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h3>Problemas relacionados con las restricciones</h3>
+			<p class="fragment" style="margin-bottom: 0">Intentemos eliminar la clave primaria de LIGA:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE LIGA DROP PRIMARY KEY;
+				</code>
+			</pre>
+			<p class="fragment" style="margin-bottom: 0">El sistema de nuevo producirá un error:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 1553. Cannot drop index 'PRIMARY': needed in a foreign key constraint
+				</code>
+			</pre>
+			<p class="fragment" style="margin-bottom: 0">Ahora eliminaremos la columna fecha_ini de LIGA:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE LIGA DROP COLUMN fecha_ini;
+				</code>
+			</pre>
+			<p class="fragment" style="margin-bottom: 0">El sistema de nuevo producirá un error:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 3959. Check constraint 'liga_ck1' uses column 'fecha_ini', hence column cannot be dropped or renamed.
+				</code>
+			</pre>
+			<p class="fragment">No sólo no se puede borrar, sino que ni si quiera se puede renombrar.</p>
+
+		</section>
+
+		<section>
+			<h3>Problemas relacionados con las restricciones</h3>
+			<h5>¿Soluciones?</h5>
+			<p class="fragment" >Con respecto al primer problema (ON DELETE), se debe elimnar todas las filas en la tabla
+				EQUIPO que hagan referencia a la susodicha fila en LIGA.</p>
+			<p class="fragment">Si se desea borrar un PRIMARY KEY que es referenciada en otras tablas, antes se deben
+				eliminar esas claves foráneas.</p>
+			<p class="fragment">Y lo mismo pasa con el problema de fecha_ini. Se deben borrar todas las
+				Restricciones que hagan uso de dicha columna (en este caso CHECK).</p>
+
+		</section>
+
+		<section>
+			<h3>Views</h3>
+			<p class="fragment" >Una vista no es más que una consulta almacenada a fin de utilizarla tantas veces como se desee. </p>
+			<p class="fragment">Una vista no contiene datos sino la instrucción SELECT necesaria para crear la vista,
+				eso asegura que los datos sean coherentes al utilizar los datos almacenados en las tablas.</p>
+
+			<p class="fragment">Es un concepto complejo ya que tiene limitaciones por lo que sólo se va a ver un breve ejemplo.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> CREATE TABLE t (qty INT, price INT);
+					mysql> INSERT INTO t VALUES(3, 50);
+					mysql> CREATE VIEW v AS SELECT qty, price, qty*price AS value FROM t;
+					mysql> SELECT * FROM v;
+					+------+-------+-------+
+					| qty  | price | value |
+					+------+-------+-------+
+					|    3 |    50 |   150 |
+					+------+-------+-------+
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h3>Índices</h3>
+			<p class="fragment">Los índices son objetos que forman parte del esquema que hacen que las bases de datos aceleren
+				las operaciones de consulta y ordenación sobre los campos a los que el índice hace referencia. </p>
+			<p class="fragment">Se almacenan aparte de la tabla a la que hace referencia, lo que permite crearlos y borrarlos en cualquier momento.</p>
+			<p class="fragment">La mayoría de los índices se crean de manera implícita, como consecuencia de las restricciones PRIMARY KEY,
+				UNIQUE y FOREIGN KEY. Estos son índices obligatorios, por los que los crea el propio SGBD.</p>
+			<p class="fragment">Queda fuera del alcence de un curso de iniciación, pero se menciona para saber de su existencia.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE INDEX index_name
+						ON tbl_name (key_part,...)
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h2>Resumen: DDL</h2>
+			<ul>
+				<li class="fragment">Concepto de SQL y sus subdivisiones.</li>
+				<li class="fragment">Los tipos de datos.</li>
+				<li class="fragment">Algunos operadores y funciones.</li>
+				<li class="fragment">Restricciones en la nomenclatura de los elementos SQL.</li>
+				<li class="fragment">Creación, modificación y borrado de bases de datos.</li>
+				<li class="fragment">Creación y borrado de tablas.</li>
+				<li class="fragment">Modificar tabla: creacción, modificación y borrado de columnas.</li>
+				<li class="fragment">Modificar tabla: creacción, modificación y borrado de restricciones</li>
+				<li class="fragment">Problemas asociados al borrrado de restricciones.</li>
+				<li class="fragment">Concepto de vista.</li>
+				<li class="fragment">Concepto de índice.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h1>Caso de estudio: <span class="italic">AllTheMoney Bank</span></h1>
+		</section>
+
+		<section>
+			<h3>Introducción</h3>
+			<ul>
+				<li class="fragment">Ya casi tenemos el sistema final.</li>
+				<li class="fragment">Modelo conceptual y lógico.</li>
+				<li class="fragment">Toca modelo físico.</li>
+				<li class="fragment">Conversión de las tablas del modelo Relacional a tablas SQL.</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Pasos a seguir para obtener el esquema final</h3>
+			<ul>
+				<li class="fragment">Generar un fichero SQL (fichero de texto con extensión sql) donde desarrollar el esquema.</li>
+				<li class="fragment">Crear una base de datos donde almacenar toda la estructura.</li>
+				<li class="fragment">Generar una cláusa CREATE TABLE por cada tabla relacional y especificar todas sus columnas.</li>
+				<li class="fragment">Para cada columna, especificar su tipo de datos, y sus propiedades.</li>
+				<li class="fragment">Definir todas las Restricciones de la tabla.</li>
+				<li class="fragment">Comprobar en el cliente SQL si existe algún error de sintaxis.</li>
+				<li class="fragment">Ejecutar las cláusulas definidas.</li>
+			</ul>
+			<p class="fragment">Se debe empezar por las que no tienen claves foráneas, ya que no se podran generar hasta que se creen las tablas padre.</p>
+		</section>
+
+		<section>
+			<h5>Caso de estudio: Transformación del esquema relacional a SQL</h5>
+			<p class="fragment">Recordemos nuestro flamante diagrama.</p>
+			<img class="fragment" src="images/Relaciones%20ATM%20h.PNG" alt="dato" style="width: 750px"/>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 1. Generar un fichero SQL</h3>
+			<p class="fragment">Abriremos MySQL Workbench (nuestro cliente SQL).</p>
+			<p class="fragment">Nos concectaremos a la base de datos deseada.</p>
+			<p class="fragment">Por defecto, abrirá ya una consola SQL donde almacenaremos nuestro script.</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 2. Generar una base de datos</h3>
+			<p class="fragment">Creamos la base de datos en el esquema con el CHARACTER SET deseado.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE DATABASE allthemoney CHARACTER SET="utf8mb4" COLLATE="utf8mb4_spanish_ci";
+				</code>
+			</pre>
+			<p class="fragment">Una vez creada, debemos seleccionarla, si no al crear cualquier tabla dará error de que no se ha seleccionado ninguna base de datos.</p>
+			<p class="fragment">Para ello existe el siguiente comando.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					USE allthemoney;
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional USUARIO.</h3>
+			<p class="fragment">De entre todas las entidades, la tabla independiente es USUARIO. Emperezaremos por ahí</p>
+			<p class="fragment">Usuario</p>
+			<img class="fragment " src="images/MR%20Usuario.PNG" alt="dato" style="width: 202px"/>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional USUARIO</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS usuario (
+						id,
+						nombre,
+						apellido_1,
+						apellido_2,
+						email,
+						fecha_nacimiento,
+						activo,
+						empleado,
+						notas,
+						modificado_en
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 4. Tabla relacional USUARIO</h3>
+			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS usuario (
+						id INT AUTO_INCREMENT,
+						nombre VARCHAR(50) NOT NULL,
+						apellido_1 VARCHAR(50) NOT NULL,
+						apellido_2 VARCHAR(50) NOT NULL,
+						email VARCHAR(50) NOT NULL,
+						fecha_nacimiento DATE NOT NULL,
+						activo TINYINT DEFAULT 1,
+						empleado TINYINT DEFAULT 0,
+						notas TEXT,
+						modificado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 5. Tabla relacional USUARIO</h3>
+			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS usuario (
+						id INT AUTO_INCREMENT,
+						nombre VARCHAR(50) NOT NULL,
+						apellido_1 VARCHAR(50) NOT NULL,
+						apellido_2 VARCHAR(50) NOT NULL,
+						email VARCHAR(50) NOT NULL,
+						fecha_nacimiento DATE,
+						activo TINYINT DEFAULT 1,
+						empleado TINYINT DEFAULT 0,
+						notas TEXT,
+						modificado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+						CONSTRAINT usuario_pk PRIMARY KEY (id),
+						CONSTRAINT usuario_email_uq1 UNIQUE (email),
+						CONSTRAINT usuario_fechanacimiento_ck1
+							CHECK (fecha_nacimiento > "1880-01-01")
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional USUARIO</h3>
+			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
+			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SHOW CREATE TABLE usuario;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional DNI.</h3>
+			<p class="fragment">Es un proceso iterativo. Volvemos al paso 3 con la siguiente tabla.</p>
+			<p class="fragment">DNI</p>
+			<img class="fragment " src="images/MR%20Dni.PNG" alt="dato" style="width: 202px"/>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional DNI</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS dni (
+						id_usuario,
+						dni,
+						valido_hasta,
+						fecha_expedicion,
+						modificado_en
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 4. Tabla relacional DNI</h3>
+			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS dni (
+						id_usuario INT NOT NULL,
+						dni VARCHAR(9) NOT NULL,
+						valido_hasta DATE NOT NULL,
+						fecha_expedicion DATE NOT NULL,
+						modificado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 5. Tabla relacional DNI</h3>
+			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS dni (
+						id_usuario INT NOT NULL,
+						dni VARCHAR(9) NOT NULL,
+						valido_hasta DATE NOT NULL,
+						fecha_expedicion DATE NOT NULL,
+						modificado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+						CONSTRAINT dni_pk PRIMARY KEY (id_usuario),
+						CONSTRAINT dni_dni_uq1 UNIQUE (dni),
+						CONSTRAINT dni_idusuario_fk1
+							FOREIGN KEY (id_usuario) REFERENCES usuario(id),
+						CONSTRAINT dni_fechaexpedicion_ck1
+							CHECK (fecha_expedicion < valido_hasta)
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional DNI</h3>
+			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
+			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SHOW CREATE TABLE dni;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional INFORMACION EMPLEADO.</h3>
+			<p class="fragment">Volvemos al paso 3 con la siguiente tabla.</p>
+			<p class="fragment">INFORMACION EMPLEADO</p>
+			<img class="fragment " src="images/MR%20Info%20empleado.PNG" alt="dato" style="width: 202px"/>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional INFORMACION EMPLEADO</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS informacion_empleado (
+						id_usuario,
+						cuenta_empleado,
+						empleado_enL,
+						activo,
+						administrador,
+						modificado_en
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 4. Tabla relacional INFORMACION EMPLEADO</h3>
+			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS informacion_empleado (
+						id_usuario INT NOT NULL,
+						cuenta_empleado VARCHAR(45) NOT NULL,
+						empleado_en DATE NOT NULL,
+						activo TINYINT DEFAULT 1,
+						administrador TINYINT DEFAULT 0,
+						modificado_en  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 5. Tabla relacional INFORMACION EMPLEADO</h3>
+			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS informacion_empleado (
+						id_usuario INT NOT NULL,
+						cuenta_empleado VARCHAR(45) NOT NULL,
+						empleado_en DATE NOT NULL,
+						activo TINYINT DEFAULT 1,
+						administrador TINYINT DEFAULT 0,
+						modificado_en  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+						CONSTRAINT informacion_empleado_pk PRIMARY KEY (id_usuario),
+						CONSTRAINT informacion_empleado_cuentaempleado_uq1
+							UNIQUE (cuenta_empleado),
+						CONSTRAINT informacion_empleado_idusuario_fk1
+							FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional INFORMACION EMPLEADO</h3>
+			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
+			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SHOW CREATE TABLE informacion_empleado;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional CUENTA.</h3>
+			<p class="fragment">Volvemos al paso 3 con la siguiente tabla.</p>
+			<p class="fragment">CUENTA</p>
+			<img class="fragment " src="images/MR%20Cuenta.PNG" alt="dato" style="width: 202px"/>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional CUENTA</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS cuenta (
+						id,
+						tipo,
+						bloqueda,
+						activa,
+						fondos_actuales,
+						modificado_en
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 4. Tabla relacional CUENTA</h3>
+			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS cuenta (
+						id INT AUTO_INCREMENT,
+						tipo ENUM('ahorro', 'bursatil', 'infantil', 'autonomo') NOT NULL,
+						bloqueda TINYINT DEFAULT 0,
+						activa TINYINT DEFAULT 1,
+						fondos_actuales DECIMAL(9,5) DEFAULT 0,
+						modificado_en  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 5. Tabla relacional CUENTA</h3>
+			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS cuenta (
+						id INT AUTO_INCREMENT,
+						tipo ENUM('ahorro', 'bursatil', 'infantil', 'autonomo') NOT NULL,
+						bloqueda TINYINT DEFAULT 0,
+						activa TINYINT DEFAULT 1,
+						fondos_actuales DECIMAL(9,5) DEFAULT 0,
+						modificado_en  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+						CONSTRAINT cuenta_pk PRIMARY KEY (id),
+						CONSTRAINT cuenta_fondosactuales_ck1 CHECK (fondos_actuales >= 0)
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional CUENTA</h3>
+			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
+			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SHOW CREATE TABLE cuenta;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional UTILIZA.</h3>
+			<p class="fragment">Este es un caso peculiar. Es una tabla asociativa entre CUENTA y USUARIO.</p>
+			<p class="fragment">Viene de una relación N:M.</p>
+			<p class="fragment">Por conveniencia, UTILIZA no es un buen nombre para la tabla.</p>
+			<p class="fragment">Existen múltiples conveniciones, pero la recomendada es concatenar los nombres de ambas tablas que relaciona.</p>
+			<p class="fragment">USUARIO_CUENTA</p>
+			<img class="fragment " src="images/MR%20Usuario-cuenta.PNG" alt="dato" style="width: 202px"/>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional USUARIO_CUENTA</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS usuario_cuenta (
+						id_usuario,
+						id_cuenta,
+						bloqueda,
+						modificado_en
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 4. Tabla relacional USUARIO_CUENTA</h3>
+			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS usuario_cuenta (
+						id_usuario INT NOT NULL,
+						id_cuenta INT NOT NULL,
+						bloqueda TINYINT DEFAULT 0,
+						modificado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 5. Tabla relacional USUARIO_CUENTA</h3>
+			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS usuario_cuenta (
+						id_usuario INT NOT NULL,
+						id_cuenta INT NOT NULL,
+						bloqueda TINYINT DEFAULT 0,
+						modificado_en  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+						CONSTRAINT usuario_cuenta_pk PRIMARY KEY (id_usuario, id_cuenta),
+						CONSTRAINT usuario_cuenta_usuarioid_fk1
+							FOREIGN KEY(id_usuario) REFERENCES usuario(id) ON DELETE CASCADE,
+						CONSTRAINT usuario_cuenta_cuentaid_fk2
+							FOREIGN KEY(id_cuenta) REFERENCES cuenta(id) ON DELETE RESTRICT
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional USUARIO_CUENTA</h3>
+			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
+			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SHOW CREATE TABLE usuario_cuenta;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional MOVIMIENTO  CUENTA.</h3>
+			<p class="fragment">Volvemos al paso 3 con la siguiente tabla.</p>
+			<p class="fragment">MOVIMIENTO CUENTA</p>
+			<img class="fragment " src="images/MR%20Movimiento%20cuenta.PNG" alt="dato" style="width: 202px"/>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional MOVIMIENTO CUENTA</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS movimiento_cuenta (
+						id,
+						id_cuenta,
+						tipo,
+						concepto,
+						cantidad,
+						erroneo,
+						fecha_movimiento,
+						fecha_valor,
+						modificado_en
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 4. Tabla relacional MOVIMIENTO CUENTA</h3>
+			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS movimiento_cuenta (
+						id INT AUTO_INCREMENT,
+						id_cuenta INT NOT NULL,
+						tipo ENUM('domiciliacion', 'transferencia') NOT NULL,
+						concepto VARCHAR(100) NOT NULL,
+						cantidad DECIMAL(11,5) NOT NULL,
+						erroneo TINYINT DEFAULT 0,
+						fecha_movimiento DATETIME NOT NULL,
+						fecha_valor DATETIME,
+						modificado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 5. Tabla relacional MOVIMIENTO CUENTA</h3>
+			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS movimiento_cuenta (
+						id INT AUTO_INCREMENT,
+						id_cuenta INT NOT NULL,
+						tipo ENUM('domiciliacion', 'transferencia') NOT NULL,
+						concepto VARCHAR(100) NOT NULL,
+						cantidad DECIMAL(11,5) NOT NULL,
+						erroneo TINYINT DEFAULT 0,
+						fecha_movimiento DATETIME NOT NULL,
+						fecha_valor DATETIME,
+						modificado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+						CONSTRAINT movimiento_cuenta_pk PRIMARY KEY (id),
+						CONSTRAINT movimiento_cuenta_idcuenta_fk1
+							FOREIGN KEY(id_cuenta) REFERENCES cuenta(id) ON DELETE RESTRICT,
+						CONSTRAINT movimiento_cuenta_fechavalor_ck1
+							CHECK (fecha_valor IS NULL OR fecha_valor>fecha_movimiento)
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional MOVIMIENTO CUENTA</h3>
+			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
+			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SHOW CREATE TABLE movimiento_cuenta;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional TARJETA</h3>
+			<p class="fragment">Volvemos al paso 3 con la siguiente tabla.</p>
+			<p class="fragment">TARJETA</p>
+			<img class="fragment " src="images/MR%20Tarjeta.PNG" alt="dato" style="width: 202px"/>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 3. Tabla relacional TARJETA</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS tarjeta (
+						id,
+						id_cuenta,
+						id_usuario,
+						cvv,
+						limite,
+						tipo,
+						bloqueda,
+						activa,
+						pendiente_amortizar,
+						modificado_en
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 4. Tabla relacional TARJETA</h3>
+			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS tarjeta (
+						id INT AUTO_INCREMENT,
+						id_cuenta INT NOT NULL,
+						id_usuario INT NOT NULL,
+						cvv SMALLINT UNSIGNED NOT NULL,
+						limite INT NOT NULL,
+						tipo ENUM('debito', 'credito') NOT NULL,
+						bloqueda TINYINT DEFAULT 0,
+						activa TINYINT NOT NULL,
+						pendiente_amortizar DECIMAL(11,5) DEFAULT 0,
+						modificado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Paso 5. Tabla relacional TARJETA</h3>
+			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS tarjeta (
+						id INT AUTO_INCREMENT,
+						id_cuenta INT NOT NULL,
+						id_usuario INT NOT NULL,
+						cvv SMALLINT UNSIGNED NOT NULL,
+						limite INT NOT NULL,
+						tipo ENUM('debito', 'credito') NOT NULL,
+						bloqueda TINYINT DEFAULT 0,
+						activa TINYINT NOT NULL,
+						pendiente_amortizar DECIMAL(11,5) DEFAULT 0,
+						modificado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+						CONSTRAINT tarjeta_pk PRIMARY KEY (id),
+						CONSTRAINT tarjeta_idcuenta_fk1
+							FOREIGN KEY(id_cuenta) REFERENCES cuenta(id) ON DELETE RESTRICT,
+						CONSTRAINT tarjeta_idusuario_fk2
+							FOREIGN KEY(id_usuario) REFERENCES usuario(id) ON DELETE RESTRICT,
+						CONSTRAINT tarjeta_cuentausuario_uq1
+							UNIQUE KEY (id_usuario, id_cuenta)
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional TARJETA</h3>
+			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
+			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SHOW CREATE TABLE tarjeta;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Tabla relacional MOVIMIENTO TARJETA</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS movimiento_tarjeta (
+						id INT AUTO_INCREMENT,
+						id_tarjeta INT NOT NULL,
+						concepto VARCHAR(100) NOT NULL,
+						cantidad DECIMAL(11,5) NOT NULL,
+						erroneo TINYINT DEFAULT 0,
+						fecha_movimiento DATETIME NOT NULL,
+						fecha_valor DATETIME,
+						modificado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+						CONSTRAINT movimiento_tarjeta_pk PRIMARY KEY (id),
+						CONSTRAINT movimiento_tarjeta_idtarjeta_fk1
+							FOREIGN KEY(id_tarjeta) REFERENCES tarjeta(id) ON DELETE RESTRICT,
+						CONSTRAINT movimiento_tarjeta_fechavalor_ck1
+							CHECK (fecha_valor IS NULL OR fecha_valor>fecha_movimiento)
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: Resumen</h3>
+			<p class="fragment">Modelo físico completado.</p>
+			<p class="fragment">Se han definido todas las tablas.</p>
+			<p class="fragment">Pero se requiere hacer ciertas comprobaciones:</p>
+			<ul>
+				<li class="fragment">Comprobar la cardinalidad.</li>
+				<li class="fragment">Comprobar la definición de campos.</li>
+				<li class="fragment">Comprobar las restricciones.</li>
+				<li class="fragment">Si hay problemas con el modelo, resolverlos.</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+			<p class="fragment">Relación USUARIO-DNI: 1:1, con ambas participiaciones (1,1).</p>
+			<img class="fragment " src="images/Relacion%20usu-dni%20c.PNG" alt="dato" style="width: 400px"/>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+			<p class="fragment">Relación USUARIO-DNI: 1:1, con ambas participiaciones (1,1).</p>
+
+			<p class="fragment">Tal y como está definido en el modelo físico, esta relación falla.</p>
+			<p class="fragment">¿Por qué?</p>
+			<p class="fragment">Porque se puede añadir un usuario sin necesidad de tener un DNI.</p>
+			<p class="fragment">En MySQL no existe la manera de generar esta relación, salvo que se defina una única tabla donde se introduzcan las propiedades de ambas.</p>
+			<p class="fragment">Pero como se mencionó anteriormente, no se desea por motivos de futuro desarrollo del sistema.</p>
+			<p class="fragment">Esta cardinalidad se debe hacer a nivel aplicativo.</p>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+			<p class="fragment">Relación USUARIO-DNI: 1:1, con ambas participiaciones (1,1).</p>
+			<p class="fragment">Falta comprobar si DNI puede tener más de un registro para un usuario concreto.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> INSERT INTO usuario (nombre, apellido_1, apellido_2, email, fecha_nacimiento, empleado)
+						VALUES("Laura", "Master", "Rockefeller", "laura@allthemoneybank.com", "1971-03-04", 1);
+				</code>
+			</pre>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> INSERT INTO dni (id_usuario, dni, valido_hasta, fecha_expedicion)
+						VALUES(1, "12345678Z", "2025-10-10", "2015-10-10");
+				</code>
+			</pre>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> INSERT INTO dni (id_usuario, dni, valido_hasta, fecha_expedicion)
+						VALUES(1, "87654321Z", "2025-10-10", "2015-10-10");
+				</code>
+			</pre>
+			<p class="fragment">El sistema nos devuelve el siguiente error.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 1062. Duplicate entry '1' for key 'dni.PRIMARY'
+				</code>
+			</pre>
+			<p class="fragment">Por tanto, funciona correctamente. Al menos nos aseguramos de que pueda un usuario tener 0 o 1 DNI asociado.</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+			<p class="fragment">Relación USUARIO-INFORMACION EMPLADO: 1:1, con una participiación opcional (0,1).</p>
+			<img class="fragment " src="images/Relacion%20usu-info%20b.PNG" alt="dato" style="width: 400px"/>
+			<p class="fragment">Se debe realizar el mismo protocolo que anteriormente.</p>
+			<p class="fragment">En este caso sí se respeta la cardinalidad.</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+			<p class="fragment">Antes de proceder con el resto de las relaciones, se comprobarán las restricciones de estas tres tablas.</p>
+			<p class="fragment">Se va a probar la siguiente restricción:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CONSTRAINT usuario_fechanacimiento_ck1 CHECK (fecha_nacimiento > "1880-01-01")
+				</code>
+			</pre>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> INSERT INTO usuario (nombre, apellido_1, apellido_2, email, fecha_nacimiento, empleado)
+						VALUES("Laura", "Master", "Rockefeller", "laura2@allthemoneybank.com", "1871-03-04", 1);
+				</code>
+			</pre>
+			<p class="fragment">El sistema devuelve el siguiente error:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 3819. Check constraint 'usuario_fechanacimiento_ck1' is violated.
+				</code>
+			</pre>
+			<p class="fragment">usuario_fechanacimiento_ck1 funciona correctamente.</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+			<p class="fragment">Se debe seguir este procedimiento para todas las restricciones del sistema.</p>
+			<p class="fragment">Muchas veces se olvidan o aparecen nuevos requisitos.</p>
+			<p class="fragment">Por ejemplo, el campo dni de la tabla "dni", siempre ha de tener 9 caracteres de longitud.</p>
+			<p class="fragment">Sin embargo, ahora mismo, no se comprueba esa posibilidad.</p>
+			<p class="fragment">Es cierto que el campo puede almacenar sólo 9 caracteres.</p>
+			<p class="fragment">Si intentamos almancenar un dni con mayor longitud, el sistema devuelve un error: "11223344556677Z".</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 1406. Data too long for column 'dni' at row 1
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+
+			<p class="fragment">Sin embargo, se puede almacenar una cadena de menor longitud: "123z".</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> INSERT INTO dni (id_usuario, dni, valido_hasta, fecha_expedicion)
+						VALUES(2, "123Z", "2026-11-11", "2016-11-11");
+				</code>
+			</pre>
+			<p class="fragment">Se debe añadir una restricción que mantenga la integridad de este campo:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE dni ADD CONSTRAINT dni_dni_ck2 CHECK (length(dni)=9);
+				</code>
+			</pre>
+			<p class="fragment">Si se intenta ejecutar el INSERT anterior (una vez borrado el registro en base de datos), el sistema devolverá ahora un error:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 3819. Check constraint 'dni_dni_ck2' is violated.
+				</code>
+			</pre>
+			<p class="fragment">No sólo se ha encontrado un error sino que se ha resuelto.</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+
+			<p class="fragment">Con respecto al campo "valido_hasta" de la tabla "dni".</p>
+			<p class="fragment">Se podría crear una restricción que no permita añadir un dni cuya fecha de validez sea menor que la fecha actual:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE dni ADD CONSTRAINT dni_validohasta_ck2 CHECK (valido_hasta > NOW());
+				</code>
+			</pre>
+			<p class="fragment">La función NOW() retorna la fecha actual.</p>
+			<p class="fragment">El sistema no permite dicha restricción:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 3814. An expression of a check constraint 'dni_validohasta_ck2' contains disallowed function: now.
+				</code>
+			</pre>
+			<p class="fragment">¿Cuál es el motivo? Que es una función no determinística, es decir, si se ejecuta dos veces, devuelve diferente resultado.</p>
+			<p class="fragment">Es una "restricción" definida en las restricciones.</p>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+
+			<p class="fragment">Comprobación del campo "fondos_actuales" de la tabla "cuenta".</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					INSERT INTO cuenta (tipo) VALUES("ahorro");
+				</code>
+			</pre>
+			<p class="fragment">Después de ciertas operaciones reales se debe actualizar los fondos disponibles.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					UPDATE cuenta SET fondos_actuales = 1000 where id=1;
+				</code>
+			</pre>
+			<p class="fragment">De nuevo, se actualizan los fondos disponibles.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					UPDATE cuenta SET fondos_actuales = 1000000 where id=1;
+				</code>
+			</pre>
+			<p class="fragment">Ahora el sistema devuelve el siguiente error:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 1264. Out of range value for column 'fondos_actuales' at row 1
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+
+			<p class="fragment">Se ha definido incorrectamente el alcance del campo "fondos_actuales".</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					fondos_actuales DECIMAL(9,5) DEFAULT 0,
+				</code>
+			</pre>
+
+			<p class="fragment">Se debe modificar:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE cuenta MODIFY fondos_actuales DECIMAL(15,5) DEFAULT 0;
+				</code>
+			</pre>
+
+			<p class="fragment">Si se actualizan los fondos disponibles otra vez.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					UPDATE cuenta SET fondos_actuales = 1000000 where id=1;
+				</code>
+			</pre>
+			<p class="fragment">Ahora el sistema devuelve ya no retornará un error.</p>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+
+			<p class="fragment">Se ha escogido de forma incorrecta o deficinete el tipo de datos para los "identificadores de las tablas".</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					id INT AUTO_INCREMENT
+				</code>
+			</pre>
+
+			<p class="fragment">El motivo es que los identificadores (concretamente los que utilicen AUTOINCREMENT) nunca serán negativos.</p>
+			<p class="fragment">Por tanto, se están desperdiciando la mitad de los valores de los identificadores, reduciendo el número de registros que se pueden almacenar.</p>
+			<p class="fragment">Una mejor definición sería la siguiente:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					id INT UNSIGNED AUTO_INCREMENT
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+
+			<p class="fragment">Procedemos a actualizar ese campo en la tabla "usuario".</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE usuario MODIFY id INT UNSIGNED AUTO_INCREMENT;
+				</code>
+			</pre>
+			<p class="fragment">Pero al ejecutarlo el sistema nos devuelve un error:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 3780. Referencing column 'id_usuario' and referenced column 'id' in foreign key constraint 'dni_idusuario_fk1' are incompatible.
+				</code>
+			</pre>
+
+			<p class="fragment">El campo "id" se utiliza como parte de las claves foráneas de otras tablas.</p>
+			<p class="fragment">Antes de la alteración del campo, se deben eliminar todas las restricciones que hacen uso de ella.</p>
+			<p class="fragment">Se procede entonces a la modificación, no sólo de ese campo, si no de las otras tablas para que sean compatibles.</p>
+			<p class="fragment">Y por último, se regeneran las restricciones.</p>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+
+			<p class="fragment">Se eliminan las siguientes restricciones:</p>
+
+			<ul>
+				<li class="fragment">"dni": dni_idusuario_fk1</li>
+				<li class="fragment">"informacion_empleado": informacion_empleado_idusuario_fk1</li>
+				<li class="fragment">"usuario_cuenta": usuario_cuenta_usuarioid_fk1</li>
+				<li class="fragment">"tarjeta": tarjeta_idusuario_fk2</li>
+			</ul>
+			<p class="fragment">Mediante la siguiente cláusula (con sus respectivos valores):</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE "table" DROP CONSTRAINT "id_restriccion";
+				</code>
+			</pre>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE dni DROP CONSTRAINT dni_idusuario_fk1;
+					ALTER TABLE informacion_empleado DROP CONSTRAINT informacion_empleado_idusuario_fk1;
+					ALTER TABLE usuario_cuenta DROP CONSTRAINT usuario_cuenta_usuarioid_fk1;
+					ALTER TABLE tarjeta DROP CONSTRAINT tarjeta_idusuario_fk2;
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+			<p class="fragment">Y se vuelve a ejecutar la alteración del campo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE usuario MODIFY id INT UNSIGNED AUTO_INCREMENT;
+				</code>
+			</pre>
+			<p class="fragment">Y para cada una de las tablas afectadas:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE dni MODIFY id_usuario INT UNSIGNED;
+					ALTER TABLE dni ADD CONSTRAINT dni_idusuario_fk1
+						FOREIGN KEY (id_usuario) REFERENCES usuario(id);
+					ALTER TABLE informacion_empleado MODIFY id_usuario INT UNSIGNED;
+					ALTER TABLE informacion_empleado ADD CONSTRAINT informacion_empleado_idusuario_fk1
+						FOREIGN KEY (id_usuario) REFERENCES usuario(id);
+					ALTER TABLE usuario_cuenta MODIFY id_usuario INT UNSIGNED;
+					ALTER TABLE usuario_cuenta ADD CONSTRAINT usuario_cuenta_idusuario_fk1
+						FOREIGN KEY (id_usuario) REFERENCES usuario(id);
+					ALTER TABLE tarjeta MODIFY id_usuario INT UNSIGNED;
+					ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_idusuario_fk2
+						FOREIGN KEY (id_usuario) REFERENCES usuario(id);
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+
+			<p class="fragment">Queda como ejercicio modificar el resto de "identificadores" en el resto de tablas.</p>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+
+			<p class="fragment">Si se intenta añadir dos cuentas relacionadas con el mismo usuario y cuenta, el sistema devolverá error debido a la siguiente restricción:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CONSTRAINT tarjeta_cuentausuario_uq1
+						UNIQUE KEY (id_usuario, id_cuenta)
+				</code>
+			</pre>
+			<p class="fragment">Se debe eliminar para el perfecto funcionamiento del sistema:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE usuario DROP CONSTRAINT tarjeta_cuentausuario_uq1;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Caso de estudio: comprobaciones</h3>
+
+			<p class="fragment">Queda como ejercicio comprobar el resto de relaciones, campos y restricciones.</p>
+		</section>
+
+		<section>
+			<h1>¿Preguntas?</h1>
+			<p>Muchas gracias por vuestra atención.</p>
+		</section>
+
+	</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+	});
+</script>
+</body>
+</html>
