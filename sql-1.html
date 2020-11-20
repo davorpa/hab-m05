@@ -1,0 +1,1129 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>HaB: SQL</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<style>
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+			font-family: "Quicksand", sans-serif
+		}
+
+		.reveal h1{
+			font-size: 2.2em;
+		}
+
+
+		.reveal h2{
+			font-size: 1.6em;
+		}
+
+
+		.reveal h3{
+			font-size: 1.2em;
+		}
+
+
+		.reveal h4{
+			font-size: 1.05em;
+		}
+
+		body, body p, body ul {
+			font-size: 1.8rem;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+		.italic{
+			font-style: italic;
+		}
+		.s-500{
+			width: 500px;
+		}
+		.s-400{
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+
+		<section>
+
+			<h2>HaB: Introducción a SQL</h2>
+
+			<p>Por: <span class="italic">Fernando Batlle López</span></p>
+			<br>
+			<p><a href="http://www.linkedin.com/in/fernando-batlle-55333738">Linkedin</a> | <a href="http://lapisoft.es">Lapisoft Projects S.L.</a></p>
+		</section>
+		<section>
+			<h2>Tabla de contenidos del curso</h2>
+			<ol>
+				<li class="fragment">Introducción</li>
+				<li class="fragment">Bases de datos relacionales</li>
+				<li class="fragment">Modelo Entidad-Relación</li>
+				<li class="fragment">Paso Modelo Entidad-Relación a tablas: Modelo Relacional</li>
+				<li class="fragment">Creación de tablas SQL</li>
+				<li class="fragment">Consultas SQL</li>
+			</ol>
+		</section>
+		<section>
+			<h2>Estructura del curso</h2>
+			<ol>
+				<li class="fragment">Primera clase: Introducción y bases de datos relacionales</li>
+				<li class="fragment">Segunda clase: Modelo Entidad-Relación</li>
+				<li class="fragment">Tercera clase: Modelo Relacional e inicio en SQL</li>
+				<li class="fragment">Cuarta clase: Creación de tablas</li>
+				<li class="fragment">Quinta clase: Consultas</li>
+				<li class="fragment">Sexta y sétpima: Resolución de dudas y resumen</li>
+			</ol>
+		</section>
+		<section>
+			<h3>Herramientas que se utilizarán a lo largo de este curso</h3>
+
+			<ul>
+				<li class="fragment">SGDB: MySQL Server</li>
+				<li class="fragment">Cliente: MySQL Workbench</li>
+				<li class="fragment">Modelos: Visio (de pago), Dia (libre) </li>
+				<li class="fragment">Herramientas: Notepad++, Excel</li>
+			</ul>
+		</section>
+		<section>
+			<h1> Introducción</h1>
+		</section>
+		<section>
+			<h2>Punto de partida de un proyecto</h2>
+			<p class="fragment">¿Dónde empieza?</p>
+			<p class="fragment">Bajo la necesidad de un cliente (o incluso de una necesidad propia).</p>
+			<p class="fragment">En todo sistema un poco grande, siempre va a ser necesario la persistencia de datos.</p>
+			<p class="fragment">Y los requisitos vendrán de interactuar con el cliente.</p>
+		</section>
+		<section>
+			<h2>Caso de Estudio</h2>
+			<h3 class="fragment">"AllTheMoney Bank"</h3>
+			<p class="fragment">Llega una cliente a nuestro flamente estudio de ingenieria y nos dice:</p>
+
+			<p class="fragment italic">Tengo un negocio, pero... ¿Dónde y cómo almaceno mis datos?</p>
+
+			<p class="fragment italic">Mis clientes no son unos cualesquiera...</p>
+		</section>
+		<section>
+			<h2>Conceptos clave de la frase (1)</h2>
+			<p><span class="italic">¿Dónde y cómo almaceno mis datos?</span></p>
+
+			<img class="fragment" src="images/Almacenar.png" alt="almacenar"/>
+		</section>
+		<section>
+			<h2>Conceptos clave de la frase (2)</h2>
+			<p><span class="italic">¿Dónde y cómo almaceno mis datos?</span></p>
+
+			<img class="fragment" src="images/Dato.png" alt="dato"/>
+		</section>
+		<section>
+			<h2>Cualquier información puede ser un dato</h2>
+			<p class="fragment">En el mundo de bases de datos (computación), esos datos deben ser digitales.</p>
+
+			<p class="fragment italic">A día de hoy, un coche no se puede digitalizar, excepto en las películas de ciencia ficción.</p>
+
+			<p class="fragment">La mayoría de la información de la banquera, se puede digitalizar, así que va por buen camino.</p>
+			<p class="fragment">La que no se pueda almacenar, quedará fuera del alcance, o se deberá procesar de alguna manera.</p>
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<p class="fragment">Uno de los problemas del mundo de la programación es que desde fuera no se sabe valorar lo que un sistema o programa conlleva, y su dificultad.</p>
+			<p class="fragment">P.e: un coche o un edificio son palpables (y grandes). Una aplicación como Spotify... no.</p>
+			<p class="fragment">En muchas ocasiones os encontraréis que, al darles un presupuesto, os dirán frases del estilo a:</p>
+			<p class="fragment italic">Mi sobrino sabe de eso y lo hace más barato.</p>
+			<p class="fragment">Por tanto, intentarán buscar soluciones alternativas.</p>
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<h4>Primer intento: <span class="italic">Fichero de texto</span></h4>
+
+			<div class="fragment">
+				<img class="s-500" src="images/Formato fichero.PNG" alt="dato"/>
+			</div>
+
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<h4>Primer intento: <span class="italic">Fichero de texto</span></h4>
+
+			<h5> Pros</h5>
+			<ul>
+				<li class="fragment">Fácil de implementar.</li>
+				<li class="fragment">No requiere conocimiento especializado alguno.</li>
+				<li class="fragment">Inmediato.</li>
+			</ul>
+
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<h4>Primer intento: <span class="italic">Fichero de texto</span></h4>
+
+			<h5>Contras</h5>
+			<ul>
+				<li class="fragment">Difícil de manejar cuando hay grandes cantidades de datos.</li>
+				<li class="fragment">Difícil de hacer consultas.</li>
+				<li class="fragment">Propenso a errores de integridad.</li>
+				<li class="fragment">No colaborativo.</li>
+				<li class="fragment">Y muchos más.</li>
+			</ul>
+
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<h4>Primer intento: <span class="italic">Fichero de texto</span></h4>
+
+			<div class="fragment fade-up">
+				<img class="s-500"  src="images/Formato fichero fail.PNG" alt="dato"/>
+			</div>
+
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<h4>Segundo intento: <span class="italic">Fichero de Excel</span></h4>
+			<div class="fragment">
+				<img class="s-500"  src="images/Formato excel.PNG" alt="dato"/>
+			</div>
+
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<h4>Segundo intento: <span class="italic">Fichero de Excel</span></h4>
+
+			<h5>Pros</h5>
+			<ul>
+				<li class="fragment">Potente. Posee herramientas para hacer cálculos.</li>
+				<li class="fragment">Ampliamente usado en contabilidad y en otros entornos.</li>
+				<li class="fragment">Bastante inmediato.</li>
+			</ul>
+
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<h4>Segundo intento: <span class="italic">Fichero de Excel</span></h4>
+
+			<h5>Contras</h5>
+			<ul>
+				<li class="fragment">Requiere ya de un conocimiento mínimo.</li>
+				<li class="fragment">Permite consultas básicas, pero no complejas.</li>
+				<li class="fragment">No colaborativo. Excepto en formato web.</li>
+				<li class="fragment">Roles de usuario limitados (editor y visualizador).</li>
+				<li class="fragment">Difícil de estructurar.</li>
+			</ul>
+
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<h4>Segundo intento: <span class="italic">Fichero de Excel</span></h4>
+
+			<div class="fragment fade-up">
+				<img class="s-500"  src="images/Formato excel fail.png" alt="dato"/>
+			</div>
+
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<h4>Segundo intento: <span class="italic">Fichero de Excel</span></h4>
+
+			<h4> Ejemplo de fallo grave</h4>
+			<img class="fragment s-500"  src="images/Fallo excel UK.PNG" alt="dato"/>
+			<img class="fragment s-500"  src="images/Fallo excel UK 2.PNG" alt="dato"/>
+
+			<p class="fragment"><a href="https://cadenaser.com/ser/2020/10/05/internacional/1601910283_209644.html">Enlace a la noticia</a>
+
+		</section>
+		<section>
+			<h3>Intentos por parte del cliente</h3>
+			<p class="fragment">Ambos intentos acaban francasando en su finalidad.</p>
+			<p class="fragment">Se da cuenta que debe acudir a personal especializado (vosotros).</p>
+		</section>
+		<section>
+			<h2>Bases de datos (1)</h2>
+
+			<p>Las limitaciones anteriores requieren de algún sistema diseñado específicamente para atajar estos problemas.</p>
+
+			<p class="fragment italic">¿Qué es una base de datos?</p>
+
+			<p class="fragment">Se llama base de datos, o también banco de datos, a un conjunto de información perteneciente a un mismo contexto,
+				ordenada de modo sistemático para su posterior recuperación, análisis y/o transmisión.</p>
+
+			<p class="fragment"><a href="https://concepto.de/base-de-datos/#ixzz6cYmC5WEU">Fuente</a></p>
+
+		</section>
+		<section>
+			<h2>Bases de datos (y 2)</h2>
+			<h3>Ficheros vs BBDD</h3>
+
+			<table style="font-size: 2rem">
+				<tr>
+					<th></th>
+					<th>Ficheros</th>
+					<th>BBDD</th>
+				</tr>
+				<tr class="fragment">
+					<th>Tipo de entidades</th>
+					<td>Única entidad</td>
+					<td>Varias entidades</td>
+				</tr>
+				<tr class="fragment">
+					<th>Interrelaciones</th>
+					<td>No se interrelacionan</td>
+					<td>Mecanismos de interrelación</td>
+				</tr>
+				<tr class="fragment">
+					<th>Redundancia</th>
+					<td>Ad-hoc para cada aplicación</td>
+					<td>Compartida diferentens aplicaciones</td>
+				</tr>
+				<tr class="fragment">
+					<th>Usuarios</th>
+					<td>Único</td>
+					<td>Compartido</td>
+				</tr>
+			</table>
+		</section>
+		<section>
+			<h2>Conceptos fundamentales en bases de datos (1)</h2>
+
+			<ol style="font-size: 2rem">
+				<li class="fragment"><b>Campo o atributo</b>: Área de almacenamiento para almacenar datos de un tipo específico. No pueden almacenarse tipos diferentes una vez definido.</li>
+				<li class="fragment"><b>Registro o tupla</b>: Colección de datos relacionados. Dichos datos pueden ser de diferentes tipos.</li>
+				<li class="fragment"><b>Tabla o archivo</b>: Colección de registros.</li>
+			</ol>
+
+		</section>
+		<section>
+			<h2>Conceptos fundamentales en bases de datos (y 2)</h2>
+
+			<h3>Ejemplo</h3>
+			<img class="fragment "  src="images/Ejemplo%20tabla.png" alt="dato"/>
+		</section>
+		<section>
+			<h2>Clasificación de bases de datos (1)</h2>
+
+			<h4>Según la variabilidad de la base de datos</h4>
+			<ul>
+				<li class="fragment">Bases de datos estáticas: únicamente de lectura (p.e. datos históricos).</li>
+				<li class="fragment">Bases de datos dinámica: la información almacenada se modifica con el tiempo, permitiendo operaciones como actualización, borrado y edición de datos.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Clasificación de bases de datos (y 2)</h2>
+			<h3>Según el contenido</h3>
+
+			<ul>
+				<li class="fragment">Bases de datos bibliográficas</li>
+				<li class="fragment">Bases de datos de texto completo</li>
+				<li class="fragment">Directorios</li>
+				<li class="fragment">Bases de datos o "bibliotecas" de información química o biológica</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Resumen: Bases de datos</h2>
+
+			<ul>
+				<li class="fragment">Concepto de base de datos: conjunto de información estructurada, que será analizada y manipulada.</li>
+				<li class="fragment">Diferencias entre BBDD y ficheros.</li>
+				<li class="fragment">Conceptos fundamentales de una BD: atributo, tupla y tabla.</li>
+				<li class="fragment">Diferentes clasificaciones.</li>
+			</ul>
+		</section>
+		<section>
+			<h2> Bases de Datos Relacionales</h2>
+		</section>
+		<section>
+			<h3>¿Qué son las bases de datos relacionales?</h3>
+
+			<p class="fragment">Son un tipo de bases de datos donde la información se organiza en fragmentos más pequeños que se relacionan entre ellos.</p>
+			<p class="fragment">Esta relación se lleva a cabo mediante identificadores.</p>
+			<p class="fragment">Su principio: ACID.</p>
+			<ul>
+				<li class="fragment"><u>A</u>tomicidad</li>
+				<li class="fragment"><u>C</u>onsistencia</li>
+				<li class="fragment">A<u>i</u>slamiento</li>
+				<li class="fragment"><u>D</u>urabilidad</li>
+			</ul>
+			<p class="fragment">Estas propiedades permiten a los sistemas ser más robustos, seguros y menos vulnerables ante fallos.</p>
+		</section>
+		<section>
+			<h3>¿Qué son las bases de datos relacionales?</h3>
+			<h4>Atomicidad</h4>
+			<p class="fragment">Es la propiedad que asegura que una operación se ha realizado o no, y por lo tanto ante un fallo del sistema no puede quedar a medias.</p>
+			<p class="fragment">Se dice que una operación es atómica cuando es imposible para otra parte de un sistema encontrar pasos intermedios.</p>
+			<p class="fragment">Si esta operación consiste en una serie de pasos, todos ellos ocurren o ninguno.</p>
+			<p class="fragment">Por ejemplo, en el caso de una transacción bancaria o se ejecuta tanto el depósito y la deducción o ninguna acción es realizada.</p>
+		</section>
+
+		<section>
+			<h3>¿Qué son las bases de datos relacionales?</h3>
+			<h4>Consistencia</h4>
+			<p class="fragment">Es la propiedad que asegura que sólo se empieza aquello que se puede acabar.</p>
+			<p class="fragment">Por lo tanto, se ejecutan aquellas operaciones que no van a romper la reglas y directrices de integridad de la base de datos.</p>
+			<p class="fragment">Se convierte un estado coherente de datos en otro estado de datos igualmente coherente.</p>
+		</section>
+
+		<section>
+			<h3>¿Qué son las bases de datos relacionales?</h3>
+			<h4>Aislamiento</h4>
+			<p class="fragment">Es la propiedad que asegura que una operación no puede afectar a otras.</p>
+			<p class="fragment">Esto asegura que la realización de dos transacciones sobre la misma información nunca generará ningún tipo de error.</p>
+			<p class="fragment">Las operaciones se comportan como si cada una fuera la única que se ejecuta en el sistema.</p>
+		</section>
+
+		<section>
+			<h3>¿Qué son las bases de datos relacionales?</h3>
+			<h4>Durabilidad</h4>
+			<p class="fragment">Es la propiedad que asegura que una vez realizada la operación, ésta persistirá y no se podrá deshacer aunque falle el sistema.</p>
+		</section>
+
+		<section>
+			<h3>¿Qué son las bases de datos relacionales?</h3>
+			<p>Además, Las bases de datos relacionales se caracterizan por su naturaleza autodesciptiva.</p>
+			<p class="fragment">Los programas de aplicación acceden a información específica, donde se describe la estructura de los datos (Metadatos).</p>
+			<p class="fragment">Los metadatos permiten a las herramientas a "leer" todo tipo de BBDD independientemente de su
+				naturaleza (bancos, automoción...).</p>
+		</section>
+		<section>
+			<h3>¿Qué son las bases de datos relacionales?</h3>
+			<h4>¡Importante!</h4>
+			<p class="text-left">Hay dos grandes entidades en una base de datos.</p>
+			<ul class="fragment">
+				<li class="fragment">Los datos en sí (junto con sus metadatos).</li>
+				<li class="fragment">El programa (conjunto de herramientas) que gestiona y consulta esos datos.</li>
+			</ul>
+			<p class="fragment">La comunicación entre ambos es posible gracias a la abstracción de los datos y sus metadatos.</p>
+		</section>
+		<section>
+			<h3>Sistemas gestores de bases de datos (1)</h3>
+
+			<p class="fragment">Un sistema gestor de base de datos (SGBD) es un conjunto de programas que permiten el almacenamiento,
+				modificación y extracción de la información en una base de datos.</p>
+
+			<p class="fragment">A través de herramientas específicas de consulta o bien mediante aplicaciones al efecto.</p>
+
+		</section>
+		<section>
+			<h3>Sistemas gestores de bases de datos (2)</h3>
+			<h4>Tareas y funciones</h4>
+
+			<ul>
+				<li>Permite la compartición de los datos entre múltiples sistemas y/o usuarios.</li>
+				<li class="fragment">Además, lo permite de manera concurrente. Dos usuarios pueden consultar los datos a la vez.</li>
+				<li class="fragment">Diferentes vistas de los datos: dos usuarios pueden querer ver distinta información.</li>
+				<li class="fragment">Cambio de la estructura de la base de datos sin afectar a los datos almacenados.</li>
+
+			</ul>
+
+		</section>
+		<section>
+			<h3>Sistemas gestores de bases de datos (y 3)</h3>
+			<h4>Tareas y funciones (y 2)</h4>
+
+			<ul>
+				<li class="fragment">"Enforcer". Se encarga de controlar el acceso a los datos según los distintos Roles
+					y permisos de los usuarios.</li>
+				<li class="fragment">Copias de seguridad.</li>
+				<li class="fragment">Mantenimiento de integridad de los datos (a través, por ejemplo, de Restricciones).</li>
+				<li class="fragment">Recuperación de los datos ante un fallo de sistema.</li>
+			</ul>
+
+		</section>
+		<section>
+			<h3>Control de usuarios</h3>
+			<p>No todos los usuarios deberían poder acceder a toda la BD.</p>
+			<p class="fragment"><b>Control selectivo</b>:</p>
+			<ol style="font-size: 2rem">
+				<li class="fragment">Sólo usuarios autorizados. Si no se tiene una "Cuenta", no se accede a los datos.</li>
+				<li class="fragment">Sólo a ciertas partes de la base de datos. Un administrador puede ver todo, mientras que un visualizador, solo ciertas partes.</li>
+				<li class="fragment">Sólo para realizar ciertas operaciones con los datos. P.e. el admin puede crear otros usuarios, el resto no.</li>
+			</ol>
+
+		</section>
+		<section>
+			<h3>Implementaciones de bases de datos relacionales</h3>
+
+			<ul>
+				<li>MySQL (MariaDB)</li>
+				<li>Oracle</li>
+				<li>SQL Server</li>
+				<li>Postgres</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Otros conceptos importantes de las bases de datos relacionales</h2>
+
+		</section>
+
+		<section>
+			<h3>Claves (KEY)</h3>
+
+			<p class="fragment">Las claves son campos que identifican a las tablas. Puede ser un único campo o un grupo de campos.</p>
+			<p class="fragment">Hay varios tipos:</p>
+
+			<ul>
+				<li class="fragment">Claves Primarias: PRIMARY KEY</li>
+				<li class="fragment">Claves foráneas: FOREIGN KEY</li>
+				<li class="fragment">Claves índice: INDEX</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Claves Primarias: PRIMARY KEY</h3>
+
+			<p class="fragment">Una clave primaria es una clave única. </p>
+			<p class="fragment">Define unívocamente a todos los demás atributos de la tabla para
+				especificar los datos que serán relacionados con las demás tablas.</p>
+			<p class="fragment">Puede estar conformada por uno o más campos de la tabla.</p>
+			<p class="fragment">Ejemplo, el DNI sería el identificador único de persona.</p>
+		</section>
+
+		<section>
+			<h3>Claves foráneas: FOREIGN KEY</h3>
+
+			<p class="fragment">Una clave foránea es una referencia a una clave en otra tabla,
+				determina la relación existente entre dos tablas.</p>
+			<p class="fragment">Las claves foráneas no necesitan ser claves
+				únicas en la tabla donde están y sí a donde están referenciadas.</p>
+			<p class="fragment">Ejemplo, los códigos en los paneles de salida en las autopistas.</p>
+			<p class="fragment">Ejemplo, todos los libros son "elaborados" por un autor.</p>
+
+		</section>
+
+		<section>
+			<h3>Claves índice: INDEX</h3>
+
+			<p class="fragment">Las claves índice surgen con la necesidad de tener un acceso más rápido a los datos.</p>
+			<p class="fragment">Los índices pueden ser creados con cualquier combinación de campos de una tabla.</p>
+			<p class="fragment">Las consultas que filtran registros por medio de estos campos, pueden encontrar los registros de forma no secuencial usando la clave índice</p>
+			<p class="fragment">En una guía de teléfonos, los números podrían ser un índice, si se deseara hacer búsquedas por ellos.</p>
+
+		</section>
+
+		<section>
+			<h3>Restricciones (CONSTRAINTS) (1)</h3>
+
+			<ul>
+				<li class="fragment">Una restricción es una condición que obliga el cumplimiento de ciertas condiciones en la base de datos.</li>
+				<li class="fragment">Permiten implementar reglas en la base de datos.</li>
+				<li class="fragment">Restringen los datos que pueden ser almacenados en las tablas.</li>
+				<li class="fragment">Deben retornar un valor booleano, indicando si los datos satisfacen la restricción o no.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Restricciones (CONSTRAINTS) (2)</h3>
+
+			<h4>Tipos:</h4>
+			<ul>
+				<li class="fragment">Inherentes a la base de datos relacional. Por ejemplo la unicidad de las Claves Primarias o la existencia de las claves foráneas.</li>
+				<li class="fragment">Definidas por el usuario. Por ejemplo, que un número no pueda ser mayor que siete.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Restricciones (CONSTRAINTS) (3)</h3>
+
+			<h4>Restricciones comunes:</h4>
+			<ul>
+				<li class="fragment"><b>NOT NULL</b>: el valor del atributo no puede ser NULL.</li>
+				<li class="fragment"><b>UNIQUE</b>: asegura que todos los valores de la columna son distintos.</li>
+				<li class="fragment"><b>CHECK</b>: todos los valores cumplen la condición definida.</li>
+				<li class="fragment"><b>DEFAULT</b>: inicializa un valor por defecto si no se proporciona ninguno.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Restricciones (CONSTRAINTS) (y 4)</h3>
+
+			<h4>Ejemplo:</h4>
+			<p>Si se define valor como un atributo que acepta un número entero y especificamos la siguiente condición:</p>
+			<p class="fragment">CHECK(valor > 12)</p>
+			<p class="fragment">Si intentamos almacenar un elemento cuyo valor=5, el sistema devolverá un error y no permitirá la operación.</p>
+		</section>
+
+		<section>
+			<h3>Entorno simplificado de un sistema de base de datos</h3>
+			<img class="fragment s-500"  src="images/Entorno%20simplificado.png" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Principales actores de un  sistema de base de datos</h3>
+
+			<ul>
+				<li class="fragment">Administrador de la base de datos (ABD).</li>
+				<li class="fragment">Diseñadores de la base de datos.</li>
+				<li class="fragment">Usuarios finales.</li>
+				<li class="fragment">Ingenieros de software.</li>
+				<li class="fragment">Diseñan e Implementan los Módulos e Interfaces del SGBD.</li>
+				<li class="fragment">Operadores y Personal de mantenimiento.</li>
+				<li class="fragment">Desarrolladores de herramientas.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Administrador de la base de datos (ABD)</h3>
+			<p>Responsable de administrar los recursos del SBD (nivel técnico):</p>
+
+			<ul>
+				<li class="fragment">BD.</li>
+				<li class="fragment">SGBD.</li>
+				<li class="fragment">Otro Software (aplicaciones/programas de acceso).</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Administrador de la base de datos (ABD)</h3>
+			<p>Las funciones del ABD incluyen:</p>
+			<ul>
+				<li class="fragment">Definir/Modificar la estructura de la BD y restricciones de los datos.</li>
+				<li class="fragment">Crear/Modificar estructuras de almacenamiento y métodos de acceso.</li>
+				<li class="fragment">Conceder/Denegar permisos de acceso y controlar dicho acceso a datos (seguridad de la BD).</li>
+				<li class="fragment">Definir planes de copias de seguridad de los datos de la BD.</li>
+				<li class="fragment">Garantizar el funcionamiento correcto del sistema y proporcionar servicio técnico al
+					usuario (respuesta lenta del sistema...).</li>
+				<li class="fragment">Adquirir los recursos software y hardware necesarios.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Diseñadores de la base de datos</h3>
+			<p>Antes de implementar la BD, interactúan con sus futuros usuarios:</p>
+			<ul>
+				<li class="fragment">Recogen y comprenden sus necesidades y objetivos --- Requisitos.</li>
+				<li class="fragment">Identifican datos que almacenar en la base de datos.</li>
+				<li class="fragment">Eligen estructuras para representar y almacenar los datos.</li>
+				<li class="fragment">Finalmente, diseñan la BD que satisface las necesidades de todos los usuarios.</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h3>Usuarios finales</h3>
+			<p>Distintos tipos:</p>
+			<ul>
+				<li class="fragment">Ocasionales o Sofisticados:
+					<ul>
+						<li>Acceso esporádico y distinto cada vez; usan lenguaje de consulta.</li>
+					</ul>
+				</li>
+				<li class="fragment">Paramétricos o Normales.
+					<ul>
+						<li>Accesos constantes, repetitivos.</li>
+						<li>Usan “transacciones programadas” para ellos.</li>
+					</ul></li>
+				<li class="fragment">Avanzados o Especializados.
+					<ul>
+						<li>Implementan sus propias aplicaciones especializadas para cumplir sus complejos requisitos.</li>
+						<li>Ingenieros, científicos, analistas de empresa, ...</li>
+					</ul></li>
+				<li class="fragment">Autónomos.
+					<ul>
+						<li>Usan BD personales, a través de aplicación/paquete comercial específico.</li>
+					</ul></li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h3>Ingenieros de software</h3>
+			<p>Analistas de sistemas y Programadores de aplicaciones:</p>
+			<ul>
+				<li class="fragment">Conocen perfectamente capacidades y recursos del SGBD.</li>
+				<li class="fragment">Analistas.
+					<ul>
+						<li>Determinan necesidades de procesamiento de los usuarios finales.</li>
+						<li>Especifican conjuntos de operaciones que satisfacen esas necesidades.</li>
+					</ul></li>
+				<li class="fragment">Programadores.
+					<ul>
+						<li>Implementan estas especificaciones -> Programas de aplicación.</li>
+						<li>Prueba, depuración, documentación y mantenimiento de programas.</li>
+					</ul></li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Diseñadores e Implementadores del SGBD</h3>
+			<ul>
+				<li class="fragment">No están interesados en el contenido de la base de datos .</li>
+				<li class="fragment">Diseñan e Implementan los Módulos e Interfaces del SGBD.</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h3>Operadores y Personal de mantenimiento</h3>
+			<ul>
+				<li class="fragment">Tampoco están interesados en el contenido de la base de datos .</li>
+				<li class="fragment">Se encargan de manterner y operar todo el entorno, tanto hardware como software.</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h3>Desarrolladores de herramientas</h3>
+			<ul>
+				<li class="fragment">Diseñan e implementan paquetes software que:
+					<ul>
+						<li>Facilitan diseño y uso de los SBD.</li>
+						<li>Permiten aumentar el rendimiento de los SBD.</li>
+					</ul></li>
+				<li class="fragment">Herramientas para:
+					<ul>
+						<li>Diseño de BD, de aplicaciones de BD, de interfaces de usuario...</li>
+						<li>Creación de prototipos de aplicaciones de BD.</li>
+						<li>Realizar simulaciones y generar datos de prueba.</li>
+						<li>Supervisión de rendimiento del sistema.</li>
+					</ul></li>
+			</ul>
+		</section>
+		<section>
+			<h3>SQL: Structured Query Language</h3>
+
+			<p class="fragment">SQL: lenguaje de consulta estructurado.</p>
+			<p class="fragment">Es un lenguaje declarativo de acceso a bases de datos relacionales que permite especificar diversos tipos de operaciones en ellas.</p>
+			<p class="fragment">Mediante manejo del álgebra y el cálculo relacional se permite efectuar consultas con el
+				fin de recuperar la información así como hacer cambios en ella.</p>
+
+			<p class="fragment">Explota la flexibilidad y potencia de los sistemas relacionales y permite así gran variedad de operaciones.</p>
+		</section>
+
+		<section>
+			<h3>SQL: Structured Query Language</h3>
+
+			<ul style="font-size: 1.6rem">
+				<li class="fragment">DDL (Data definition Language)
+					<ul style="font-size: 1.6rem">
+						<li>Lenguaje de definición de datos</li>
+						<li>Esquema conceptual</li>
+						<li>Permite crear, definir y estructurar la Base de datos (Sus entidades y relaciones)</li>
+						<li>P.e. en SQL: CREATE o DROP</li>
+					</ul>
+				</li>
+				<li class="fragment">DML (Data Management Language)
+					<ul style="font-size: 1.6rem">
+						<li>Lenguaje de manipulación de datos</li>
+						<li>Permite acceder a los datos. No permiten cambios sobre la estructura</li>
+						<li>P.e. en SQL: INSERT o SELECT</li>
+					</ul>
+				</li>
+				<li class="fragment">DCL (Data Control Language)
+					<ul style="font-size: 1.6rem">
+						<li>Lenguaje de control de datos</li>
+						<li>Permite crear, definir usuarios, roles y permisos.</li>
+						<li>P.e. en SQL: CREATE USER, GRANT PRIVILEGES</li>
+					</ul>
+				</li>
+			</ul>
+			<p class="fragment" style="font-size: 1.6rem">Para poder usar el DML, previamente se debe de haber utilizado el DDL.</p>
+		</section>
+		<section>
+			<h3>Ejemplos SQL</h3>
+
+			<div class="fragment">
+				<p>Ejemplo DDL: Creación de una tabla</p>
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 4rem">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> CREATE TABLE precios(id TINYINT PRIMARY KEY, precio DECIMAL(8, 2), fecha TIMESTAMP);
+					</code>
+				</pre>
+			</div>
+			<div class="fragment">
+				<p>Ejemplo DML: Inserción y selección de datos</p>
+				<pre style="font-size: 1rem; box-shadow: none; margin: 0 auto; max-height: 10rem">
+				<code class="mysql"  data-trim data-noescape>
+					mysql> INSERT INTO precios(id, precio) VALUES(1, 234.34);
+					mysql> INSERT INTO precios(id, precio) VALUES(2, 344.12);
+
+					mysql> SELECT * FROM precios;
+					+----+--------+---------------------+
+					| Id | precio | fecha               |
+					+----+--------+---------------------+
+					|  1 | 234.34 | 2020-10-31 12:12:25 |
+					|  2 | 344.12 | 2020-10-31 12:15:10 |
+					+----+--------+---------------------
+				</code>
+				</pre>
+			</div>
+		</section>
+		<section>
+			<h2>Arquitecturas de BD</h2>
+
+			<p class="fragment">La arquitectura de todo sistema de BD está muy condicionada también por las características del sistema informático sobre el que se ejecuta,
+				y en especial por los siguientes aspectos:</p>
+			<ul>
+				<li class="fragment">La conexión en red de diferentes computadoras.</li>
+				<li class="fragment">El procesamiento paralelo de consultas dentro de una misma computadora.</li>
+				<li class="fragment">La distribución de los datos en diferentes computadoras, incluso alejadas entre sí.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Arquitecturas de BD</h2>
+			<p class="fragment">Debido a la evolución tecnológica, se han creado nuevas arquitecturas que se aleja de los sistemas centralizados en una sola computadora.</p>
+			<p class="fragment">Estos distintos tipos permiten dar respuesta a distintas necesidades de usuarios y sistemas:</p>
+			<ul>
+				<li class="fragment">Sistemas cliente-servidor.</li>
+				<li class="fragment">Sistemas paralelos.</li>
+				<li class="fragment">Sistemas distribuidos.</li>
+			</ul>
+
+		</section>
+		<section>
+			<h2>Arquitecturas de BD</h2>
+			<h3>Cliente - servidor</h3>
+			<p class="fragment">El servidor permite llevar a cabo las funciones propias del SGBD, se puede decir que el servidor es en sí, el SGBD.</p>
+			<p class="fragment">Un cliente es cada consumidor de recursos de la base de datos.</p>
+			<p class="fragment">Los datos se envían al servidor. Éste los procesa y devuelve el resultado obtenido.</p>
+			<p class="fragment">El usuario no tiene porqué estar en la misma máquina (de hecho, suelen estar en servidores separados).</p>
+			<p class="fragment">Mucho más eficiente, ya que se dividen las tareas que los distintos sistemas realizan.</p>
+			<p class="fragment">Son sistemas escalables y modulares, es decir, se puede aumentar la cantidad de servicios prestados por los ordenadores.</p>
+		</section>
+		<section>
+			<h2>Arquitecturas de BD</h2>
+			<h3>Cliente - servidor</h3>
+			<p class="fragment">Se pueden clasificar en tres categorias:</p>
+			<ul>
+				<li class="fragment">Las pequeñas, sin servidor. Para max 10 clientes concurrentes. Ejemplo: MS-Acces.</li>
+				<li class="fragment">Las medianas, con servidor. Para hasta 50 clientes concurrentes. Ejemplo: Firebird.</li>
+				<li class="fragment">Las grandes, con servidor. Para hasta miles de clientes concurrentes. Ejemplo: MySQL, Oracle, SQL  Server.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Arquitecturas de BD</h2>
+			<h3>Bases de datos distribuidas</h3>
+			<p class="fragment">Cuando una cliente accede a datos de distintos servidores, se denomina Bases de Datos Distribuidas.</p>
+			<p class="fragment">En estos sistemas la base de datos está distribuida en más de un servidor.</p>
+			<p class="fragment">Los usuarios no tienen por qué conocer la ubicación física de los datos con los que trabajan y han de acceder simultáneamente a varios servidores.</p>
+		</section>
+		<section>
+			<h2>Arquitecturas de BD</h2>
+			<h3>Bases de datos distribuidas</h3>
+
+			<p class="fragment">Hay buenas razones para implementar BD distribuidas:</p>
+			<p class="fragment">En estos sistemas la base de datos está distribuida en más de un servidor.</p>
+			<ul>
+				<li class="fragment">Compartición de la información y autonomía local: cada nodo controla (hasta cierto punto) la administración de los datos almacenados localmente.</li>
+				<li class="fragment">Fiabilidad y disponibilidad: es posible seguir trabajando e incluso recuperar nodos en caso de fallo.</li>
+				<li class="fragment">Agilización del procesamiento de consultas: se puede dividir las consultas en diferentes subconsultas que se ejecuten en los nodos respectivos.</li>
+			</ul>
+
+		</section>
+		<section>
+			<h2>Resumen</h2>
+			<ul>
+				<li class="fragment">Bases de datos relacionales.</li>
+				<li class="fragment">Componentes de las bases de datos: Datos, Metadatos, SGBD.</li>
+				<li class="fragment">Control de usuarios.</li>
+				<li class="fragment">Las relaciones de las bases de datos: cocepto CLAVE.</li>
+				<li class="fragment">Cómo mantener consistentes los datos: RESTRICCIONES.</li>
+				<li class="fragment">Los actores de las bases de datos.</li>
+				<li class="fragment">Concepto de SQL: DDL y DML.</li>
+				<li class="fragment">Tipos de arquitecturas.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Está bien toda esta teoría...</h2>
+
+			<h4>Pero... ¿Cómo la llevo a la práctica?</h4>
+			<p class="fragment">Diseño de bases de datos (mediante la aplicación de modelos).</p>
+		</section>
+
+		<section>
+			<h3>Diseño de bases de datos (1)</h3>
+
+			<p class="fragment">El diseño de una base de datos consiste en extraer todos los datos relevantes de un problema.</p>
+			<p class="fragment">Saber qué datos están implicados en el proceso que se desea implentar.</p>
+			<p class="fragment">En nuestro caso de estudio, qué datos y funcionalidades serán necesarios en el sistema del banco.</p>
+			<p class="fragment">Para la extracción de estos datos, se debe realizar un análisis en profundidad del problema:</p>
+			<ul>
+				<li class="fragment">Averiguar qué datos son esenciales para la base de datos</li>
+				<li class="fragment">Descartar los que no sean necesarios.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Diseño de bases de datos (2)</h3>
+			<p class="fragment">Una vez extraídos los datos esenciales se procederá a construir los modelos adecuados.</p>
+			<p class="fragment">Es decir, construir, mediante una herramienta de diseño de base de datos,
+				un esquema que exprese con total exactitud todos los datos que el problema requiere almacenar.</p>
+			<p class="fragment">Equivalente al plano previo a la construcción de un puento o una presa.</p>
+		</section>
+
+		<section>
+			<h3>Modelos</h3>
+
+			<h3>Pero, ¿qué son los modelos?</h3>
+			<p class="fragment">Llamamos modelo a un instrumento que se aplica a una parcela del mundo real para obtener una estructura de datos a la que denominamos esquema.</p>
+			<p class="fragment">Modelar consiste en definir un mundo abstracto de forma que las conclusiones que se puedan sacar de él coincidan con las manifestaciones del mundo real.</p>
+			<p class="fragment">Un modelo de datos es un conjunto de herramientas conceptuales que permiten describir los datos, sus relaciones y las reglas de integridad que deben cumplir.</p>
+		</section>
+
+		<section>
+			<h3>Modelos</h3>
+			<h4>Tipos:</h4>
+			<ul>
+				<li class="fragment">Modelo relacional</li>
+				<li class="fragment">Modelo de base de datos jerárquico</li>
+				<li class="fragment">Modelo de red</li>
+				<li class="fragment">Modelo de base de datos orientado a objetos</li>
+				<li class="fragment">Modelo entidad-relación</li>
+				<li class="fragment">Y más...</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Modelos</h3>
+			<h4>¿Qué modelo escoger?</h4>
+			<p class="fragment">Modelo compatible con el sistema de gestión utilizado.</p>
+			<p class="fragment">Los sistemas de gestión de bases de datos están desarrollados con un modelo de datos particular en mente.</p>
+			<p class="fragment">Diferentes modelos aplican a diferentes etapas del proceso de diseño de bases de datos:</p>
+			<ul>
+				<li class="fragment">Modelos de datos conceptuales: son mejores para crear mapas de relaciones entre datos.</li>
+				<li class="fragment">Modelos de datos lógicos: recomendados para definir el modo de almacenamiento en el servidor.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Modelo Relacional (1)</h3>
+			<p class="fragment">Uno de los modelos más comunmente utilizados.</p>
+			<p class="fragment">Los datos son ordenados en forma de tablas o Relaciones.</p>
+			<p class="fragment">Se componen de columnas y filas.</p>
+			<p class="fragment">Las columnas definen los atributos (nombre, teléfono, código).</p>
+			<p class="fragment">Al conjunto de todos los atributos de una relación se denomina Dominio.</p>
+			<p class="fragment">Modelo muy próximo al modelo físico de BD.</p>
+
+		</section>
+
+		<section>
+			<h3>Modelo Relacional (2)</h3>
+			<p class="fragment">Uno o varios atributos serán escogidos como clave primaria, y que serán usadas por otras tablas para hacer referencia a esa información, a través de las claves externas.</p>
+			<p class="fragment">Cada fila, también denominada tupla, incluye datos sobre una instancia específica de la entidad en cuestión, por ejemplo, un empleado específico.</p>
+		</section>
+		<section>
+			<h3>Modelo Relacional (y 3)</h3>
+			<h4>Ejemplo</h4>
+			<img class="s-400"  src="images/relational-model.svg" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Modelo Jerárquico (1)</h3>
+			<p class="fragment">Organiza los datos en una estructura de árbol.</p>
+			<p class="fragment">Cada registro tiene un único elemento o raíz.</p>
+			<p class="fragment">Los registros del mismo nivel se clasifican en un orden específico.</p>
+			<p class="fragment">Ese orden se usa a manera de orden físico para almacenar la base de datos.</p>
+
+		</section>
+		<section>
+			<h3>Modelo Jerárquico (y 2)</h3>
+			<h4>Ejemplo</h4>
+			<img class="s-500"  src="images/hierarchical-model.svg" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Modelo de Red (1)</h3>
+			<p class="fragment">Se basa en el modelo jerárquico.</p>
+			<p class="fragment">Permitiendo relaciones de muchos a muchos entre registros vinculados.</p>
+			<p class="fragment">Registros principales múltiples. Múltiples elementos raíces.</p>
+
+		</section>
+		<section>
+			<h3>Modelo de Red (y 2)</h3>
+			<h4>Ejemplo</h4>
+			<img class="s-500"  src="images/network-model.svg" alt="dato"/>
+		</section>
+
+		<section>
+			<h3>Modelo de base de datos orientado a objetos (1)</h3>
+			<p class="fragment">Define una base de datos como una colección de objetos, o elementos de software reutilizables, con funciones y métodos relacionados.</p>
+			<p class="fragment">Varios tipos:</p>
+			<ul>
+				<li class="fragment">Base de datos multimedia: incorpora elementos multimedia (no almacenables en modelo relacional).</li>
+				<li class="fragment">Base de datos de hipertexto: cualquier objeto se puede conectar a cualquier otro objeto.</li>
+			</ul>
+			<p class="fragment">Modelo conocido también como base de datos posrelacional ya que incorpora tablas, pero no se limita a ellas.</p>
+
+		</section>
+		<section>
+			<h3>Modelo de base de datos orientado a objetos (y 2)</h3>
+			<h4>Ejemplo</h4>
+			<img class="s-400" src="images/object-oriented-model.svg" alt="dato"/>
+		</section>
+		<section>
+			<h3>Modelo Entidad-Relación</h3>
+			<p class="fragment">Capta las relaciones entre entidades del mundo real (similar al modelo de red).</p>
+			<p class="fragment">Se diferencia del modelo de red en que no está ligado a una estructura física de datos.</p>
+			<p class="fragment">Diseño  de más alto nivel, más próximo al usuario y más alejado del diseño físico de la BD.</p>
+			<p class="fragment">Se compone de:</p>
+			<ul>
+				<li class="fragment">Entidades: personas, lugares, objetos...</li>
+				<li class="fragment">Atributos: características de esas entidades (nombres, modelo,...).</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Fases diseño de una base de datos</h2>
+		</section>
+		<section>
+			<h3>Fase de Análisis: Especificación de requisitos Software (1)</h3>
+			<p class="fragment">Fase previa al diseño</p>
+			<p class="fragment">Se detalla lo que se quiere hacer.</p>
+			<p class="fragment">¿Qué se espera del sistema final?</p>
+		</section>
+		<section>
+			<h3>Fase de Análisis: Especificación de requisitos Software (2)</h3>
+			<p class="fragment">Recopilación de información a través de consultas a los usuarios finales.</p>
+			<p class="fragment">Elaboración de una batería de preguntas.</p>
+			<p class="fragment">Entrevista a los usuarios finales y obtención de información lo más detallada posible de todas las preguntas recogidas.</p>
+			<p class="fragment">Preparación del documento de Especificación de Requisitos Software.</p>
+			<p class="fragment">A partir de ese documento, se extrae toda la información necesaria para la modelización de datos.</p>
+
+		</section>
+		<section>
+			<h3>Fase 1 del diseño. Diseño Conceptual (1)</h3>
+			<p class="fragment">Modelo Entidad-Relación.</p>
+			<p class="fragment">Habitualmente quien realiza la modelización es un analista informático.</p>
+			<p class="fragment">No tiene porqué ser un experto en el problema que pretende resolver (Contabilidad, Banca...).</p>
+			<p class="fragment">Imprescindible contar con la experiencia de un usuario final de la BD que conozca a fondo todos los detalles del negocio.</p>
+			<p class="fragment">Los usuarios finales no tienen porqué tener ningún conocimiento informático.</p>
+		</section>
+		<section>
+			<h3>Fase 1 del diseño. Diseño Conceptual (2)</h3>
+			<p>Modelo Entidad-Relación.</p>
+			<p class="fragment">Se representará la información obtenida del usuario final y concretada en el documento de Especificación de Requisitos Software.</p>
+			<p class="fragment">Se utilizan modelos estandarizados con el fin de que futuruos ingenieros del software puedan entender los diagramas realizados.</p>
+			<p class="fragment">Este tipo de modelo tiene un gran poder expresivo para poder comunicarse con el usuario que no es experto en informática.</p>
+			<p class="fragment">Es por tanto, un modelo conceptual.</p>
+
+
+		</section>
+		<section>
+			<h3>Fase 2 del diseño. Diseño Lógico</h3>
+			<p class="fragment">Modelo Relacional.</p>
+			<p class="fragment">Es más técnico que el modelo anterior porque está orientado al personal informático.</p>
+			<p class="fragment">Generalmente tiene traducción directa al al modelo físico.</p>
+			<p class="fragment">Se obtienen a partir del modelo conceptual y dependerá de la implementación de la BD.</p>
+			<p class="fragment">No es lo mismo implementar una base de datos jerárquica u orientada a objetos que una BD relacional.</p>
+
+		</section>
+		<section>
+			<h3>Fase 3 del diseño. Diseño Físico: Modelo Físico</h3>
+			<p class="fragment">Es el resultado de aplicar el modelo lógico a un SGBD concreto.</p>
+			<p class="fragment">Generalmente está expresado en un lenguaje de programación de BBDD tipo SQL.</p>
+			<p class="fragment">Sublenguaje DDL de SQL.</p>
+
+		</section>
+		<section>
+			<h3>Esquema fases de diseño</h3>
+			<img class="fragment" src="images/fases%20disenho.PNG" alt="dato"/>
+		</section>
+
+		<!-- Posibles QUIZ -->
+
+		<section>
+			<h2>And now...</h2>
+			<img class="fragment"  src="images/quiztime.png" alt="dato"/>
+		</section>
+
+		<section>
+			<h2>QUIZ 1</h2>
+			<p class="fragment">En una base de datos de tipo relacional...</p>
+			<ul>
+				<li class="fragment">a. los registros son las filas de las tablas</li>
+				<li class="fragment">b. los registros son las columnas de las tablas</li>
+				<li class="fragment">c. los campos son las filas de las tablas</li>
+				<li class="fragment">d. las tuplas son las columnas de las tablas</li>
+			</ul>
+			<p class="fragment">Correcta: a</p>
+		</section>
+
+		<section>
+			<h2>QUIZ 2</h2>
+			<p class="fragment">Las fases del diseño de una base de datos relacional son:</p>
+			<ul>
+				<li class="fragment">a. el diseño conceptual y el diseño físico</li>
+				<li class="fragment">b. el diseño conceptual, el diseño lógico y el diseño físico</li>
+				<li class="fragment">c. el diseño conceptual, el diseño analógico y el diseño físico</li>
+				<li class="fragment">d. el diseño digital, el diseño lógico y el diseño global</li>
+			</ul>
+			<p class="fragment">Correcta: b</p>
+		</section>
+
+		<section>
+			<h2>QUIZ 3</h2>
+			<p class="fragment">Una consulta en una base de datos es...</p>
+			<ul>
+				<li class="fragment">a. una manera de seleccionar información de una o más tablas, visualizada como otra tabla</li>
+				<li class="fragment">b. una pantalla de introducción, consulta o modificación de datos en una o varias tablass</li>
+				<li class="fragment">c. una presentación de los datos en la vista de impresión</li>
+				<li class="fragment">d. ninguna de las anteriores</li>
+			</ul>
+			<p class="fragment">Correcta: a</p>
+		</section>
+
+		<section>
+			<h2>QUIZ 4</h2>
+			<p class="fragment">La herramienta informática que permite crear, manipular, gestionar y eliminar los datos y las estructuras de una base de datos es:</p>
+			<ul>
+				<li class="fragment">a. una base de datos jerárquica</li>
+				<li class="fragment">b. un Sistema Gestor de Bases de Datos (SGBD)</li>
+				<li class="fragment">c. una base de datos relacional</li>
+				<li class="fragment">d. ninguna de las anterioress</li>
+			</ul>
+			<p class="fragment">Correcta: b</p>
+		</section>
+
+		<section>
+			<h2>QUIZ 5</h2>
+			<p class="fragment">¿Qué es una relación?</p>
+			<ul>
+				<li class="fragment">a. Son vínculos entre tablas</li>
+				<li class="fragment">b. Específica si es necesario que exista un valor en un campo</li>
+				<li class="fragment">c. Ninguna es correcta</li>
+				<li class="fragment">d. Ambas son ciertas</li>
+			</ul>
+			<p class="fragment">Correcta: a</p>
+		</section>
+
+		<section>
+			<h2>Happy time</h2>
+			<img class="fragment s-400"  src="images/chiste.jpeg" alt="dato"/>
+			<p class="fragment">Ahora no os reís, pero en un futuro... xD</p>
+		</section>
+
+		<section>
+			<h1>¿Preguntas?</h1>
+			<p>Muchas gracias por vuestra atención.</p>
+		</section>
+	</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+	});
+</script>
+</body>
+</html>

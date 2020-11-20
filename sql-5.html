@@ -1,0 +1,1979 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>HaB: SQL</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<style>
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+			font-family: "Quicksand", sans-serif
+		}
+
+		.reveal h1{
+			font-size: 2.2em;
+		}
+
+
+		.reveal h2{
+			font-size: 1.6em;
+		}
+
+
+		.reveal h3{
+			font-size: 1.2em;
+		}
+
+
+		.reveal h4{
+			font-size: 1.05em;
+		}
+
+		body, body p, body ul {
+			font-size: 1.8rem;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+		.italic{
+			font-style: italic;
+		}
+		.s-500{
+			width: 500px;
+		}
+		.s-400{
+			width: 400px;
+		}
+		.mysql-code{
+			font-size: 1rem;
+			box-shadow: none;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+
+		<section>
+
+			<h2>HaB: Introducción a SQL</h2>
+
+			<p>Por: <span class="italic">Fernando Batlle López</span></p>
+			<br>
+			<p><a href="http://www.linkedin.com/in/fernando-batlle-55333738">Linkedin</a> | <a href="http://lapisoft.es">Lapisoft Projects S.L.</a></p>
+		</section>
+
+		<section>
+			<h2> Creación tablas SQL</h2>
+			<h4>LENGUAJE DE MANIPULACIÓN DE DATOS: DML</h4>
+		</section>
+
+		<section>
+			<h3>Inserción de datos</h3>
+			<p class="fragment">Para los ejemplos se utilizará la ya conocida tabla "usuario".</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE IF NOT EXISTS usuario (
+						id INT AUTO_INCREMENT,
+						nombre VARCHAR(50) NOT NULL,
+						apellido_1 VARCHAR(50) NOT NULL,
+						apellido_2 VARCHAR(50) NOT NULL,
+						email VARCHAR(50) NOT NULL,
+						fecha_nacimiento DATE,
+						activo TINYINT DEFAULT 1,
+						empleado TINYINT DEFAULT 0,
+						notas TEXT
+					);
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Inserción de datos</h3>
+			<p class="fragment">El comando INSERT de SQL permite introducir datos en una tabla.</p>
+			<p class="fragment">Se requiere el permiso INSERT para la tabla.</p>
+			<p class="fragment">Existen varias sintaxis para este comando:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					INSERT INTO tbl_name (col_name1 [, col_name2] ...)
+					  VALUES
+					    (value_col1 [,value_col1] ...)
+					    [,()] ...
+				</code>
+			</pre>
+
+			<p class="fragment">La ejecución del comando INSERT retorna el número de registros afectados:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Records: N1 Duplicates: N2 Warnings: N3
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Inserción de datos</h3>
+			<p class="fragment">Ejemplo para la tabla "usuario" con esta sintaxis:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> INSERT INTO usuario (nombre, apellido_1, apellido_2, email, fecha_nacimiento, empleado)
+						VALUES("Laura", "Master", "Rockefeller", "laura@allthemoneybank.com", "1971-03-04", 1),
+						      ("Joseba", "Loco", "Motora", "joseba@allthemoneybank.com", "1982-10-24", 0);
+				</code>
+			</pre>
+			<p class="fragment">Se especifican sólo las columnas que se desean rellenar.</p>
+			<p class="fragment">Los valores deben corresponderse con el orden de las columnas.</p>
+			<p class="fragment">Si no se especifica una columna definida bajo NOT NULL, el sistema retornará error, ya que se convierte en un campo obligatorio.</p>
+			<p class="fragment">Los campos con AUTOINCREMENT no tienen que incluirse.</p>
+
+		</section>
+		<section>
+			<h3>Inserción de datos</h3>
+			<p class="fragment">Hay otra forma similar a la anterior, donde no se tiene que especificar las columnas.</p>
+			<p class="fragment">En ese caso se deben especificar todos los valores en el orden de aparición en la tabla.</p>
+			<p class="fragment">Existen varias sintaxis para este comando:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					INSERT INTO tbl_name VALUES
+					    (value_col1 [,value_col1] ...)
+					    [,()] ...
+				</code>
+			</pre>
+
+
+		</section>
+
+		<section>
+			<h3>Inserción de datos</h3>
+			<p class="fragment">Ejemplo para la tabla "usuario" con esta sintaxis:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> INSERT INTO usuario VALUES
+						(null, "Laura", "Master", "Rockefeller", "laura@atm.com", "1971-03-04", 1, DEFAULT, null, DEFAULT),
+						(null, "Joseba", "Loco", "Motora", "joseba@atm.com", "1982-10-24", DEFAULT, DEFAULT, null, DEFAULT);
+				</code>
+			</pre>
+			<p class="fragment">Se incluyen todos los valores, incluidos los que tienen valor por defecto.</p>
+			<p class="fragment">Si se desea que un campo tome el valor por defecto, se debe usar DEFAULT como valor del campo.</p>
+			<p class="fragment">Los campos con AUTOINCREMENT se especifican con el valor "null".</p>
+			<p class="fragment">Si no se especifican todos los valores, el sistema genera un error:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 1136. Column count doesn't match value count at row 1
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h3>Inserción de datos</h3>
+			<p class="fragment">Otra sintaxis para añadir un dato.</p>
+			<p class="fragment">No permite la inserción de múltiples registros.</p>
+			<p class="fragment">Sólo se tienen que especificar los campos deseados y los obligatorios.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					INSERT INTO tbl_name
+						SET column1=value [, column2=value]
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Inserción de datos</h3>
+			<p class="fragment">Ejemplo para la tabla "usuario" con esta sintaxis:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> INSERT INTO usuario set nombre="Joseba", apellido_1="Loco", apellido_2="Motora",
+						email="joseba@atm.com", fecha_nacimiento="1982-10-24";
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Inserción de datos</h3>
+			<p class="fragment">El último formato para la inserción, se basa en la cláusula SELECT.</p>
+			<p class="fragment">En ocasiones puede ser útil almacenar registros computados de otras tablas o funciones.</p>
+			<p class="fragment">La cláusula SELECT debe devolver la misma cantidad y tipo de campos que los definidos en la tabla.</p>
+			<p class="fragment">Se requiere el permiso SELECT.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					INSERT INTO tbl_name
+						[(col_name [, col_name] ...)]
+						{SELECT ... | TABLE table_name}
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Inserción de datos</h3>
+			<p class="fragment">Ejemplo para la tabla "usuario" con esta sintaxis:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> INSERT INTO usuario (nombre, apellido_1, apellido_2, email, fecha_nacimiento, empleado)
+						SELECT "Joseba", "Loco", "Motora", "joseba@allthemoneybank.com", "1982-10-24", 0;
+				</code>
+			</pre>
+			<p class="fragment">En este caso no usamos ninguna tabla externa, pero se podría usar perfectamente.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> INSERT INTO usuario (nombre, apellido_1, apellido_2, email, fecha_nacimiento, empleado)
+						SELECT nombre, apellido_1, apellido_2, email, fecha_nacimiento, 0 FROM usuarios_temporales;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Actualización de datos</h3>
+			<p class="fragment">El comando UPDATE de SQL permite modificar datos en una tabla.</p>
+			<p class="fragment">Se requiere el permiso UPDATE para la tabla.</p>
+			<p class="fragment">Se requiere el permiso SELECT si se va a usar la cláusula WHERE.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					UPDATE table_reference
+					  SET column1=value [, column2=value] ...
+					    [WHERE where_condition]
+				</code>
+			</pre>
+
+			<p class="fragment">Si no se expresa la cláusula WHERE, todos los registros serán actualizados.</p>
+			<p class="fragment">La ejecución del comando UPDATE retorna el número de registros afectados.</p>
+
+		</section>
+
+		<section>
+			<h3>Actualización de datos</h3>
+			<p class="fragment">Modificación de los registros de la tabla "usuario":</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> UPDATE usuario SET email="loco@allthemoneybank.com" where id=3;
+				</code>
+			</pre>
+			<p class="fragment">Si se desea afectar a todos los usuarios, no se especifica la cláusula WHERE:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> UPDATE usuario SET empleado=0;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Borrado de datos</h3>
+			<p class="fragment">El comando DELETE de SQL permite borrar datos en una tabla.</p>
+			<p class="fragment">Se requiere el permiso DELETE para la tabla.</p>
+			<p class="fragment">Se requiere el permiso SELECT si se va a usar la cláusula WHERE.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					DELETE FROM table_reference
+					    [WHERE where_condition]
+				</code>
+			</pre>
+
+			<p class="fragment">Si no se expresa la cláusula WHERE, todos los registros serán borrados.</p>
+			<p class="fragment">La ejecución del comando DELETE retorna el número de registros afectados.</p>
+
+		</section>
+
+		<section>
+			<h3>Borrado de datos</h3>
+			<p class="fragment">Borrado de los registros de la tabla "usuario":</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> DELETE FROM usuario where id=3;
+				</code>
+			</pre>
+			<p class="fragment">Si se desea afectar a todos los usuarios, no se especifica la cláusula WHERE:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> DELETE FROM usuario;
+				</code>
+			</pre>
+			<p class="fragment">Aunque es mejor usar la cláusula TRUNCATE para merjorar el rendimiento:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> TRUNCATE TABLE usuario;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>Borrado de datos</h3>
+			<p class="fragment">Hay que tener en cuenta que el borrado de un registro no puede provocar fallos de integridad.</p>
+			<p class="fragment">Además, la opción de integridad ON DELETE CASCADE (clave secundaria o foránea)
+				hace que no sólo se borren los registros indicados sino todos los relacionados.</p>
+		</section>
+
+		<section>
+			<h3>Transacciones</h3>
+			<p class="fragment">Una transacción es un conjunto de tareas relacionadas que se realizan de forma satisfactoria o incorrecta como una unidad.</p>
+			<p class="fragment">Las transacciones se confirman o se anulan.</p>
+			<p class="fragment">Para que una transacción se confirme se debe garantizar la permanencia de los cambios efectuados en los datos.</p>
+			<p class="fragment">Los cambios deben conservarse aunque el sistema se bloquee o tengan lugar otros eventos imprevistos.</p>
+			<p class="fragment">Su principio: ACID.</p>
+			<ul>
+				<li class="fragment"><u>A</u>tomicidad</li>
+				<li class="fragment"><u>C</u>onsistencia</li>
+				<li class="fragment">A<u>i</u>slamiento</li>
+				<li class="fragment"><u>D</u>urabilidad</li>
+			</ul>
+			<p class="fragment">Garantizan un comportamiento predecible. Son proposiciones de todo o nada.</p>
+		</section>
+
+		<section>
+			<h3>Atomicidad</h3>
+			<p class="fragment">Una transacción es una unidad de trabajo el cual se realiza en su totalidad o no se realiza en ningún caso.</p>
+			<p class="fragment">Las operaciones asociadas a una transacción comparten normalmente un objetivo común y son interdependientes.</p>
+			<p class="fragment">Si el sistema ejecutase únicamente una parte de las operaciones, podría poner en peligro el objetivo final de la transacción.</p>
+		</section>
+
+		<section>
+			<h3>Coherencia</h3>
+			<p class="fragment">Una transacción es una unidad de integridad porque mantiene la coherencia de los datos.</p>
+			<p class="fragment">Transformando un estado coherente de datos en otro estado de datos igualmente coherente.</p>
+			<p class="fragment">Si el sistema ejecutase únicamente una parte de las operaciones, podría poner en peligro el objetivo final de la transacción.</p>
+		</section>
+
+		<section>
+			<h3>Aislamiento</h3>
+			<p class="fragment">Una transacción es una unidad de aislamiento.</p>
+			<p class="fragment">Las transacciones concurrentes se comportan como si cada una fuera la única transacción que se ejecuta en el sistema.</p>
+			<p class="fragment">Una transacción nunca debe ver las fases intermedias de otra transacción.</p>
+		</section>
+
+		<section>
+			<h3>Durabilidad</h3>
+			<p class="fragment">Una transacción también es una unidad de recuperación.</p>
+			<p class="fragment">Si una transacción se realiza satisfactoriamente, el sistema garantiza que sus actualizaciones se mantienen aunque el equipo falle inmediatamente después de la confirmación.</p>
+		</section>
+
+		<section>
+			<h3>Transacciones</h3>
+			<p class="fragment">Una transacción está formada por una serie de instrucciones DML.</p>
+			<p class="fragment">Una transacción comienza con la primera instrucción DML que se ejecute.</p>
+			<p class="fragment">Y finaliza:</p>
+			<ul>
+				<li class="fragment">Bien con una operación COMMIT (si la transacción se confirma).</li>
+				<li class="fragment">O bien o una operación ROLLBACK (si la operación se cancela).</li>
+			</ul>
+
+			<p class="fragment">Excepción: cualquier instrucción DDL o DCL da lugar a un COMMIT implícito, es decir todas las instrucciones DML ejecutadas hasta ese instante pasan a ser definitivas.</p>
+		</section>
+
+		<section>
+			<h3>AUTOCOMMIT</h3>
+			<p class="fragment">Una de las maneras de hacer uso de transacciones es mediante la propiedad SQL AUTOCOMMIT.</p>
+			<p class="fragment">Si está activada, después de cada instrucción DML se hará un COMMIT (se confirma la operación inmediatamente).</p>
+			<p class="fragment">Por contra, si está desactivada será el usuario o el programa, el encargado de realizar un COMMIT o ROLLBACK manual.</p>
+			<p class="fragment">Para saber el estado en el que se encuentra dicha propiedad se usa la siguiente cláusula:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SHOW AUTOCOMMIT;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>AUTOCOMMIT</h3>
+			<p class="fragment">Para desactivarlo se usa la siguiente instrucción:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SET AUTOCOMMIT=0;
+				</code>
+			</pre>
+			<p class="fragment">Para reactivarla se debe reemplazar el valor 0 por 1.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SET AUTOCOMMIT=1;
+				</code>
+			</pre>
+			<p class="fragment">AUTOCOMMIT es una propiedad de sesión y debe establecerse para cada una de ellas.</p>
+		</section>
+
+		<section>
+			<h3>START TRANSACTION</h3>
+			<p class="fragment">Existe otra instrucción que permite la ejecución de transacciones sin tener que modificar AUTOCOMMIT.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					START TRANSACTION
+					BEGIN [WORK]
+					COMMIT
+					ROLLBACK
+				</code>
+			</pre>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					START TRANSACTION;
+					UPDATE table1 SET info="new info" WHERE type=2;
+					UPDATE table2 SET summary="new summary" WHERE type=1;
+					COMMIT;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<h3>COMMIT</h3>
+			<p class="fragment">La instrucción COMMIT hace que los cambios realizados por la transacción sean definitivos, irrevocables.</p>
+			<p class="fragment">Se dice que tenemos una transacción confirmada.</p>
+			<p class="fragment">Sólo se debe utilizar si estamos de acuerdo con los cambios.</p>
+
+			<p class="fragment">El cierre correcto de la sesión da lugar a un COMMIT, aunque siempre conviene ejecutar explícitamente esta instrucción a fin de asegurarnos de lo que hacemos.</p>
+		</section>
+
+		<section>
+			<h3>ROLLBACK</h3>
+			<p class="fragment">Esta instrucción regresa a la instrucción anterior al inicio de la transacción, normalmente el último COMMIT, la última instrucción DDL o DCL o al inicio de sesión.</p>
+			<p class="fragment">Se dice que tenemos una transacción cancelada.</p>
+			<p class="fragment">Anula definitivamente los cambios.</p>
+
+			<p class="fragment">Un abandono de sesión incorrecto o un problema de comunicación o de caída del sistema dan lugar a un ROLLBACK implícito.</p>
+		</section>
+
+		<section>
+			<h3>SAVEPOINT</h3>
+			<p class="fragment">Esta instrucción permite establecer un punto de ruptura.</p>
+			<p class="fragment">El problema de la combinación ROLLBACK/COMMIT es que un COMMIT acepta todo y un ROLLBACK anula todo.</p>
+			<p class="fragment">SAVEPOINT permite señalar un punto intermedio entre el inicio de la transacción y la situación actual.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SAVEPOINT identifier
+					ROLLBACK [WORK] TO [SAVEPOINT] identifier
+					ROLLBACK
+					COMMIT
+				</code>
+			</pre>
+
+			<p class="fragment">ROLLBACK [WORK] TO [SAVEPOINT] retorna hasta el SAVEPOINT deseado sin acabar la transacción.</p>
+			<p class="fragment">Mientras que un ROLLBACK a secas sí finaliza la sesión.</p>
+		</section>
+
+		<section>
+			<h3>Ejemplo de transacción compleja</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE tabla (fecha DATE);
+
+					START TRANSACTION;
+
+						INSERT INTO tabla VALUES ('2020/01/01');
+						INSERT INTO tabla VALUES ('2020/02/01');
+
+						SAVEPOINT febrero;
+
+						INSERT INTO tabla VALUES ('2020/03/01');
+						INSERT INTO tabla VALUES ('2020/04/01');
+
+						SAVEPOINT abril;
+
+						INSERT INTO tabla VALUES ('2020/05/01');
+
+						ROLLBACK TO SAVEPOINT febrero;
+					COMMIT;
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h1>CONSULTAS</h1>
+
+		</section>
+		<section>
+			<h3>Cláusula SELECT</h3>
+
+			<p class="fragment">La cláusula SELECT permite:</p>
+
+			<ul>
+				<li class="fragment">Obtener datos de ciertas columnas de una tabla (proyección).</li>
+				<li class="fragment">Obtener registros (filas) de una tabla de acuerdo con ciertos criterios (selección).</li>
+				<li class="fragment">Mezclar datos de tablas diferentes (asociación, join).</li>
+			</ul>
+
+		</section>
+		<section>
+			<h3>Cláusula SELECT</h3>
+			<p class="fragment">La sintaxis básica del comando SELECT es la siguiente:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 15rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT
+						[ALL | DISTINCT ]
+						* | select_expr [[AS] alias ] [, select_expr] ...
+						[FROM table_references]
+						[WHERE where_condition]
+						[GROUP BY {col_name | expr}, ... ]
+						[HAVING where_condition]
+						[ORDER BY {col_name | expr}
+						  [ASC | DESC], ...]
+						[LIMIT {[offset,] OFFSET offset}]
+					}
+				</code>
+			</pre>
+
+			<p class="fragment">Donde:</p>
+
+			<ul style="font-size: 1.5rem">
+				<li class="fragment">ALL. Muestra todos los valores, incluidos los duplicados.</li>
+				<li class="fragment">DISTINCT. Hace que no se muestren los valores duplicados.</li>
+				<li class="fragment">*. El asterisco significa que se seleccionan todas las columnas.</li>
+				<li class="fragment">select_expr:
+					<ul style="font-size: 1.5rem">
+						<li class="fragment">Columna: Es el nombre de una columna de la tabla que se desea mostrar.</li>
+						<li class="fragment">expresión. Una expresión válida SQL.</li>
+						<li class="fragment">Además select_expr puede asignarle un alias: [[AS] nombre ].</li>
+					</ul>
+				</li>
+			</ul>
+
+
+		</section>
+		<section>
+			<h3>Cláusula SELECT</h3>
+			<ul style="font-size: 1.5rem">
+				<li class="fragment">FROM. Indica qué tabla(s) o subconsultas se deben utilizar.</li>
+				<li class="fragment">WHERE. Las condiciones que deben cumplir para ser seleccionados.</li>
+				<li class="fragment">GROUP BY. Utilizado para agrupar resultados basados en una o varias columnas.</li>
+				<li class="fragment">HAVING. Utilizado para agrupar resultados basados en una o varias columnas.</li>
+				<li class="fragment">ORDER BY. Se usa para filtrar elementos con una cierta condición posterior a su agrupación.</li>
+				<li class="fragment">LIMIT. El número de elementos máximos a filtrar.</li>
+				<li class="fragment">OFFSET. El número de elementos que saltar .</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Cálculos</h2>
+			<h3>Cálculos Aritméticos</h3>
+			<p class="fragment">Los operadores + (suma), - (resta), * (multiplicación) y / (división), se pueden utilizar para hacer cálculos en las consultas.</p>
+			<p class="fragment">Cuando se utilizan como expresión en una consulta SELECT, no modifican los datos originales.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT nombre, precio, precio*1.16 AS "Precio + IVA" FROM articulos;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Precedencia</h3>
+			<p class="fragment">La precendencia de operadores se muestra en la siguiente tabla, de mayor a menor precendencia.</p>
+
+			<p class="fragment">Operadores en la misma línea, tienen la misma precedencia.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					INTERVAL
+					BINARY, COLLATE
+					!
+					- (unary minus), ~ (unary bit inversion)
+					^
+					*, /, DIV, %, MOD
+					-, +
+					<<, >>
+					&
+					|
+					= (comparison), <=>, >=, >, <=, <, <>, !=, IS, LIKE, REGEXP, IN, MEMBER OF
+					BETWEEN, CASE, WHEN, THEN, ELSE
+					NOT
+					AND, &&
+					XOR
+					OR, ||
+					= (asignación), :=
+				</code>
+			</pre>
+			<p class="fragment"><a href="https://dev.mysql.com/doc/refman/8.0/en/operator-precedence.html" target="_blank">Doc. Referencia MySQL</a></p>
+		</section>
+		<section>
+			<h3>Condiciones</h3>
+
+			<p class="fragment">Se puede realizar consultas que restrinjan los datos de salida de las tablas.</p>
+			<p class="fragment">Para ello se utiliza la cláusula WHERE.</p>
+			<p class="fragment">Esta cláusula permite colocar una condición que han de cumplir todos los registros que queremos que se muestren.</p>
+			<p class="fragment">Las filas que no la cumplan no aparecerán en la ejecución de la consulta.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT nombre, precio FROM articulos WHERE cantidad > 2;
+				</code>
+			</pre>
+
+			<p class="fragment">En el ejemplo, se filtran los artículoes que tengan una cantidad mayor que dos, pero esa cantidad no será retornada como resultado del SELECT ya que no se ha especificado dicha columna.</p>
+		</section>
+		<section>
+			<h3>Operadores de comparación</h3>
+
+			<p class="fragment">Los resultados de comparación son: 1 (TRUE), 0 (FALSE), o NULL.</p>
+			<p class="fragment">Funcionan con números y cadenas. Las cadenas son convertidos a números y viceversa cuando sea necesario.</p>
+
+			<p class="fragment">Los siguiente operadores pueden ser usados para comparar no sólo operandos escalares, si no filas de operandos:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					=  >  <  >=  <=  <>  !=
+				</code>
+			</pre>
+			<p class="fragment">Con ellos podemos realizar comparaciones de igualdad, desigualdad...</p>
+			<p class="fragment">Ejemplo de comparación de filas de operandos: (a, b) = (x, y) es equivalente a</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					(a = x) AND (b = y)
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Operadores de comparación</h3>
+			<p class="fragment">expr BETWEEN min AND max</p>
+			<p class="fragment">Si expr es mayor o igual que min y expr es menor o igual que max, devuelve 1, 0 en otro caso</p>
+			<p class="fragment">expr NOT BETWEEN min AND max</p>
+			<p class="fragment">Lo opuesto a la expresión anterior: NOT (expr BETWEEN min AND max)</p>
+			<p class="fragment">expr IN (value,...)</p>
+			<p class="fragment">Retorna 1 (true) si expr es igual en alguno de los valores de la lista de valores, sino retorna 0 (false).</p>
+			<p class="fragment">expr NOT IN (value,...)</p>
+			<p class="fragment">Lo opuesto a la expresión anterior: NOT (expr IN (value,...))</p>
+		</section>
+		<section>
+			<h3>Operadores de comparación</h3>
+			<p class="fragment">IS boolean_value</p>
+			<p class="fragment">Comprueba si el valor es igual al valor booleano, donde boolean_value puede ser TRUE, FALSE, o UNKNOWN.</p>
+			<p class="fragment">IS NOT boolean_value es la función opuesta.</p>
+			<p class="fragment">IS NULL</p>
+			<p class="fragment">Comprueba si el valor es NULL.</p>
+			<p class="fragment">IS NOT NULL retorna lo opuesto a la función.</p>
+			<p class="fragment">ISNULL(expr)</p>
+			<p class="fragment">Si expr es NULL, ISNULL() returna 1, 0 en otro caso.</p>
+		</section>
+		<section>
+			<h3>Operadores de comparación</h3>
+			<p class="fragment">LIKE expr</p>
+			<p class="fragment">El operador LIKE se usa sobre todo con textos, permite obtener registros cuyo valor en un campo cumpla una condición textual.</p>
+			<p class="fragment">LIKE utiliza una cadena que puede contener estos símbolos:</p>
+			<p class="fragment">"%" permite una serie de caractares, es decir un comodín de múltiples caracteres.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT nombre FROM usuario WHERE email LIKE "%@allthemoneybank.com"
+				</code>
+			</pre>
+			<p class="fragment">Retornará todos los emails que acaben de esa manera.</p>
+			<p class="fragment">"_" un único caracter de comodín. P.e: LIKE "" </p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT campo FROM tabla WHERE campo LIKE "_eon"
+				</code>
+			</pre>
+			<p class="fragment">Retornaría Leon y Peon pero no Parteon.</p>
+
+
+
+		</section>
+
+		<section>
+			<h3>Operadores lógicos</h3>
+
+			<table class="fragment"  style="font-size: 1.5rem">
+				<tr>
+					<th>Nombre</th>
+					<th>Ejemplo</th>
+				</tr>
+				<tr>
+					<td>AND, &&</td>
+					<td>condición1 AND condición2: Cierto sólo en caso de que las 2 condiciones sean ciertas</td>
+				</tr>
+				<tr>
+					<td>NOT, !</td>
+					<td>Niega el valor</td>
+				</tr>
+				<tr>
+					<td>OR, ||</td>
+					<td>condición1 OR condición2: Cierto en todos los casos, salvo que las 2 condiciones sean falsas</td>
+				</tr>
+				<tr>
+					<td>XOR</td>
+					<td>condición1 XOR condición2: Cierto en los casos en que sean distintos.</td>
+				</tr>
+			</table>
+
+			<p class="fragment">En SQL, todos los operadores lógicos retornan TRUE, FALSE, o NULL (UNKNOWN)</p>
+			<p class="fragment">Los operadores lógicos junto con el uso de paréntesis permiten combinar condiciones simples obteniendo otras más complejas.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 1 AND 1, 0 AND 1,1 OR 1, 0 OR 1,1 XOR 1, 0 XOR 1;
+        				-> 1, 0, 1, 1, 0, 1
+				</code>
+			</pre>
+		</section>
+
+
+		<section>
+			<h3>Operadores de control de flujo</h3>
+
+			<table class="fragment" style="font-size: 1.5rem">
+				<tr>
+					<th>Nombre</th>
+					<th>Descripción</th>
+				</tr>
+				<tr>
+					<td>CASE</td>
+					<td>Operador Case</td>
+				</tr>
+				<tr>
+					<td>IF()</td>
+					<td>Constructor If/else </td>
+				</tr>
+				<tr>
+					<td>IFNULL()</td>
+					<td>Constructor NULL If/else </td>
+				</tr>
+				<tr>
+					<td>NULLIF()</td>
+					<td>Retorna NULL si expr1 = expr2</td>
+				</tr>
+			</table>
+
+			<p class="fragment">Los resultados de comparación son: 1 (TRUE), 0 (FALSE), o NULL.</p>
+		</section>
+		<section>
+			<h3>Operadores de control de flujo</h3>
+
+			<p class="fragment">Case:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CASE
+						WHEN condition THEN result
+						[WHEN condition THEN result ...]
+						[ELSE result]
+					END
+				</code>
+			</pre>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT CASE WHEN 1>0 THEN 'true!' ELSE 'false!' END;
+						-> 'true!'
+				</code>
+			</pre>
+			<p class="fragment">IF(expr1,expr2,expr3)</p>
+			<p class="fragment">SI expr1 es TRUE (es decir, expr1 <> 0 y expr1 <> NULL), IF() retorna expr2. En otro caso, retorna expr3.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT IF(1>2,2,3);
+						-> 3
+					mysql> SELECT IF(1<2,'yes','no');
+						-> 'yes'
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Operadores de control de flujo</h3>
+
+			<p class="fragment">IFNULL(expr1,expr2)</p>
+			<p class="fragment">SI expr1 no es NULL, IFNULL() retorna expr1; en otro caso, expr2.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 10rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT IFNULL(1,0);
+						-> 1
+					mysql> SELECT IFNULL(NULL,10);
+						-> 10
+					mysql> SELECT IFNULL(1/0,10);
+						-> 10
+				</code>
+			</pre>
+
+			<p class="fragment">NULLIF(expr1,expr2)</p>
+			<p class="fragment">Retorna NULL si expr1 = expr2 es true, en otro caso, expr1.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT NULLIF(1,1);
+						-> NULL
+					mysql> SELECT NULLIF(1,2);
+						-> 1
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Subconsultas</h3>
+			<p class="fragment">Se trata de una técnica que permite utilizar el resultado de una tabla SELECT en otra consulta SELECT.</p>
+			<p class="fragment">Entre otros problemas, permite solucionar los que el mismo dato aparece dos veces. La sintaxis es:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT lista_expresiones
+					  FROM tablas
+					  WHERE expresión OPERADOR
+					    ( SELECT lista_expresiones
+						  FROM tablas );
+				</code>
+			</pre>
+			<p class="fragment">Se puede colocar el SELECT dentro de las cláusulas WHERE, HAVING o FROM.</p>
+			<p class="fragment">El operador puede ser >,<,>=,<=,!=, = o IN.</p>
+		</section>
+		<section>
+			<h3>Subconsultas</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 9rem">
+				<code class="mysql-code" data-trim data-noescape>
+					-- Obtiene los empleados cuyas pagas sean inferiores a lo que gana Laura.
+					SELECT nombre_empleado, paga
+					FROM EMPLEADOS
+					WHERE paga < ( SELECT paga
+						FROM EMPLEADOS
+						WHERE nombre_empleado='Laura');
+				</code>
+			</pre>
+			<p class="fragment">La subconsulta no tiene porqué restringirse a la misma tabla.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT * FROM usuario WHERE id != (SELECT id FROM cuenta LIMIT 1);
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Subconsultas</h3>
+			<p class="fragment">Se puede utiliar el operador IN (y su negación). P.e:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT modelo FROM vehiculos WHERE matricula IN (SELECT matricula FROM multas);
+				</code>
+			</pre>
+			<p class="fragment">Obtiene todos los vehículos multados.</p>
+			<p class="fragment">También se puede usar el operador ALL. P.e:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT nombre, sueldo FROM empleados  WHERE sueldo >= ALL (SELECT sueldo FROM empleados);
+				</code>
+			</pre>
+			<p class="fragment">Obtiene el empleado que más cobra.</p>
+		</section>
+		<section>
+			<h3>Ordenación</h3>
+
+			<p class="fragment">El orden inicial de los registros obtenidos por un SELECT viene dado por el orden en el que fueron introducidos.</p>
+			<p class="fragment">Para ordenar en base a otros criterios, se utiliza la cláusula ORDER BY.</p>
+			<p class="fragment">En esa cláusula se coloca una lista de campos que indica la forma de ordenar.</p>
+			<p class="fragment">Se ordena primero por el primer campo de la lista.</p>
+			<p class="fragment">Si hay coincidencias por el segundo, y así sucesivamente.</p>
+			<p class="fragment">Colocando la palabra ASC se ordenará por orden ascendente.</p>
+			<p class="fragment">DESC se ordenará por orden descendente.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT * FROM usuario WHERE empleado = 1 ORDER BY apellido_1, apellido_2 ASC;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Funciones</h3>
+
+			<p class="fragment">Permiten realizar cálculos avanzados, o bien facilitar la escritura de ciertas expresiones.</p>
+			<p class="fragment">La mayoría de funciones reciben datos para poder operar (parámetros)</p>
+			<p class="fragment">Y devuelven un resultado, que depende de los parámetros enviados a la función.</p>
+			<p class="fragment">Los argumentos se pasan entre paréntesis.</p>
+			<p class="fragment">Son demasiadas para entrar en detalle en cada una de ellas.</p>
+			<p class="fragment">Si se desea, se puede consultar la <a href="https://dev.mysql.com/doc/refman/8.0/en/functions.html">guía de MySQL de funciones</a>.</p>
+			<p class="fragment">Anteriormente se mencionaron ciertas funciones. A continuación se mostrán otras.</p>
+		</section>
+		<section>
+			<h3>Funciones numéricas</h3>
+			<table style="font-size: 1.2rem">
+				<tr>
+					<th>Nombre</th><th>Descripción</th><th>Ejemplo</th><th>Resultado</th>
+				</tr>
+				<tr>
+					<td>%, MOD</td><td>Operador Modulo</td><td>SELECT 5 % 3;</td><td>2</td>
+				</tr>
+				<tr>
+					<td>ABS()</td><td>Valor absoluto</td><td>SELECT ABS(-23);</td><td>23</td>
+				</tr>
+				<tr>
+					<td>CEIL()</td><td>Devuelve el menor valor entero no inferior al argumento</td><td>SELECT CEIL(5.8);</td><td>6</td>
+				</tr>
+				<tr>
+					<td>DIV</td><td>División entera</td><td>SELECT 10 DIV 3;</td><td>3</td>
+				</tr>
+				<tr>
+					<td>EXP()</td><td>Eleva e a x </td><td>SELECT EXP(2);</td><td>7.389</td>
+				</tr>
+				<tr>
+					<td>FLOOR()</td><td>Devuelve el mayor valor entero no superior al argumento</td><td>SELECT FLOOR(5.8)</td><td>5</td>
+				</tr>
+				<tr>
+					<td>MOD()</td><td>Devuelve el resto</td><td>SELECT MOD(9,5);</td><td>4</td>
+				</tr>
+				<tr>
+					<td>PI()</td><td>Devuelve PI</td><td>SELECT PI();</td><td>3.1415</td>
+				</tr>
+				<tr>
+					<td>POWER(x, y)</td><td>Eleva el x a y</td><td>SELECT POWER(5, 3);</td><td>125</td>
+				</tr>
+				<tr>
+					<td>RAND(N)</td><td>Devuele un valor float aleatorio. N: semilla</td><td>SELECT RAND();</td><td>0.65</td>
+				</tr>
+				<tr>
+					<td>ROUND(N,D)</td><td>Redondea el argumento. D: núm. decimales</td><td>SELECT ROUND(5.35, 1);</td><td>5.4</td>
+				</tr>
+				<tr>
+					<td>SIGN()</td><td>Devuele el signo del argumento</td><td>SELECT SIGN(-54);</td><td>-1</td>
+				</tr>
+				<tr>
+					<td>SQRT()</td><td>División cuadrada</td><td>SELECT SQRT(2);</td><td>5</td>
+				</tr>
+				<tr>
+					<td>TRUNCATE()</td><td>Trunca un valor al número de decimales especificado</td><td>SELECT TRUNCATE(-1.999,1);</td><td>-1.9</td>
+				</tr>
+				<tr>
+			</table>
+		</section>
+		<section>
+			<h3>Funciones de fechas</h3>
+			<table style="font-size: 1rem">
+				<tr>
+					<th>Nombre</th><th>Descripción</th>
+				</tr>
+				<tr><td>ADDDATE()</td><td>Add time values (intervals) to a date value</td></tr>
+				<tr><td>ADDTIME()</td><td>Add time</td></tr>
+				<tr><td>CURDATE()</td><td>Return the current date</td></tr>
+				<tr><td>CURTIME()</td><td>Return the current time</td></tr>
+				<tr><td>DATE()</td><td>Extract the date part of a date or datetime expression</td></tr>
+				<tr><td>DATE_ADD()</td><td>Add time values (intervals) to a date value</td></tr>
+				<tr><td>DATE_FORMAT()</td><td>Format date as specified</td></tr>
+				<tr><td>DATE_SUB()</td><td>Subtract a time value (interval) from a date</td></tr>
+				<tr><td>DATEDIFF()</td><td>Subtract two dates</td></tr>
+				<tr><td>DAYNAME()</td><td>Return the name of the weekday</td></tr>
+				<tr><td>DAYOFMONTH()</td><td>Return the day of the month (0-31)</td></tr>
+				<tr><td>DAYOFWEEK()</td><td>Return the weekday index of the argument</td></tr>
+				<tr><td>DAYOFYEAR()</td><td>Return the day of the year (1-366)</td></tr>
+				<tr><td>EXTRACT()</td><td>Extract part of a date</td></tr>
+				<tr><td>FROM_DAYS()</td><td>Convert a day number to a date</td></tr>
+				<tr><td>HOUR()</td><td>Extract the hour</td></tr>
+				<tr><td>LAST_DAY</td><td>Return the last day of the month for the argument</td></tr>
+				<tr><td>MAKEDATE()</td><td>Create a date from the year and day of year</td></tr>
+				<tr><td>MAKETIME()</td><td>Create time from hour, minute, second</td></tr>
+				<tr><td>MICROSECOND()</td><td>Return the microseconds from argument</td></tr>
+				<tr><td>MINUTE()</td><td>Return the minute from the argument</td></tr>
+			</table>
+		</section>
+		<section>
+			<h3>Funciones de fechas</h3>
+			<table style="font-size: 1rem">
+				<tr>
+					<th>Nombre</th><th>Descripción</th>
+				</tr>
+				<tr><td>MONTH()</td><td>Return the month from the date passed</td></tr>
+				<tr><td>MONTHNAME()</td><td>Return the name of the month</td></tr>
+				<tr><td>NOW()</td><td>Return the current date and time</td></tr>
+				<tr><td>SEC_TO_TIME()</td><td>Converts seconds to 'hh:mm:ss' format</td></tr>
+				<tr><td>SECOND()</td><td>Return the second (0-59)</td></tr>
+				<tr><td>STR_TO_DATE()</td><td>Convert a string to a date</td></tr>
+				<tr><td>SUBTIME()</td><td>Subtract times</td></tr>
+				<tr><td>SYSDATE()</td><td>Return the time at which the function executes</td></tr>
+				<tr><td>TIME()</td><td>Extract the time portion of the expression passed</td></tr>
+				<tr><td>TIME_FORMAT()</td><td>Format as time</td></tr>
+				<tr><td>TIME_TO_SEC()</td><td>Return the argument converted to seconds</td></tr>
+				<tr><td>TIMEDIFF()</td><td>Subtract time</td></tr>
+				<tr><td>TIMESTAMP()</td><td>if 1 arg, this function returns the date or datetime expression; 2 ags, the sum of the arguments</td></tr>
+				<tr><td>TIMESTAMPADD()</td><td>Add an interval to a datetime expression</td></tr>
+				<tr><td>TIMESTAMPDIFF()</td><td>Subtract an interval from a datetime expression</td></tr>
+				<tr><td>TO_DAYS()</td><td>Return the date argument converted to days</td></tr>
+				<tr><td>TO_SECONDS()</td><td>Return the date or datetime argument converted to seconds since Year 0</td></tr>
+				<tr><td>WEEK()</td><td>Return the week number</td></tr>
+				<tr><td>WEEKDAY()</td><td>Return the weekday index</td></tr>
+				<tr><td>WEEKOFYEAR()</td><td>Return the calendar week of the date (1-53)</td></tr>
+				<tr><td>YEAR()</td><td>Return the year</td></tr>
+				<tr><td>YEARWEEK()</td><td>Return the year and week</td></tr>
+			</table>
+		</section>
+		<section>
+			<h3>Funciones de cadenas</h3>
+			<table style="font-size: 1rem">
+				<tr>
+					<th>Nombre</th><th>Descripción</th>
+				</tr>
+				<tr><td>BIN()</td><td>Return a string containing binary representation of a number</td></tr>
+				<tr><td>BIT_LENGTH()</td><td>Return length of argument in bits</td></tr>
+				<tr><td>CHAR()</td><td>Return the character for each integer passed</td></tr>
+				<tr><td>CHAR_LENGTH()</td><td>Return number of characters in argument</td></tr>
+				<tr><td>CHARACTER_LENGTH()</td><td>Synonym for CHAR_LENGTH()</td></tr>
+				<tr><td>CONCAT()</td><td>Return concatenated string</td></tr>
+				<tr><td>CONCAT_WS()</td><td>Return concatenate with separator</td></tr>
+				<tr><td>ELT()</td><td>Return string at index number</td></tr>
+				<tr><td>FORMAT()</td><td>Return a number formatted to specified number of decimal places</td></tr>
+				<tr><td>FROM_BASE64()</td><td>Decode base64 encoded string and return result</td></tr>
+				<tr><td>INSERT()</td><td>Insert substring at specified position up to specified number of characters</td></tr>
+				<tr><td>INSTR()</td><td>Return the index of the first occurrence of substring</td></tr>
+				<tr><td>LEFT()</td><td>Return the leftmost number of characters as specified</td></tr>
+				<tr><td>LENGTH()</td><td>Return the length of a string in bytes</td></tr>
+				<tr><td>LOAD_FILE()</td><td>Load the named file</td></tr>
+				<tr><td>LOCATE()</td><td>Return the position of the first occurrence of substring</td></tr>
+				<tr><td>LOWER()</td><td>Return the argument in lowercase</td></tr>
+				<tr><td>LPAD()</td><td>Return the string argument, left-padded with the specified string</td></tr>
+				<tr><td>LTRIM()</td><td>Remove leading spaces</td></tr>
+				<tr><td>MATCH</td><td>Perform full-text search</td></tr>
+				<tr><td>MID()</td><td>Return a substring starting from the specified position</td></tr>
+			</table>
+		</section>
+		<section>
+			<h3>Funciones de cadenas</h3>
+			<table style="font-size: 1rem">
+				<tr>
+					<th>Nombre</th><th>Descripción</th>
+				</tr>
+				<tr><td>NOT REGEXP</td><td>Negation of REGEXP</td></tr>
+				<tr><td>ORD()</td><td>Return character code for leftmost character of the argument</td></tr>
+				<tr><td>QUOTE()</td><td>Escape the argument for use in an SQL statement</td></tr>
+				<tr><td>REGEXP</td><td>Whether string matches regular expression</td></tr>
+				<tr><td>REGEXP_INSTR()</td><td>Starting index of substring matching regular expression</td></tr>
+				<tr><td>REGEXP_LIKE()</td><td>Whether string matches regular expression</td></tr>
+				<tr><td>REGEXP_REPLACE()</td><td>Replace substrings matching regular expression</td></tr>
+				<tr><td>REGEXP_SUBSTR()</td><td>Return substring matching regular expression</td></tr>
+				<tr><td>REPEAT()</td><td>Repeat a string the specified number of times</td></tr>
+				<tr><td>REPLACE()</td><td>Replace occurrences of a specified string</td></tr>
+				<tr><td>REVERSE()</td><td>Reverse the characters in a string</td></tr>
+				<tr><td>RIGHT()</td><td>Return the specified rightmost number of characters</td></tr>
+				<tr><td>RLIKE</td><td>Whether string matches regular expression</td></tr>
+				<tr><td>RPAD()</td><td>Append string the specified number of times</td></tr>
+				<tr><td>RTRIM()</td><td>Remove trailing spaces</td></tr>
+				<tr><td>SPACE()</td><td>Return a string of the specified number of spaces</td></tr>
+				<tr><td>STRCMP()</td><td>Compare two strings</td></tr>
+				<tr><td>SUBSTRING()</td><td>Return the substring as specified</td></tr>
+				<tr><td>SUBSTRING_INDEX()</td><td>Return a substring from a string before the specified number of occurrences of the delimiter</td></tr>
+				<tr><td>TO_BASE64()</td><td>Return the argument converted to a base-64 string</td></tr>
+				<tr><td>TRIM()</td><td>Remove leading and trailing spaces</td></tr>
+				<tr><td>UPPER()</td><td>Convert to uppercase</td></tr>
+			</table>
+		</section>
+		<section>
+			<h3>Funciones CAST</h3>
+			<table style="font-size: 1rem">
+				<tr>
+					<th>Nombre</th><th>Descripción</th>
+				</tr>
+				<tr><td>BINARY</td><td>Convierte una cadena en una cadena binaria</td></tr>
+				<tr><td>CAST</td><td>Convierte un valor en un tipo especificado</td></tr>
+				<tr><td>CONVERT</td><td>Convierte un valor en un tipo especificado</td></tr>
+			</table>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT CONVERT('test' USING utf8mb4);
+					SELECT CONVERT(_latin1'Müller' USING utf8mb4);
+					SELECT CONVERT('test', CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin;
+					SELECT CAST('test' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<p class="fragment">En ocasiones, las tablas contienen información parcialmente duplicada (o información común entre varias filas).</p>
+			<p class="fragment">Y puede ser de utilidad agrupar dichas filas, con el fin de realizar cálculos sobre ellas.</p>
+			<p class="fragment">Para ello se utiliza la cláusula GROUP BY que permite indicar en base a qué registros se realiza la agrupación.</p>
+			<p class="fragment">En este sentido GROUP BY indica qué  columnas son las que se van utilizra para la agrupación.</p>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<p class="fragment">Ejemplo básico.</p>
+			<p class="fragment">Se crea una bbdd y una tabla .</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE DATABASE testeo CHARACTER SET="utf8mb4" COLLATE="utf8mb4_spanish_ci";
+					USE testeo;
+					CREATE TABLE ropa (
+						id INT UNSIGNED AUTO_INCREMENT,
+						tipo VARCHAR(20) NOT NULL,
+						talla VARCHAR(20) NOT NULL,
+						color VARCHAR(20) NOT NULL,
+						cantidad INT  DEFAULT 0,
+						reservados INT  DEFAULT 0,
+						CONSTRAINT ropa_pk PRIMARY KEY(id)
+					);
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<p class="fragment">Y unos datos.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					INSERT INTO ropa VALUES
+						(null, "pantalón", "xl", "beige", 100, 45),
+						(null, "camiseta", "l", "roja", 345, 132),
+						(null, "pantalón", "l", "beige", 89, 10),
+						(null, "pantalón", "xl", "negro", 23, 1),
+						(null, "vestido", "s", "azul", 37, 40),
+						(null, "vestido", "m", "blanco", 200, 100),
+						(null, "camiseta", "l", "azul", 85, 100),
+						(null, "camiseta", "l", "rosa", 800, 500),
+						(null, "camiseta", "s", "azul", 100, 52);
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<p class="fragment">El resultado de un SELECT normal:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT tipo FROM ropa;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Tipo</th>
+				</tr>
+				<tr><td>pantalón</td></tr>
+				<tr><td>camiseta</td></tr>
+				<tr><td>pantalón</td></tr>
+				<tr><td>pantalón</td></tr>
+				<tr><td>vestido</td></tr>
+				<tr><td>vestido</td></tr>
+				<tr><td>camiseta</td></tr>
+				<tr><td>camiseta</td></tr>
+				<tr><td>camiseta</td></tr>
+			</table>
+
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<p class="fragment">Primer ejemplo de agrupacion:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT tipo FROM ropa GROUP BY tipo;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Tipo</th>
+				</tr>
+				<tr><td>pantalón</td></tr>
+				<tr><td>camiseta</td></tr>
+				<tr><td>vestido</td></tr>
+			</table>
+
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<p class="fragment">Si a este ejemplo, le pedimos que también retorne la talla:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT tipo, talla FROM ropa GROUP BY tipo;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Tipo</th><th>Talla</th>
+				</tr>
+				<tr><td>pantalón</td><td>xl</td></tr>
+				<tr><td>camiseta</td><td>l</td></tr>
+				<tr><td>vestido</td><td>s</td></tr>
+			</table>
+			<p class="fragment">Nos da un resultado extraño. Nos devuelve los elementos agrupados por tipo, y el valor talla viene dado por la primera ocurrencia</p>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<p class="fragment">Añadamos talla a la agrupación:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT tipo FROM ropa GROUP BY tipo, talla;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Tipo</th><th>Talla</th>
+				</tr>
+				<tr><td>pantalón</td><td>xl</td></tr>
+				<tr><td>camiseta</td><td>l</td></tr>
+				<tr><td>pantalón</td><td>l</td></tr>
+				<tr><td>vestido</td><td>s</td></tr>
+				<tr><td>vestido</td><td>m</td></tr>
+				<tr><td>camiseta</td><td>s</td></tr>
+			</table>
+			<p class="fragment">Tanto Camiseta talla L, como Pantalón XL, se ha agrupado, en vez de aparecer múltiples veces.</p>
+			<p class="fragment">Su resultado tiene sentido, no como el anterior ejemplo. Ojo con resultados extraños por culpa de no agrupar correctamente las columnas.</p>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<p class="fragment">Pero este uso de GROUP BY da el mismo resultado que DISTINCT:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT DISTINCT tipo, talla FROM ropa;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Tipo</th><th>Talla</th>
+				</tr>
+				<tr><td>pantalón</td><td>xl</td></tr>
+				<tr><td>camiseta</td><td>l</td></tr>
+				<tr><td>pantalón</td><td>l</td></tr>
+				<tr><td>vestido</td><td>xs</td></tr>
+				<tr><td>vestido</td><td>m</td></tr>
+				<tr><td>camiseta</td><td>s</td></tr>
+			</table>
+			<p class="fragment">Parece redundante, ¿no?</p>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<p class="fragment">El poder de GROUP BY viene dado por  la posibilidad de cálculo que ofrece. </p>
+			<p class="fragment">Permite computar datos basados en las agrupaciones.</p>
+			<p class="fragment">Se pueden usar las siguientes funciones a la hora de agrupar:</p>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Función</th><th>Descripción</th>
+				</tr>
+				<tr><td>COUNT(*)</td><td>Cuenta los elementos de un grupo. Se usa *, ya que es independiente de la columna.</td></tr>
+				<tr><td>SUM(expression)</td><td>Suma los valores de la expresión.</td></tr>
+				<tr><td>AVG(expression)</td><td>Media de los valores de la expresión.</td></tr>
+				<tr><td>MIN(expression)</td><td>Retorna el valor mínimo de la expresión.</td></tr>
+				<tr><td>MAX(expression)</td><td>Retorna el valor máximo de la expresión.</td></tr>
+				<tr><td>STDDEV(expression)</td><td>Retorna la desviación estándar.</td></tr>
+				<tr><td>VARIANCE(expression)</td><td>Retorna la varianza.</td></tr>
+			</table>
+
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+
+			<p class="fragment">Modifiquemos el primer ejemplo de agrupacion para que nos dé el número de elementos de la agrupación:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT tipo, COUNT(*) AS cuenta FROM ropa GROUP BY tipo;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Tipo</th><th>Cuenta</th>
+				</tr>
+				<tr><td>pantalón</td><td>3</td></tr>
+				<tr><td>camiseta</td><td>4</td></tr>
+				<tr><td>vestido</td><td>2</td></tr>
+			</table>
+			<p class="fragment">Ya se distingue de DISTINCT. Queda probada su utilidad.</p>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+
+			<p class="fragment">Modifiquemos el  ejemplo para que nos calcule la cantidad de los elementos:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT tipo, SUM(cantidad) AS cantidad_total FROM ropa GROUP BY tipo;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Tipo</th><th>Cantidad total</th>
+				</tr>
+				<tr><td>pantalón</td><td>212</td></tr>
+				<tr><td>camiseta</td><td>1330</td></tr>
+				<tr><td>vestido</td><td>237</td></tr>
+			</table>
+			<p class="fragment">Simplifica los cálculos a realizar en el Backend.</p>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+
+			<p class="fragment">Recordemos que SUM aceptaba una expresión, no sólo una columna:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT tipo, SUM(cantidad-reservados) AS cantidad_disponible FROM ropa GROUP BY tipo;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Tipo</th><th>Cantidad disponible</th>
+				</tr>
+				<tr><td>pantalón</td><td>156</td></tr>
+				<tr><td>camiseta</td><td>546</td></tr>
+				<tr><td>vestido</td><td>97</td></tr>
+			</table>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<h3>Condiciones HAVING</h3>
+
+			<p class="fragment">A veces se desea restringir el resultado de una función agrupada y no aplicarla a todos los grupos.</p>
+			<p class="fragment">Si deseamos que sólo aparezcan los elementos que tengan una cantidad disponible mayor que 100:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT tipo, SUM(cantidad-reservados) AS cantidad_disponible
+					  FROM ropa GROUP BY tipo HAVING cantidad_disponible>100;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Tipo</th><th>Cantidad disponible</th>
+				</tr>
+				<tr><td>pantalón</td><td>156</td></tr>
+				<tr><td>camiseta</td><td>546</td></tr>
+			</table>
+
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<h3>Condiciones HAVING</h3>
+
+			<p class="fragment">HAVING opera sobre los resultados de la operación, mientras que WHERE opera sobre cada fila:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT tipo, SUM(cantidad-reservados) AS cantidad_disponible FROM ropa
+					  WHERE cantidad>100 GROUP BY tipo;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Tipo</th><th>Cantidad disponible</th>
+				</tr>
+				<tr><td>camiseta</td><td>513</td></tr>
+				<tr><td>vestido</td><td>100</td></tr>
+			</table>
+		</section>
+		<section>
+			<h2>Agrupaciones</h2>
+			<h3>Condiciones HAVING</h3>
+
+			<p class="fragment">Si en la cláusula WHERE intentamos acceder a "cantidad_disponible":</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT tipo, SUM(cantidad-reservados) AS cantidad_disponible FROM ropa
+					  WHERE cantidad_disponible>100 GROUP BY tipo;
+				</code>
+			</pre>
+
+			<p class="fragment">Producirá un error:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					Error Code: 1054. Unknown column 'cantidad_disponible' in 'where clause'
+				</code>
+			</pre>
+
+			<p class="fragment">En ese momento, cantidad_disponible no está definida.</p>
+
+		</section>
+		<section>
+			<h2>Pasos en la ejecución de una consulta SELECT</h2>
+
+			<ul>
+				<li class="fragment">Se aplica la cláusula FROM, de manera que determina sobre que tablas se va a ejecutar la consulta.</li>
+				<li class="fragment">Se seleccionan las filas deseadas utilizando WHERE. (Solo quedan las filas que cumplen las condiciones especificadas en el WHERE).</li>
+				<li class="fragment">Se establecen los grupos indicados en la cláusula GROUP BY.</li>
+				<li class="fragment">Se calculan los valores de las funciones de totales o colectivas que se especifiquen en el HAVING (COUNT, SUM, AVG,…)</li>
+				<li class="fragment">Se filtran los registros que cumplen la cláusula HAVING.</li>
+				<li class="fragment">Se aplica la cláusula SELECT que indica las columnas que mostraremos en la consulta.</li>
+				<li class="fragment">El resultado se ordena en base al apartado ORDER BY.</li>
+			</ul>
+
+
+		</section>
+		<section>
+			<h2>Obtener datos de múltiples tablas</h2>
+			<p class="fragment">Es más que habitual necesitar en una consulta datos que se encuentran distribuidos en varias tablas.</p>
+			<p class="fragment">Las bases de datos relacionales se basan en que los datos se distribuyen en tablas que se pueden relacionar mediante uno o varios campos.</p>
+			<p class="fragment">Las llamadas claves foráneas permiten integrar datos entre tablas.</p>
+			<p class="fragment">Como ejemplo supongamos que tenemos una tabla "libros" y una tabla "autores".</p>
+			<p class="fragment">Los "autores" pueden escribir varios "libros".</p>
+			<p class="fragment">Pero los "libros" sólo pueden ser escritos por un "autor".</p>
+			<p class="fragment">Recordando conceptos anteriores, esta relación descrita es una relación 1:N.</p>
+
+		</section>
+		<section>
+			<h2>Obtener datos de múltiples tablas</h2>
+			<p class="fragment">Primero se crearán ambas tablas.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					USE testeo;
+					CREATE TABLE autor (
+						cod_autor VARCHAR(5),
+						sobrenombre VARCHAR(20) NOT NULL,
+						CONSTRAINT autor_pk PRIMARY KEY(cod_autor)
+					);
+					CREATE TABLE libro (
+						id INT UNSIGNED AUTO_INCREMENT,
+						cod_autor VARCHAR(5),
+						titulo VARCHAR(20) NOT NULL,
+						CONSTRAINT libro_pk PRIMARY KEY(id),
+						CONSTRAINT libro_codautor_fk1 FOREIGN KEY (cod_autor) REFERENCES autor(cod_autor)
+					);
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h2>Obtener datos de múltiples tablas</h2>
+			<p class="fragment">Se añaden datos.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					INSERT INTO autor VALUES
+						("ALPHA", "Filósofo"),
+						("BETA", "Casual"),
+						("GAMMA", "Profundo");
+
+					INSERT INTO libro VALUES
+						(null, "GAMMA", "Desde el silencio"),
+						(null, "ALPHA", "Siendo o no siendo"),
+						(null, "ALPHA", "El poder de tu yo"),
+						(null, "BETA", "SQL... Eso qué es"),
+						(null, "GAMMA", "Desde la oscuridad"),
+						(null, "GAMMA", "Desde la profundidad"),
+						(null, "BETA", "No sé qué escribir");
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h4>Producto cruzado o cartesiano de tablas</h4>
+			<p class="fragment">Si se quiere obtener una lista de los libros con sus autores:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT titulo, sobrenombre FROM libro, autor WHERE libro.cod_autor = autor.cod_autor;
+				</code>
+			</pre>
+
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Titulo</th><th>Sobrenombre</th>
+				</tr>
+				<tr><td>Siendo o no siendo</td><td>Filósofo</td></tr>
+				<tr><td>El poder de tu yo</td><td>Filósofo</td></tr>
+				<tr><td>SQL... Eso qué es</td><td>Casual</td></tr>
+				<tr><td>No sé qué escribir</td><td>Casual</td></tr>
+				<tr><td>Desde el silencio</td><td>Profundo</td></tr>
+				<tr><td>Desde la oscuridad</td><td>Profundo</td></tr>
+				<tr><td>Desde la profundidad</td><td>Profundo</td></tr>
+			</table>
+
+			<p class="fragment">Se puede observar que los resultados se ordenan no por el orden de inserción de los libros, si no por el orden de inserción de los autores (tabla padre).</p>
+
+		</section>
+		<section>
+			<h4>Producto cruzado o cartesiano de tablas</h4>
+			<p class="fragment">Si se desea ordenar alfabéticamente:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT titulo, sobrenombre FROM libro, autor WHERE libro.cod_autor = autor.cod_autor
+					  ORDER BY titulo ASC;
+				</code>
+			</pre>
+
+			<table class="fragment" style="font-size: 1.2rem">
+				<tr>
+					<th>Titulo</th><th>Sobrenombre</th>
+				</tr>
+				<tr><td>Desde el silencio</td><td>Profundo</td></tr>
+				<tr><td>Desde la oscuridad</td><td>Profundo</td></tr>
+				<tr><td>Desde la profundidad</td><td>Profundo</td></tr>
+				<tr><td>El poder de tu yo</td><td>Filósofo</td></tr>
+				<tr><td>No sé qué escribir</td><td>Casual</td></tr>
+				<tr><td>Siendo o no siendo</td><td>Filósofo</td></tr>
+				<tr><td>SQL... Eso qué es</td><td>Casual</td></tr>
+			</table>
+		</section>
+		<section>
+			<h4>Nota importante</h4>
+			<p class="fragment">Si no se enlazan las tablas en la cláusula WHERE mediante las claves, el resultado obtenido será el producto cruzado de las tablas.</p>
+			<p class="fragment">Es decir, aparecerán todos los registros de los libros relacionados con todos los autores (no la relación especifica de cada libro con su autor).</p>
+			<p class="fragment">El producto cartesiano pocas veces es útil para realizar consultas, por eso la importancia de unir correctamente las tablas en el WHERE.</p>
+
+		</section>
+		<section>
+			<h4>Otras consideraciones en las consultas</h4>
+
+			Para evitar repetir continuamente el nombre de la tabla, se puede utilizar un alias de tabla:
+			<p class="fragment">Nótese que se utiliza la notación tabla.columna para evitar la ambigüedad, ya que el mismo nombre de campo se puede repetir en ambas tablas.</p>
+			<p class="fragment">Para evitar repetir continuamente el nombre de la tabla, se puede utilizar un alias de tabla:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT L.titulo, A.sobrenombre FROM libro L, autor A WHERE L.cod_autor = A.cod_autor
+					  ORDER BY L.titulo ASC;
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h4>Otras consideraciones en las consultas</h4>
+			<p class="fragment">Por otro lado, imaginemos que se quiere obtener todas las columnas de una tabla especifica.</p>
+			<p class="fragment">En ese caso, se usa el "*" asociado al alias (si se ha especificado) o al nombre de la tabla:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT L.*, A.sobrenombre FROM libro L, autor A WHERE L.cod_autor = A.cod_autor
+					  ORDER BY L.titulo ASC;
+				</code>
+			</pre>
+			<p class="fragment">Se pueden enlazar todas las tablas que se desee. Siempre se deberían enlazar mediante las claves foráneas.</p>
+		</section>
+		<section>
+			<h4>Otras consideraciones en las consultas</h4>
+			<p class="fragment">Siempre hay casos especificos donde la úlima condición no se cumple.</p>
+			<p class="fragment">Por ejemplo:</p>
+
+			<img class="fragment"  src="images/frigorificos.png" alt="dato" style="width: 300px"/>
+			<img class="fragment"  src="images/e.energetica.png" alt="dato" style="width: 300px"/>
+			<p class="fragment">Por ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 7rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT F.modelo, F.consumo, E.etiqueta
+					FROM frigorifico F, eficiencia E
+					WHERE F.consumo BETWEEN E.min AND E.max;
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h2>JOINS</h2>
+			<p class="fragment">Existe otra forma más intuitiva de trabajar con varias tablas: los JOINS</p>
+
+
+			<p class="fragment">Se modificará la tabla y se actualizarán los datos:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					ALTER TABLE autor ADD COLUMN pais VARCHAR(20);
+					ALTER TABLE libro ADD COLUMN pais VARCHAR(20);
+
+					UPDATE libro SET pais="CUBA" WHERE titulo="Desde el silencio";
+					UPDATE libro SET pais="ITALIA" WHERE titulo="El poder de tu yo";
+					UPDATE libro SET pais="PORTUGAL" WHERE titulo="SQL... Eso qué es";
+					UPDATE libro SET pais="ESPAÑA" WHERE titulo LIKE "Desde la%";
+					UPDATE libro SET pais="FRANCIA" WHERE titulo= "No sé qué escribir";
+
+					UPDATE autor SET pais="FRANCIA" WHERE cod_autor="GAMMA";
+					UPDATE autor SET pais="PORTUGAL" WHERE cod_autor="BETA";
+
+					INSERT INTO libro VALUES
+						(null, null, "Lazarillo de Tormes", "CUBA");
+
+					INSERT INTO autor VALUES
+						("NOB", "Nobody", "ITALIA");
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<h2>JOINS</h2>
+			<p class="fragment">Existen diversas formas de combinar (JOIN) las tablas según la información que deseemos obtener.</p>
+			<p class="fragment">Los tipos de JOIN se clasifican en:</p>
+
+			<ul>
+				<li class="fragment">Combinación interna:
+					<ul>
+						<li class="fragment">INNER JOIN (o JOIN).</li>
+						<li class="fragment">SELF JOIN.</li>
+						<li class="fragment">NATURAL JOIN.</li>
+					</ul>
+				</li>
+				<li class="fragment">Combinación externa:
+					<ul>
+						<li class="fragment">LEFT OUTER JOIN (o LEFT JOIN).</li>
+						<li class="fragment">RIGHT OUTER JOIN (o RIGHT JOIN).</li>
+						<li class="fragment">NATURAL JOIN.</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h3>INNER JOIN (JOIN)</h3>
+			<p class="fragment">También se conoce como EQUI JOIN o combinación de igualdad.</p>
+			<p class="fragment">Esta combinación devuelve todas las filas de ambas tablas donde hay una coincidencia.</p>
+			<p class="fragment">Se debe usar sólo cuando se desee seleccionar las filas que tienen valores comunes en las columnas que se especifican en la cláusula ON.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT TABLA1.columna1, TABLA1.columna2, ...
+						TABLA2.columna1, TABLA2.columna2, ...
+					FROM TABLA1 JOIN TABLA2
+						ON TABLA1.columnaX = TABLA2.columnaY;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>INNER JOIN (JOIN)</h3>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT L.titulo, L.pais, A.sobrenombre, A.sobrenombre
+					FROM libro L JOIN autor A
+						ON L.cod_autor = A.cod_autor;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.5rem">
+				<tr>
+					<th>titulo</th><th>pais l</th><th>sobrenombre</th><th>pais a</th>
+				</tr>
+				<tr><td>Siendo o no siendo</td><td><b class="italic">NULL</b></td><td>Filósofo</td><td><b class="italic">NULL</b></td></tr>
+				<tr><td>El poder de tu yo</td><td>ITALIA</td><td>Filósofo</td><td><b class="italic">NULL</b></td></tr>
+				<tr><td>SQL... Eso qué es</td><td>PORTUGAL</td><td>Casual</td><td>PORTUGAL</td></tr>
+				<tr><td>No sé qué escribir</td><td>FRANCIA</td><td>Casual</td><td>PORTUGAL</td></tr>
+				<tr><td>Desde el silencio</td><td>CUBA</td><td>Profundo</td><td>FRANCIA</td></tr>
+				<tr><td>Desde la oscuridad</td><td>ESPAÑA</td><td>Profundo</td><td>FRANCIA</td></tr>
+				<tr><td>Desde la profundidad</td><td>ESPAÑA</td><td>Profundo</td><td>FRANCIA</td></tr>
+
+			</table>
+
+		</section>
+		<section>
+			<h3>SELF JOIN</h3>
+			<p class="fragment">Se produce cuando se intenta hacer una combinación de una tabla consigo misma.</p>
+			<p class="fragment">Siempre que se especifiquen dos o más referencias de la misma tabla, se cargarán tantas copias en memoria como referencias.</p>
+			<p class="fragment">En este caso, siempre es obligatorio usar "alias", para poder desambiguar los datos.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT ALIAS1.columna1, ALIAS1.columna2, ..., ALIAS2.columna1, ...
+					FROM TABLA ALIAS1 JOIN TABLA ALIAS2
+						ON ALIAS1.columnaX = ALIAS2.columnaY;
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>SELF JOIN</h3>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT L.titulo, L.pais, PL.pais, PL.titulo
+					FROM libro L JOIN libro PL ON L.pais = PL.pais;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.1rem">
+				<tr>
+					<th>titulo</th><th>pais l</th><th>Pais pl</th><th>titulo pl</th>
+				</tr>
+				<tr><td>Desde el silencio</td><td>CUBA</td><td>CUBA</td><td>Desde el silencio</td></tr>
+				<tr><td>Lazarillo de Tormes</td><td>CUBA</td><td>CUBA</td><td>Desde el silencio</td></tr>
+				<tr><td>El poder de tu yo</td><td>ITALIA</td><td>ITALIA</td><td>El poder de tu yo</td></tr>
+				<tr><td>SQL... Eso qué es</td><td>PORTUGAL</td><td>PORTUGAL</td><td>SQL... Eso qué es</td></tr>
+				<tr><td>Desde la oscuridad</td><td>ESPAÑA</td><td>ESPAÑA</td><td>Desde la oscuridad</td></tr>
+				<tr><td>Desde la profundidad</td><td>ESPAÑA</td><td>ESPAÑA</td><td>Desde la oscuridad</td></tr>
+				<tr><td>Desde la oscuridad</td><td>ESPAÑA</td><td>ESPAÑA</td><td>Desde la profundidad</td></tr>
+				<tr><td>Desde la profundidad</td><td>ESPAÑA</td><td>ESPAÑA</td><td>Desde la profundidad</td></tr>
+				<tr><td>No sé qué escribir</td><td>FRANCIA</td><td>FRANCIA</td><td>No sé qué escribir</td></tr>
+				<tr><td>Desde el silencio</td><td>CUBA</td><td>CUBA</td><td>Lazarillo de Tormes</td></tr>
+				<tr><td>Lazarillo de Tormes</td><td>CUBA</td><td>CUBA</td><td>Lazarillo de Tormes</td></tr>
+			</table>
+		</section>
+		<section>
+			<h3>NATURAL JOIN</h3>
+			<p class="fragment">Establece una relación de igualdad entre las tablas a través de los campos que tengan el mismo nombre en ambas tablas.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT TABLA1.columna1, TABLA1.columna2, ...
+						TABLA2.columna1, TABLA2.columna2, ...
+					FROM TABLA1 NATURAL JOIN TABLA2;
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>NATURAL JOIN</h3>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT * FROM libro E NATURAL JOIN autor S;
+				</code>
+			</pre>
+			<table class="fragment" style="font-size: 1.5rem">
+				<tr>
+					<th>cod autor</th><th>pais</th><th>pais l</th><th>titulo</th><th>sobrenombre</th>
+				</tr>
+
+				<tr><td>BETA</td><td>PORTUGAL</td><td>4</td><td>SQL... Eso qué es</td><td>Casual</td></tr>
+
+			</table>
+		</section>
+		<section>
+			<h3>LEFT JOIN</h3>
+			<p class="fragment">La combinación externa o OUTER JOIN es muy útil cuando deseamos averiguar que campos están a NULL en un lado de la combinación.</p>
+			<p class="fragment">LEFT OUTER JOIN, nos permite obtener todas las filas de la primera tabla asociadas a filas de la segunda tabla.</p>
+			<p class="fragment">Si no existe correspondencia en la segunda tabla, dichos valores aparecen como NULL.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT TABLA1.columna1, TABLA1.columna2, ...
+						TABLA2.columna1, TABLA2.columna2, ...
+					FROM TABLA1 LEFT JOIN TABLA2
+						ON TABLA1.columnaX = TABLA2.columnaY;
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>LEFT JOIN</h3>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT L.titulo, L.pais, A.sobrenombre, A.pais FROM libro L
+						LEFT JOIN autor A ON L.cod_autor = A.cod_autor;
+				</code>
+			</pre>
+
+			<table class="fragment" style="font-size: 1.5rem">
+				<tr>
+					<th>titulo</th><th>pais l</th><th>sobrenombre</th><th>pais a</th>
+				</tr>
+				<tr><td>Desde el silencio</td><td>CUBA</td><td>Profundo</td><td>FRANCIA</td></tr>
+				<tr><td>Siendo o no siendo</td><td><b class="italic">NULL</b></td><td>Filósofo</td><td><b class="italic">NULL</b></td></tr>
+				<tr><td>El poder de tu yo</td><td>ITALIA</td><td>Filósofo</td><td><b class="italic">NULL</b></td></tr>
+				<tr><td>SQL... Eso qué es</td><td>PORTUGAL</td><td>Casual</td><td>PORTUGAL</td></tr>
+				<tr><td>Desde la oscuridad</td><td>ESPAÑA</td><td>Profundo</td><td>FRANCIA</td></tr>
+				<tr><td>Desde la profundidad</td><td>ESPAÑA</td><td>Profundo</td><td>FRANCIA</td></tr>
+				<tr><td>No sé qué escribir</td><td>FRANCIA</td><td>Casual</td><td>PORTUGAL</td></tr>
+				<tr><td>Lazarillo de Tormes</td><td>CUBA</td><td><b class="italic">NULL</b></td><td><b class="italic">NULL</b></td></tr>
+			</table>
+
+		</section>
+		<section>
+			<h3>RIGHT JOIN</h3>
+			<p class="fragment">RIGHT OUTER JOIN, nos permite obtener todas las filas de la segunda tabla asociadas a filas de la primera tabla.</p>
+			<p class="fragment">Si no existe correspondencia en la primera tabla, dichos valores aparecen como NULL.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT TABLA1.columna1, TABLA1.columna2, ...
+						TABLA2.columna1, TABLA2.columna2, ...
+					FROM TABLA1 RIGHT JOIN TABLA2
+						ON TABLA1.columnaX = TABLA2.columnaY;
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>RIGHT JOIN</h3>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT L.titulo, L.pais, A.sobrenombre, A.pais FROM libro L
+						RIGHT JOIN autor A ON L.cod_autor = A.cod_autor;
+				</code>
+			</pre>
+
+			<table class="fragment" style="font-size: 1.5rem">
+				<tr>
+					<th>titulo</th><th>pais l</th><th>sobrenombre</th><th>pais a</th>
+				</tr>
+				<tr><td>Siendo o no siendo</td><td><b class="italic">NULL</b></td><td>Filósofo</td><td><b class="italic">NULL</b></td></tr>
+				<tr><td>El poder de tu yo</td><td>ITALIA</td><td>Filósofo</td><td><b class="italic">NULL</b></td></tr>
+				<tr><td>SQL... Eso qué es</td><td>PORTUGAL</td><td>Casual</td><td>PORTUGAL</td></tr>
+				<tr><td>No sé qué escribir</td><td>FRANCIA</td><td>Casual</td><td>PORTUGAL</td></tr>
+				<tr><td>Desde el silencio</td><td>CUBA</td><td>Profundo</td><td>FRANCIA</td></tr>
+				<tr><td>Desde la oscuridad</td><td>ESPAÑA</td><td>Profundo</td><td>FRANCIA</td></tr>
+				<tr><td>Desde la profundidad</td><td>ESPAÑA</td><td>Profundo</td><td>FRANCIA</td></tr>
+				<tr><td><b class="italic">NULL</b></td><td><b class="italic">NULL</b></td><td>Nobody</td><td>ITALIA</td></tr>
+			</table>
+		</section>
+		<section>
+			<h3>Múltiples JOINs</h3>
+			<p class="fragment">Se han visto ejemplos simples de JOINs.</p>
+			<p class="fragment">A continuación se muestran otros ejemplos con múltiples tablas.</p>
+			<p class="fragment">Se añade una nueva tabla y datos.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 10rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE pais (
+						pais VARCHAR(20),
+						capital VARCHAR(20) NOT NULL,
+						CONSTRAINT pais_pk PRIMARY KEY(pais)
+					);
+
+					INSERT INTO pais VALUES
+						("FRANCIA", "Paris"),
+						("ITALIA", "Roma"),
+						("ESPAÑA", "Madrid"),
+						("CUBA", "La Habana"),
+						("PORTUGAL", "Oporto");
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Múltiples JOINs</h3>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT L.titulo, L.pais, P.capital, A.sobrenombre, A.pais
+					 FROM libro L
+						JOIN autor A ON L.cod_autor = A.cod_autor
+						JOIN pais P ON L.pais = P.pais;
+
+					 SELECT L.titulo, L.pais, P.capital, A.sobrenombre, A.pais, PA.capital
+					 FROM libro L
+						JOIN autor A ON L.cod_autor = A.cod_autor
+						JOIN pais P ON L.pais = P.pais
+						JOIN pais PA ON A.pais = PA.pais;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Múltiples JOINs</h3>
+			<p class="fragment">Otros ejemplos</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SELECT L.titulo, L.pais, P.capital, A.sobrenombre, A.pais
+					 FROM libro L
+						LEFT JOIN autor A ON L.cod_autor = A.cod_autor
+						JOIN pais P ON L.pais = P.pais;
+
+					 SELECT L.titulo, L.pais, P.capital, A.sobrenombre, A.pais
+					 FROM libro L
+						LEFT JOIN autor A ON L.cod_autor = A.cod_autor
+						JOIN pais P ON A.pais = P.pais;
+
+					 SELECT L.titulo, L.pais, P.capital, A.sobrenombre, A.pais
+					 FROM libro L
+						LEFT JOIN autor A ON L.cod_autor = A.cod_autor
+						LEFT JOIN pais P ON L.pais = P.pais;
+				</code>
+			</pre>
+		</section>
+		<section>
+			<h3>Múltiples JOINs</h3>
+			<p class="fragment">Otros ejemplos</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					 SELECT L.titulo, L.pais, P.capital, A.sobrenombre, A.pais
+					 FROM libro L
+						RIGHT JOIN autor A ON L.cod_autor = A.cod_autor
+						JOIN pais P ON L.pais = P.pais;
+
+					 SELECT L.titulo, L.pais, P.capital, A.sobrenombre, A.pais
+					 FROM libro L
+						RIGHT JOIN autor A ON L.cod_autor = A.cod_autor
+						JOIN pais P ON A.pais = P.pais;
+
+					 SELECT L.titulo, L.pais, P.capital, A.sobrenombre, A.pais
+					 FROM libro L
+						RIGHT JOIN autor A ON L.cod_autor = A.cod_autor
+						RIGHT JOIN pais P ON L.pais = P.pais;
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h2>Control de usuarios: DCL</h2>
+			<p class="fragment">Hasta ahora se ha utilizado el usuario root (administrador) para ejecutar estas consultas.</p>
+			<p class="fragment">En sistemas reales no es aconsejable usar este tipo de usuario para operaciones simples.</p>
+			<p class="fragment">Sistemas ajenos que deseen acceder a la base de datos deben ser limitados en cuanto a las operacines que puedan realizar.</p>
+			<p class="fragment">Es aquí donde entra en juego el lenguade de control de datos.</p>
+			<p class="fragment">Se describe mínimamente cómo limitar dichos accessos generalizados.</p>
+		</section>
+		<section>
+			<h3>Creación de un usuario</h3>
+			<p class="fragment">MySQL permite crear cuentas de usuario para distintos perfiles y permisos.</p>
+			<p class="fragment">Para ello existe el comando CREATE USER.</p>
+			<p class="fragment">Es un comando complejo con lo cual solo se mencionará su uso básico.</p>
+			<p class="fragment">Para más detalle, se puede consultar la <a href="https://dev.mysql.com/doc/refman/8.0/en/create-user.html">guía de creación de usuarios de MySQL</a>.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE USER 'jeffrey'@'localhost' IDENTIFIED BY 'password';
+				</code>
+			</pre>
+			<p class="fragment">'localhost' se refiere a desde donde se va a conectar el usuario, siendo '%' el comodín para aceptar cualquier conexión.</p>
+			<p class="fragment">'password' es la contraseña del usuario para poder conectarse al SGDB.</p>
+			<p class="fragment">Existen a su vez, comandos para eliminar usuario (DROP USER) y modificar usuario (ALTER USER).</p>
+		</section>
+
+		<section>
+			<h3>Permisos comunes</h3>
+			<table class="fragment" style="font-size: 1rem">
+				<tr><td>ALL [PRIVILEGES]</td><td>Concede todos los privilegios.</td></tr>
+				<tr><td>ALTER</td><td>Habilita el uso deALTER TABLE.</td></tr>
+				<tr><td>CREATE</td><td>Habilita la creación de bases de datos y tablas.</td></tr>
+				<tr><td>CREATE USER</td><td>Habilita el uso de  CREATE USER, DROP USER, RENAME USER, y REVOKE ALL PRIVILEGES. </td></tr>
+				<tr><td>DELETE</td><td>Habilita el uso de DELETE.</td></tr>
+				<tr><td>DROP</td><td>Habilita la destrucción de bases de datos y tablas.</td></tr>
+				<tr><td>FILE</td><td>Habilita al usuario la posibilidad de leer y escribir ficheros.</td></tr>
+				<tr><td>GRANT OPTION</td><td>Habilita la opción de conceder permisos a otros usuarios.</td></tr>
+				<tr><td>INDEX</td><td>Habilita crear o destruir índices.</td></tr>
+				<tr><td>INSERT</td><td>Habilita el uso de INSERT.</td></tr>
+				<tr><td>REFERENCES</td><td>Habilita la creación de claves foráneas.</td></tr>
+				<tr><td>RELOAD</td><td>Habilita el uso de operaciones FLUSH .</td></tr>
+				<tr><td>SELECT</td><td>Habilita el uso de SELECT.</td></tr>
+				<tr><td>SHOW DATABASES</td><td>Habilita la operación SHOW DATABASES (mostrar todas las BBDD).</td></tr>
+				<tr><td>SHUTDOWN</td><td>Habilita el uso de apagado de mysqladmin.</td></tr>
+				<tr><td>SUPER</td><td>Habilita el uso de otras operaciones administrativas.</td></tr>
+				<tr><td>UPDATE</td><td>Habilita el uso de UPDATE.</td></tr>
+				<tr><td>USAGE</td><td>Sinónimo de “no privileges”</td></tr>
+			</table>
+		</section>
+		<section>
+			<h3>Asignación de privilegios</h3>
+			<p class="fragment">Dados los permisos anteriores, se necesitan comandos para conceder o eliminar permisos.</p>
+			<p class="fragment">Los permisos se conceden a nivel de base datos, pero también a nivel de tabla.</p>
+			<p class="fragment">De nuevo "*" es el comodín para especificar que se asignen los permisos a todas las bases de datos y/o tablas.</p>
+
+		</section>
+		<section>
+			<h3>Asignación de privilegios</h3>
+			<p class="fragment">Asignación de todos los permisos al usuario "user" si se conecta localmente a la base de datos "allthemoneybank".</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					GRANT ALL PRIVILEGES ON allthemoneybank.* TO "user"@"localhost";
+				</code>
+			</pre>
+
+			<p class="fragment">Asignación de los permisos de operaciones DML al usuario "user2" para la tabla "usuario" de "allthemoneybank".</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					GRANT SELECT, DELETE, UPDATE, INSERT ON allthemoneybank.usuario TO "user2"@"localhost";
+				</code>
+			</pre>
+
+			<p class="fragment">Revoca el permiso de inserción al usuario "user3" en todas las bases de datos.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					REVOKE INSERT ON *.* FROM 'user3'@'localhost';
+				</code>
+			</pre>
+
+		</section>
+		<section>
+			<h3>Refresco de privilegios</h3>
+			<p class="fragment">Cada vez que se añadan, borren o modifiquen privilegios, para que estos se apliquen, se debe ejecutar el siguiente comando:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					FLUSH PRIVILEGES;
+				</code>
+			</pre>
+			<p class="fragment">Si no se ejecuta, el usuario no verá alterados sus privilegios hasta el reinicio del servicio.</p>
+
+		</section>
+
+		<section>
+			<h1>¿Preguntas?</h1>
+			<p>Muchas gracias por vuestra atención.</p>
+		</section>
+	</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+	});
+</script>
+</body>
+</html>
