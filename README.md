@@ -9,8 +9,20 @@ We are hackers 🧑‍🎓🧑‍💻🧞, we are bossers 🕴️, we are remote
 
 ## Requirements
 
-🚧
+**MySQL** (https://www.mysql.com). Tanto el server como el workbench. Seguir [guía de instalación del profesor](teacher-docs/INSTALACION-MYSQL.md).
 
+**DIA** (https://dia-installer.de). para hacer diagramación entidad-relación (EDRs) y modelado DDBB (Relational Schemas).
+
+```bash
+sudo apt update
+sudo apt install dia
+```
+
+Otrás alternativas a DIA:
+- Microsoft Visio (https://www.microsoft.com/microsoft-365/visio): es de pago.
+- Enterprise Architect (https://sparxsystems.com): es de pago pero muy potente.
+- ERDPlus (https://erdplus.com/): editor online específico para EDR.
+- Draw-IO (https://www.diagrams.net): cliente online y de escritorio con un sinfin de posibilidades. Integración con repositorios.
 
 ## Initialization
 
