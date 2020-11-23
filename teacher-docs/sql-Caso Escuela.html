@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>HaB: SQL</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<style>
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+			font-family: "Quicksand", sans-serif
+		}
+
+		.reveal h1{
+			font-size: 2.2em;
+		}
+
+
+		.reveal h2{
+			font-size: 1.6em;
+		}
+
+
+		.reveal h3{
+			font-size: 1.2em;
+		}
+
+
+		.reveal h4{
+			font-size: 1.05em;
+		}
+
+		body, body p, body ul {
+			font-size: 1.8rem;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+		.italic{
+			font-style: italic;
+		}
+		.s-500{
+			width: 500px;
+		}
+		.s-400{
+			width: 400px;
+		}
+		.italic_small{
+			font-style: italic;
+			text-align: left;
+			font-size: 1.5rem;
+		}
+
+	</style>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+
+		<section>
+
+			<h2>HaB: Caso práctico</h2>
+
+			<p>Por: <span class="italic">Fernando Batlle López</span></p>
+			<br>
+			<p><a href="http://www.linkedin.com/in/fernando-batlle-55333738">Linkedin</a> | <a href="http://lapisoft.es">Lapisoft Projects S.L.</a></p>
+		</section>
+		<section>
+			<h3>Caso práctico: Base de datos de una escuela.</h3>
+			<h4>Planteamiento:</h4>
+
+			<p class="fragment">Se necesita crear una base de datos que permita la gestión de alumnos asociados a una determinada escuela. </p>
+			<p class="fragment">Para simplicar el problema, se devidirá en bloques. </p>
+			<p class="fragment">Una vez definidos todos lo bloques, se integrán en un sólo diagrama. </p>
+		</section>
+
+		<section>
+			<h2>Proceso:</h2>
+			<p class="fragment">Definir el alcance.</p>
+			<p class="fragment">Identificar entidades.</p>
+			<p class="fragment">Dibujar las Relaciones entre entidades.</p>
+			<p class="fragment">Detallar atributos de las entidades.</p>
+			<p class="fragment">Establecer las cardinalidades y participaciones.</p>
+		</section>
+
+		<section>
+			<h2>Bloque 1</h2>
+			<p class="fragment italic_small">La escuela dividirá la docencia en diversos cursos, que tienen asociado un determinado
+				número (1º, 2º, etc..). Cada uno de los ellos contiene un número variable de grupos.</p>
+			<p class="fragment italic_small">Cada grupo (identificado por una letra, A,B,C...) tiene asimismo asociada una única aula en particular.</p>
+			<p class="fragment italic_small">En las aulas, interesa conocer el número de plazas disponibles, así como el número de ordenadores con los que cuenta.</p>
+		</section>
+
+
+		<section>
+			<h2>Bloque 2</h2>
+			<p class="italic_small">Cada alumno de la escuela estará en un grupo determinado (no existirán grupos sin alumnos)
+				y de los que será necesario conocer su nombre, teléfono y fecha de nacimiento.</p>
+			<p class="fragment italic_small">El alumno podrá obtener una beca con una cuantía económica determinada, a partir de una fecha definida.</p>
+			<p class="fragment italic_small">Así mismo un alumno podrá ser delegado de su clase si así lo estiman sus compañeros.</p>
+		</section>
+
+		<section>
+			<h2>Bloque 3</h2>
+			<p class="italic_small italic_small">Así mismo, los alumnos cursarán un número variable de módulos formativos (identificados
+				por su código y número) que contienen múltiples temas en su temario. </p>
+			<p class="fragment italic_small">De los temas solo será necesario guardar su código y su título.</p>
+			<p class="fragment italic_small">La nota de cada alumno en cada módulo será también guardada en la base de datos.</p>
+		</section>
+
+
+		<section>
+			<h2>Bloque 4</h2>
+			<p class="italic_small">Respecto a la acción docente, cada módulo es impartido por un profesor. </p>
+			<p class="fragment italic_small">Si bien es cierto que ciertos profesores tienen la capacidad de impartir distintos módulos.</p>
+			<p class="fragment italic_small">De cada profesor será necesario almacenar su DNI, nombre, teléfono y dirección.</p>
+			<p class="fragment italic_small">Dichos docentes pueden estar trabajando en una empresa. </p>
+			<p class="fragment italic_small">Interesa guardar en el sistema el nombre de la empresa donde cada profesor trabaja.</p>
+		</section>
+
+		<section>
+			<h2>Solución global</h2>
+			<p class="fragment">Interconectar todos los bloques, generando un único diagrama.</p>
+		</section>
+		
+	</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+	});
+</script>
+</body>
+</html>
