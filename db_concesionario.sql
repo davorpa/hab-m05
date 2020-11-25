@@ -1,0 +1,50 @@
+DROP DATABASE IF EXISTS CONCESIONARIOS;
+CREATE DATABASE CONCESIONARIOS;
+USE CONCESIONARIOS;
+
+CREATE TABLE TALLER (
+	cod						BIGINT,
+    nombre					VARCHAR(256),
+	CONSTRAINT taller_cod_pk PRIMARY KEY (cod)
+);
+
+CREATE TABLE PROPIETARIO (
+	cod						BIGINT,
+    nombre					VARCHAR(256),
+    apellido1				VARCHAR(256),
+    apellido2				VARCHAR(256),
+	CONSTRAINT propietario_cod_pk PRIMARY KEY (cod)
+);
+
+CREATE TABLE COCHES (
+	matricula				VARCHAR(8),
+	marca					VARCHAR(15) NOT NULL,
+	color					VARCHAR(15),
+	cod_taller				BIGINT,
+	cod_prop				BIGINT,
+	CONSTRAINT coches_matricula_pk PRIMARY KEY (matricula),
+	CONSTRAINT coches_taller_fk FOREIGN KEY (cod_taller)
+		REFERENCES TALLER(cod),
+	CONSTRAINT coches_propietario_fk FOREIGN KEY (cod_prop)
+		REFERENCES PROPIETARIO(cod),
+	CONSTRAINT coches_color_ck1
+		CHECK (color IN ('ROJO','AZUL','BLANCO','GRIS','VERDE','NEGRO'))
+);
+
+
+SHOW CREATE TABLE TALLER;
+SHOW CREATE TABLE PROPIETARIO;
+SHOW CREATE TABLE COCHES;
+DESCRIBE TALLER;
+DESCRIBE PROPIETARIO;
+
+
+
+INSERT INTO TALLER VALUES(1, 'Taller 1'),(2, 'Taller 2');
+INSERT INTO PROPIETARIO VALUES(1, 'Nombre 1', 'Apellido1 1', 'Apellido2 1'),(2, 'Nombre 2', 'Apellido1 2', 'Apellido2 2');
+INSERT INTO COCHES VALUES('9999-BBB', 'Seat Ibiza', 'ROJO', 1, 1);
+
+
+SELECT * FROM TALLER;
+SELECT * FROM PROPIETARIO;
+SELECT * FROM COCHES;
