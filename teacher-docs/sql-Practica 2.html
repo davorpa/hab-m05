@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>HaB: SQL</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<style>
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+			font-family: "Quicksand", sans-serif
+		}
+
+		.reveal h1{
+			font-size: 2.2em;
+		}
+
+
+		.reveal h2{
+			font-size: 1.6em;
+		}
+
+
+		.reveal h3{
+			font-size: 1.2em;
+		}
+
+
+		.reveal h4{
+			font-size: 1.05em;
+		}
+
+		body, body p, body ul {
+			font-size: 1.8rem;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+		.italic{
+			font-style: italic;
+		}
+		.s-500{
+			width: 500px;
+		}
+		.s-400{
+			width: 400px;
+		}
+		.italic_small{
+			font-style: italic;
+			text-align: left;
+			font-size: 1.5rem;
+		}
+
+	</style>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+
+		<section>
+
+			<h2>HaB: Caso práctico</h2>
+
+			<p>Por: <span class="italic">Fernando Batlle López</span></p>
+			<br>
+			<p><a href="http://www.linkedin.com/in/fernando-batlle-55333738">Linkedin</a> | <a href="http://lapisoft.es">Lapisoft Projects S.L.</a></p>
+		</section>
+		<section>
+			<h3>Ejercicio 2</h3>
+			<h4>Paso de Modelo Entidad-Relación a modelo físico</h4>
+
+			<p class="fragment">Dado el siguiente diagrama, implementar y ejecutar el script de base de datos. </p>
+		</section>
+		<section>
+
+			<img src="images/pelis-1.png" alt="Pelis">
+
+		</section>
+		<section>
+			<h3>Ejercicio 2</h3>
+
+			<p class="fragment">Como segunda parte del ejercicio, se deben buscar las diferencias e implementarlas.</p>
+		</section>
+		<section>
+			<img src="images/pelis-2.png" alt="Pelis">
+		</section>
+		
+	</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+	});
+</script>
+</body>
+</html>
