@@ -2,9 +2,13 @@ DROP DATABASE IF EXISTS`HOLLYWOOD_OSCARS`;
 CREATE DATABASE `HOLLYWOOD_OSCARS` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `HOLLYWOOD_OSCARS`; 
 
+# 
+# ENTIDADES / TABLAS PRINCIPALES
+#
+
 DROP TABLE IF EXISTS `Prize`;
 CREATE TABLE `Prize` (
-	`id`				INT UNSIGNED AUTO_INCREMENT							COMMENT 'Identificador',
+	`id`				INT UNSIGNED NOT NULL AUTO_INCREMENT				COMMENT 'Identificador',
     `title`				VARCHAR(255) NOT NULL								COMMENT 'Título/Denominación',
     `great_category`	TINYINT UNSIGNED DEFAULT 0							COMMENT 'Flag de gran categoría',
     CONSTRAINT `prize_pk` PRIMARY KEY(`id`),
@@ -15,7 +19,7 @@ CREATE TABLE `Prize` (
 
 DROP TABLE IF EXISTS `Film`;
 CREATE TABLE `Film` (
-	`id`				BIGINT UNSIGNED AUTO_INCREMENT										COMMENT 'Identificador',
+	`id`				BIGINT UNSIGNED NOT NULL AUTO_INCREMENT								COMMENT 'Identificador',
     `title`				VARCHAR(255) NOT NULL												COMMENT 'Título',
     `qualification`		ENUM("TP", "+3", "+5", "+8", "+10", "+13", "+18") DEFAULT "TP"		COMMENT 'Calificación pública',
     CONSTRAINT `film_pk` PRIMARY KEY(`id`)
