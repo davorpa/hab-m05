@@ -48,3 +48,6 @@ INSERT INTO usuario (nombre, apellido1, apellido2, email, fecha_nacimiento, empl
 -- UPDATE CON WHERE
 UPDATE usuario SET email="loco@allthemoneybank.com" WHERE id=3;
 UPDATE usuario SET empleado = 1 WHERE lower(apellido2)='rockefeller';
+
+-- UPDATE SIN WHERE
+UPDATE usuario SET activo = 1;
