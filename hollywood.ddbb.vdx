@@ -698,7 +698,7 @@
           <XForm>
             <Height>0.629921</Height>
             <PinX>11.923819</PinX>
-            <PinY>1.139961</PinY>
+            <PinY>1.159646</PinY>
             <Width>8.090551</Width>
           </XForm>
           <Fill>
@@ -747,7 +747,7 @@
           <XForm>
             <Height>0.216618</Height>
             <PinX>15.650197</PinX>
-            <PinY>0.812374</PinY>
+            <PinY>0.832059</PinY>
             <Width>0.637795</Width>
           </XForm>
           <Char IX='0'>
@@ -769,7 +769,7 @@
           <XForm>
             <Height>0.216618</Height>
             <PinX>14.916142</PinX>
-            <PinY>0.536783</PinY>
+            <PinY>0.556468</PinY>
             <Width>2.105906</Width>
           </XForm>
           <Char IX='0'>
@@ -789,9 +789,9 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>2.263780</Height>
+            <Height>2.992126</Height>
             <PinX>11.923819</PinX>
-            <PinY>0.510039</PinY>
+            <PinY>0.529724</PinY>
             <Width>8.090551</Width>
           </XForm>
           <Fill>
@@ -821,11 +821,11 @@
             </LineTo>
             <LineTo IX='3'>
               <X>8.090551</X>
-              <Y>-2.263780</Y>
+              <Y>-2.992126</Y>
             </LineTo>
             <LineTo IX='4'>
               <X>0.000000</X>
-              <Y>-2.263780</Y>
+              <Y>-2.992126</Y>
             </LineTo>
             <LineTo IX='5'>
               <X>0.000000</X>
@@ -840,7 +840,7 @@
           <XForm>
             <Height>0.118110</Height>
             <PinX>11.992717</PinX>
-            <PinY>0.313189</PinY>
+            <PinY>0.332874</PinY>
             <Width>0.078740</Width>
           </XForm>
           <Fill>
@@ -883,7 +883,7 @@
           <XForm>
             <Height>0.247563</Height>
             <PinX>12.110826</PinX>
-            <PinY>0.135655</PinY>
+            <PinY>0.155340</PinY>
             <Width>0.363780</Width>
           </XForm>
           <Char IX='0'>
@@ -905,7 +905,7 @@
           <XForm>
             <Height>0.247563</Height>
             <PinX>14.278150</PinX>
-            <PinY>0.135655</PinY>
+            <PinY>0.155340</PinY>
             <Width>2.728346</Width>
           </XForm>
           <Char IX='0'>
@@ -926,14 +926,14 @@
           <Data3>0</Data3>
           <XForm>
             <PinX>12.110826</PinX>
-            <PinY>0.163583</PinY>
+            <PinY>0.183268</PinY>
             <Width>4.440945</Width>
           </XForm>
           <XForm1D>
             <BeginX>12.110826</BeginX>
-            <BeginY>0.163583</BeginY>
+            <BeginY>0.183268</BeginY>
             <EndX>16.551771</EndX>
-            <EndY>0.163583</EndY>
+            <EndY>0.183268</EndY>
           </XForm1D>
           <Line>
             <LineCap>1</LineCap>
@@ -963,7 +963,7 @@
           <XForm>
             <Height>0.216618</Height>
             <PinX>12.209252</PinX>
-            <PinY>-0.132508</PinY>
+            <PinY>-0.112823</PinY>
             <Width>2.859172</Width>
           </XForm>
           <Char IX='0'>
@@ -987,7 +987,7 @@
             <LocPinX>0.039370</LocPinX>
             <LocPinY>0.039370</LocPinY>
             <PinX>12.032086</PinX>
-            <PinY>-0.415157</PinY>
+            <PinY>-0.395472</PinY>
             <Width>0.078740</Width>
           </XForm>
           <Fill>
@@ -1018,7 +1018,7 @@
           <XForm>
             <Height>0.247563</Height>
             <PinX>12.110826</PinX>
-            <PinY>-0.592692</PinY>
+            <PinY>-0.573007</PinY>
             <Width>0.909449</Width>
           </XForm>
           <Char IX='0'>
@@ -1039,7 +1039,7 @@
           <XForm>
             <Height>0.247563</Height>
             <PinX>14.278150</PinX>
-            <PinY>-0.592692</PinY>
+            <PinY>-0.573007</PinY>
             <Width>2.182677</Width>
           </XForm>
           <Char IX='0'>
@@ -1060,7 +1060,7 @@
           <XForm>
             <Height>0.216618</Height>
             <PinX>12.209252</PinX>
-            <PinY>-0.860854</PinY>
+            <PinY>-0.841169</PinY>
             <Width>0.741732</Width>
           </XForm>
           <Char IX='0'>
@@ -1084,7 +1084,7 @@
             <LocPinX>0.039370</LocPinX>
             <LocPinY>0.039370</LocPinY>
             <PinX>12.032086</PinX>
-            <PinY>-1.143504</PinY>
+            <PinY>-1.123819</PinY>
             <Width>0.078740</Width>
           </XForm>
           <Fill>
@@ -1115,7 +1115,104 @@
           <XForm>
             <Height>0.247563</Height>
             <PinX>12.110826</PinX>
-            <PinY>-1.321038</PinY>
+            <PinY>-1.301353</PinY>
+            <Width>1.818898</Width>
+          </XForm>
+          <Char IX='0'>
+            <Color>#000000</Color>
+            <Font>1</Font>
+            <FontScale>1.000000</FontScale>
+            <Size>0.247563</Size>
+          </Char>
+          <Para IX='0'>
+            <HorzAlign>0</HorzAlign>
+          </Para>
+          <Text><pp IX='0'/><cp IX='0'/>num_actors</Text>
+        </Shape>
+        <Shape ID='38' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.38'>
+          <Data1>0</Data1>
+          <Data2>0</Data2>
+          <Data3>0</Data3>
+          <XForm>
+            <Height>0.247563</Height>
+            <PinX>14.278150</PinX>
+            <PinY>-1.301353</PinY>
+            <Width>3.092126</Width>
+          </XForm>
+          <Char IX='0'>
+            <Color>#000000</Color>
+            <Font>1</Font>
+            <FontScale>1.000000</FontScale>
+            <Size>0.247563</Size>
+          </Char>
+          <Para IX='0'>
+            <HorzAlign>0</HorzAlign>
+          </Para>
+          <Text><pp IX='0'/><cp IX='0'/>SMALLINT UNSIGNED</Text>
+        </Shape>
+        <Shape ID='39' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.39'>
+          <Data1>0</Data1>
+          <Data2>0</Data2>
+          <Data3>0</Data3>
+          <XForm>
+            <Height>0.216618</Height>
+            <PinX>12.209252</PinX>
+            <PinY>-1.569516</PinY>
+            <Width>2.538189</Width>
+          </XForm>
+          <Char IX='0'>
+            <Color>#000000</Color>
+            <Font>0</Font>
+            <FontScale>1.000000</FontScale>
+            <Size>0.216618</Size>
+            <Style>2</Style>
+          </Char>
+          <Para IX='0'>
+            <HorzAlign>0</HorzAlign>
+          </Para>
+          <Text><pp IX='0'/><cp IX='0'/>Número de actores</Text>
+        </Shape>
+        <Shape ID='40' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.40'>
+          <Data1>0</Data1>
+          <Data2>0</Data2>
+          <Data3>0</Data3>
+          <XForm>
+            <Height>0.078740</Height>
+            <LocPinX>0.039370</LocPinX>
+            <LocPinY>0.039370</LocPinY>
+            <PinX>12.032086</PinX>
+            <PinY>-1.852165</PinY>
+            <Width>0.078740</Width>
+          </XForm>
+          <Fill>
+            <FillBkgnd>#000000</FillBkgnd>
+            <FillForegnd>#000000</FillForegnd>
+            <FillPattern>1</FillPattern>
+            <ShdwForegnd>#000000</ShdwForegnd>
+          </Fill>
+          <Geom IX='0'>
+            <NoFill>0</NoFill>
+            <NoLine>1</NoLine>
+            <NoShow>0</NoShow>
+            <NoSnap>0</NoSnap>
+            <Ellipse IX='1'>
+              <A>0.078740</A>
+              <B>0.039370</B>
+              <C>0.039370</C>
+              <D>0.078740</D>
+              <X>0.039370</X>
+              <Y>0.039370</Y>
+            </Ellipse>
+          </Geom>
+        </Shape>
+        <Shape ID='41' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.41'>
+          <Data1>0</Data1>
+          <Data2>0</Data2>
+          <Data3>0</Data3>
+          <XForm>
+            <Height>0.247563</Height>
+            <PinX>12.110826</PinX>
+            <PinY>-2.029700</PinY>
             <Width>2.364567</Width>
           </XForm>
           <Char IX='0'>
@@ -1129,14 +1226,14 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>qualification</Text>
         </Shape>
-        <Shape ID='38' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.38'>
+        <Shape ID='42' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.42'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
             <PinX>14.278150</PinX>
-            <PinY>-1.321038</PinY>
+            <PinY>-2.029700</PinY>
             <Width>6.729921</Width>
           </XForm>
           <Char IX='0'>
@@ -1150,14 +1247,14 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>ENUM(&quot;TP&quot;,&quot;+3&quot;,&quot;+5&quot;,&quot;+8&quot;,&quot;+13&quot;,&quot;+18&quot;)</Text>
         </Shape>
-        <Shape ID='39' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.39'>
+        <Shape ID='43' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.43'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
             <PinX>12.209252</PinX>
-            <PinY>-1.589201</PinY>
+            <PinY>-2.297862</PinY>
             <Width>1.518898</Width>
           </XForm>
           <Char IX='0'>
@@ -1172,7 +1269,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Calificación</Text>
         </Shape>
-        <Shape ID='40' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.40'>
+        <Shape ID='44' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.44'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1194,7 +1291,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>OSCARS HOLLYWOOD</Text>
         </Shape>
-        <Shape ID='41' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.41'>
+        <Shape ID='45' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.45'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1243,7 +1340,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='42' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.42'>
+        <Shape ID='46' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.46'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1265,7 +1362,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>ProductionData</Text>
         </Shape>
-        <Shape ID='43' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.43'>
+        <Shape ID='47' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.47'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1287,7 +1384,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>entidad Datos de Producción</Text>
         </Shape>
-        <Shape ID='44' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.44'>
+        <Shape ID='48' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.48'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1336,7 +1433,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='45' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.45'>
+        <Shape ID='49' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.49'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1379,7 +1476,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='46' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.46'>
+        <Shape ID='50' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.50'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1401,7 +1498,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>id</Text>
         </Shape>
-        <Shape ID='47' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.47'>
+        <Shape ID='51' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.51'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1423,7 +1520,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
-        <Shape ID='48' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.48'>
+        <Shape ID='52' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.52'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1459,7 +1556,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='49' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.49'>
+        <Shape ID='53' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.53'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1481,7 +1578,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Identificador                     PK</Text>
         </Shape>
-        <Shape ID='50' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.50'>
+        <Shape ID='54' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.54'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1514,7 +1611,7 @@
             </Ellipse>
           </Geom>
         </Shape>
-        <Shape ID='51' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.51'>
+        <Shape ID='55' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.55'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1535,7 +1632,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>producer_company</Text>
         </Shape>
-        <Shape ID='52' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.52'>
+        <Shape ID='56' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.56'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1556,7 +1653,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>VARCHAR(255)</Text>
         </Shape>
-        <Shape ID='53' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.53'>
+        <Shape ID='57' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.57'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1578,7 +1675,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Productora</Text>
         </Shape>
-        <Shape ID='54' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.54'>
+        <Shape ID='58' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.58'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1611,7 +1708,7 @@
             </Ellipse>
           </Geom>
         </Shape>
-        <Shape ID='55' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.55'>
+        <Shape ID='59' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.59'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1632,7 +1729,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>cost</Text>
         </Shape>
-        <Shape ID='56' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.56'>
+        <Shape ID='60' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.60'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1653,7 +1750,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>DECIMAL(12,2)</Text>
         </Shape>
-        <Shape ID='57' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.57'>
+        <Shape ID='61' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.61'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1675,7 +1772,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Coste</Text>
         </Shape>
-        <Shape ID='58' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.58'>
+        <Shape ID='62' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.62'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1708,7 +1805,7 @@
             </Ellipse>
           </Geom>
         </Shape>
-        <Shape ID='59' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.59'>
+        <Shape ID='63' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.63'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1729,7 +1826,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>end_production_date</Text>
         </Shape>
-        <Shape ID='60' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.60'>
+        <Shape ID='64' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.64'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1750,7 +1847,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>TIMESTAMP</Text>
         </Shape>
-        <Shape ID='61' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.61'>
+        <Shape ID='65' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.65'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1772,7 +1869,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Fecha fin producción</Text>
         </Shape>
-        <Shape ID='62' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.62'>
+        <Shape ID='66' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.66'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -1805,13 +1902,13 @@
             </Ellipse>
           </Geom>
         </Shape>
-        <Shape ID='63' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.63'>
+        <Shape ID='67' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.67'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.629921</Height>
-            <PinX>13.112368</PinX>
+            <PinX>13.112362</PinX>
             <PinY>5.919665</PinY>
             <Width>5.513780</Width>
           </XForm>
@@ -1854,13 +1951,13 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='64' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.64'>
+        <Shape ID='68' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.68'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>14.385793</PinX>
+            <PinX>14.385787</PinX>
             <PinY>5.592079</PinY>
             <Width>2.966929</Width>
           </XForm>
@@ -1876,13 +1973,13 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>FilmProductionData</Text>
         </Shape>
-        <Shape ID='65' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.65'>
+        <Shape ID='69' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.69'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>14.907249</PinX>
+            <PinX>14.907244</PinX>
             <PinY>5.316488</PinY>
             <Width>1.924016</Width>
           </XForm>
@@ -1898,13 +1995,13 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>relación Posee</Text>
         </Shape>
-        <Shape ID='66' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.66'>
+        <Shape ID='70' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.70'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>1.811024</Height>
-            <PinX>13.112368</PinX>
+            <PinX>13.112362</PinX>
             <PinY>5.289744</PinY>
             <Width>5.513780</Width>
           </XForm>
@@ -1947,13 +2044,13 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='67' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.67'>
+        <Shape ID='71' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.71'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.118110</Height>
-            <PinX>13.181265</PinX>
+            <PinX>13.181260</PinX>
             <PinY>5.092894</PinY>
             <Width>0.078740</Width>
           </XForm>
@@ -1990,13 +2087,13 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='68' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.68'>
+        <Shape ID='72' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.72'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>13.299376</PinX>
+            <PinX>13.299370</PinX>
             <PinY>4.915359</PinY>
             <Width>1.273228</Width>
           </XForm>
@@ -2012,13 +2109,13 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>id_film</Text>
         </Shape>
-        <Shape ID='69' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.69'>
+        <Shape ID='73' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.73'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>16.224573</PinX>
+            <PinX>16.224567</PinX>
             <PinY>4.915359</PinY>
             <Width>2.728346</Width>
           </XForm>
@@ -2034,19 +2131,19 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
-        <Shape ID='70' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.70'>
+        <Shape ID='74' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.74'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <PinX>13.299376</PinX>
+            <PinX>13.299370</PinX>
             <PinY>4.943287</PinY>
             <Width>5.198819</Width>
           </XForm>
           <XForm1D>
-            <BeginX>13.299376</BeginX>
+            <BeginX>13.299370</BeginX>
             <BeginY>4.943287</BeginY>
-            <EndX>18.498194</EndX>
+            <EndX>18.498190</EndX>
             <EndY>4.943287</EndY>
           </XForm1D>
           <Line>
@@ -2070,13 +2167,13 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='71' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.71'>
+        <Shape ID='75' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.75'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>13.397800</PinX>
+            <PinX>13.397796</PinX>
             <PinY>4.647197</PinY>
             <Width>4.369802</Width>
           </XForm>
@@ -2092,13 +2189,13 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Identificador Película          PK FK</Text>
         </Shape>
-        <Shape ID='72' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.72'>
+        <Shape ID='76' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.76'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.118110</Height>
-            <PinX>13.181265</PinX>
+            <PinX>13.181260</PinX>
             <PinY>4.364547</PinY>
             <Width>0.078740</Width>
           </XForm>
@@ -2135,13 +2232,13 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='73' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.73'>
+        <Shape ID='77' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.77'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>13.299376</PinX>
+            <PinX>13.299370</PinX>
             <PinY>4.187013</PinY>
             <Width>3.274016</Width>
           </XForm>
@@ -2157,13 +2254,13 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>id_production_data</Text>
         </Shape>
-        <Shape ID='74' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.74'>
+        <Shape ID='78' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.78'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>16.224573</PinX>
+            <PinX>16.224567</PinX>
             <PinY>4.187013</PinY>
             <Width>2.728346</Width>
           </XForm>
@@ -2179,19 +2276,19 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
-        <Shape ID='75' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.75'>
+        <Shape ID='79' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.79'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <PinX>13.299376</PinX>
+            <PinX>13.299370</PinX>
             <PinY>4.214941</PinY>
             <Width>5.198819</Width>
           </XForm>
           <XForm1D>
-            <BeginX>13.299376</BeginX>
+            <BeginX>13.299370</BeginX>
             <BeginY>4.214941</BeginY>
-            <EndX>18.498194</EndX>
+            <EndX>18.498190</EndX>
             <EndY>4.214941</EndY>
           </XForm1D>
           <Line>
@@ -2215,13 +2312,13 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='76' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.76'>
+        <Shape ID='80' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.80'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>13.397800</PinX>
+            <PinX>13.397796</PinX>
             <PinY>3.918850</PinY>
             <Width>4.820079</Width>
           </XForm>
@@ -2237,13 +2334,13 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Identificador Datos Producción         </Text>
         </Shape>
-        <Shape ID='77' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.77'>
+        <Shape ID='81' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.81'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>13.397800</PinX>
+            <PinX>13.397796</PinX>
             <PinY>3.643260</PinY>
             <Width>0.760353</Width>
           </XForm>
@@ -2259,14 +2356,14 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>PK FK</Text>
         </Shape>
-        <Shape ID='78' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.78'>
+        <Shape ID='82' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.82'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>4.779705</Height>
+            <Height>4.760039</Height>
             <PinX>20.014370</PinX>
-            <PinY>0.313189</PinY>
+            <PinY>0.332874</PinY>
             <Width>10.033031</Width>
           </XForm>
           <Line>
@@ -2290,30 +2387,30 @@
             </LineTo>
             <LineTo IX='3'>
               <X>0.654409</X>
-              <Y>2.210079</Y>
+              <Y>2.190394</Y>
             </LineTo>
             <LineTo IX='4'>
               <X>-9.378622</X>
-              <Y>2.210079</Y>
+              <Y>2.190394</Y>
             </LineTo>
             <LineTo IX='5'>
               <X>-9.378622</X>
-              <Y>4.779705</Y>
+              <Y>4.760039</Y>
             </LineTo>
             <LineTo IX='6'>
-              <X>-6.902002</X>
-              <Y>4.779705</Y>
+              <X>-6.902008</X>
+              <Y>4.760039</Y>
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='79' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.79'>
+        <Shape ID='83' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.83'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
             <PinX>20.142323</PinX>
-            <PinY>0.366861</PinY>
+            <PinY>0.386546</PinY>
             <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
@@ -2327,14 +2424,14 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>0</Text>
         </Shape>
-        <Shape ID='80' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.80'>
+        <Shape ID='84' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.84'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
-            <PinX>12.756462</PinX>
-            <PinY>5.146566</PinY>
+            <PinX>12.756456</PinX>
+            <PinY>5.146586</PinY>
             <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
@@ -2348,15 +2445,15 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>1</Text>
         </Shape>
-        <Shape ID='81' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.81'>
+        <Shape ID='85' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.85'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.004862</Height>
-            <PinX>18.626146</PinX>
+            <PinX>18.626143</PinX>
             <PinY>4.364547</PinY>
-            <Width>3.114562</Width>
+            <Width>3.114567</Width>
           </XForm>
           <Line>
             <LineCap>1</LineCap>
@@ -2374,26 +2471,26 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>1.557281</X>
+              <X>1.557284</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>1.557281</X>
+              <X>1.557284</X>
               <Y>0.004862</Y>
             </LineTo>
             <LineTo IX='4'>
-              <X>3.114562</X>
+              <X>3.114567</X>
               <Y>0.004862</Y>
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='82' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.82'>
+        <Shape ID='86' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.86'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
-            <PinX>18.754099</PinX>
+            <PinX>18.754095</PinX>
             <PinY>4.418220</PinY>
             <Width>0.227953</Width>
           </XForm>
@@ -2408,7 +2505,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>1</Text>
         </Shape>
-        <Shape ID='83' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.83'>
+        <Shape ID='87' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.87'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2429,7 +2526,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>0</Text>
         </Shape>
-        <Shape ID='84' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.84'>
+        <Shape ID='88' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.88'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2478,7 +2575,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='85' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.85'>
+        <Shape ID='89' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.89'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2500,7 +2597,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Prize</Text>
         </Shape>
-        <Shape ID='86' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.86'>
+        <Shape ID='90' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.90'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2522,7 +2619,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>entidad Premios</Text>
         </Shape>
-        <Shape ID='87' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.87'>
+        <Shape ID='91' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.91'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2571,7 +2668,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='88' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.88'>
+        <Shape ID='92' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.92'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2614,7 +2711,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='89' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.89'>
+        <Shape ID='93' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.93'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2636,7 +2733,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>id</Text>
         </Shape>
-        <Shape ID='90' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.90'>
+        <Shape ID='94' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.94'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2658,7 +2755,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>INT UNSIGNED</Text>
         </Shape>
-        <Shape ID='91' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.91'>
+        <Shape ID='95' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.95'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2694,7 +2791,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='92' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.92'>
+        <Shape ID='96' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.96'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2716,7 +2813,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Identificador              PK</Text>
         </Shape>
-        <Shape ID='93' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.93'>
+        <Shape ID='97' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.97'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2749,7 +2846,7 @@
             </Ellipse>
           </Geom>
         </Shape>
-        <Shape ID='94' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.94'>
+        <Shape ID='98' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.98'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2770,7 +2867,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>title</Text>
         </Shape>
-        <Shape ID='95' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.95'>
+        <Shape ID='99' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.99'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2791,7 +2888,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>VARCHAR(255)</Text>
         </Shape>
-        <Shape ID='96' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.96'>
+        <Shape ID='100' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.100'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2813,7 +2910,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Título</Text>
         </Shape>
-        <Shape ID='97' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.97'>
+        <Shape ID='101' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.101'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2846,7 +2943,7 @@
             </Ellipse>
           </Geom>
         </Shape>
-        <Shape ID='98' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.98'>
+        <Shape ID='102' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.102'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2867,7 +2964,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>great_category</Text>
         </Shape>
-        <Shape ID='99' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.99'>
+        <Shape ID='103' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.103'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2888,7 +2985,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>BIT</Text>
         </Shape>
-        <Shape ID='100' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.100'>
+        <Shape ID='104' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.104'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2910,7 +3007,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Gran Categoría</Text>
         </Shape>
-        <Shape ID='101' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.101'>
+        <Shape ID='105' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.105'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2949,7 +3046,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='102' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.102'>
+        <Shape ID='106' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.106'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2970,7 +3067,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>0</Text>
         </Shape>
-        <Shape ID='103' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.103'>
+        <Shape ID='107' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.107'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -2991,12 +3088,12 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>N</Text>
         </Shape>
-        <Shape ID='104' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.104'>
+        <Shape ID='108' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.108'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.014449</Height>
+            <Height>0.005236</Height>
             <PinX>8.366968</PinX>
             <PinY>0.327638</PinY>
             <Width>3.556850</Width>
@@ -3022,15 +3119,15 @@
             </LineTo>
             <LineTo IX='3'>
               <X>1.778425</X>
-              <Y>-0.014449</Y>
+              <Y>0.005236</Y>
             </LineTo>
             <LineTo IX='4'>
               <X>3.556850</X>
-              <Y>-0.014449</Y>
+              <Y>0.005236</Y>
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='105' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.105'>
+        <Shape ID='109' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.109'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3051,14 +3148,14 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>1</Text>
         </Shape>
-        <Shape ID='106' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.106'>
+        <Shape ID='110' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.110'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
             <PinX>11.567913</PinX>
-            <PinY>0.366861</PinY>
+            <PinY>0.386546</PinY>
             <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
@@ -3072,7 +3169,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>N</Text>
         </Shape>
-        <Shape ID='107' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.107'>
+        <Shape ID='111' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.111'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3121,7 +3218,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='108' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.108'>
+        <Shape ID='112' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.112'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3143,7 +3240,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Genre</Text>
         </Shape>
-        <Shape ID='109' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.109'>
+        <Shape ID='113' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.113'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3165,7 +3262,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>entidad Género</Text>
         </Shape>
-        <Shape ID='110' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.110'>
+        <Shape ID='114' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.114'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3214,7 +3311,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='111' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.111'>
+        <Shape ID='115' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.115'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3257,7 +3354,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='112' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.112'>
+        <Shape ID='116' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.116'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3279,7 +3376,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>id</Text>
         </Shape>
-        <Shape ID='113' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.113'>
+        <Shape ID='117' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.117'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3301,7 +3398,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>INT UNSIGNED</Text>
         </Shape>
-        <Shape ID='114' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.114'>
+        <Shape ID='118' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.118'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3337,7 +3434,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='115' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.115'>
+        <Shape ID='119' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.119'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3359,7 +3456,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Identificador          PK</Text>
         </Shape>
-        <Shape ID='116' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.116'>
+        <Shape ID='120' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.120'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3392,7 +3489,7 @@
             </Ellipse>
           </Geom>
         </Shape>
-        <Shape ID='117' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.117'>
+        <Shape ID='121' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.121'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3413,7 +3510,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>name</Text>
         </Shape>
-        <Shape ID='118' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.118'>
+        <Shape ID='122' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.122'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3434,7 +3531,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>VARCHAR(255)</Text>
         </Shape>
-        <Shape ID='119' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.119'>
+        <Shape ID='123' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.123'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3456,7 +3553,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Nombre</Text>
         </Shape>
-        <Shape ID='120' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.120'>
+        <Shape ID='124' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.124'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3505,7 +3602,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='121' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.121'>
+        <Shape ID='125' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.125'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3527,7 +3624,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>FilmGenres</Text>
         </Shape>
-        <Shape ID='122' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.122'>
+        <Shape ID='126' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.126'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3549,7 +3646,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>relación Se clasifica en</Text>
         </Shape>
-        <Shape ID='123' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.123'>
+        <Shape ID='127' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.127'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3598,7 +3695,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='124' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.124'>
+        <Shape ID='128' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.128'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3641,7 +3738,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='125' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.125'>
+        <Shape ID='129' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.129'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3663,7 +3760,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>id_film</Text>
         </Shape>
-        <Shape ID='126' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.126'>
+        <Shape ID='130' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.130'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3685,7 +3782,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
-        <Shape ID='127' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.127'>
+        <Shape ID='131' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.131'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3721,7 +3818,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='128' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.128'>
+        <Shape ID='132' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.132'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3743,7 +3840,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Identificador Película        PK FK</Text>
         </Shape>
-        <Shape ID='129' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.129'>
+        <Shape ID='133' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.133'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3776,7 +3873,7 @@
             </Ellipse>
           </Geom>
         </Shape>
-        <Shape ID='130' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.130'>
+        <Shape ID='134' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.134'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3797,7 +3894,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>id_genre</Text>
         </Shape>
-        <Shape ID='131' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.131'>
+        <Shape ID='135' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.135'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3818,7 +3915,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>INT UNSIGNED</Text>
         </Shape>
-        <Shape ID='132' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.132'>
+        <Shape ID='136' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.136'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3840,12 +3937,12 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Identificador Género         FK</Text>
         </Shape>
-        <Shape ID='133' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.133'>
+        <Shape ID='137' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.137'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>3.561220</Height>
+            <Height>3.580905</Height>
             <PinX>10.629921</PinX>
             <PinY>-3.976378</PinY>
             <Width>2.208071</Width>
@@ -3871,15 +3968,15 @@
             </LineTo>
             <LineTo IX='3'>
               <X>-0.914173</X>
-              <Y>3.561220</Y>
+              <Y>3.580905</Y>
             </LineTo>
             <LineTo IX='4'>
               <X>1.293898</X>
-              <Y>3.561220</Y>
+              <Y>3.580905</Y>
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='134' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.134'>
+        <Shape ID='138' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.138'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3900,14 +3997,14 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>N</Text>
         </Shape>
-        <Shape ID='135' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.135'>
+        <Shape ID='139' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.139'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
             <PinX>11.567913</PinX>
-            <PinY>-0.361485</PinY>
+            <PinY>-0.341800</PinY>
             <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
@@ -3921,7 +4018,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>0</Text>
         </Shape>
-        <Shape ID='136' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.136'>
+        <Shape ID='140' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.140'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3960,7 +4057,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='137' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.137'>
+        <Shape ID='141' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.141'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3981,7 +4078,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>1</Text>
         </Shape>
-        <Shape ID='138' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.138'>
+        <Shape ID='142' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.142'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
