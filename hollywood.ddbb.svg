@@ -153,10 +153,11 @@
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="621.1" y="688">BIGINT UNSIGNED</text>
       <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="549.5" y1="689.6" x2="736.6" y2="689.6"/>
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:italic;font-weight:normal" x="554.5" y="702">Identificador Película        PK FK</text>
-      <ellipse style="fill: #000000; fill-opacity: 1; stroke: none" cx="545.5" cy="719" rx="2" ry="2"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="549.5" y="725">id_genre</text>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="621.1" y="725">INT UNSIGNED</text>
-      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:italic;font-weight:normal" x="554.5" y="739">Identificador Género         FK</text>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke: none" fill-rule="evenodd" points="543.5,719 545.5,722 547.5,719 545.5,716 "/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="549.5" y="725">id_genre</text>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="621.1" y="725">INT UNSIGNED</text>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke: #000000" x1="549.5" y1="726.6" x2="713.5" y2="726.6"/>
+      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:italic;font-weight:normal" x="554.5" y="739">Identificador Género         PK FK</text>
     </g>
     <g>
       <polyline style="fill: none; stroke-opacity: 1; stroke-width: 3; stroke: #000000" points="540,682 493.56,682 493.56,501.09 605.73,501.09 "/>

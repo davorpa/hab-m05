@@ -3743,15 +3743,13 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Identificador Película        PK FK</Text>
         </Shape>
-        <Shape ID='129' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.129'>
+        <Shape ID='129' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.129'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.078740</Height>
-            <LocPinX>0.039370</LocPinX>
-            <LocPinY>0.039370</LocPinY>
-            <PinX>10.738189</PinX>
+            <Height>0.118110</Height>
+            <PinX>10.698819</PinX>
             <PinY>-4.704724</PinY>
             <Width>0.078740</Width>
           </XForm>
@@ -3766,14 +3764,26 @@
             <NoLine>1</NoLine>
             <NoShow>0</NoShow>
             <NoSnap>0</NoSnap>
-            <Ellipse IX='1'>
-              <A>0.078740</A>
-              <B>0.039370</B>
-              <C>0.039370</C>
-              <D>0.078740</D>
+            <MoveTo IX='1'>
+              <X>0.000000</X>
+              <Y>0.000000</Y>
+            </MoveTo>
+            <LineTo IX='2'>
               <X>0.039370</X>
-              <Y>0.039370</Y>
-            </Ellipse>
+              <Y>-0.059055</Y>
+            </LineTo>
+            <LineTo IX='3'>
+              <X>0.078740</X>
+              <Y>0.000000</Y>
+            </LineTo>
+            <LineTo IX='4'>
+              <X>0.039370</X>
+              <Y>0.059055</Y>
+            </LineTo>
+            <LineTo IX='5'>
+              <X>0.000000</X>
+              <Y>0.000000</Y>
+            </LineTo>
           </Geom>
         </Shape>
         <Shape ID='130' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.130'>
@@ -3791,6 +3801,7 @@
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
             <Size>0.247563</Size>
+            <Style>1</Style>
           </Char>
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
@@ -3812,13 +3823,50 @@
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
             <Size>0.247563</Size>
+            <Style>1</Style>
           </Char>
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>INT UNSIGNED</Text>
         </Shape>
-        <Shape ID='132' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.132'>
+        <Shape ID='132' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.132'>
+          <Data1>0</Data1>
+          <Data2>0</Data2>
+          <Data3>0</Data3>
+          <XForm>
+            <PinX>10.816929</PinX>
+            <PinY>-4.854331</PinY>
+            <Width>3.228346</Width>
+          </XForm>
+          <XForm1D>
+            <BeginX>10.816929</BeginX>
+            <BeginY>-4.854331</BeginY>
+            <EndX>14.045276</EndX>
+            <EndY>-4.854331</EndY>
+          </XForm1D>
+          <Line>
+            <LineCap>1</LineCap>
+            <LineColor>#000000</LineColor>
+            <LinePattern>1</LinePattern>
+            <LineWeight>0.019685</LineWeight>
+          </Line>
+          <Geom IX='0'>
+            <NoFill>1</NoFill>
+            <NoLine>0</NoLine>
+            <NoShow>0</NoShow>
+            <NoSnap>0</NoSnap>
+            <MoveTo IX='1'>
+              <X>0.000000</X>
+              <Y>0.000000</Y>
+            </MoveTo>
+            <LineTo IX='2'>
+              <X>3.228346</X>
+              <Y>0.000000</Y>
+            </LineTo>
+          </Geom>
+        </Shape>
+        <Shape ID='133' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.133'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3826,7 +3874,7 @@
             <Height>0.216618</Height>
             <PinX>10.915355</PinX>
             <PinY>-5.150422</PinY>
-            <Width>3.821770</Width>
+            <Width>4.238699</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -3838,9 +3886,9 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Identificador Género         FK</Text>
+          <Text><pp IX='0'/><cp IX='0'/>Identificador Género         PK FK</Text>
         </Shape>
-        <Shape ID='133' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.133'>
+        <Shape ID='134' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.134'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3879,7 +3927,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='134' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.134'>
+        <Shape ID='135' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.135'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3900,7 +3948,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>N</Text>
         </Shape>
-        <Shape ID='135' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.135'>
+        <Shape ID='136' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.136'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3921,7 +3969,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>0</Text>
         </Shape>
-        <Shape ID='136' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.136'>
+        <Shape ID='137' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.137'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3960,7 +4008,7 @@
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='137' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.137'>
+        <Shape ID='138' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.138'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
@@ -3981,7 +4029,7 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>1</Text>
         </Shape>
-        <Shape ID='138' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.138'>
+        <Shape ID='139' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.139'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
