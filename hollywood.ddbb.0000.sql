@@ -32,3 +32,23 @@ CREATE TABLE `Genre` (
     CONSTRAINT `genre_pk` PRIMARY KEY(`id`),
     CONSTRAINT `name_uniq` UNIQUE (`name`)
 );
+
+
+# 
+# RELACIÓN (N:M) PREMIOS QUE GANÓ UNA PELÍCULA
+#
+DROP TABLE IF EXISTS `FilmPrizes`;
+CREATE TABLE `FilmPrizes` (
+	`id_prize`				INT UNSIGNED NOT NULL								COMMENT 'Identificador de premio',
+	`id_film`				BIGINT UNSIGNED NOT NULL							COMMENT 'Identificador de película',
+    `votes`					INT UNSIGNED DEFAULT 0								COMMENT 'Número de votos recibidos',
+    `year`					SMALLINT UNSIGNED NOT NULL							COMMENT 'Año de adquisición',
+    CONSTRAINT `filmprizes_pk` PRIMARY KEY(`id_film`, `id_prize`),
+    CONSTRAINT `id_prize_fk` FOREIGN KEY(`id_prize`) REFERENCES Prize(`id`) 
+			ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT `id_film_fk` FOREIGN KEY(`id_film`) REFERENCES Film(`id`)
+			ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT `year_greather_than_ck1` CHECK (year > 1700)
+);
