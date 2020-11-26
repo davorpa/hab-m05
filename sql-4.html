@@ -58,6 +58,17 @@
 			box-shadow: none;
 			margin: 0 auto;
 		}
+		.logo{
+			width: 200px;
+		}
+
+		.reveal .logo-small {
+			width: 50px;
+			float: left;
+			clear: both;
+			top: -25px;
+			margin: 0;
+		}
 	</style>
 </head>
 <body>
@@ -65,6 +76,7 @@
 	<div class="slides">
 
 		<section>
+			<img class="logo" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 
 			<h2>HaB: Introducción a SQL</h2>
 
@@ -75,6 +87,7 @@
 
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Retomando la clase anterior</h3>
 
 			<ul>
@@ -86,6 +99,7 @@
 			</ul>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Expresiones y operadores condicionales</h2>
 			<p class="fragment">Las condiciones son expresiones lógicas que se sitúan normalmente junto a una sentencia SQL.</p>
 			<p class="fragment">Devuelven verdadero o falso (TRUE o FALSE).</p>
@@ -95,6 +109,7 @@
 			<p class="fragment">Las condiciones se construyen utilizando los operadores de comparación y los operadores lógicos.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Precedencia</h3>
 			<p class="fragment">La precendencia de operadores se muestra en la siguiente tabla, de mayor a menor precendencia.</p>
 
@@ -123,6 +138,7 @@
 			<p class="fragment"><a href="https://dev.mysql.com/doc/refman/8.0/en/operator-precedence.html" target="_blank">Doc. Referencia MySQL</a></p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Precedencia</h3>
 			<p class="fragment">Ejemplo</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
@@ -133,6 +149,7 @@
 			<p class="fragment">El operador multiplicación tiene más precedencia que la suma: 7.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de comparación</h3>
 
 			<p class="fragment">Los resultados de comparación son: 1 (TRUE), 0 (FALSE), o NULL.</p>
@@ -154,6 +171,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de comparación</h3>
 			<p class="fragment">expr BETWEEN min AND max</p>
 			<p class="fragment">Si expr es mayor o igual que min y expr es menor o igual que max, devuelve 1, 0 en otro caso</p>
@@ -174,6 +192,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de comparación</h3>
 			<p class="fragment">COALESCE(value,...)</p>
 			<p class="fragment">Devuelve el primer valor no NULL en la lista, o NULL si no hay ningún valor no-NULL.</p>
@@ -197,6 +216,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de comparación</h3>
 			<p class="fragment">expr IN (value,...)</p>
 			<p class="fragment">Retorna 1 (true) si expr es igual en alguno de los valores de la lista de valores, sino retorna 0 (false).</p>
@@ -216,6 +236,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de comparación</h3>
 			<p class="fragment">INTERVAL(N,N1,N2,N3,...)</p>
 			<p class="fragment">Retorna 0 si N < N1, 1 si N < N2... o -1 si N is NULL. Para enteros. N1 < N2 < N3 < ... < Nn para que funcione correctamente.</p>
@@ -236,6 +257,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de comparación</h3>
 			<p class="fragment">IS NULL</p>
 			<p class="fragment">Comprueba si el valor es NULL.</p>
@@ -258,6 +280,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores lógicos</h3>
 
 			<table class="fragment"  style="font-size: 1.5rem">
@@ -294,6 +317,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Restricciones en la nomenclatura</h3>
 			<p class="fragment">Ciertos elementos, como base de datos, tabla, columnas son conocidos como identificadores.</p>
 			<p class="fragment">Estos identificadores tienen unas restricciones en cuanto a cómo nombrarse.</p>
@@ -306,6 +330,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Restricciones en la nomenclatura</h3>
 			<p class="fragment">Si contiene un caracter especial o si es una palabra <a href="https://dev.mysql.com/doc/refman/8.0/en/keywords.html">reservada</a>,
 				deber ponerse entre comillas siempre que se cite.</p>
@@ -320,6 +345,7 @@
 			<p class="fragment">Base de datos, tabla y columnas no pueden finalizar con espacios en blanco.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Restricciones en la nomenclatura</h3>
 
 
@@ -349,6 +375,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de bases de datos</h3>
 			<p class="fragment">Conocimiento adquirido de tipos de datos.</p>
 			<p class="fragment">¿Cómo continuar?</p>
@@ -357,6 +384,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de bases de datos</h3>
 
 			<p class="fragment">Se necesita privilegios de administración (como un DBA) para crear bases de datos: <span class="italic">"permiso CREATE"</span>.</p>
@@ -378,6 +406,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de bases de datos</h3>
 			<h4>CHARACTER SET vs. COLLATION</h4>
 
@@ -391,6 +420,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de bases de datos</h3>
 
 			<p class="fragment">Si no usamos el CHARACTER SET oportuno, letras como la "ñ" pueden no ser almacenadas correctamente o incluso producir un error.</p>
@@ -418,6 +448,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Elminación de bases de datos</h3>
 
 			<p class="fragment">Así como se crean bases de datos, también se deben eliminar.</p>
@@ -433,6 +464,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Modificación de bases de datos</h3>
 
 			<p class="fragment">También se pueden modificar:</p>
@@ -451,6 +483,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 
 			<p class="fragment">El nombre de las tablas debe cumplir las reglas menicionadas en "Restricciones en la nomenclatura".</p>
@@ -460,6 +493,7 @@
 			<p class="fragment">Para ver todas las opciones, consultar <a href="https://dev.mysql.com/doc/refman/8.0/en/create-table.html">la guía MySQL para crear tablas</a>.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 			<p class="fragment">Para realizar las separaciones se utiliza la coma. La última línea, antes del paréntesis de cierre, no lleva coma.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 10rem">
@@ -483,6 +517,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 
 			<p class="fragment">Y las restricciones de tabla tienen la siguiente sintaxis:</p>
@@ -500,6 +535,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 
 			<p class="fragment">Aparentemente, algunas las restricciones de columna y de tabla son iguales (p.e. PRIMARY KEY).</p>
@@ -513,6 +549,7 @@
 			</ul>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 
 			<p class="fragment">El significado de las distintas opciones que aparecen en la sintaxis CREATE TABLE es:</p>
@@ -521,16 +558,19 @@
 			<p class="fragment">UNIQUE: impide que se introduzcan valores repetidos para ese atributo o conjunto de atributos. Se utiliza para claves alternativas (anteriormente candidatas).</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 			<p class="fragment">NOT NULL: evita que se introduzcan filas en la tabla con valor NULL para ese atributo. No se utiliza con PRIMARY KEY.</p>
 			<p class="fragment">DEFAULT valor_por_defecto: permite asignar un valor por defecto al campo que se está definiendo.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 			<p class="fragment">AUTOINCREMENT: usado en las primary keys con el fin de delegar la generación de claves. Como su nombre indica, autoincrementa el valor para que la próxima inserción sea distinto (en una unidad).</p>
 			<p class="fragment">CHECK (condición): permite establecer condiciones que deben cumplir los valores de la tabla que se introducirán en dicha columna.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 			<div class="fragment"><p class="fragment">FOREIGN KEY: define una clave externa de la tabla respecto de otra tabla.</p>
 				<p class="fragment">Esta restricción especifica una o varias columnas como clave externa de una tabla referenciada.</p>
@@ -544,6 +584,7 @@
 			</div>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 			<p class="fragment">ON UPDATE dispone las mismas opciones que on DELETE.</p>
 			<p class="fragment">Pero se aplica en la actualización de la columna, no en el borrado.</p>
@@ -552,6 +593,7 @@
 			<p class="fragment">Sin embargo sólo puede existir una llave primaria, si bien esta llave primaria puede estar formada por varios atributos.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 			<p class="fragment">La utilización de la cláusula CONSTRAINT nombre_restricción establece un nombre determinado para la restricción.</p>
 			<p class="fragment">Si no se se especifica CONSTRAINT, el sistema genera un valor por defecto.</p>
@@ -567,6 +609,7 @@
 
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de tablas</h3>
 			<h4>Ejemplo de tabla bien definida.</h4>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 12rem">
@@ -590,6 +633,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Comandos útiles relacionados con CREATE</h3>
 			<p class="fragment">DESCRIBE: describe los campos de la tabla especificada.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 1.8rem">
@@ -610,6 +654,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Comandos útiles relacionados con CREATE</h3>
 			<p class="fragment">SHOW CREATE TABLE: muestra el comando de creación de la tabla.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 10rem">
@@ -633,6 +678,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Eliminación de tablas</h3>
 			<p class="fragment">El comando DROP TABLE se utiliza para eliminar tablas (y todos sus contenidos!).</p>
 			<p class="fragment">Requiere del permiso DROP.</p>
@@ -656,6 +702,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Renombrar tablas</h3>
 			<p class="fragment">RENAME TABLE es el comando SQL mayormente utilizado para llevar a cabo esta función.</p>
 			<p class="fragment">Requiere de los permisos  ALTER y DROP para la tabla original, y CREATE y INSERT para la nueva tabla.</p>
@@ -681,6 +728,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Eliminar datos de tablas</h3>
 			<p class="fragment">TRUNCATE TABLE vacía completamente una tabla.</p>
 			<p class="fragment">Requiere del permiso DROP.</p>
@@ -701,6 +749,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Modificar tablas</h3>
 			<p class="fragment">La cláusula ALTER TABLE permite hacer cambios en la estructura de una tabla: añadir columna, borrar columna, modificar columna.</p>
 			<p class="fragment">Requiere del permiso ALTER.</p>
@@ -714,6 +763,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Modificar tablas</h3>
 			<h5>Añadir Columnas</h5>
 			<p class="fragment">Permite añadir nuevas columnas a la tabla.</p>
@@ -735,6 +785,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Modificar tablas</h3>
 			<h5>Borrar Columnas</h5>
 			<p class="fragment">Permite borrar columnas de una tabla.</p>
@@ -748,6 +799,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Modificar tablas</h3>
 			<h5>Modificar Columnas</h5>
 			<p class="fragment">MODIFY permite cambiar el tipo de datos y propiedades de una determinada columna.</p>
@@ -770,6 +822,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Modificar tablas</h3>
 			<h5>Modificar Columnas</h5>
 			<p class="fragment">CHANGE es similar a MODIFY salvo que permite cambiar también el nombre de la columna.</p>
@@ -789,6 +842,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Modificar tablas</h3>
 			<h5>Añadir restricciones</h5>
 
@@ -805,6 +859,7 @@
 			<p class="fragment">reference_definition se define en las restricciones FOREIGN KEY.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Modificar tablas</h3>
 			<h5>Añadir restricciones</h5>
 			<p class="fragment">Ejemplo:</p>
@@ -817,6 +872,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Modificar tablas</h3>
 			<h5>Borrar restricciones</h5>
 
@@ -837,6 +893,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Problemas relacionados con las restricciones</h3>
 			<p class="fragment">Definamos las siguientes tablas:</p>
 
@@ -865,6 +922,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Problemas relacionados con las restricciones</h3>
 			<p class="fragment">Insertemos un par de filas:</p>
 
@@ -898,6 +956,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Problemas relacionados con las restricciones</h3>
 			<p class="fragment" style="margin-bottom: 0">Intentemos eliminar la clave primaria de LIGA:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
@@ -928,6 +987,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Problemas relacionados con las restricciones</h3>
 			<h5>¿Soluciones?</h5>
 			<p class="fragment" >Con respecto al primer problema (ON DELETE), se debe elimnar todas las filas en la tabla
@@ -940,6 +1000,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Views</h3>
 			<p class="fragment" >Una vista no es más que una consulta almacenada a fin de utilizarla tantas veces como se desee. </p>
 			<p class="fragment">Una vista no contiene datos sino la instrucción SELECT necesaria para crear la vista,
@@ -963,6 +1024,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Índices</h3>
 			<p class="fragment">Los índices son objetos que forman parte del esquema que hacen que las bases de datos aceleren
 				las operaciones de consulta y ordenación sobre los campos a los que el índice hace referencia. </p>
@@ -981,6 +1043,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Resumen: DDL</h2>
 			<ul>
 				<li class="fragment">Concepto de SQL y sus subdivisiones.</li>
@@ -998,10 +1061,12 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h1>Caso de estudio: <span class="italic">AllTheMoney Bank</span></h1>
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Introducción</h3>
 			<ul>
 				<li class="fragment">Ya casi tenemos el sistema final.</li>
@@ -1011,6 +1076,7 @@
 			</ul>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Pasos a seguir para obtener el esquema final</h3>
 			<ul>
 				<li class="fragment">Generar un fichero SQL (fichero de texto con extensión sql) donde desarrollar el esquema.</li>
@@ -1025,12 +1091,14 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h5>Caso de estudio: Transformación del esquema relacional a SQL</h5>
 			<p class="fragment">Recordemos nuestro flamante diagrama.</p>
 			<img class="fragment" src="images/Relaciones%20ATM%20h.PNG" alt="dato" style="width: 750px"/>
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 1. Generar un fichero SQL</h3>
 			<p class="fragment">Abriremos MySQL Workbench (nuestro cliente SQL).</p>
 			<p class="fragment">Nos concectaremos a la base de datos deseada.</p>
@@ -1038,6 +1106,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 2. Generar una base de datos</h3>
 			<p class="fragment">Creamos la base de datos en el esquema con el CHARACTER SET deseado.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
@@ -1057,6 +1126,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional USUARIO.</h3>
 			<p class="fragment">De entre todas las entidades, la tabla independiente es USUARIO. Emperezaremos por ahí</p>
 			<p class="fragment">Usuario</p>
@@ -1065,6 +1135,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional USUARIO</h3>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
 				<code class="mysql-code" data-trim data-noescape>
@@ -1085,6 +1156,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 4. Tabla relacional USUARIO</h3>
 			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1106,6 +1178,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 5. Tabla relacional USUARIO</h3>
 			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1131,6 +1204,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional USUARIO</h3>
 			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
 			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
@@ -1142,6 +1216,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional DNI.</h3>
 			<p class="fragment">Es un proceso iterativo. Volvemos al paso 3 con la siguiente tabla.</p>
 			<p class="fragment">DNI</p>
@@ -1150,6 +1225,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional DNI</h3>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
 				<code class="mysql-code" data-trim data-noescape>
@@ -1165,6 +1241,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 4. Tabla relacional DNI</h3>
 			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1181,6 +1258,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 5. Tabla relacional DNI</h3>
 			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1203,6 +1281,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional DNI</h3>
 			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
 			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
@@ -1214,6 +1293,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional INFORMACION EMPLEADO.</h3>
 			<p class="fragment">Volvemos al paso 3 con la siguiente tabla.</p>
 			<p class="fragment">INFORMACION EMPLEADO</p>
@@ -1222,6 +1302,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional INFORMACION EMPLEADO</h3>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
 				<code class="mysql-code" data-trim data-noescape>
@@ -1238,6 +1319,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 4. Tabla relacional INFORMACION EMPLEADO</h3>
 			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1255,6 +1337,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 5. Tabla relacional INFORMACION EMPLEADO</h3>
 			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1277,6 +1360,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional INFORMACION EMPLEADO</h3>
 			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
 			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
@@ -1288,6 +1372,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional CUENTA.</h3>
 			<p class="fragment">Volvemos al paso 3 con la siguiente tabla.</p>
 			<p class="fragment">CUENTA</p>
@@ -1296,6 +1381,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional CUENTA</h3>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
 				<code class="mysql-code" data-trim data-noescape>
@@ -1312,6 +1398,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 4. Tabla relacional CUENTA</h3>
 			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1329,6 +1416,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 5. Tabla relacional CUENTA</h3>
 			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1348,6 +1436,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional CUENTA</h3>
 			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
 			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
@@ -1359,6 +1448,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional UTILIZA.</h3>
 			<p class="fragment">Este es un caso peculiar. Es una tabla asociativa entre CUENTA y USUARIO.</p>
 			<p class="fragment">Viene de una relación N:M.</p>
@@ -1370,6 +1460,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional USUARIO_CUENTA</h3>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
 				<code class="mysql-code" data-trim data-noescape>
@@ -1384,6 +1475,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 4. Tabla relacional USUARIO_CUENTA</h3>
 			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1399,6 +1491,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 5. Tabla relacional USUARIO_CUENTA</h3>
 			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1419,6 +1512,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional USUARIO_CUENTA</h3>
 			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
 			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
@@ -1430,6 +1524,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional MOVIMIENTO  CUENTA.</h3>
 			<p class="fragment">Volvemos al paso 3 con la siguiente tabla.</p>
 			<p class="fragment">MOVIMIENTO CUENTA</p>
@@ -1438,6 +1533,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional MOVIMIENTO CUENTA</h3>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
 				<code class="mysql-code" data-trim data-noescape>
@@ -1457,6 +1553,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 4. Tabla relacional MOVIMIENTO CUENTA</h3>
 			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1477,6 +1574,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 5. Tabla relacional MOVIMIENTO CUENTA</h3>
 			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1502,6 +1600,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional MOVIMIENTO CUENTA</h3>
 			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
 			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
@@ -1513,6 +1612,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional TARJETA</h3>
 			<p class="fragment">Volvemos al paso 3 con la siguiente tabla.</p>
 			<p class="fragment">TARJETA</p>
@@ -1521,6 +1621,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 3. Tabla relacional TARJETA</h3>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
 				<code class="mysql-code" data-trim data-noescape>
@@ -1541,6 +1642,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 4. Tabla relacional TARJETA</h3>
 			<p class="fragment">Especificar los tipos de datos y sus propiedades.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1562,6 +1664,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Paso 5. Tabla relacional TARJETA</h3>
 			<p class="fragment">Definir todas las Restricciones de la tabla.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
@@ -1590,6 +1693,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Pasos 6 y 7. Tabla relacional TARJETA</h3>
 			<p class="fragment">Comprobamos si hay errores en el editor y ejecutamos el código.</p>
 			<p class="fragment">Para comprobar que todo está bien, ejecutamos los comandos SHOW CREATE TABLE.</p>
@@ -1601,6 +1705,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Tabla relacional MOVIMIENTO TARJETA</h3>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
 				<code class="mysql-code" data-trim data-noescape>
@@ -1624,6 +1729,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: Resumen</h3>
 			<p class="fragment">Modelo físico completado.</p>
 			<p class="fragment">Se han definido todas las tablas.</p>
@@ -1638,6 +1744,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 			<p class="fragment">Relación USUARIO-DNI: 1:1, con ambas participiaciones (1,1).</p>
 			<img class="fragment " src="images/Relacion%20usu-dni%20c.PNG" alt="dato" style="width: 400px"/>
@@ -1645,6 +1752,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 			<p class="fragment">Relación USUARIO-DNI: 1:1, con ambas participiaciones (1,1).</p>
 
@@ -1658,6 +1766,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 			<p class="fragment">Relación USUARIO-DNI: 1:1, con ambas participiaciones (1,1).</p>
 			<p class="fragment">Falta comprobar si DNI puede tener más de un registro para un usuario concreto.</p>
@@ -1689,6 +1798,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 			<p class="fragment">Relación USUARIO-INFORMACION EMPLADO: 1:1, con una participiación opcional (0,1).</p>
 			<img class="fragment " src="images/Relacion%20usu-info%20b.PNG" alt="dato" style="width: 400px"/>
@@ -1697,6 +1807,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 			<p class="fragment">Antes de proceder con el resto de las relaciones, se comprobarán las restricciones de estas tres tablas.</p>
 			<p class="fragment">Se va a probar la siguiente restricción:</p>
@@ -1723,6 +1834,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 			<p class="fragment">Se debe seguir este procedimiento para todas las restricciones del sistema.</p>
 			<p class="fragment">Muchas veces se olvidan o aparecen nuevos requisitos.</p>
@@ -1738,6 +1850,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 
 			<p class="fragment">Sin embargo, se puede almacenar una cadena de menor longitud: "123z".</p>
@@ -1765,6 +1878,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 
 			<p class="fragment">Con respecto al campo "valido_hasta" de la tabla "dni".</p>
@@ -1788,6 +1902,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 
 			<p class="fragment">Comprobación del campo "fondos_actuales" de la tabla "cuenta".</p>
@@ -1818,6 +1933,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 
 			<p class="fragment">Se ha definido incorrectamente el alcance del campo "fondos_actuales".</p>
@@ -1847,6 +1963,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 
 			<p class="fragment">Se ha escogido de forma incorrecta o deficinete el tipo de datos para los "identificadores de las tablas".</p>
@@ -1870,6 +1987,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 
 			<p class="fragment">Procedemos a actualizar ese campo en la tabla "usuario".</p>
@@ -1893,6 +2011,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 
 			<p class="fragment">Se eliminan las siguientes restricciones:</p>
@@ -1921,6 +2040,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 			<p class="fragment">Y se vuelve a ejecutar la alteración del campo:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
@@ -1949,12 +2069,14 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 
 			<p class="fragment">Queda como ejercicio modificar el resto de "identificadores" en el resto de tablas.</p>
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 
 			<p class="fragment">Si se intenta añadir dos cuentas relacionadas con el mismo usuario y cuenta, el sistema devolverá error debido a la siguiente restricción:</p>
@@ -1974,12 +2096,14 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Caso de estudio: comprobaciones</h3>
 
 			<p class="fragment">Queda como ejercicio comprobar el resto de relaciones, campos y restricciones.</p>
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h1>¿Preguntas?</h1>
 			<p>Muchas gracias por vuestra atención.</p>
 		</section>
