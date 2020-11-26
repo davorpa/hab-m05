@@ -52,3 +52,19 @@ CREATE TABLE `FilmPrizes` (
             ON UPDATE NO ACTION,
     CONSTRAINT `year_greather_than_ck1` CHECK (year > 1700)
 );
+
+# 
+# RELACIÓN (0:N) GENEROS EN LOS QUE SE CLASIFICA UNA PELÍCULA
+#
+DROP TABLE IF EXISTS `FilmGenres`;
+CREATE TABLE `FilmGenres` (
+	`id_film`				BIGINT UNSIGNED NOT NULL							COMMENT 'Identificador de película',
+	`id_genre`				INT UNSIGNED NOT NULL								COMMENT 'Identificador de género',
+    CONSTRAINT `genre_pk` PRIMARY KEY(`id_film`, `id_genre`),
+    CONSTRAINT `id_film_fk` FOREIGN KEY(`id_film`) REFERENCES Film(`id`)
+			ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT `id_genre_fk` FOREIGN KEY(`id_genre`) REFERENCES Genre(`id`)
+			ON DELETE NO ACTION
+            ON UPDATE NO ACTION
+);
