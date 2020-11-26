@@ -36,6 +36,10 @@ INSERT INTO usuario VALUES
 	(NULL, "Laura", "Master", "Rockefeller", "1971-03-04", "lauramr@atm.com", 1, DEFAULT, NULL),
 	(NULL, "Joseba", "Loco", "Motora", "1982-10-24", "joseba@atm.com", DEFAULT, DEFAULT, NULL);
 
--- Segunda forma de insertar datos (uso de SET) Al menos especificar los NOT NULL
+-- Tercera forma de insertar datos (uso de SET) Al menos especificar los NOT NULL
 INSERT INTO usuario SET
 		nombre = 'Dolores', apellido1 = 'De Muelas', apellido2 = 'Sindientes', fecha_nacimiento = '1944-12-14';
+
+-- Cuarta forma de insertar datos (uso de SELECT)
+INSERT INTO usuario (nombre, apellido1, apellido2, email, fecha_nacimiento, empleado)
+	SELECT "Erika", "Loco", "Motora", "erika@allthemoneybank.example.com", "1982-10-24", 0;
