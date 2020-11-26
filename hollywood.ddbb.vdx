@@ -60,7 +60,7 @@
     <Page ID='0'>
       <PageSheet ID='0'>
         <PageProps>
-          <PageWidth>24.612756</PageWidth>
+          <PageWidth>24.915906</PageWidth>
           <PageHeight>14.050511</PageHeight>
         </PageProps>
       </PageSheet>
@@ -280,7 +280,7 @@
             <Height>0.247563</Height>
             <PinX>5.662244</PinX>
             <PinY>0.878450</PinY>
-            <Width>1.091339</Width>
+            <Width>2.728346</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -292,7 +292,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT</Text>
+          <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
         <Shape ID='8' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.8'>
           <Data1>0</Data1>
@@ -301,12 +301,12 @@
           <XForm>
             <PinX>4.252795</PinX>
             <PinY>0.906378</PinY>
-            <Width>2.318898</Width>
+            <Width>3.683071</Width>
           </XForm>
           <XForm1D>
             <BeginX>4.252795</BeginX>
             <BeginY>0.906378</BeginY>
-            <EndX>6.571693</EndX>
+            <EndX>7.935866</EndX>
             <EndY>0.906378</EndY>
           </XForm1D>
           <Line>
@@ -325,7 +325,7 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>2.318898</X>
+              <X>3.683071</X>
               <Y>0.000000</Y>
             </LineTo>
           </Geom>
@@ -425,7 +425,7 @@
             <Height>0.247563</Height>
             <PinX>5.662244</PinX>
             <PinY>0.150103</PinY>
-            <Width>1.091339</Width>
+            <Width>2.728346</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -437,7 +437,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT</Text>
+          <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
         <Shape ID='13' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.13'>
           <Data1>0</Data1>
@@ -446,12 +446,12 @@
           <XForm>
             <PinX>4.252795</PinX>
             <PinY>0.178031</PinY>
-            <Width>2.318898</Width>
+            <Width>3.683071</Width>
           </XForm>
           <XForm1D>
             <BeginX>4.252795</BeginX>
             <BeginY>0.178031</BeginY>
-            <EndX>6.571693</EndX>
+            <EndX>7.935866</EndX>
             <EndY>0.178031</EndY>
           </XForm1D>
           <Line>
@@ -470,7 +470,7 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>2.318898</X>
+              <X>3.683071</X>
               <Y>0.000000</Y>
             </LineTo>
           </Geom>
@@ -677,7 +677,7 @@
             <Height>0.216618</Height>
             <PinX>4.351221</PinX>
             <PinY>-1.574752</PinY>
-            <Width>0.510236</Width>
+            <Width>2.091732</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -689,7 +689,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Año</Text>
+          <Text><pp IX='0'/><cp IX='0'/>Año adquisición</Text>
         </Shape>
         <Shape ID='23' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.23'>
           <Data1>0</Data1>
@@ -906,7 +906,7 @@
             <Height>0.247563</Height>
             <PinX>14.278150</PinX>
             <PinY>0.135655</PinY>
-            <Width>1.091339</Width>
+            <Width>2.728346</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -918,7 +918,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT</Text>
+          <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
         <Shape ID='30' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.30'>
           <Data1>0</Data1>
@@ -927,12 +927,12 @@
           <XForm>
             <PinX>12.110826</PinX>
             <PinY>0.163583</PinY>
-            <Width>3.076772</Width>
+            <Width>4.440945</Width>
           </XForm>
           <XForm1D>
             <BeginX>12.110826</BeginX>
             <BeginY>0.163583</BeginY>
-            <EndX>15.187598</EndX>
+            <EndX>16.551771</EndX>
             <EndY>0.163583</EndY>
           </XForm1D>
           <Line>
@@ -951,7 +951,7 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>3.076772</X>
+              <X>4.440945</X>
               <Y>0.000000</Y>
             </LineTo>
           </Geom>
@@ -1202,7 +1202,7 @@
             <Height>0.629921</Height>
             <PinX>21.740709</PinX>
             <PinY>5.196181</PinY>
-            <Width>5.362205</Width>
+            <Width>5.665354</Width>
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
@@ -1226,11 +1226,11 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>5.362205</X>
+              <X>5.665354</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>5.362205</X>
+              <X>5.665354</X>
               <Y>-0.629921</Y>
             </LineTo>
             <LineTo IX='4'>
@@ -1249,7 +1249,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>23.257244</PinX>
+            <PinX>23.408819</PinX>
             <PinY>4.868594</PinY>
             <Width>2.329134</Width>
           </XForm>
@@ -1271,7 +1271,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>22.514330</PinX>
+            <PinX>22.665905</PinX>
             <PinY>4.593004</PinY>
             <Width>3.814961</Width>
           </XForm>
@@ -1295,7 +1295,7 @@
             <Height>3.307087</Height>
             <PinX>21.740709</PinX>
             <PinY>4.566260</PinY>
-            <Width>5.362205</Width>
+            <Width>5.665354</Width>
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
@@ -1319,11 +1319,11 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>5.362205</X>
+              <X>5.665354</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>5.362205</X>
+              <X>5.665354</X>
               <Y>-3.307087</Y>
             </LineTo>
             <LineTo IX='4'>
@@ -1409,7 +1409,7 @@
             <Height>0.247563</Height>
             <PinX>25.004488</PinX>
             <PinY>4.191875</PinY>
-            <Width>1.091339</Width>
+            <Width>2.728346</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1421,7 +1421,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT</Text>
+          <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
         <Shape ID='48' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.48'>
           <Data1>0</Data1>
@@ -1430,12 +1430,12 @@
           <XForm>
             <PinX>21.927717</PinX>
             <PinY>4.219803</PinY>
-            <Width>3.986220</Width>
+            <Width>5.350394</Width>
           </XForm>
           <XForm1D>
             <BeginX>21.927717</BeginX>
             <BeginY>4.219803</BeginY>
-            <EndX>25.913937</EndX>
+            <EndX>27.278111</EndX>
             <EndY>4.219803</EndY>
           </XForm1D>
           <Line>
@@ -1454,7 +1454,7 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>3.986220</X>
+              <X>5.350394</X>
               <Y>0.000000</Y>
             </LineTo>
           </Geom>
@@ -1811,9 +1811,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.629921</Height>
-            <PinX>14.105551</PinX>
+            <PinX>13.112368</PinX>
             <PinY>5.919665</PinY>
-            <Width>4.312008</Width>
+            <Width>5.513780</Width>
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
@@ -1837,11 +1837,11 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>4.312008</X>
+              <X>5.513780</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>4.312008</X>
+              <X>5.513780</X>
               <Y>-0.629921</Y>
             </LineTo>
             <LineTo IX='4'>
@@ -1860,7 +1860,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>14.778090</PinX>
+            <PinX>14.385793</PinX>
             <PinY>5.592079</PinY>
             <Width>2.966929</Width>
           </XForm>
@@ -1882,7 +1882,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>15.299547</PinX>
+            <PinX>14.907249</PinX>
             <PinY>5.316488</PinY>
             <Width>1.924016</Width>
           </XForm>
@@ -1904,9 +1904,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>1.811024</Height>
-            <PinX>14.105551</PinX>
+            <PinX>13.112368</PinX>
             <PinY>5.289744</PinY>
-            <Width>4.312008</Width>
+            <Width>5.513780</Width>
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
@@ -1930,11 +1930,11 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>4.312008</X>
+              <X>5.513780</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>4.312008</X>
+              <X>5.513780</X>
               <Y>-1.811024</Y>
             </LineTo>
             <LineTo IX='4'>
@@ -1953,7 +1953,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.118110</Height>
-            <PinX>14.174449</PinX>
+            <PinX>13.181265</PinX>
             <PinY>5.092894</PinY>
             <Width>0.078740</Width>
           </XForm>
@@ -1996,7 +1996,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>14.292559</PinX>
+            <PinX>13.299376</PinX>
             <PinY>4.915359</PinY>
             <Width>1.273228</Width>
           </XForm>
@@ -2018,9 +2018,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>17.217756</PinX>
+            <PinX>16.224573</PinX>
             <PinY>4.915359</PinY>
-            <Width>1.091339</Width>
+            <Width>2.728346</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -2032,21 +2032,21 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT</Text>
+          <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
         <Shape ID='70' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.70'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <PinX>14.292559</PinX>
+            <PinX>13.299376</PinX>
             <PinY>4.943287</PinY>
-            <Width>3.834646</Width>
+            <Width>5.198819</Width>
           </XForm>
           <XForm1D>
-            <BeginX>14.292559</BeginX>
+            <BeginX>13.299376</BeginX>
             <BeginY>4.943287</BeginY>
-            <EndX>18.127205</EndX>
+            <EndX>18.498194</EndX>
             <EndY>4.943287</EndY>
           </XForm1D>
           <Line>
@@ -2065,7 +2065,7 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>3.834646</X>
+              <X>5.198819</X>
               <Y>0.000000</Y>
             </LineTo>
           </Geom>
@@ -2076,7 +2076,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>14.390985</PinX>
+            <PinX>13.397800</PinX>
             <PinY>4.647197</PinY>
             <Width>4.369802</Width>
           </XForm>
@@ -2098,7 +2098,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.118110</Height>
-            <PinX>14.174449</PinX>
+            <PinX>13.181265</PinX>
             <PinY>4.364547</PinY>
             <Width>0.078740</Width>
           </XForm>
@@ -2141,7 +2141,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>14.292559</PinX>
+            <PinX>13.299376</PinX>
             <PinY>4.187013</PinY>
             <Width>3.274016</Width>
           </XForm>
@@ -2163,9 +2163,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>17.217756</PinX>
+            <PinX>16.224573</PinX>
             <PinY>4.187013</PinY>
-            <Width>1.091339</Width>
+            <Width>2.728346</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -2177,21 +2177,21 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT</Text>
+          <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
         <Shape ID='75' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.75'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <PinX>14.292559</PinX>
+            <PinX>13.299376</PinX>
             <PinY>4.214941</PinY>
-            <Width>3.834646</Width>
+            <Width>5.198819</Width>
           </XForm>
           <XForm1D>
-            <BeginX>14.292559</BeginX>
+            <BeginX>13.299376</BeginX>
             <BeginY>4.214941</BeginY>
-            <EndX>18.127205</EndX>
+            <EndX>18.498194</EndX>
             <EndY>4.214941</EndY>
           </XForm1D>
           <Line>
@@ -2210,7 +2210,7 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>3.834646</X>
+              <X>5.198819</X>
               <Y>0.000000</Y>
             </LineTo>
           </Geom>
@@ -2221,7 +2221,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>14.390985</PinX>
+            <PinX>13.397800</PinX>
             <PinY>3.918850</PinY>
             <Width>4.820079</Width>
           </XForm>
@@ -2243,7 +2243,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>14.390985</PinX>
+            <PinX>13.397800</PinX>
             <PinY>3.643260</PinY>
             <Width>0.760353</Width>
           </XForm>
@@ -2264,7 +2264,7 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>4.779725</Height>
+            <Height>4.779705</Height>
             <PinX>20.014370</PinX>
             <PinY>0.313189</PinY>
             <Width>10.033031</Width>
@@ -2298,11 +2298,11 @@
             </LineTo>
             <LineTo IX='5'>
               <X>-9.378622</X>
-              <Y>4.779725</Y>
+              <Y>4.779705</Y>
             </LineTo>
             <LineTo IX='6'>
-              <X>-5.908819</X>
-              <Y>4.779725</Y>
+              <X>-6.902002</X>
+              <Y>4.779705</Y>
             </LineTo>
           </Geom>
         </Shape>
@@ -2333,8 +2333,8 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
-            <PinX>13.749645</PinX>
-            <PinY>5.146586</PinY>
+            <PinX>12.756462</PinX>
+            <PinY>5.146566</PinY>
             <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
@@ -2354,9 +2354,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.004862</Height>
-            <PinX>18.417559</PinX>
+            <PinX>18.626146</PinX>
             <PinY>4.364547</PinY>
-            <Width>3.323150</Width>
+            <Width>3.114562</Width>
           </XForm>
           <Line>
             <LineCap>1</LineCap>
@@ -2374,15 +2374,15 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>1.661575</X>
+              <X>1.557281</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>1.661575</X>
+              <X>1.557281</X>
               <Y>0.004862</Y>
             </LineTo>
             <LineTo IX='4'>
-              <X>3.323150</X>
+              <X>3.114562</X>
               <Y>0.004862</Y>
             </LineTo>
           </Geom>
@@ -2393,7 +2393,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
-            <PinX>18.545511</PinX>
+            <PinX>18.754099</PinX>
             <PinY>4.418220</PinY>
             <Width>0.227953</Width>
           </XForm>
@@ -2644,7 +2644,7 @@
             <Height>0.247563</Height>
             <PinX>6.289441</PinX>
             <PinY>4.888163</PinY>
-            <Width>1.091339</Width>
+            <Width>2.182677</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -2656,7 +2656,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT</Text>
+          <Text><pp IX='0'/><cp IX='0'/>INT UNSIGNED</Text>
         </Shape>
         <Shape ID='91' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.91'>
           <Data1>0</Data1>
@@ -2665,12 +2665,12 @@
           <XForm>
             <PinX>3.970543</PinX>
             <PinY>4.916090</PinY>
-            <Width>3.228346</Width>
+            <Width>4.137795</Width>
           </XForm>
           <XForm1D>
             <BeginX>3.970543</BeginX>
             <BeginY>4.916090</BeginY>
-            <EndX>7.198890</EndX>
+            <EndX>8.108338</EndX>
             <EndY>4.916090</EndY>
           </XForm1D>
           <Line>
@@ -2689,7 +2689,7 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>3.228346</X>
+              <X>4.137795</X>
               <Y>0.000000</Y>
             </LineTo>
           </Geom>
@@ -3287,7 +3287,7 @@
             <Height>0.247563</Height>
             <PinX>18.706694</PinX>
             <PinY>-4.153913</PinY>
-            <Width>1.091339</Width>
+            <Width>2.182677</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -3299,7 +3299,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT</Text>
+          <Text><pp IX='0'/><cp IX='0'/>INT UNSIGNED</Text>
         </Shape>
         <Shape ID='114' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.114'>
           <Data1>0</Data1>
@@ -3308,12 +3308,12 @@
           <XForm>
             <PinX>17.903543</PinX>
             <PinY>-4.125984</PinY>
-            <Width>1.712598</Width>
+            <Width>2.622047</Width>
           </XForm>
           <XForm1D>
             <BeginX>17.903543</BeginX>
             <BeginY>-4.125984</BeginY>
-            <EndX>19.616142</EndX>
+            <EndX>20.525591</EndX>
             <EndY>-4.125984</EndY>
           </XForm1D>
           <Line>
@@ -3332,7 +3332,7 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>1.712598</X>
+              <X>2.622047</X>
               <Y>0.000000</Y>
             </LineTo>
           </Geom>
@@ -3464,7 +3464,7 @@
             <Height>0.629921</Height>
             <PinX>10.629921</PinX>
             <PinY>-3.149606</PinY>
-            <Width>3.797014</Width>
+            <Width>3.998031</Width>
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
@@ -3488,11 +3488,11 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>3.797014</X>
+              <X>3.998031</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>3.797014</X>
+              <X>3.998031</X>
               <Y>-0.629921</Y>
             </LineTo>
             <LineTo IX='4'>
@@ -3511,7 +3511,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>11.683940</PinX>
+            <PinX>11.784449</PinX>
             <PinY>-3.477193</PinY>
             <Width>1.688976</Width>
           </XForm>
@@ -3533,7 +3533,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>11.009530</PinX>
+            <PinX>11.110040</PinX>
             <PinY>-3.752784</PinY>
             <Width>3.037795</Width>
           </XForm>
@@ -3557,7 +3557,7 @@
             <Height>1.535433</Height>
             <PinX>10.629921</PinX>
             <PinY>-3.779528</PinY>
-            <Width>3.797014</Width>
+            <Width>3.998031</Width>
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
@@ -3581,11 +3581,11 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>3.797014</X>
+              <X>3.998031</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>3.797014</X>
+              <X>3.998031</X>
               <Y>-1.535433</Y>
             </LineTo>
             <LineTo IX='4'>
@@ -3671,7 +3671,7 @@
             <Height>0.247563</Height>
             <PinX>12.226377</PinX>
             <PinY>-4.153913</PinY>
-            <Width>1.091339</Width>
+            <Width>2.728346</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -3683,7 +3683,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT</Text>
+          <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
         </Shape>
         <Shape ID='127' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.127'>
           <Data1>0</Data1>
@@ -3692,12 +3692,12 @@
           <XForm>
             <PinX>10.816929</PinX>
             <PinY>-4.125984</PinY>
-            <Width>2.318898</Width>
+            <Width>3.683071</Width>
           </XForm>
           <XForm1D>
             <BeginX>10.816929</BeginX>
             <BeginY>-4.125984</BeginY>
-            <EndX>13.135827</EndX>
+            <EndX>14.500000</EndX>
             <EndY>-4.125984</EndY>
           </XForm1D>
           <Line>
@@ -3716,7 +3716,7 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>2.318898</X>
+              <X>3.683071</X>
               <Y>0.000000</Y>
             </LineTo>
           </Geom>
@@ -3805,7 +3805,7 @@
             <Height>0.247563</Height>
             <PinX>12.226377</PinX>
             <PinY>-4.882259</PinY>
-            <Width>1.091339</Width>
+            <Width>2.182677</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -3816,7 +3816,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT</Text>
+          <Text><pp IX='0'/><cp IX='0'/>INT UNSIGNED</Text>
         </Shape>
         <Shape ID='132' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.132'>
           <Data1>0</Data1>
@@ -3927,9 +3927,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.728346</Height>
-            <PinX>14.426934</PinX>
+            <PinX>14.627953</PinX>
             <PinY>-4.704724</PinY>
-            <Width>3.289601</Width>
+            <Width>3.088583</Width>
           </XForm>
           <Line>
             <LineCap>1</LineCap>
@@ -3947,15 +3947,15 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>1.972050</X>
+              <X>1.771024</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>1.972050</X>
+              <X>1.771024</X>
               <Y>0.728346</Y>
             </LineTo>
             <LineTo IX='4'>
-              <X>3.289601</X>
+              <X>3.088583</X>
               <Y>0.728346</Y>
             </LineTo>
           </Geom>
@@ -3966,7 +3966,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
-            <PinX>14.554888</PinX>
+            <PinX>14.755905</PinX>
             <PinY>-4.651052</PinY>
             <Width>0.227953</Width>
           </XForm>
