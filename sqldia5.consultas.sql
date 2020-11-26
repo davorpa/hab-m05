@@ -20,3 +20,9 @@ CREATE TABLE usuario (
     CONSTRAINT empleado_bool_ck1 CHECK (empleado = 0 OR empleado = 1),
     CONSTRAINT activo_bool_ck1 CHECK (activo = 0 OR activo = 1)
 );
+
+
+-- Primera forma de insertar datos (especificando campos obligatorios)
+INSERT INTO usuario (email, fecha_nacimiento, nombre, apellido1, apellido2)
+		VALUES ('laura@tm.com', '1990-10-14', 'Laura', 'Rockefeller', 'Gizburg'),
+			   ('manuel@atm.com', '1984-08-14', 'Manuel', 'García', 'Lopez'); 
