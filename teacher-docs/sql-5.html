@@ -58,6 +58,17 @@
 			box-shadow: none;
 			margin: 0 auto;
 		}
+		.logo{
+			width: 200px;
+		}
+
+		.reveal .logo-small {
+			width: 50px;
+			float: left;
+			clear: both;
+			top: -25px;
+			margin: 0;
+		}
 	</style>
 </head>
 <body>
@@ -65,6 +76,7 @@
 	<div class="slides">
 
 		<section>
+			<img class="logo" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 
 			<h2>HaB: Introducción a SQL</h2>
 
@@ -74,31 +86,20 @@
 		</section>
 
 		<section>
-			<h2> Creación tablas SQL</h2>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h2>Consultas SQL</h2>
 			<h4>LENGUAJE DE MANIPULACIÓN DE DATOS: DML</h4>
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Inserción de datos</h3>
 			<p class="fragment">Para los ejemplos se utilizará la ya conocida tabla "usuario".</p>
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
-				<code class="mysql-code" data-trim data-noescape>
-					CREATE TABLE IF NOT EXISTS usuario (
-						id INT AUTO_INCREMENT,
-						nombre VARCHAR(50) NOT NULL,
-						apellido_1 VARCHAR(50) NOT NULL,
-						apellido_2 VARCHAR(50) NOT NULL,
-						email VARCHAR(50) NOT NULL,
-						fecha_nacimiento DATE,
-						activo TINYINT DEFAULT 1,
-						empleado TINYINT DEFAULT 0,
-						notas TEXT
-					);
-				</code>
-			</pre>
+			<img class="fragment " src="images/MR%20Usuario.PNG" alt="dato" style="width: 202px"/>
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Inserción de datos</h3>
 			<p class="fragment">El comando INSERT de SQL permite introducir datos en una tabla.</p>
 			<p class="fragment">Se requiere el permiso INSERT para la tabla.</p>
@@ -123,6 +124,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Inserción de datos</h3>
 			<p class="fragment">Ejemplo para la tabla "usuario" con esta sintaxis:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
@@ -139,6 +141,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Inserción de datos</h3>
 			<p class="fragment">Hay otra forma similar a la anterior, donde no se tiene que especificar las columnas.</p>
 			<p class="fragment">En ese caso se deben especificar todos los valores en el orden de aparición en la tabla.</p>
@@ -156,6 +159,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Inserción de datos</h3>
 			<p class="fragment">Ejemplo para la tabla "usuario" con esta sintaxis:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
@@ -179,6 +183,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Inserción de datos</h3>
 			<p class="fragment">Otra sintaxis para añadir un dato.</p>
 			<p class="fragment">No permite la inserción de múltiples registros.</p>
@@ -193,6 +198,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Inserción de datos</h3>
 			<p class="fragment">Ejemplo para la tabla "usuario" con esta sintaxis:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
@@ -204,6 +210,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Inserción de datos</h3>
 			<p class="fragment">El último formato para la inserción, se basa en la cláusula SELECT.</p>
 			<p class="fragment">En ocasiones puede ser útil almacenar registros computados de otras tablas o funciones.</p>
@@ -219,6 +226,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Inserción de datos</h3>
 			<p class="fragment">Ejemplo para la tabla "usuario" con esta sintaxis:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
@@ -237,6 +245,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Actualización de datos</h3>
 			<p class="fragment">El comando UPDATE de SQL permite modificar datos en una tabla.</p>
 			<p class="fragment">Se requiere el permiso UPDATE para la tabla.</p>
@@ -256,6 +265,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Actualización de datos</h3>
 			<p class="fragment">Modificación de los registros de la tabla "usuario":</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
@@ -272,6 +282,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Borrado de datos</h3>
 			<p class="fragment">El comando DELETE de SQL permite borrar datos en una tabla.</p>
 			<p class="fragment">Se requiere el permiso DELETE para la tabla.</p>
@@ -290,6 +301,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Borrado de datos</h3>
 			<p class="fragment">Borrado de los registros de la tabla "usuario":</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
@@ -312,6 +324,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Borrado de datos</h3>
 			<p class="fragment">Hay que tener en cuenta que el borrado de un registro no puede provocar fallos de integridad.</p>
 			<p class="fragment">Además, la opción de integridad ON DELETE CASCADE (clave secundaria o foránea)
@@ -319,183 +332,12 @@
 		</section>
 
 		<section>
-			<h3>Transacciones</h3>
-			<p class="fragment">Una transacción es un conjunto de tareas relacionadas que se realizan de forma satisfactoria o incorrecta como una unidad.</p>
-			<p class="fragment">Las transacciones se confirman o se anulan.</p>
-			<p class="fragment">Para que una transacción se confirme se debe garantizar la permanencia de los cambios efectuados en los datos.</p>
-			<p class="fragment">Los cambios deben conservarse aunque el sistema se bloquee o tengan lugar otros eventos imprevistos.</p>
-			<p class="fragment">Su principio: ACID.</p>
-			<ul>
-				<li class="fragment"><u>A</u>tomicidad</li>
-				<li class="fragment"><u>C</u>onsistencia</li>
-				<li class="fragment">A<u>i</u>slamiento</li>
-				<li class="fragment"><u>D</u>urabilidad</li>
-			</ul>
-			<p class="fragment">Garantizan un comportamiento predecible. Son proposiciones de todo o nada.</p>
-		</section>
-
-		<section>
-			<h3>Atomicidad</h3>
-			<p class="fragment">Una transacción es una unidad de trabajo el cual se realiza en su totalidad o no se realiza en ningún caso.</p>
-			<p class="fragment">Las operaciones asociadas a una transacción comparten normalmente un objetivo común y son interdependientes.</p>
-			<p class="fragment">Si el sistema ejecutase únicamente una parte de las operaciones, podría poner en peligro el objetivo final de la transacción.</p>
-		</section>
-
-		<section>
-			<h3>Coherencia</h3>
-			<p class="fragment">Una transacción es una unidad de integridad porque mantiene la coherencia de los datos.</p>
-			<p class="fragment">Transformando un estado coherente de datos en otro estado de datos igualmente coherente.</p>
-			<p class="fragment">Si el sistema ejecutase únicamente una parte de las operaciones, podría poner en peligro el objetivo final de la transacción.</p>
-		</section>
-
-		<section>
-			<h3>Aislamiento</h3>
-			<p class="fragment">Una transacción es una unidad de aislamiento.</p>
-			<p class="fragment">Las transacciones concurrentes se comportan como si cada una fuera la única transacción que se ejecuta en el sistema.</p>
-			<p class="fragment">Una transacción nunca debe ver las fases intermedias de otra transacción.</p>
-		</section>
-
-		<section>
-			<h3>Durabilidad</h3>
-			<p class="fragment">Una transacción también es una unidad de recuperación.</p>
-			<p class="fragment">Si una transacción se realiza satisfactoriamente, el sistema garantiza que sus actualizaciones se mantienen aunque el equipo falle inmediatamente después de la confirmación.</p>
-		</section>
-
-		<section>
-			<h3>Transacciones</h3>
-			<p class="fragment">Una transacción está formada por una serie de instrucciones DML.</p>
-			<p class="fragment">Una transacción comienza con la primera instrucción DML que se ejecute.</p>
-			<p class="fragment">Y finaliza:</p>
-			<ul>
-				<li class="fragment">Bien con una operación COMMIT (si la transacción se confirma).</li>
-				<li class="fragment">O bien o una operación ROLLBACK (si la operación se cancela).</li>
-			</ul>
-
-			<p class="fragment">Excepción: cualquier instrucción DDL o DCL da lugar a un COMMIT implícito, es decir todas las instrucciones DML ejecutadas hasta ese instante pasan a ser definitivas.</p>
-		</section>
-
-		<section>
-			<h3>AUTOCOMMIT</h3>
-			<p class="fragment">Una de las maneras de hacer uso de transacciones es mediante la propiedad SQL AUTOCOMMIT.</p>
-			<p class="fragment">Si está activada, después de cada instrucción DML se hará un COMMIT (se confirma la operación inmediatamente).</p>
-			<p class="fragment">Por contra, si está desactivada será el usuario o el programa, el encargado de realizar un COMMIT o ROLLBACK manual.</p>
-			<p class="fragment">Para saber el estado en el que se encuentra dicha propiedad se usa la siguiente cláusula:</p>
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
-				<code class="mysql-code" data-trim data-noescape>
-					mysql> SHOW AUTOCOMMIT;
-				</code>
-			</pre>
-		</section>
-
-		<section>
-			<h3>AUTOCOMMIT</h3>
-			<p class="fragment">Para desactivarlo se usa la siguiente instrucción:</p>
-
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
-				<code class="mysql-code" data-trim data-noescape>
-					mysql> SET AUTOCOMMIT=0;
-				</code>
-			</pre>
-			<p class="fragment">Para reactivarla se debe reemplazar el valor 0 por 1.</p>
-
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
-				<code class="mysql-code" data-trim data-noescape>
-					mysql> SET AUTOCOMMIT=1;
-				</code>
-			</pre>
-			<p class="fragment">AUTOCOMMIT es una propiedad de sesión y debe establecerse para cada una de ellas.</p>
-		</section>
-
-		<section>
-			<h3>START TRANSACTION</h3>
-			<p class="fragment">Existe otra instrucción que permite la ejecución de transacciones sin tener que modificar AUTOCOMMIT.</p>
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
-				<code class="mysql-code" data-trim data-noescape>
-					START TRANSACTION
-					BEGIN [WORK]
-					COMMIT
-					ROLLBACK
-				</code>
-			</pre>
-			<p class="fragment">Ejemplo:</p>
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
-				<code class="mysql-code" data-trim data-noescape>
-					START TRANSACTION;
-					UPDATE table1 SET info="new info" WHERE type=2;
-					UPDATE table2 SET summary="new summary" WHERE type=1;
-					COMMIT;
-				</code>
-			</pre>
-		</section>
-
-		<section>
-			<h3>COMMIT</h3>
-			<p class="fragment">La instrucción COMMIT hace que los cambios realizados por la transacción sean definitivos, irrevocables.</p>
-			<p class="fragment">Se dice que tenemos una transacción confirmada.</p>
-			<p class="fragment">Sólo se debe utilizar si estamos de acuerdo con los cambios.</p>
-
-			<p class="fragment">El cierre correcto de la sesión da lugar a un COMMIT, aunque siempre conviene ejecutar explícitamente esta instrucción a fin de asegurarnos de lo que hacemos.</p>
-		</section>
-
-		<section>
-			<h3>ROLLBACK</h3>
-			<p class="fragment">Esta instrucción regresa a la instrucción anterior al inicio de la transacción, normalmente el último COMMIT, la última instrucción DDL o DCL o al inicio de sesión.</p>
-			<p class="fragment">Se dice que tenemos una transacción cancelada.</p>
-			<p class="fragment">Anula definitivamente los cambios.</p>
-
-			<p class="fragment">Un abandono de sesión incorrecto o un problema de comunicación o de caída del sistema dan lugar a un ROLLBACK implícito.</p>
-		</section>
-
-		<section>
-			<h3>SAVEPOINT</h3>
-			<p class="fragment">Esta instrucción permite establecer un punto de ruptura.</p>
-			<p class="fragment">El problema de la combinación ROLLBACK/COMMIT es que un COMMIT acepta todo y un ROLLBACK anula todo.</p>
-			<p class="fragment">SAVEPOINT permite señalar un punto intermedio entre el inicio de la transacción y la situación actual.</p>
-
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
-				<code class="mysql-code" data-trim data-noescape>
-					SAVEPOINT identifier
-					ROLLBACK [WORK] TO [SAVEPOINT] identifier
-					ROLLBACK
-					COMMIT
-				</code>
-			</pre>
-
-			<p class="fragment">ROLLBACK [WORK] TO [SAVEPOINT] retorna hasta el SAVEPOINT deseado sin acabar la transacción.</p>
-			<p class="fragment">Mientras que un ROLLBACK a secas sí finaliza la sesión.</p>
-		</section>
-
-		<section>
-			<h3>Ejemplo de transacción compleja</h3>
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
-				<code class="mysql-code" data-trim data-noescape>
-					CREATE TABLE tabla (fecha DATE);
-
-					START TRANSACTION;
-
-						INSERT INTO tabla VALUES ('2020/01/01');
-						INSERT INTO tabla VALUES ('2020/02/01');
-
-						SAVEPOINT febrero;
-
-						INSERT INTO tabla VALUES ('2020/03/01');
-						INSERT INTO tabla VALUES ('2020/04/01');
-
-						SAVEPOINT abril;
-
-						INSERT INTO tabla VALUES ('2020/05/01');
-
-						ROLLBACK TO SAVEPOINT febrero;
-					COMMIT;
-				</code>
-			</pre>
-
-		</section>
-		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h1>CONSULTAS</h1>
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Cláusula SELECT</h3>
 
 			<p class="fragment">La cláusula SELECT permite:</p>
@@ -508,6 +350,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Cláusula SELECT</h3>
 			<p class="fragment">La sintaxis básica del comando SELECT es la siguiente:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 15rem">
@@ -544,6 +387,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Cláusula SELECT</h3>
 			<ul style="font-size: 1.5rem">
 				<li class="fragment">FROM. Indica qué tabla(s) o subconsultas se deben utilizar.</li>
@@ -556,6 +400,7 @@
 			</ul>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Cálculos</h2>
 			<h3>Cálculos Aritméticos</h3>
 			<p class="fragment">Los operadores + (suma), - (resta), * (multiplicación) y / (división), se pueden utilizar para hacer cálculos en las consultas.</p>
@@ -566,35 +411,9 @@
 				</code>
 			</pre>
 		</section>
-		<section>
-			<h3>Precedencia</h3>
-			<p class="fragment">La precendencia de operadores se muestra en la siguiente tabla, de mayor a menor precendencia.</p>
 
-			<p class="fragment">Operadores en la misma línea, tienen la misma precedencia.</p>
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
-				<code class="mysql-code" data-trim data-noescape>
-					INTERVAL
-					BINARY, COLLATE
-					!
-					- (unary minus), ~ (unary bit inversion)
-					^
-					*, /, DIV, %, MOD
-					-, +
-					<<, >>
-					&
-					|
-					= (comparison), <=>, >=, >, <=, <, <>, !=, IS, LIKE, REGEXP, IN, MEMBER OF
-					BETWEEN, CASE, WHEN, THEN, ELSE
-					NOT
-					AND, &&
-					XOR
-					OR, ||
-					= (asignación), :=
-				</code>
-			</pre>
-			<p class="fragment"><a href="https://dev.mysql.com/doc/refman/8.0/en/operator-precedence.html" target="_blank">Doc. Referencia MySQL</a></p>
-		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Condiciones</h3>
 
 			<p class="fragment">Se puede realizar consultas que restrinjan los datos de salida de las tablas.</p>
@@ -610,27 +429,9 @@
 
 			<p class="fragment">En el ejemplo, se filtran los artículoes que tengan una cantidad mayor que dos, pero esa cantidad no será retornada como resultado del SELECT ya que no se ha especificado dicha columna.</p>
 		</section>
-		<section>
-			<h3>Operadores de comparación</h3>
 
-			<p class="fragment">Los resultados de comparación son: 1 (TRUE), 0 (FALSE), o NULL.</p>
-			<p class="fragment">Funcionan con números y cadenas. Las cadenas son convertidos a números y viceversa cuando sea necesario.</p>
-
-			<p class="fragment">Los siguiente operadores pueden ser usados para comparar no sólo operandos escalares, si no filas de operandos:</p>
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
-				<code class="mysql-code" data-trim data-noescape>
-					=  >  <  >=  <=  <>  !=
-				</code>
-			</pre>
-			<p class="fragment">Con ellos podemos realizar comparaciones de igualdad, desigualdad...</p>
-			<p class="fragment">Ejemplo de comparación de filas de operandos: (a, b) = (x, y) es equivalente a</p>
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
-				<code class="mysql-code" data-trim data-noescape>
-					(a = x) AND (b = y)
-				</code>
-			</pre>
-		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de comparación</h3>
 			<p class="fragment">expr BETWEEN min AND max</p>
 			<p class="fragment">Si expr es mayor o igual que min y expr es menor o igual que max, devuelve 1, 0 en otro caso</p>
@@ -642,6 +443,7 @@
 			<p class="fragment">Lo opuesto a la expresión anterior: NOT (expr IN (value,...))</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de comparación</h3>
 			<p class="fragment">IS boolean_value</p>
 			<p class="fragment">Comprueba si el valor es igual al valor booleano, donde boolean_value puede ser TRUE, FALSE, o UNKNOWN.</p>
@@ -653,6 +455,7 @@
 			<p class="fragment">Si expr es NULL, ISNULL() returna 1, 0 en otro caso.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de comparación</h3>
 			<p class="fragment">LIKE expr</p>
 			<p class="fragment">El operador LIKE se usa sobre todo con textos, permite obtener registros cuyo valor en un campo cumpla una condición textual.</p>
@@ -672,49 +475,13 @@
 			</pre>
 			<p class="fragment">Retornaría Leon y Peon pero no Parteon.</p>
 
-
-
-		</section>
-
-		<section>
-			<h3>Operadores lógicos</h3>
-
-			<table class="fragment"  style="font-size: 1.5rem">
-				<tr>
-					<th>Nombre</th>
-					<th>Ejemplo</th>
-				</tr>
-				<tr>
-					<td>AND, &&</td>
-					<td>condición1 AND condición2: Cierto sólo en caso de que las 2 condiciones sean ciertas</td>
-				</tr>
-				<tr>
-					<td>NOT, !</td>
-					<td>Niega el valor</td>
-				</tr>
-				<tr>
-					<td>OR, ||</td>
-					<td>condición1 OR condición2: Cierto en todos los casos, salvo que las 2 condiciones sean falsas</td>
-				</tr>
-				<tr>
-					<td>XOR</td>
-					<td>condición1 XOR condición2: Cierto en los casos en que sean distintos.</td>
-				</tr>
-			</table>
-
-			<p class="fragment">En SQL, todos los operadores lógicos retornan TRUE, FALSE, o NULL (UNKNOWN)</p>
-			<p class="fragment">Los operadores lógicos junto con el uso de paréntesis permiten combinar condiciones simples obteniendo otras más complejas.</p>
-
-			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
-				<code class="mysql-code" data-trim data-noescape>
-					mysql> SELECT 1 AND 1, 0 AND 1,1 OR 1, 0 OR 1,1 XOR 1, 0 XOR 1;
-        				-> 1, 0, 1, 1, 0, 1
-				</code>
-			</pre>
 		</section>
 
 
+
+
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de control de flujo</h3>
 
 			<table class="fragment" style="font-size: 1.5rem">
@@ -743,6 +510,7 @@
 			<p class="fragment">Los resultados de comparación son: 1 (TRUE), 0 (FALSE), o NULL.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de control de flujo</h3>
 
 			<p class="fragment">Case:</p>
@@ -773,6 +541,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Operadores de control de flujo</h3>
 
 			<p class="fragment">IFNULL(expr1,expr2)</p>
@@ -800,6 +569,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Subconsultas</h3>
 			<p class="fragment">Se trata de una técnica que permite utilizar el resultado de una tabla SELECT en otra consulta SELECT.</p>
 			<p class="fragment">Entre otros problemas, permite solucionar los que el mismo dato aparece dos veces. La sintaxis es:</p>
@@ -816,6 +586,7 @@
 			<p class="fragment">El operador puede ser >,<,>=,<=,!=, = o IN.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Subconsultas</h3>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 9rem">
 				<code class="mysql-code" data-trim data-noescape>
@@ -835,6 +606,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Subconsultas</h3>
 			<p class="fragment">Se puede utiliar el operador IN (y su negación). P.e:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
@@ -852,6 +624,7 @@
 			<p class="fragment">Obtiene el empleado que más cobra.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Ordenación</h3>
 
 			<p class="fragment">El orden inicial de los registros obtenidos por un SELECT viene dado por el orden en el que fueron introducidos.</p>
@@ -869,6 +642,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Funciones</h3>
 
 			<p class="fragment">Permiten realizar cálculos avanzados, o bien facilitar la escritura de ciertas expresiones.</p>
@@ -880,6 +654,7 @@
 			<p class="fragment">Anteriormente se mencionaron ciertas funciones. A continuación se mostrán otras.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Funciones numéricas</h3>
 			<table style="font-size: 1.2rem">
 				<tr>
@@ -931,6 +706,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Funciones de fechas</h3>
 			<table style="font-size: 1rem">
 				<tr>
@@ -960,6 +736,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Funciones de fechas</h3>
 			<table style="font-size: 1rem">
 				<tr>
@@ -990,6 +767,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Funciones de cadenas</h3>
 			<table style="font-size: 1rem">
 				<tr>
@@ -1019,6 +797,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Funciones de cadenas</h3>
 			<table style="font-size: 1rem">
 				<tr>
@@ -1049,6 +828,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Funciones CAST</h3>
 			<table style="font-size: 1rem">
 				<tr>
@@ -1068,6 +848,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<p class="fragment">En ocasiones, las tablas contienen información parcialmente duplicada (o información común entre varias filas).</p>
 			<p class="fragment">Y puede ser de utilidad agrupar dichas filas, con el fin de realizar cálculos sobre ellas.</p>
@@ -1075,6 +856,7 @@
 			<p class="fragment">En este sentido GROUP BY indica qué  columnas son las que se van utilizra para la agrupación.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<p class="fragment">Ejemplo básico.</p>
 			<p class="fragment">Se crea una bbdd y una tabla .</p>
@@ -1096,6 +878,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<p class="fragment">Y unos datos.</p>
 
@@ -1115,6 +898,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<p class="fragment">El resultado de un SELECT normal:</p>
 
@@ -1140,6 +924,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<p class="fragment">Primer ejemplo de agrupacion:</p>
 
@@ -1159,6 +944,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<p class="fragment">Si a este ejemplo, le pedimos que también retorne la talla:</p>
 
@@ -1178,12 +964,13 @@
 			<p class="fragment">Nos da un resultado extraño. Nos devuelve los elementos agrupados por tipo, y el valor talla viene dado por la primera ocurrencia</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<p class="fragment">Añadamos talla a la agrupación:</p>
 
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
 				<code class="mysql-code" data-trim data-noescape>
-					SELECT tipo FROM ropa GROUP BY tipo, talla;
+					SELECT tipo, talla FROM ropa GROUP BY tipo, talla;
 				</code>
 			</pre>
 			<table class="fragment" style="font-size: 1.2rem">
@@ -1201,6 +988,7 @@
 			<p class="fragment">Su resultado tiene sentido, no como el anterior ejemplo. Ojo con resultados extraños por culpa de no agrupar correctamente las columnas.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<p class="fragment">Pero este uso de GROUP BY da el mismo resultado que DISTINCT:</p>
 
@@ -1223,6 +1011,7 @@
 			<p class="fragment">Parece redundante, ¿no?</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<p class="fragment">El poder de GROUP BY viene dado por  la posibilidad de cálculo que ofrece. </p>
 			<p class="fragment">Permite computar datos basados en las agrupaciones.</p>
@@ -1242,6 +1031,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 
 			<p class="fragment">Modifiquemos el primer ejemplo de agrupacion para que nos dé el número de elementos de la agrupación:</p>
@@ -1262,6 +1052,7 @@
 			<p class="fragment">Ya se distingue de DISTINCT. Queda probada su utilidad.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 
 			<p class="fragment">Modifiquemos el  ejemplo para que nos calcule la cantidad de los elementos:</p>
@@ -1282,6 +1073,7 @@
 			<p class="fragment">Simplifica los cálculos a realizar en el Backend.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 
 			<p class="fragment">Recordemos que SUM aceptaba una expresión, no sólo una columna:</p>
@@ -1301,6 +1093,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<h3>Condiciones HAVING</h3>
 
@@ -1323,6 +1116,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<h3>Condiciones HAVING</h3>
 
@@ -1343,6 +1137,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Agrupaciones</h2>
 			<h3>Condiciones HAVING</h3>
 
@@ -1367,6 +1162,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Pasos en la ejecución de una consulta SELECT</h2>
 
 			<ul>
@@ -1382,6 +1178,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Obtener datos de múltiples tablas</h2>
 			<p class="fragment">Es más que habitual necesitar en una consulta datos que se encuentran distribuidos en varias tablas.</p>
 			<p class="fragment">Las bases de datos relacionales se basan en que los datos se distribuyen en tablas que se pueden relacionar mediante uno o varios campos.</p>
@@ -1393,6 +1190,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Obtener datos de múltiples tablas</h2>
 			<p class="fragment">Primero se crearán ambas tablas.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
@@ -1415,6 +1213,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Obtener datos de múltiples tablas</h2>
 			<p class="fragment">Se añaden datos.</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
@@ -1437,6 +1236,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h4>Producto cruzado o cartesiano de tablas</h4>
 			<p class="fragment">Si se quiere obtener una lista de los libros con sus autores:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
@@ -1462,6 +1262,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h4>Producto cruzado o cartesiano de tablas</h4>
 			<p class="fragment">Si se desea ordenar alfabéticamente:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
@@ -1485,6 +1286,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h4>Nota importante</h4>
 			<p class="fragment">Si no se enlazan las tablas en la cláusula WHERE mediante las claves, el resultado obtenido será el producto cruzado de las tablas.</p>
 			<p class="fragment">Es decir, aparecerán todos los registros de los libros relacionados con todos los autores (no la relación especifica de cada libro con su autor).</p>
@@ -1492,6 +1294,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h4>Otras consideraciones en las consultas</h4>
 
 			Para evitar repetir continuamente el nombre de la tabla, se puede utilizar un alias de tabla:
@@ -1507,6 +1310,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h4>Otras consideraciones en las consultas</h4>
 			<p class="fragment">Por otro lado, imaginemos que se quiere obtener todas las columnas de una tabla especifica.</p>
 			<p class="fragment">En ese caso, se usa el "*" asociado al alias (si se ha especificado) o al nombre de la tabla:</p>
@@ -1519,6 +1323,7 @@
 			<p class="fragment">Se pueden enlazar todas las tablas que se desee. Siempre se deberían enlazar mediante las claves foráneas.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h4>Otras consideraciones en las consultas</h4>
 			<p class="fragment">Siempre hay casos especificos donde la úlima condición no se cumple.</p>
 			<p class="fragment">Por ejemplo:</p>
@@ -1536,6 +1341,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>JOINS</h2>
 			<p class="fragment">Existe otra forma más intuitiva de trabajar con varias tablas: los JOINS</p>
 
@@ -1566,6 +1372,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>JOINS</h2>
 			<p class="fragment">Existen diversas formas de combinar (JOIN) las tablas según la información que deseemos obtener.</p>
 			<p class="fragment">Los tipos de JOIN se clasifican en:</p>
@@ -1588,6 +1395,7 @@
 			</ul>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>INNER JOIN (JOIN)</h3>
 			<p class="fragment">También se conoce como EQUI JOIN o combinación de igualdad.</p>
 			<p class="fragment">Esta combinación devuelve todas las filas de ambas tablas donde hay una coincidencia.</p>
@@ -1603,6 +1411,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>INNER JOIN (JOIN)</h3>
 			<p class="fragment">Ejemplo:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
@@ -1628,6 +1437,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>SELF JOIN</h3>
 			<p class="fragment">Se produce cuando se intenta hacer una combinación de una tabla consigo misma.</p>
 			<p class="fragment">Siempre que se especifiquen dos o más referencias de la misma tabla, se cargarán tantas copias en memoria como referencias.</p>
@@ -1643,6 +1453,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>SELF JOIN</h3>
 			<p class="fragment">Ejemplo:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
@@ -1669,6 +1480,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>NATURAL JOIN</h3>
 			<p class="fragment">Establece una relación de igualdad entre las tablas a través de los campos que tengan el mismo nombre en ambas tablas.</p>
 
@@ -1682,6 +1494,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>NATURAL JOIN</h3>
 			<p class="fragment">Ejemplo:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
@@ -1699,6 +1512,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>LEFT JOIN</h3>
 			<p class="fragment">La combinación externa o OUTER JOIN es muy útil cuando deseamos averiguar que campos están a NULL en un lado de la combinación.</p>
 			<p class="fragment">LEFT OUTER JOIN, nos permite obtener todas las filas de la primera tabla asociadas a filas de la segunda tabla.</p>
@@ -1715,6 +1529,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>LEFT JOIN</h3>
 			<p class="fragment">Ejemplo:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
@@ -1740,6 +1555,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>RIGHT JOIN</h3>
 			<p class="fragment">RIGHT OUTER JOIN, nos permite obtener todas las filas de la segunda tabla asociadas a filas de la primera tabla.</p>
 			<p class="fragment">Si no existe correspondencia en la primera tabla, dichos valores aparecen como NULL.</p>
@@ -1755,6 +1571,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>RIGHT JOIN</h3>
 			<p class="fragment">Ejemplo:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 5rem">
@@ -1779,6 +1596,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Múltiples JOINs</h3>
 			<p class="fragment">Se han visto ejemplos simples de JOINs.</p>
 			<p class="fragment">A continuación se muestran otros ejemplos con múltiples tablas.</p>
@@ -1801,6 +1619,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Múltiples JOINs</h3>
 
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
@@ -1819,6 +1638,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Múltiples JOINs</h3>
 			<p class="fragment">Otros ejemplos</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
@@ -1841,6 +1661,7 @@
 			</pre>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Múltiples JOINs</h3>
 			<p class="fragment">Otros ejemplos</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
@@ -1864,6 +1685,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h2>Control de usuarios: DCL</h2>
 			<p class="fragment">Hasta ahora se ha utilizado el usuario root (administrador) para ejecutar estas consultas.</p>
 			<p class="fragment">En sistemas reales no es aconsejable usar este tipo de usuario para operaciones simples.</p>
@@ -1872,6 +1694,7 @@
 			<p class="fragment">Se describe mínimamente cómo limitar dichos accessos generalizados.</p>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Creación de un usuario</h3>
 			<p class="fragment">MySQL permite crear cuentas de usuario para distintos perfiles y permisos.</p>
 			<p class="fragment">Para ello existe el comando CREATE USER.</p>
@@ -1888,6 +1711,7 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Permisos comunes</h3>
 			<table class="fragment" style="font-size: 1rem">
 				<tr><td>ALL [PRIVILEGES]</td><td>Concede todos los privilegios.</td></tr>
@@ -1911,6 +1735,7 @@
 			</table>
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Asignación de privilegios</h3>
 			<p class="fragment">Dados los permisos anteriores, se necesitan comandos para conceder o eliminar permisos.</p>
 			<p class="fragment">Los permisos se conceden a nivel de base datos, pero también a nivel de tabla.</p>
@@ -1918,6 +1743,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Asignación de privilegios</h3>
 			<p class="fragment">Asignación de todos los permisos al usuario "user" si se conecta localmente a la base de datos "allthemoneybank".</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
@@ -1942,6 +1768,7 @@
 
 		</section>
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h3>Refresco de privilegios</h3>
 			<p class="fragment">Cada vez que se añadan, borren o modifiquen privilegios, para que estos se apliquen, se debe ejecutar el siguiente comando:</p>
 			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
@@ -1954,8 +1781,290 @@
 		</section>
 
 		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
 			<h1>¿Preguntas?</h1>
 			<p>Muchas gracias por vuestra atención.</p>
+		</section>
+
+
+
+
+
+
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Transacciones</h3>
+			<p class="fragment">Una transacción es un conjunto de tareas relacionadas que se realizan de forma satisfactoria o incorrecta como una unidad.</p>
+			<p class="fragment">Las transacciones se confirman o se anulan.</p>
+			<p class="fragment">Para que una transacción se confirme se debe garantizar la permanencia de los cambios efectuados en los datos.</p>
+			<p class="fragment">Los cambios deben conservarse aunque el sistema se bloquee o tengan lugar otros eventos imprevistos.</p>
+			<p class="fragment">Su principio: ACID.</p>
+			<ul>
+				<li class="fragment"><u>A</u>tomicidad</li>
+				<li class="fragment"><u>C</u>onsistencia</li>
+				<li class="fragment">A<u>i</u>slamiento</li>
+				<li class="fragment"><u>D</u>urabilidad</li>
+			</ul>
+			<p class="fragment">Garantizan un comportamiento predecible. Son proposiciones de todo o nada.</p>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Atomicidad</h3>
+			<p class="fragment">Una transacción es una unidad de trabajo el cual se realiza en su totalidad o no se realiza en ningún caso.</p>
+			<p class="fragment">Las operaciones asociadas a una transacción comparten normalmente un objetivo común y son interdependientes.</p>
+			<p class="fragment">Si el sistema ejecutase únicamente una parte de las operaciones, podría poner en peligro el objetivo final de la transacción.</p>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Coherencia</h3>
+			<p class="fragment">Una transacción es una unidad de integridad porque mantiene la coherencia de los datos.</p>
+			<p class="fragment">Transformando un estado coherente de datos en otro estado de datos igualmente coherente.</p>
+			<p class="fragment">Si el sistema ejecutase únicamente una parte de las operaciones, podría poner en peligro el objetivo final de la transacción.</p>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Aislamiento</h3>
+			<p class="fragment">Una transacción es una unidad de aislamiento.</p>
+			<p class="fragment">Las transacciones concurrentes se comportan como si cada una fuera la única transacción que se ejecuta en el sistema.</p>
+			<p class="fragment">Una transacción nunca debe ver las fases intermedias de otra transacción.</p>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Durabilidad</h3>
+			<p class="fragment">Una transacción también es una unidad de recuperación.</p>
+			<p class="fragment">Si una transacción se realiza satisfactoriamente, el sistema garantiza que sus actualizaciones se mantienen aunque el equipo falle inmediatamente después de la confirmación.</p>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Transacciones</h3>
+			<p class="fragment">Una transacción está formada por una serie de instrucciones DML.</p>
+			<p class="fragment">Una transacción comienza con la primera instrucción DML que se ejecute.</p>
+			<p class="fragment">Y finaliza:</p>
+			<ul>
+				<li class="fragment">Bien con una operación COMMIT (si la transacción se confirma).</li>
+				<li class="fragment">O bien o una operación ROLLBACK (si la operación se cancela).</li>
+			</ul>
+
+			<p class="fragment">Excepción: cualquier instrucción DDL o DCL da lugar a un COMMIT implícito, es decir todas las instrucciones DML ejecutadas hasta ese instante pasan a ser definitivas.</p>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>AUTOCOMMIT</h3>
+			<p class="fragment">Una de las maneras de hacer uso de transacciones es mediante la propiedad SQL AUTOCOMMIT.</p>
+			<p class="fragment">Si está activada, después de cada instrucción DML se hará un COMMIT (se confirma la operación inmediatamente).</p>
+			<p class="fragment">Por contra, si está desactivada será el usuario o el programa, el encargado de realizar un COMMIT o ROLLBACK manual.</p>
+			<p class="fragment">Para saber el estado en el que se encuentra dicha propiedad se usa la siguiente cláusula:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SHOW AUTOCOMMIT;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>AUTOCOMMIT</h3>
+			<p class="fragment">Para desactivarlo se usa la siguiente instrucción:</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SET AUTOCOMMIT=0;
+				</code>
+			</pre>
+			<p class="fragment">Para reactivarla se debe reemplazar el valor 0 por 1.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 4rem">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SET AUTOCOMMIT=1;
+				</code>
+			</pre>
+			<p class="fragment">AUTOCOMMIT es una propiedad de sesión y debe establecerse para cada una de ellas.</p>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>START TRANSACTION</h3>
+			<p class="fragment">Existe otra instrucción que permite la ejecución de transacciones sin tener que modificar AUTOCOMMIT.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					START TRANSACTION
+					BEGIN [WORK]
+					COMMIT
+					ROLLBACK
+				</code>
+			</pre>
+			<p class="fragment">Ejemplo:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 8rem">
+				<code class="mysql-code" data-trim data-noescape>
+					START TRANSACTION;
+					UPDATE table1 SET info="new info" WHERE type=2;
+					UPDATE table2 SET summary="new summary" WHERE type=1;
+					COMMIT;
+				</code>
+			</pre>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>COMMIT</h3>
+			<p class="fragment">La instrucción COMMIT hace que los cambios realizados por la transacción sean definitivos, irrevocables.</p>
+			<p class="fragment">Se dice que tenemos una transacción confirmada.</p>
+			<p class="fragment">Sólo se debe utilizar si estamos de acuerdo con los cambios.</p>
+
+			<p class="fragment">El cierre correcto de la sesión da lugar a un COMMIT, aunque siempre conviene ejecutar explícitamente esta instrucción a fin de asegurarnos de lo que hacemos.</p>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>ROLLBACK</h3>
+			<p class="fragment">Esta instrucción regresa a la instrucción anterior al inicio de la transacción, normalmente el último COMMIT, la última instrucción DDL o DCL o al inicio de sesión.</p>
+			<p class="fragment">Se dice que tenemos una transacción cancelada.</p>
+			<p class="fragment">Anula definitivamente los cambios.</p>
+
+			<p class="fragment">Un abandono de sesión incorrecto o un problema de comunicación o de caída del sistema dan lugar a un ROLLBACK implícito.</p>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>SAVEPOINT</h3>
+			<p class="fragment">Esta instrucción permite establecer un punto de ruptura.</p>
+			<p class="fragment">El problema de la combinación ROLLBACK/COMMIT es que un COMMIT acepta todo y un ROLLBACK anula todo.</p>
+			<p class="fragment">SAVEPOINT permite señalar un punto intermedio entre el inicio de la transacción y la situación actual.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 6rem">
+				<code class="mysql-code" data-trim data-noescape>
+					SAVEPOINT identifier
+					ROLLBACK [WORK] TO [SAVEPOINT] identifier
+					ROLLBACK
+					COMMIT
+				</code>
+			</pre>
+
+			<p class="fragment">ROLLBACK [WORK] TO [SAVEPOINT] retorna hasta el SAVEPOINT deseado sin acabar la transacción.</p>
+			<p class="fragment">Mientras que un ROLLBACK a secas sí finaliza la sesión.</p>
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Ejemplo de transacción compleja</h3>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					CREATE TABLE tabla (fecha DATE);
+
+					START TRANSACTION;
+
+						INSERT INTO tabla VALUES ('2020/01/01');
+						INSERT INTO tabla VALUES ('2020/02/01');
+
+						SAVEPOINT febrero;
+
+						INSERT INTO tabla VALUES ('2020/03/01');
+						INSERT INTO tabla VALUES ('2020/04/01');
+
+						SAVEPOINT abril;
+
+						INSERT INTO tabla VALUES ('2020/05/01');
+
+						ROLLBACK TO SAVEPOINT febrero;
+					COMMIT;
+				</code>
+			</pre>
+
+		</section>
+
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Precedencia</h3>
+			<p class="fragment">La precendencia de operadores se muestra en la siguiente tabla, de mayor a menor precendencia.</p>
+
+			<p class="fragment">Operadores en la misma línea, tienen la misma precedencia.</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					INTERVAL
+					BINARY, COLLATE
+					!
+					- (unary minus), ~ (unary bit inversion)
+					^
+					*, /, DIV, %, MOD
+					-, +
+					<<, >>
+					&
+					|
+					= (comparison), <=>, >=, >, <=, <, <>, !=, IS, LIKE, REGEXP, IN, MEMBER OF
+					BETWEEN, CASE, WHEN, THEN, ELSE
+					NOT
+					AND, &&
+					XOR
+					OR, ||
+					= (asignación), :=
+				</code>
+			</pre>
+			<p class="fragment"><a href="https://dev.mysql.com/doc/refman/8.0/en/operator-precedence.html" target="_blank">Doc. Referencia MySQL</a></p>
+		</section>
+<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Operadores de comparación</h3>
+
+			<p class="fragment">Los resultados de comparación son: 1 (TRUE), 0 (FALSE), o NULL.</p>
+			<p class="fragment">Funcionan con números y cadenas. Las cadenas son convertidos a números y viceversa cuando sea necesario.</p>
+
+			<p class="fragment">Los siguiente operadores pueden ser usados para comparar no sólo operandos escalares, si no filas de operandos:</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 3rem">
+				<code class="mysql-code" data-trim data-noescape>
+					=  >  <  >=  <=  <>  !=
+				</code>
+			</pre>
+			<p class="fragment">Con ellos podemos realizar comparaciones de igualdad, desigualdad...</p>
+			<p class="fragment">Ejemplo de comparación de filas de operandos: (a, b) = (x, y) es equivalente a</p>
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;max-height: 2rem">
+				<code class="mysql-code" data-trim data-noescape>
+					(a = x) AND (b = y)
+				</code>
+			</pre>
+		</section>
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Operadores lógicos</h3>
+
+			<table class="fragment"  style="font-size: 1.5rem">
+				<tr>
+					<th>Nombre</th>
+					<th>Ejemplo</th>
+				</tr>
+				<tr>
+					<td>AND, &&</td>
+					<td>condición1 AND condición2: Cierto sólo en caso de que las 2 condiciones sean ciertas</td>
+				</tr>
+				<tr>
+					<td>NOT, !</td>
+					<td>Niega el valor</td>
+				</tr>
+				<tr>
+					<td>OR, ||</td>
+					<td>condición1 OR condición2: Cierto en todos los casos, salvo que las 2 condiciones sean falsas</td>
+				</tr>
+				<tr>
+					<td>XOR</td>
+					<td>condición1 XOR condición2: Cierto en los casos en que sean distintos.</td>
+				</tr>
+			</table>
+
+			<p class="fragment">En SQL, todos los operadores lógicos retornan TRUE, FALSE, o NULL (UNKNOWN)</p>
+			<p class="fragment">Los operadores lógicos junto con el uso de paréntesis permiten combinar condiciones simples obteniendo otras más complejas.</p>
+
+			<pre class="fragment mysql-code" style="font-size: 1rem; box-shadow: none; margin: 0 auto;">
+				<code class="mysql-code" data-trim data-noescape>
+					mysql> SELECT 1 AND 1, 0 AND 1,1 OR 1, 0 OR 1,1 XOR 1, 0 XOR 1;
+        				-> 1, 0, 1, 1, 0, 1
+				</code>
+			</pre>
 		</section>
 	</div>
 </div>
