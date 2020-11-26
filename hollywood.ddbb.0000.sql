@@ -82,12 +82,12 @@ CREATE TABLE `FilmGenres` (
 DROP TABLE IF EXISTS `FilmProductionData`;
 CREATE TABLE `FilmProductionData` (
 	`id_film`				BIGINT UNSIGNED NOT NULL							COMMENT 'Identificador de película',
-	`id_genre`				INT UNSIGNED NOT NULL								COMMENT 'Identificador de género',
-    CONSTRAINT `filmproduction_pk` PRIMARY KEY(`id_film`, `id_genre`),
+	`id_production_data`	BIGINT UNSIGNED NOT NULL							COMMENT 'Identificador de datos de producción',
+    CONSTRAINT `filmproduction_pk` PRIMARY KEY(`id_film`, `id_production_data`),
     CONSTRAINT `filmproduction_id_film_fk` FOREIGN KEY(`id_film`) REFERENCES `Film`(`id`)
 			ON DELETE NO ACTION
             ON UPDATE NO ACTION,
-    CONSTRAINT `filmproduction_id_genre_fk` FOREIGN KEY(`id_genre`) REFERENCES `Genre`(`id`)
+    CONSTRAINT `filmproduction_id_production_data_fk` FOREIGN KEY(`id_production_data`) REFERENCES `ProductionData`(`id`)
 			ON DELETE NO ACTION
             ON UPDATE NO ACTION
 );
