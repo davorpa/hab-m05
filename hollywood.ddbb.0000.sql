@@ -54,12 +54,8 @@ CREATE TABLE `FilmPrizes` (
     `votes`					INT UNSIGNED DEFAULT 0								COMMENT 'Número de votos recibidos',
     `year`					SMALLINT UNSIGNED NOT NULL							COMMENT 'Año de adquisición',
     CONSTRAINT `filmprize_pk` PRIMARY KEY(`id_film`, `id_prize`),
-    CONSTRAINT `filmprize_id_prize_fk` FOREIGN KEY(`id_prize`) REFERENCES `Prize`(`id`) 
-			ON DELETE NO ACTION
-            ON UPDATE NO ACTION,
-    CONSTRAINT `filmprize_id_film_fk` FOREIGN KEY(`id_film`) REFERENCES `Film`(`id`)
-			ON DELETE NO ACTION
-            ON UPDATE NO ACTION,
+    CONSTRAINT `filmprize_id_prize_fk` FOREIGN KEY(`id_prize`) REFERENCES `Prize`(`id`),
+    CONSTRAINT `filmprize_id_film_fk` FOREIGN KEY(`id_film`) REFERENCES `Film`(`id`),
     CONSTRAINT `filmprize_year_gt_ck` CHECK (`year` > 1700)
 );
 
@@ -72,8 +68,6 @@ CREATE TABLE `FilmGenres` (
 	`id_genre`				INT UNSIGNED NOT NULL								COMMENT 'Identificador de género',
     CONSTRAINT `filmgenre_pk` PRIMARY KEY(`id_film`, `id_genre`),
     CONSTRAINT `filmgenre_id_film_fk` FOREIGN KEY(`id_film`) REFERENCES `Film`(`id`)
-			ON DELETE NO ACTION
-            ON UPDATE NO ACTION
 );
 
 # 
@@ -84,10 +78,6 @@ CREATE TABLE `FilmProductionData` (
 	`id_film`				BIGINT UNSIGNED NOT NULL							COMMENT 'Identificador de película',
 	`id_production_data`	BIGINT UNSIGNED NOT NULL							COMMENT 'Identificador de datos de producción',
     CONSTRAINT `filmproduction_pk` PRIMARY KEY(`id_film`, `id_production_data`),
-    CONSTRAINT `filmproduction_id_film_fk` FOREIGN KEY(`id_film`) REFERENCES `Film`(`id`)
-			ON DELETE NO ACTION
-            ON UPDATE NO ACTION,
+    CONSTRAINT `filmproduction_id_film_fk` FOREIGN KEY(`id_film`) REFERENCES `Film`(`id`),
     CONSTRAINT `filmproduction_id_production_data_fk` FOREIGN KEY(`id_production_data`) REFERENCES `ProductionData`(`id`)
-			ON DELETE NO ACTION
-            ON UPDATE NO ACTION
 );
