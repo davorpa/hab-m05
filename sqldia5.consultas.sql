@@ -43,3 +43,8 @@ INSERT INTO usuario SET
 -- Cuarta forma de insertar datos (uso de SELECT)
 INSERT INTO usuario (nombre, apellido1, apellido2, email, fecha_nacimiento, empleado)
 	SELECT "Erika", "Loco", "Motora", "erika@allthemoneybank.example.com", "1982-10-24", 0;
+
+
+-- UPDATE CON WHERE
+UPDATE usuario SET email="loco@allthemoneybank.com" WHERE id=3;
+UPDATE usuario SET empleado = 1 WHERE lower(apellido2)='rockefeller';
