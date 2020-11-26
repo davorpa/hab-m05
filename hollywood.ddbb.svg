@@ -3,10 +3,10 @@
 <svg width="63cm" height="36cm" viewBox="126 36 1251 714" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g id="Background">
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="206.542" y="384.356" width="218.5" height="32"/>
+      <rect style="fill: #93f3b3; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="206.542" y="384.356" width="218.5" height="32"/>
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="315.792" y="398.356">FilmPrizes</text>
-      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="315.792" y="412.356">Premios que ganó</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="206.542" y="416.356" width="218.5" height="152"/>
+      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="315.792" y="412.356">relación Premios que ganó</text>
+      <rect style="fill: #93f3b3; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="206.542" y="416.356" width="218.5" height="152"/>
       <polygon style="fill: #000000; fill-opacity: 1; stroke: none" fill-rule="evenodd" points="210.042,426.356 212.042,429.356 214.042,426.356 212.042,423.356 "/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="216.042" y="432.356">id_price</text>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="287.642" y="432.356">BIGINT</text>
@@ -27,10 +27,10 @@
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:italic;font-weight:normal" x="221.042" y="557.356">Año</text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="605.73" y="422.09" width="411" height="32"/>
+      <rect style="fill: #d8e5e5; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="605.73" y="422.09" width="411" height="32"/>
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="811.23" y="436.09">Film</text>
-      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="811.23" y="450.09">Película</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="605.73" y="454.09" width="411" height="115"/>
+      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="811.23" y="450.09">entidad Película</text>
+      <rect style="fill: #d8e5e5; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="605.73" y="454.09" width="411" height="115"/>
       <polygon style="fill: #000000; fill-opacity: 1; stroke: none" fill-rule="evenodd" points="609.23,464.09 611.23,467.09 613.23,464.09 611.23,461.09 "/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="615.23" y="470.09">id</text>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="725.33" y="470.09">BIGINT</text>
@@ -49,10 +49,10 @@
       <tspan x="486.706" y="78.1484">OSCARS HOLLYWOOD</tspan>
     </text>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="1104.43" y="216.034" width="272.4" height="32"/>
+      <rect style="fill: #d8e5e5; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="1104.43" y="216.034" width="272.4" height="32"/>
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1240.63" y="230.034">ProductionData</text>
-      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="1240.63" y="244.034">Datos de Producción</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="1104.43" y="248.034" width="272.4" height="168"/>
+      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="1240.63" y="244.034">entidad Datos de Producción</text>
+      <rect style="fill: #d8e5e5; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="1104.43" y="248.034" width="272.4" height="168"/>
       <polygon style="fill: #000000; fill-opacity: 1; stroke: none" fill-rule="evenodd" points="1107.93,258.034 1109.93,261.034 1111.93,258.034 1109.93,255.034 "/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="1113.93" y="264.034">id</text>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="1270.23" y="264.034">BIGINT</text>
@@ -73,10 +73,10 @@
       <ellipse style="fill: #000000; fill-opacity: 1; stroke: none" cx="1109.93" cy="406.034" rx="2" ry="2"/>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="716.562" y="179.281" width="219.05" height="32"/>
+      <rect style="fill: #93f3b3; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="716.562" y="179.281" width="219.05" height="32"/>
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="826.087" y="193.281">FilmProductionData</text>
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="826.087" y="207.281">relación Posee</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="716.562" y="211.281" width="219.05" height="92"/>
+      <rect style="fill: #93f3b3; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="716.562" y="211.281" width="219.05" height="92"/>
       <polygon style="fill: #000000; fill-opacity: 1; stroke: none" fill-rule="evenodd" points="720.062,221.281 722.062,224.281 724.062,221.281 722.062,218.281 "/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="726.062" y="227.281">id_film</text>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="874.662" y="227.281">BIGINT</text>
@@ -91,19 +91,19 @@
     </g>
     <g>
       <polyline style="fill: none; stroke-opacity: 1; stroke-width: 3; stroke: #000000" points="1016.73,464.09 1049.97,464.09 1049.97,351.818 540.296,351.818 540.296,221.28 716.562,221.28 "/>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1021.23" y="459.59">0</text>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="712.062" y="216.78">1</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1023.23" y="457.59">0</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="710.062" y="214.78">1</text>
     </g>
     <g>
       <polyline style="fill: none; stroke-opacity: 1; stroke-width: 3; stroke: #000000" points="935.612,258.281 1020.02,258.281 1020.02,258.034 1104.43,258.034 "/>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="940.112" y="253.781">1</text>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="1099.93" y="253.534">0</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="942.112" y="251.781">1</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="1097.93" y="251.534">0</text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="192.204" y="180.663" width="226.2" height="32"/>
+      <rect style="fill: #d8e5e5; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="192.204" y="180.663" width="226.2" height="32"/>
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="305.304" y="194.663">Prize</text>
-      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="305.304" y="208.663">Premios</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="192.204" y="212.663" width="226.2" height="115"/>
+      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="305.304" y="208.663">entidad Premios</text>
+      <rect style="fill: #d8e5e5; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="192.204" y="212.663" width="226.2" height="115"/>
       <polygon style="fill: #000000; fill-opacity: 1; stroke: none" fill-rule="evenodd" points="195.704,222.663 197.704,225.663 199.704,222.663 197.704,219.663 "/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="201.704" y="228.663">id</text>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="319.504" y="228.663">BIGINT</text>
@@ -120,19 +120,19 @@
     </g>
     <g>
       <polyline style="fill: none; stroke-opacity: 1; stroke-width: 3; stroke: #000000" points="192.204,222.662 128,222.662 128,426.356 206.542,426.356 "/>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="187.704" y="218.162">0</text>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="202.042" y="421.856">N</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="185.704" y="216.162">0</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="200.042" y="419.856">N</text>
     </g>
     <g>
       <polyline style="fill: none; stroke-opacity: 1; stroke-width: 3; stroke: #000000" points="425.042,463.356 515.386,463.356 515.386,464.09 605.73,464.09 "/>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="429.542" y="458.856">1</text>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="601.23" y="459.59">N</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="431.542" y="456.856">1</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="599.23" y="457.59">N</text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="900" y="640" width="149.2" height="32"/>
+      <rect style="fill: #d8e5e5; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="900" y="640" width="149.2" height="32"/>
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="974.6" y="654">Genre</text>
-      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="974.6" y="668">Género</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="900" y="672" width="149.2" height="78"/>
+      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="974.6" y="668">entidad Género</text>
+      <rect style="fill: #d8e5e5; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="900" y="672" width="149.2" height="78"/>
       <polygon style="fill: #000000; fill-opacity: 1; stroke: none" fill-rule="evenodd" points="903.5,682 905.5,685 907.5,682 905.5,679 "/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="909.5" y="688">id</text>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="950.3" y="688">BIGINT</text>
@@ -144,10 +144,10 @@
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:italic;font-weight:normal" x="914.5" y="739">Nombre</text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="540" y="640" width="192.888" height="32"/>
+      <rect style="fill: #93f3b3; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="540" y="640" width="192.888" height="32"/>
       <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="636.444" y="654">FilmGenres</text>
-      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="636.444" y="668">relación se clasifica</text>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="540" y="672" width="192.888" height="78"/>
+      <text font-size="11.2" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:italic;font-weight:normal" x="636.444" y="668">relación Se clasifica en</text>
+      <rect style="fill: #93f3b3; fill-opacity: 1; stroke-opacity: 1; stroke-width: 3; stroke: #000000" x="540" y="672" width="192.888" height="78"/>
       <polygon style="fill: #000000; fill-opacity: 1; stroke: none" fill-rule="evenodd" points="543.5,682 545.5,685 547.5,682 545.5,679 "/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="549.5" y="688">id_film</text>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="621.1" y="688">BIGINT</text>
@@ -160,13 +160,13 @@
     </g>
     <g>
       <polyline style="fill: none; stroke-opacity: 1; stroke-width: 3; stroke: #000000" points="540,682 493.56,682 493.56,501.09 605.73,501.09 "/>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="535.5" y="677.5">N</text>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="601.23" y="496.59">0</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="533.5" y="675.5">N</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="599.23" y="494.59">0</text>
     </g>
     <g>
       <polyline style="fill: none; stroke-opacity: 1; stroke-width: 3; stroke: #000000" points="732.888,719 833.068,719 833.068,682 900,682 "/>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="737.388" y="714.5">1</text>
-      <text font-size="9.6" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="895.5" y="677.5">0</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="739.388" y="712.5">1</text>
+      <text font-size="16" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="893.5" y="675.5">0</text>
     </g>
   </g>
 </svg>

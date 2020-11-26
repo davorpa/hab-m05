@@ -4,6 +4,8 @@
   <Colors>
     <ColorEntry IX='0' RGB='#000000'/>
     <ColorEntry IX='1' RGB='#FFFFFF'/>
+    <ColorEntry IX='2' RGB='#93F3B3'/>
+    <ColorEntry IX='3' RGB='#D8E5E5'/>
   </Colors>
   <Fonts>
     <FontEntry ID='0' Unicode='0' Weight='0' Attributes='23040' CharSet='0' PitchAndFamily='18' Name='sans'/>
@@ -75,7 +77,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#93F3B3</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -140,9 +142,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>5.022874</PinX>
+            <PinX>4.453583</PinX>
             <PinY>1.279579</PinY>
-            <Width>2.387008</Width>
+            <Width>3.525591</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -154,7 +156,7 @@
           <Para IX='0'>
             <HorzAlign>1</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Premios que ganó</Text>
+          <Text><pp IX='0'/><cp IX='0'/>relación Premios que ganó</Text>
         </Shape>
         <Shape ID='4' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.4'>
           <Data1>0</Data1>
@@ -168,7 +170,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#93F3B3</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -701,7 +703,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#D8E5E5</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -766,9 +768,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>15.460629</PinX>
+            <PinX>14.916142</PinX>
             <PinY>0.536783</PinY>
-            <Width>1.016929</Width>
+            <Width>2.105906</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -780,7 +782,7 @@
           <Para IX='0'>
             <HorzAlign>1</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Película</Text>
+          <Text><pp IX='0'/><cp IX='0'/>entidad Película</Text>
         </Shape>
         <Shape ID='26' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.26'>
           <Data1>0</Data1>
@@ -794,7 +796,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#D8E5E5</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -1204,7 +1206,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#D8E5E5</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -1269,9 +1271,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>23.058819</PinX>
+            <PinX>22.514330</PinX>
             <PinY>4.593004</PinY>
-            <Width>2.725984</Width>
+            <Width>3.814961</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1283,7 +1285,7 @@
           <Para IX='0'>
             <HorzAlign>1</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Datos de Producción</Text>
+          <Text><pp IX='0'/><cp IX='0'/>entidad Datos de Producción</Text>
         </Shape>
         <Shape ID='44' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.44'>
           <Data1>0</Data1>
@@ -1297,7 +1299,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#D8E5E5</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -1815,7 +1817,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#93F3B3</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -1908,7 +1910,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#93F3B3</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -2309,16 +2311,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>20.102953</PinX>
-            <PinY>0.357203</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>20.142323</PinX>
+            <PinY>0.366861</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
@@ -2330,16 +2332,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>13.879961</PinX>
-            <PinY>5.136928</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>13.749645</PinX>
+            <PinY>5.146586</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>2</HorzAlign>
@@ -2390,16 +2392,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>18.506142</PinX>
-            <PinY>4.408562</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>18.545511</PinX>
+            <PinY>4.418220</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
@@ -2411,16 +2413,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>21.515118</PinX>
-            <PinY>4.413424</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>21.384804</PinX>
+            <PinY>4.423082</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>2</HorzAlign>
@@ -2439,7 +2441,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#D8E5E5</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -2504,9 +2506,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>5.479008</PinX>
+            <PinX>4.934520</PinX>
             <PinY>5.289291</PinY>
-            <Width>1.061811</Width>
+            <Width>2.150787</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -2518,7 +2520,7 @@
           <Para IX='0'>
             <HorzAlign>1</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Premios</Text>
+          <Text><pp IX='0'/><cp IX='0'/>entidad Premios</Text>
         </Shape>
         <Shape ID='87' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.87'>
           <Data1>0</Data1>
@@ -2532,7 +2534,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#D8E5E5</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -2952,16 +2954,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>3.557945</PinX>
-            <PinY>5.109723</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>3.427630</PinX>
+            <PinY>5.119381</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>2</HorzAlign>
@@ -2973,16 +2975,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>3.840197</PinX>
-            <PinY>1.099999</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>3.709882</PinX>
+            <PinY>1.109657</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>2</HorzAlign>
@@ -3033,16 +3035,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>8.455551</PinX>
-            <PinY>0.371652</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>8.494922</PinX>
+            <PinY>0.381310</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
@@ -3054,16 +3056,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>11.698228</PinX>
-            <PinY>0.357203</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>11.567913</PinX>
+            <PinY>0.366861</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>2</HorzAlign>
@@ -3082,7 +3084,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#D8E5E5</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -3147,9 +3149,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>18.700197</PinX>
+            <PinX>18.155708</PinX>
             <PinY>-3.752784</PinY>
-            <Width>0.969685</Width>
+            <Width>2.058661</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -3161,7 +3163,7 @@
           <Para IX='0'>
             <HorzAlign>1</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Género</Text>
+          <Text><pp IX='0'/><cp IX='0'/>entidad Género</Text>
         </Shape>
         <Shape ID='110' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.110'>
           <Data1>0</Data1>
@@ -3175,7 +3177,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#D8E5E5</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -3466,7 +3468,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#93F3B3</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -3531,9 +3533,9 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>11.231578</PinX>
+            <PinX>11.009530</PinX>
             <PinY>-3.752784</PinY>
-            <Width>2.593701</Width>
+            <Width>3.037795</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -3545,7 +3547,7 @@
           <Para IX='0'>
             <HorzAlign>1</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>relación se clasifica</Text>
+          <Text><pp IX='0'/><cp IX='0'/>relación Se clasifica en</Text>
         </Shape>
         <Shape ID='123' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Polygon.123'>
           <Data1>0</Data1>
@@ -3559,7 +3561,7 @@
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#FFFFFF</FillForegnd>
+            <FillForegnd>#93F3B3</FillForegnd>
             <FillPattern>1</FillPattern>
             <ShdwForegnd>#000000</ShdwForegnd>
           </Fill>
@@ -3882,16 +3884,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>10.404330</PinX>
-            <PinY>-3.932364</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>10.274015</PinX>
+            <PinY>-3.922705</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>2</HorzAlign>
@@ -3903,16 +3905,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>11.698228</PinX>
-            <PinY>-0.371143</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>11.567913</PinX>
+            <PinY>-0.361485</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>2</HorzAlign>
@@ -3963,16 +3965,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>14.515517</PinX>
-            <PinY>-4.660710</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>14.554888</PinX>
+            <PinY>-4.651052</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
@@ -3984,16 +3986,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.185673</Height>
-            <PinX>17.490946</PinX>
-            <PinY>-3.932364</PinY>
-            <Width>0.137008</Width>
+            <Height>0.309454</Height>
+            <PinX>17.360630</PinX>
+            <PinY>-3.922705</PinY>
+            <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
             <Font>1</Font>
             <FontScale>1.000000</FontScale>
-            <Size>0.185673</Size>
+            <Size>0.309454</Size>
           </Char>
           <Para IX='0'>
             <HorzAlign>2</HorzAlign>
