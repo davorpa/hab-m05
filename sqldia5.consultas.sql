@@ -31,3 +31,7 @@ INSERT INTO usuario (email, fecha_nacimiento, nombre, apellido1, apellido2)
 INSERT INTO usuario
 		VALUES (NULL, 'Manolo', 'Gómez', 'López', '1950-01-14', 'manolo@test.me', 0, 1, NULL),
 			   (NULL, 'Marío', 'De La Rosa', 'Pompillón-Jiménez', '1998-01-25', 'mariopj@test.me', 1, 1, 'Notas'); 
+
+-- Segunda forma de insertar datos (uso de SET) Al menos especificar los NOT NULL
+INSERT INTO usuario SET
+		nombre = 'Dolores', apellido1 = 'De Muelas', apellido2 = 'Sindientes', fecha_nacimiento = '1944-12-14';
