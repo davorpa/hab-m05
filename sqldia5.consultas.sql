@@ -26,3 +26,8 @@ CREATE TABLE usuario (
 INSERT INTO usuario (email, fecha_nacimiento, nombre, apellido1, apellido2)
 		VALUES ('laura@tm.com', '1990-10-14', 'Laura', 'Rockefeller', 'Gizburg'),
 			   ('manuel@atm.com', '1984-08-14', 'Manuel', 'García', 'Lopez'); 
+
+-- Segunda forma de insertar datos (especificando campos en el orden definido)
+INSERT INTO usuario
+		VALUES (NULL, 'Manolo', 'Gómez', 'López', '1950-01-14', 'manolo@test.me', 0, 1, NULL),
+			   (NULL, 'Marío', 'De La Rosa', 'Pompillón-Jiménez', '1998-01-25', 'mariopj@test.me', 1, 1, 'Notas'); 
