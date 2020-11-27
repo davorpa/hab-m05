@@ -8,40 +8,81 @@ USE `HOLLYWOOD_OSCARS`;
 
 DROP TABLE IF EXISTS `Prize`;
 CREATE TABLE `Prize` (
-	`id`				INT UNSIGNED NOT NULL AUTO_INCREMENT				COMMENT 'Identificador',
-    `title`				VARCHAR(255) NOT NULL								COMMENT 'Título/Denominación',
-    `great_category`	TINYINT UNSIGNED DEFAULT 0							COMMENT 'Flag de gran categoría',
-    CONSTRAINT `prize_pk` PRIMARY KEY(`id`),
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Identificador',
+    `title` VARCHAR(255) NOT NULL COMMENT 'Título/Denominación',
+    `great_category` TINYINT UNSIGNED DEFAULT 0 COMMENT 'Flag de gran categoría',
+    CONSTRAINT `prize_pk` PRIMARY KEY (`id`),
     CONSTRAINT `title_uniq` UNIQUE (`title`),
-    -- restringimos a dato BIT
-    CONSTRAINT `great_category_bool_ck` CHECK (`great_category` = 0 OR `great_category` = 1)
+    CONSTRAINT `great_category_bool_ck` CHECK (`great_category` = 0
+        OR `great_category` = 1)
 );
+-- Indexes en campos de búsqueda
+CREATE FULLTEXT INDEX `prize_title_full_idx`
+		ON `Prize` (`title`)
+        COMMENT 'FULLTXT Título/Denominación search index';
+CREATE INDEX `prize_title_idx`
+		ON `Prize` (`title`)
+        COMMENT 'BTREE Título/Denominación search index';
+CREATE INDEX `prize_gcat_idx`
+		ON `Prize` (`great_category`)
+        COMMENT 'BTREE Flag Gran Categoría search index';
+
 
 DROP TABLE IF EXISTS `Film`;
 CREATE TABLE `Film` (
-	`id`				BIGINT UNSIGNED NOT NULL AUTO_INCREMENT								COMMENT 'Identificador',
-    `title`				VARCHAR(255) NOT NULL												COMMENT 'Título',
-    `qualification`		ENUM("TP", "+3", "+5", "+8", "+10", "+13", "+18") DEFAULT "TP"		COMMENT 'Calificación pública',
-    CONSTRAINT `film_pk` PRIMARY KEY(`id`)
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Identificador',
+    `title` VARCHAR(255) NOT NULL COMMENT 'Título',
+    `num_actors` SMALLINT UNSIGNED NOT NULL COMMENT 'Número de actores',
+    `qualification` ENUM('TP', '+3', '+5', '+8', '+10', '+13', '+18') DEFAULT 'TP' COMMENT 'Calificación pública',
+    CONSTRAINT `film_pk` PRIMARY KEY (`id`)
 );
+-- Indexes en campos de búsqueda
+CREATE FULLTEXT INDEX `film_title_full_idx`
+		ON `Film` (`title`)
+        COMMENT 'FULLTXT Título search index';
+CREATE INDEX `film_title_idx`
+		ON `Film` (`title`)
+        COMMENT 'BTREE Título search index';
+CREATE INDEX `film_qualification_idx`
+		ON `Film` (`qualification`)
+        COMMENT 'BTREE Calificación search index';
+
 
 DROP TABLE IF EXISTS `Genre`;
 CREATE TABLE `Genre` (
-	`id`				INT UNSIGNED NOT NULL AUTO_INCREMENT				COMMENT 'Identificador',
-    `name`				VARCHAR(255) NOT NULL								COMMENT 'Nombre/Denominación',
-    CONSTRAINT `genre_pk` PRIMARY KEY(`id`),
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Identificador',
+    `name` VARCHAR(255) NOT NULL COMMENT 'Nombre/Denominación',
+    CONSTRAINT `genre_pk` PRIMARY KEY (`id`),
     CONSTRAINT `name_uniq` UNIQUE (`name`)
 );
+-- Indexes en campos de búsqueda
+CREATE FULLTEXT INDEX `genre_name_full_idx`
+		ON `Genre` (`name`)
+        COMMENT 'FULLTXT Nombre/Denominación search index';
+CREATE INDEX `genre_name_idx`
+		ON `Genre` (`name`)
+        COMMENT 'BTREE Nombre/Denominación search index';
+
 
 DROP TABLE IF EXISTS `ProductionData`;
 CREATE TABLE `ProductionData` (
-	`id`				BIGINT UNSIGNED NOT NULL AUTO_INCREMENT				COMMENT 'Identificador',
-    `producer_company`	VARCHAR(255) NOT NULL								COMMENT 'Nombre de la productora encargada de la película',
-	`cost`				DECIMAL(12,2) NOT NULL								COMMENT 'Coste de dinero asociado a la producción',
-    `end_production_date` TIMESTAMP NOT NULL								COMMENT 'Fecha en la que finalizó',
-    CONSTRAINT `production_data_pk` PRIMARY KEY(`id`),
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Identificador',
+    `producer_company` VARCHAR(255) NOT NULL COMMENT 'Nombre de la productora encargada de la película',
+    `cost` DECIMAL(12 , 2 ) NOT NULL COMMENT 'Coste de dinero asociado a la producción',
+    `end_production_date` TIMESTAMP NOT NULL COMMENT 'Fecha en la que finalizó',
+    CONSTRAINT `production_data_pk` PRIMARY KEY (`id`),
     CONSTRAINT `production_cost_positive_ck` CHECK (`cost` >= 0)
 );
+-- Indexes en campos de búsqueda
+CREATE FULLTEXT INDEX `production_data_producer_full_idx`
+		ON `ProductionData` (`producer_company`)
+        COMMENT 'FULLTXT Nombre productora search index';
+CREATE INDEX `production_data_producer_idx` 
+		ON `ProductionData` (`producer_company`)
+		COMMENT 'BTREE Nombre productora search index';
+CREATE INDEX `production_data_cost_idx` 
+		ON `ProductionData` (`cost`)
+		COMMENT 'BTREE Coste de dinero search index';
 
 
 # 
@@ -49,25 +90,34 @@ CREATE TABLE `ProductionData` (
 #
 DROP TABLE IF EXISTS `FilmPrizes`;
 CREATE TABLE `FilmPrizes` (
-	`id_prize`				INT UNSIGNED NOT NULL								COMMENT 'Identificador de premio',
-	`id_film`				BIGINT UNSIGNED NOT NULL							COMMENT 'Identificador de película',
-    `votes`					INT UNSIGNED DEFAULT 0								COMMENT 'Número de votos recibidos',
-    `year`					SMALLINT UNSIGNED NOT NULL							COMMENT 'Año de adquisición',
-    CONSTRAINT `filmprize_pk` PRIMARY KEY(`id_film`, `id_prize`),
-    CONSTRAINT `filmprize_id_prize_fk` FOREIGN KEY(`id_prize`) REFERENCES `Prize`(`id`),
-    CONSTRAINT `filmprize_id_film_fk` FOREIGN KEY(`id_film`) REFERENCES `Film`(`id`),
+    `id_prize` INT UNSIGNED NOT NULL COMMENT 'Identificador de premio',
+    `id_film` BIGINT UNSIGNED NOT NULL COMMENT 'Identificador de película',
+    `votes` INT UNSIGNED DEFAULT 0 COMMENT 'Número de votos recibidos',
+    `year` SMALLINT UNSIGNED NOT NULL COMMENT 'Año de adquisición',
+    CONSTRAINT `filmprize_pk` PRIMARY KEY (`id_film` , `id_prize`),
+    CONSTRAINT `filmprize_id_prize_fk` FOREIGN KEY (`id_prize`)
+        REFERENCES `Prize` (`id`),
+    CONSTRAINT `filmprize_id_film_fk` FOREIGN KEY (`id_film`)
+        REFERENCES `Film` (`id`),
     CONSTRAINT `filmprize_year_gt_ck` CHECK (`year` > 1700)
 );
+-- Indexes en campos de búsqueda
+CREATE INDEX `filmprize_year_idx`
+		ON `FilmPrizes` (`year`)
+        COMMENT 'FULLTXT Año del premio search index';
+
+
 
 # 
 # RELACIÓN (0:N) GENEROS EN LOS QUE SE CLASIFICA UNA PELÍCULA.
 #
 DROP TABLE IF EXISTS `FilmGenres`;
 CREATE TABLE `FilmGenres` (
-	`id_film`				BIGINT UNSIGNED NOT NULL							COMMENT 'Identificador de película',
-	`id_genre`				INT UNSIGNED NOT NULL								COMMENT 'Identificador de género',
-    CONSTRAINT `filmgenre_pk` PRIMARY KEY(`id_film`, `id_genre`),
-    CONSTRAINT `filmgenre_id_film_fk` FOREIGN KEY(`id_film`) REFERENCES `Film`(`id`)
+    `id_film` BIGINT UNSIGNED NOT NULL COMMENT 'Identificador de película',
+    `id_genre` INT UNSIGNED NOT NULL COMMENT 'Identificador de género',
+    CONSTRAINT `filmgenre_pk` PRIMARY KEY (`id_film` , `id_genre`),
+    CONSTRAINT `filmgenre_id_film_fk` FOREIGN KEY (`id_film`)
+        REFERENCES `Film` (`id`)
 );
 
 # 
@@ -75,9 +125,11 @@ CREATE TABLE `FilmGenres` (
 #
 DROP TABLE IF EXISTS `FilmProductionData`;
 CREATE TABLE `FilmProductionData` (
-	`id_film`				BIGINT UNSIGNED NOT NULL							COMMENT 'Identificador de película',
-	`id_production_data`	BIGINT UNSIGNED NOT NULL							COMMENT 'Identificador de datos de producción',
-    CONSTRAINT `filmproduction_pk` PRIMARY KEY(`id_film`, `id_production_data`),
-    CONSTRAINT `filmproduction_id_film_fk` FOREIGN KEY(`id_film`) REFERENCES `Film`(`id`),
-    CONSTRAINT `filmproduction_id_production_data_fk` FOREIGN KEY(`id_production_data`) REFERENCES `ProductionData`(`id`)
+    `id_film` BIGINT UNSIGNED NOT NULL COMMENT 'Identificador de película',
+    `id_production_data` BIGINT UNSIGNED NOT NULL COMMENT 'Identificador de datos de producción',
+    CONSTRAINT `filmproduction_pk` PRIMARY KEY (`id_film` , `id_production_data`),
+    CONSTRAINT `filmproduction_id_film_fk` FOREIGN KEY (`id_film`)
+        REFERENCES `Film` (`id`),
+    CONSTRAINT `filmproduction_id_production_data_fk` FOREIGN KEY (`id_production_data`)
+        REFERENCES `ProductionData` (`id`)
 );
