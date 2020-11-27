@@ -11,6 +11,8 @@ CREATE TABLE `Prize` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Identificador',
     `title` VARCHAR(255) NOT NULL COMMENT 'Título/Denominación',
     `great_category` TINYINT UNSIGNED DEFAULT 0 COMMENT 'Flag de gran categoría',
+    `ts_created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación del registro',
+    `ts_updated_at` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha de última actualización del registro',
     CONSTRAINT `prize_pk` PRIMARY KEY (`id`),
     CONSTRAINT `title_uniq` UNIQUE (`title`),
     CONSTRAINT `great_category_bool_ck` CHECK (`great_category` = 0
@@ -34,6 +36,8 @@ CREATE TABLE `Film` (
     `title` VARCHAR(255) NOT NULL COMMENT 'Título',
     `num_actors` SMALLINT UNSIGNED NOT NULL COMMENT 'Número de actores',
     `qualification` ENUM('TP', '+3', '+5', '+8', '+10', '+13', '+18') DEFAULT 'TP' COMMENT 'Calificación pública',
+    `ts_created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación del registro',
+    `ts_updated_at` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha de última actualización del registro',
     CONSTRAINT `film_pk` PRIMARY KEY (`id`)
 );
 -- Indexes en campos de búsqueda
@@ -52,6 +56,8 @@ DROP TABLE IF EXISTS `Genre`;
 CREATE TABLE `Genre` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Identificador',
     `name` VARCHAR(255) NOT NULL COMMENT 'Nombre/Denominación',
+    `ts_created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación del registro',
+    `ts_updated_at` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha de última actualización del registro',
     CONSTRAINT `genre_pk` PRIMARY KEY (`id`),
     CONSTRAINT `name_uniq` UNIQUE (`name`)
 );
@@ -70,6 +76,8 @@ CREATE TABLE `ProductionData` (
     `producer_company` VARCHAR(255) NOT NULL COMMENT 'Nombre de la productora encargada de la película',
     `cost` DECIMAL(12 , 2 ) NOT NULL COMMENT 'Coste de dinero asociado a la producción',
     `end_production_date` TIMESTAMP NOT NULL COMMENT 'Fecha en la que finalizó',
+    `ts_created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación del registro',
+    `ts_updated_at` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha de última actualización del registro',
     CONSTRAINT `production_data_pk` PRIMARY KEY (`id`),
     CONSTRAINT `production_cost_positive_ck` CHECK (`cost` >= 0)
 );
@@ -94,6 +102,8 @@ CREATE TABLE `FilmPrizes` (
     `id_film` BIGINT UNSIGNED NOT NULL COMMENT 'Identificador de película',
     `votes` INT UNSIGNED DEFAULT 0 COMMENT 'Número de votos recibidos',
     `year` SMALLINT UNSIGNED NOT NULL COMMENT 'Año de adquisición',
+    `ts_created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación del registro',
+    `ts_updated_at` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha de última actualización del registro',
     CONSTRAINT `filmprize_pk` PRIMARY KEY (`id_film` , `id_prize`),
     CONSTRAINT `filmprize_id_prize_fk` FOREIGN KEY (`id_prize`)
         REFERENCES `Prize` (`id`),
@@ -115,6 +125,8 @@ DROP TABLE IF EXISTS `FilmGenres`;
 CREATE TABLE `FilmGenres` (
     `id_film` BIGINT UNSIGNED NOT NULL COMMENT 'Identificador de película',
     `id_genre` INT UNSIGNED NOT NULL COMMENT 'Identificador de género',
+    `ts_created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación del registro',
+    `ts_updated_at` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha de última actualización del registro',
     CONSTRAINT `filmgenre_pk` PRIMARY KEY (`id_film` , `id_genre`),
     CONSTRAINT `filmgenre_id_film_fk` FOREIGN KEY (`id_film`)
         REFERENCES `Film` (`id`)
@@ -127,6 +139,8 @@ DROP TABLE IF EXISTS `FilmProductionData`;
 CREATE TABLE `FilmProductionData` (
     `id_film` BIGINT UNSIGNED NOT NULL COMMENT 'Identificador de película',
     `id_production_data` BIGINT UNSIGNED NOT NULL COMMENT 'Identificador de datos de producción',
+    `ts_created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación del registro',
+    `ts_updated_at` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha de última actualización del registro',
     CONSTRAINT `filmproduction_pk` PRIMARY KEY (`id_film` , `id_production_data`),
     CONSTRAINT `filmproduction_id_film_fk` FOREIGN KEY (`id_film`)
         REFERENCES `Film` (`id`),
