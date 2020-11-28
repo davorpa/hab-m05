@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>HaB: SQL</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	<style>
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+			font-family: "Quicksand", sans-serif
+		}
+
+		.reveal h1{
+			font-size: 2.2em;
+		}
+
+
+		.reveal h2{
+			font-size: 1.6em;
+		}
+
+
+		.reveal h3{
+			font-size: 1.2em;
+		}
+
+
+		.reveal h4{
+			font-size: 1.05em;
+		}
+
+		body, body p, body ul {
+			font-size: 1.8rem;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+		.italic{
+			font-style: italic;
+		}
+		.s-500{
+			width: 500px;
+		}
+		.s-400{
+			width: 400px;
+		}
+		.italic_small{
+			font-style: italic;
+			text-align: left;
+			font-size: 1.5rem;
+		}
+		.logo{
+			width: 200px;
+		}
+
+		.reveal .logo-small {
+			width: 50px;
+			float: left;
+			clear: both;
+			top: -25px;
+			margin: 0;
+		}
+
+	</style>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+
+		<section>
+			<img class="logo" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h2>HaB: Caso práctico </h2>
+
+			<p>Por: <span class="italic">Fernando Batlle López</span></p>
+			<br>
+			<p><a href="http://www.linkedin.com/in/fernando-batlle-55333738">Linkedin</a> | <a href="http://lapisoft.es">Lapisoft Projects S.L.</a></p>
+		</section>
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Ejercicio 3</h3>
+			<h4>Consultas</h4>
+
+			<p class="fragment">Dada la base de datos escuela, se debe obterner los siguientes datos. </p>
+		</section>
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Ejercicio 3</h3>
+
+			<p class="fragment">Mostrar la tabla becas.</p>
+			<p class="fragment">Mostrar los datos de la tabla becas.</p>
+			<p class="fragment">¿Cuántas becas se han otorgado?</p>
+			<p class="fragment">¿Cuántas becas se han otorgado antes del año 2000?</p>
+			<p class="fragment">Media cuantia becas.</p>
+			<p class="fragment">Media cuantia becas (sólo contabilizar aquellas con un valor mayor a 1000).</p>
+			<p class="fragment">Obtener cuantas becas se han otorgado para cada cuantía.</p>
+			<p class="fragment">Obtener cuantas becas se han otorgado para cada cuantía siempre que se haya entregado más que 1.</p>
+		</section>
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Ejercicio 3</h3>
+			<p class="fragment">Obtener cuantas becas (mayores de 1000 euros) se han otorgado para cada cuantía siempre que se haya entregado más que 1.</p>
+			<p class="fragment">¿Cuántas becas han sido concedidas por fecha?</p>
+			<p class="fragment">¿Cuál es la cuantía economica de becas por fecha?</p>
+			<p class="fragment">¿Cuál es la cuantía economica de becas y su incidendicia por fecha?</p>
+
+		</section>
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Ejercicio 3</h3>
+
+			<p class="fragment">Mostrar todos los módulos alumno.</p>
+			<p class="fragment">Mostrar las notas de los módulos alumno.</p>
+			<p class="fragment">Media de notas.</p>
+			<p class="fragment">Media de notas por módulo.</p>
+			<p class="fragment">¿Cuál es la nota máxima?</p>
+			<p class="fragment">¿Cuál es la nota mínima y de qué expediente alumno?</p>
+
+		</section>
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Ejercicio 3</h3>
+			<p class="fragment">Información de todos los profesores.</p>
+			<p class="fragment">¿Cuántos módulos da cada profesor?</p>
+			<p class="fragment">El nombre de los profesores que dan matemáticas.</p>
+			<p class="fragment">¿Cuántos grupos hay?</p>
+			<p class="fragment">¿Cuántas aulas hay?</p>
+			<p class="fragment">¿Qué grupo no tiene aula?</p>
+			<p class="fragment">Muestra el listado de todos los grupos y el número de plazas.</p>
+
+		</section>
+		<section>
+			<img class="logo-small" src="images/Logotipo%20HACK%20A%20BOSS_%23SCHOOL_white.png" alt="logo">
+			<h3>Ejercicio 3</h3>
+
+			<p class="fragment">Mostrar las notas, y el nombre del modulo de los módulos alumno.</p>
+			<p class="fragment">Mostrar los nombres completos de los alumnos, sus notas y los nombres del modulo de los módulos alumno.</p>
+			<p class="fragment">Media de las notas en matemáticas.</p>
+			<p class="fragment">Alumnos sin nota en matemáticas</p>
+
+			<p class="fragment">Alumnos con beca y aprobados.</p>
+			<p class="fragment">¿Cuántos alumnos aprobaron por materia?</p>
+			<p class="fragment">¿En qué aulas no hay suficientes ordenadores?</p>
+
+
+		</section>
+
+
+	</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+	});
+</script>
+</body>
+</html>
