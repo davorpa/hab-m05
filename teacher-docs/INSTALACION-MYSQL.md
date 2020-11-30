@@ -26,7 +26,7 @@ sudo apt-get upgrade
 ##### 1.1.2 Instalar MySQL Server
 Desde un terminal ejecutamos
 ```shell script
-sudo apt-get install mysql-server
+sudo apt-get install mysql-server mysql-client
 ```
 El sistema comprobará qué ficheros debe descargarse de internet y nos pedirá que le confirmemos que deseamos instalarlo
 ```
@@ -112,7 +112,7 @@ Con el usuario `demo` es con el que haremos las prácticas.
 ### 2.1 Permisos de acceso para root
 Desde un terminal ejecutar:
 ```shell script
-sudo mysql -u root
+sudo mysql
 ```
 
 En caso de usar MacOS ejecutar lo siguiente:
@@ -158,7 +158,10 @@ Bye
 
 ### 2.2 Crear el usuario 'demo'
 Desde un terminal accederemos con el usuario `root` (Su contraseña es `root`):
-```shell script
+```shell script en ubuntu
+sudo mysql
+```
+```shell script en mac
 mysql -u root -p
 ```
 Desde la consola de MySQL ejecutaremos las siguientes sentencias:
