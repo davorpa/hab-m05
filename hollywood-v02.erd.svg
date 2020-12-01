@@ -238,7 +238,7 @@
 </symbol>
 </g>
 </defs>
-<g id="surface8867">
+<g id="surface4250">
 <rect x="0" y="0" width="1167" height="612" style="fill:rgb(100%,100%,100%);fill-opacity:1;stroke:none;"/>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-1" x="341.578125" y="42.914062"/>
@@ -383,13 +383,6 @@
   <use xlink:href="#glyph1-15" x="1016.802083" y="294.779405"/>
   <use xlink:href="#glyph1-17" x="1024.579861" y="294.779405"/>
 </g>
-<path style="fill-rule:evenodd;fill:rgb(56.470591%,93.333334%,56.470591%);fill-opacity:1;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 51.526567 20.306429 C 51.526567 20.803499 50.90645 21.206429 50.141411 21.206429 C 49.376567 21.206429 48.75645 20.803499 48.75645 20.306429 C 48.75645 19.809358 49.376567 19.406429 50.141411 19.406429 C 50.90645 19.406429 51.526567 19.809358 51.526567 20.306429 " transform="matrix(20,0,0,20,-145.129,-35.234045)"/>
-<g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
-  <use xlink:href="#glyph2-14" x="849.925781" y="374.779405"/>
-  <use xlink:href="#glyph2-15" x="857.703559" y="374.779405"/>
-</g>
-<path style="fill:none;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 49.75645 20.706429 L 50.526567 20.706429 " transform="matrix(20,0,0,20,-145.129,-35.234045)"/>
-<path style="fill:none;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 51.192387 19.607015 L 54.648247 17.306819 " transform="matrix(20,0,0,20,-145.129,-35.234045)"/>
 <path style="fill-rule:evenodd;fill:rgb(56.470591%,93.333334%,56.470591%);fill-opacity:1;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 60.771684 12.306429 C 60.771684 12.803499 58.686333 13.206429 56.114067 13.206429 C 53.541802 13.206429 51.456645 12.803499 51.456645 12.306429 C 51.456645 11.809358 53.541802 11.406429 56.114067 11.406429 C 58.686333 11.406429 60.771684 11.809358 60.771684 12.306429 " transform="matrix(20,0,0,20,-145.129,-35.234045)"/>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph2-22" x="903.265625" y="214.779405"/>

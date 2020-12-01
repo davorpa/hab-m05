@@ -1297,7 +1297,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.905512</Height>
-            <PinX>21.259842</PinX>
+            <PinX>21.062992</PinX>
             <PinY>5.905512</PinY>
             <Width>5.665354</Width>
           </XForm>
@@ -1346,7 +1346,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>22.927952</PinX>
+            <PinX>22.731102</PinX>
             <PinY>5.577925</PinY>
             <Width>2.329134</Width>
           </XForm>
@@ -1368,7 +1368,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>21.462795</PinX>
+            <PinX>21.265945</PinX>
             <PinY>5.302334</PinY>
             <Width>5.259449</Width>
           </XForm>
@@ -1390,7 +1390,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>22.394686</PinX>
+            <PinX>22.197834</PinX>
             <PinY>5.026744</PinY>
             <Width>3.395669</Width>
           </XForm>
@@ -1412,7 +1412,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>2.992126</Height>
-            <PinX>21.259842</PinX>
+            <PinX>21.062992</PinX>
             <PinY>5.000000</PinY>
             <Width>5.665354</Width>
           </XForm>
@@ -1461,7 +1461,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.118110</Height>
-            <PinX>21.328741</PinX>
+            <PinX>21.131889</PinX>
             <PinY>4.803150</PinY>
             <Width>0.078740</Width>
           </XForm>
@@ -1504,7 +1504,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>21.446850</PinX>
+            <PinX>21.250000</PinX>
             <PinY>4.625615</PinY>
             <Width>1.273228</Width>
           </XForm>
@@ -1526,7 +1526,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>24.523623</PinX>
+            <PinX>24.326771</PinX>
             <PinY>4.625615</PinY>
             <Width>2.728346</Width>
           </XForm>
@@ -1547,14 +1547,14 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <PinX>21.446850</PinX>
+            <PinX>21.250000</PinX>
             <PinY>4.653543</PinY>
             <Width>5.350394</Width>
           </XForm>
           <XForm1D>
-            <BeginX>21.446850</BeginX>
+            <BeginX>21.250000</BeginX>
             <BeginY>4.653543</BeginY>
-            <EndX>26.797245</EndX>
+            <EndX>26.600393</EndX>
             <EndY>4.653543</EndY>
           </XForm1D>
           <Line>
@@ -1584,7 +1584,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>21.545275</PinX>
+            <PinX>21.348425</PinX>
             <PinY>4.357453</PinY>
             <Width>4.453660</Width>
           </XForm>
@@ -1608,7 +1608,7 @@
             <Height>0.078740</Height>
             <LocPinX>0.039370</LocPinX>
             <LocPinY>0.039370</LocPinY>
-            <PinX>21.368111</PinX>
+            <PinX>21.171259</PinX>
             <PinY>4.074803</PinY>
             <Width>0.078740</Width>
           </XForm>
@@ -1639,7 +1639,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>21.446850</PinX>
+            <PinX>21.250000</PinX>
             <PinY>3.897269</PinY>
             <Width>2.000787</Width>
           </XForm>
@@ -1660,7 +1660,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>24.523623</PinX>
+            <PinX>24.326771</PinX>
             <PinY>3.897269</PinY>
             <Width>2.182677</Width>
           </XForm>
@@ -1681,7 +1681,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>21.545275</PinX>
+            <PinX>21.348425</PinX>
             <PinY>3.629106</PinY>
             <Width>4.629644</Width>
           </XForm>
@@ -1705,7 +1705,7 @@
             <Height>0.078740</Height>
             <LocPinX>0.039370</LocPinX>
             <LocPinY>0.039370</LocPinY>
-            <PinX>21.368111</PinX>
+            <PinX>21.171259</PinX>
             <PinY>3.346457</PinY>
             <Width>0.078740</Width>
           </XForm>
@@ -1736,7 +1736,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>21.446850</PinX>
+            <PinX>21.250000</PinX>
             <PinY>3.168922</PinY>
             <Width>3.455905</Width>
           </XForm>
@@ -1757,7 +1757,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>24.523623</PinX>
+            <PinX>24.326771</PinX>
             <PinY>3.168922</PinY>
             <Width>1.637008</Width>
           </XForm>
@@ -1778,7 +1778,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>21.545275</PinX>
+            <PinX>21.348425</PinX>
             <PinY>2.900760</PinY>
             <Width>2.763780</Width>
           </XForm>
@@ -1802,7 +1802,7 @@
             <Height>0.078740</Height>
             <LocPinX>0.039370</LocPinX>
             <LocPinY>0.039370</LocPinY>
-            <PinX>21.368111</PinX>
+            <PinX>21.171259</PinX>
             <PinY>2.618110</PinY>
             <Width>0.078740</Width>
           </XForm>
@@ -1833,7 +1833,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>21.446850</PinX>
+            <PinX>21.250000</PinX>
             <PinY>2.440576</PinY>
             <Width>0.727559</Width>
           </XForm>
@@ -1854,7 +1854,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>24.523623</PinX>
+            <PinX>24.326771</PinX>
             <PinY>2.440576</PinY>
             <Width>2.364567</Width>
           </XForm>
@@ -1875,7 +1875,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>21.545275</PinX>
+            <PinX>21.348425</PinX>
             <PinY>2.172413</PinY>
             <Width>0.751181</Width>
           </XForm>
@@ -1899,7 +1899,7 @@
             <Height>2.480315</Height>
             <PinX>19.114174</PinX>
             <PinY>2.322835</PinY>
-            <Width>2.145669</Width>
+            <Width>1.948819</Width>
           </XForm>
           <Line>
             <LineCap>1</LineCap>
@@ -1925,7 +1925,7 @@
               <Y>2.480315</Y>
             </LineTo>
             <LineTo IX='4'>
-              <X>2.145669</X>
+              <X>1.948819</X>
               <Y>2.480315</Y>
             </LineTo>
           </Geom>
@@ -1957,7 +1957,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
-            <PinX>20.903936</PinX>
+            <PinX>20.707087</PinX>
             <PinY>4.856822</PinY>
             <Width>0.227953</Width>
           </XForm>
@@ -4140,7 +4140,7 @@
               <Y>4.901575</Y>
             </LineTo>
             <LineTo IX='4'>
-              <X>0.698819</X>
+              <X>0.501969</X>
               <Y>4.901575</Y>
             </LineTo>
           </Geom>
@@ -4172,7 +4172,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
-            <PinX>27.053150</PinX>
+            <PinX>26.856298</PinX>
             <PinY>4.128476</PinY>
             <Width>0.227953</Width>
           </XForm>
