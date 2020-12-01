@@ -1641,7 +1641,7 @@
             <Height>0.247563</Height>
             <PinX>21.250000</PinX>
             <PinY>3.897269</PinY>
-            <Width>2.000787</Width>
+            <Width>3.455905</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1652,7 +1652,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>id_producer</Text>
+          <Text><pp IX='0'/><cp IX='0'/>end_production_date</Text>
         </Shape>
         <Shape ID='57' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.57'>
           <Data1>0</Data1>
@@ -1662,7 +1662,7 @@
             <Height>0.247563</Height>
             <PinX>24.326771</PinX>
             <PinY>3.897269</PinY>
-            <Width>2.182677</Width>
+            <Width>1.637008</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1673,7 +1673,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>INT UNSIGNED</Text>
+          <Text><pp IX='0'/><cp IX='0'/>TIMESTAMP</Text>
         </Shape>
         <Shape ID='58' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.58'>
           <Data1>0</Data1>
@@ -1683,7 +1683,7 @@
             <Height>0.216618</Height>
             <PinX>21.348425</PinX>
             <PinY>3.629106</PinY>
-            <Width>4.629644</Width>
+            <Width>2.763780</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1695,7 +1695,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Identificador de Productora        FK</Text>
+          <Text><pp IX='0'/><cp IX='0'/>Fecha fin producción</Text>
         </Shape>
         <Shape ID='59' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.59'>
           <Data1>0</Data1>
@@ -1738,7 +1738,7 @@
             <Height>0.247563</Height>
             <PinX>21.250000</PinX>
             <PinY>3.168922</PinY>
-            <Width>3.455905</Width>
+            <Width>0.727559</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1749,7 +1749,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>end_production_date</Text>
+          <Text><pp IX='0'/><cp IX='0'/>cost</Text>
         </Shape>
         <Shape ID='61' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.61'>
           <Data1>0</Data1>
@@ -1759,7 +1759,7 @@
             <Height>0.247563</Height>
             <PinX>24.326771</PinX>
             <PinY>3.168922</PinY>
-            <Width>1.637008</Width>
+            <Width>2.364567</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1770,7 +1770,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>TIMESTAMP</Text>
+          <Text><pp IX='0'/><cp IX='0'/>DECIMAL(12,2)</Text>
         </Shape>
         <Shape ID='62' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.62'>
           <Data1>0</Data1>
@@ -1780,7 +1780,7 @@
             <Height>0.216618</Height>
             <PinX>21.348425</PinX>
             <PinY>2.900760</PinY>
-            <Width>2.763780</Width>
+            <Width>0.751181</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1792,7 +1792,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Fecha fin producción</Text>
+          <Text><pp IX='0'/><cp IX='0'/>Coste</Text>
         </Shape>
         <Shape ID='63' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.63'>
           <Data1>0</Data1>
@@ -1835,7 +1835,7 @@
             <Height>0.247563</Height>
             <PinX>21.250000</PinX>
             <PinY>2.440576</PinY>
-            <Width>0.727559</Width>
+            <Width>2.000787</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1846,7 +1846,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>cost</Text>
+          <Text><pp IX='0'/><cp IX='0'/>id_producer</Text>
         </Shape>
         <Shape ID='65' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.65'>
           <Data1>0</Data1>
@@ -1856,7 +1856,7 @@
             <Height>0.247563</Height>
             <PinX>24.326771</PinX>
             <PinY>2.440576</PinY>
-            <Width>2.364567</Width>
+            <Width>2.182677</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1867,7 +1867,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>DECIMAL(12,2)</Text>
+          <Text><pp IX='0'/><cp IX='0'/>INT UNSIGNED</Text>
         </Shape>
         <Shape ID='66' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.66'>
           <Data1>0</Data1>
@@ -1877,7 +1877,7 @@
             <Height>0.216618</Height>
             <PinX>21.348425</PinX>
             <PinY>2.172413</PinY>
-            <Width>0.751181</Width>
+            <Width>4.634369</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -1889,7 +1889,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Coste</Text>
+          <Text><pp IX='0'/><cp IX='0'/>Identificador Productora             FK</Text>
         </Shape>
         <Shape ID='67' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.67'>
           <Data1>0</Data1>
@@ -3697,7 +3697,7 @@
           <XForm>
             <Height>0.629921</Height>
             <PinX>22.834646</PinX>
-            <Width>3.391732</Width>
+            <Width>2.937008</Width>
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
@@ -3721,11 +3721,11 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>3.391732</X>
+              <X>2.937008</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>3.391732</X>
+              <X>2.937008</X>
               <Y>-0.629921</Y>
             </LineTo>
             <LineTo IX='4'>
@@ -3744,7 +3744,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>23.028151</PinX>
+            <PinX>22.800787</PinX>
             <PinY>-0.327587</PinY>
             <Width>3.004725</Width>
           </XForm>
@@ -3766,7 +3766,7 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.216618</Height>
-            <PinX>23.262598</PinX>
+            <PinX>23.035236</PinX>
             <PinY>-0.603177</PinY>
             <Width>2.535827</Width>
           </XForm>
@@ -3787,10 +3787,10 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>1.850394</Height>
+            <Height>1.535433</Height>
             <PinX>22.834646</PinX>
             <PinY>-0.629921</PinY>
-            <Width>3.391732</Width>
+            <Width>2.937008</Width>
           </XForm>
           <Fill>
             <FillBkgnd>#000000</FillBkgnd>
@@ -3814,16 +3814,16 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>3.391732</X>
+              <X>2.937008</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>3.391732</X>
-              <Y>-1.850394</Y>
+              <X>2.937008</X>
+              <Y>-1.535433</Y>
             </LineTo>
             <LineTo IX='4'>
               <X>0.000000</X>
-              <Y>-1.850394</Y>
+              <Y>-1.535433</Y>
             </LineTo>
             <LineTo IX='5'>
               <X>0.000000</X>
@@ -3904,7 +3904,7 @@
             <Height>0.247563</Height>
             <PinX>23.824802</PinX>
             <PinY>-1.004306</PinY>
-            <Width>2.728346</Width>
+            <Width>2.182677</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -3916,7 +3916,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>BIGINT UNSIGNED</Text>
+          <Text><pp IX='0'/><cp IX='0'/>INT UNSIGNED</Text>
         </Shape>
         <Shape ID='137' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Line.137'>
           <Data1>0</Data1>
@@ -3925,12 +3925,12 @@
           <XForm>
             <PinX>23.021654</PinX>
             <PinY>-0.976378</PinY>
-            <Width>3.076772</Width>
+            <Width>2.622047</Width>
           </XForm>
           <XForm1D>
             <BeginX>23.021654</BeginX>
             <BeginY>-0.976378</BeginY>
-            <EndX>26.098425</EndX>
+            <EndX>25.643702</EndX>
             <EndY>-0.976378</EndY>
           </XForm1D>
           <Line>
@@ -3949,7 +3949,7 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>3.076772</X>
+              <X>2.622047</X>
               <Y>0.000000</Y>
             </LineTo>
           </Geom>
@@ -3962,7 +3962,7 @@
             <Height>0.216618</Height>
             <PinX>23.120079</PinX>
             <PinY>-1.272469</PinY>
-            <Width>3.110747</Width>
+            <Width>2.775314</Width>
           </XForm>
           <Char IX='0'>
             <Color>#000000</Color>
@@ -3974,7 +3974,7 @@
           <Para IX='0'>
             <HorzAlign>0</HorzAlign>
           </Para>
-          <Text><pp IX='0'/><cp IX='0'/>Identificador             PK</Text>
+          <Text><pp IX='0'/><cp IX='0'/>Identificador         PK</Text>
         </Shape>
         <Shape ID='139' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.139'>
           <Data1>0</Data1>
@@ -4073,48 +4073,15 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>Nombre</Text>
         </Shape>
-        <Shape ID='143' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Ellipse.143'>
+        <Shape ID='143' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.143'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>0.078740</Height>
-            <LocPinX>0.039370</LocPinX>
-            <LocPinY>0.039370</LocPinY>
-            <PinX>22.942913</PinX>
-            <PinY>-2.283465</PinY>
-            <Width>0.078740</Width>
-          </XForm>
-          <Fill>
-            <FillBkgnd>#000000</FillBkgnd>
-            <FillForegnd>#000000</FillForegnd>
-            <FillPattern>1</FillPattern>
-            <ShdwForegnd>#000000</ShdwForegnd>
-          </Fill>
-          <Geom IX='0'>
-            <NoFill>0</NoFill>
-            <NoLine>1</NoLine>
-            <NoShow>0</NoShow>
-            <NoSnap>0</NoSnap>
-            <Ellipse IX='1'>
-              <A>0.078740</A>
-              <B>0.039370</B>
-              <C>0.039370</C>
-              <D>0.078740</D>
-              <X>0.039370</X>
-              <Y>0.039370</Y>
-            </Ellipse>
-          </Geom>
-        </Shape>
-        <Shape ID='144' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='PolyLine.144'>
-          <Data1>0</Data1>
-          <Data2>0</Data2>
-          <Data3>0</Data3>
-          <XForm>
-            <Height>4.901575</Height>
-            <PinX>26.226377</PinX>
+            <Height>3.444882</Height>
+            <PinX>25.771654</PinX>
             <PinY>-0.826772</PinY>
-            <Width>1.450787</Width>
+            <Width>1.905512</Width>
           </XForm>
           <Line>
             <LineCap>1</LineCap>
@@ -4132,26 +4099,26 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>1.450787</X>
+              <X>1.905512</X>
               <Y>0.000000</Y>
             </LineTo>
             <LineTo IX='3'>
-              <X>1.450787</X>
-              <Y>4.901575</Y>
+              <X>1.905512</X>
+              <Y>3.444882</Y>
             </LineTo>
             <LineTo IX='4'>
-              <X>0.501969</X>
-              <Y>4.901575</Y>
+              <X>0.956693</X>
+              <Y>3.444882</Y>
             </LineTo>
           </Geom>
         </Shape>
-        <Shape ID='145' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.145'>
+        <Shape ID='144' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.144'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
-            <PinX>26.354330</PinX>
+            <PinX>25.899607</PinX>
             <PinY>-0.773099</PinY>
             <Width>0.227953</Width>
           </XForm>
@@ -4166,14 +4133,14 @@
           </Para>
           <Text><pp IX='0'/><cp IX='0'/>N</Text>
         </Shape>
-        <Shape ID='146' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.146'>
+        <Shape ID='145' Type='Shape' FillStyle='0' LineStyle='0' TextStyle='0' NameU='Text.145'>
           <Data1>0</Data1>
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
             <Height>0.309454</Height>
             <PinX>26.856298</PinX>
-            <PinY>4.128476</PinY>
+            <PinY>2.671783</PinY>
             <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
