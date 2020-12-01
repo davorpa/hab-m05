@@ -3359,8 +3359,8 @@
             <Height>0.708661</Height>
             <LocPinX>1.151575</LocPinX>
             <LocPinY>0.354331</LocPinY>
-            <PinX>12.207525</PinX>
-            <PinY>5.019063</PinY>
+            <PinX>12.207520</PinX>
+            <PinY>5.019055</PinY>
             <Width>2.303150</Width>
           </XForm>
           <Fill>
@@ -3392,8 +3392,8 @@
             <Height>0.708661</Height>
             <LocPinX>1.151575</LocPinX>
             <LocPinY>0.354331</LocPinY>
-            <PinX>12.207525</PinX>
-            <PinY>5.019063</PinY>
+            <PinX>12.207520</PinX>
+            <PinY>5.019055</PinY>
             <Width>2.303150</Width>
           </XForm>
           <Line>
@@ -3423,8 +3423,8 @@
           <Data3>0</Data3>
           <XForm>
             <Height>0.247563</Height>
-            <PinX>11.298077</PinX>
-            <PinY>4.883236</PinY>
+            <PinX>11.298071</PinX>
+            <PinY>4.883228</PinY>
             <Width>1.818898</Width>
           </XForm>
           <Char IX='0'>
@@ -3443,16 +3443,16 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>1.235666</Height>
-            <PinX>12.483575</PinX>
-            <PinY>4.658432</PinY>
-            <Width>0.945858</Width>
+            <Height>1.235661</Height>
+            <PinX>12.483570</PinX>
+            <PinY>4.658426</PinY>
+            <Width>0.945862</Width>
           </XForm>
           <XForm1D>
-            <BeginX>12.483575</BeginX>
-            <BeginY>4.658432</BeginY>
-            <EndX>13.429434</EndX>
-            <EndY>3.422767</EndY>
+            <BeginX>12.483570</BeginX>
+            <BeginY>4.658426</BeginY>
+            <EndX>13.429433</EndX>
+            <EndY>3.422765</EndY>
           </XForm1D>
           <Line>
             <LineCap>1</LineCap>
@@ -3470,8 +3470,8 @@
               <Y>0.000000</Y>
             </MoveTo>
             <LineTo IX='2'>
-              <X>0.945858</X>
-              <Y>-1.235666</Y>
+              <X>0.945862</X>
+              <Y>-1.235661</Y>
             </LineTo>
           </Geom>
         </Shape>

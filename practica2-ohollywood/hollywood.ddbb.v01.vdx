@@ -2328,7 +2328,7 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>4.760020</Height>
+            <Height>4.760039</Height>
             <PinX>20.014370</PinX>
             <PinY>0.332874</PinY>
             <Width>10.033031</Width>
@@ -2362,11 +2362,11 @@
             </LineTo>
             <LineTo IX='5'>
               <X>-9.378622</X>
-              <Y>4.760020</Y>
+              <Y>4.760039</Y>
             </LineTo>
             <LineTo IX='6'>
               <X>-6.902008</X>
-              <Y>4.760020</Y>
+              <Y>4.760039</Y>
             </LineTo>
           </Geom>
         </Shape>
@@ -2398,7 +2398,7 @@
           <XForm>
             <Height>0.309454</Height>
             <PinX>12.756456</PinX>
-            <PinY>5.146566</PinY>
+            <PinY>5.146586</PinY>
             <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
@@ -2979,9 +2979,9 @@
           <Data2>0</Data2>
           <Data3>0</Data3>
           <XForm>
-            <Height>4.009713</Height>
+            <Height>4.009725</Height>
             <PinX>3.783535</PinX>
-            <PinY>5.065697</PinY>
+            <PinY>5.065709</PinY>
             <Width>1.546102</Width>
           </XForm>
           <Line>
@@ -3005,11 +3005,11 @@
             </LineTo>
             <LineTo IX='3'>
               <X>-1.263850</X>
-              <Y>-4.009713</Y>
+              <Y>-4.009725</Y>
             </LineTo>
             <LineTo IX='4'>
               <X>0.282252</X>
-              <Y>-4.009713</Y>
+              <Y>-4.009725</Y>
             </LineTo>
           </Geom>
         </Shape>
@@ -3020,7 +3020,7 @@
           <XForm>
             <Height>0.309454</Height>
             <PinX>3.427630</PinX>
-            <PinY>5.119370</PinY>
+            <PinY>5.119381</PinY>
             <Width>0.227953</Width>
           </XForm>
           <Char IX='0'>
