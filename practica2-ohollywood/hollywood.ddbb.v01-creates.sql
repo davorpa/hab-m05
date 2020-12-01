@@ -261,7 +261,7 @@ CREATE INDEX `filmprize_year_IDX`
 
 -- -----------------------------------------------------
 -- Table `pelicula_generos`
--- (RELACIÓN (0:N) GENEROS EN LOS QUE SE CLASIFICA UNA PELÍCULA.)
+-- (RELACIÓN (0:N) GÉNEROS EN LOS QUE SE CLASIFICA UNA PELÍCULA.)
 -- -----------------------------------------------------
 
 DROP TABLE IF EXISTS `film_genres`;
@@ -285,7 +285,10 @@ CREATE TABLE IF NOT EXISTS `film_genres` (
         PRIMARY KEY (`id_film`),
     CONSTRAINT `filmgenre_id_film_fk`
         FOREIGN KEY (`id_film`)
-        REFERENCES `film` (`id`)
+        REFERENCES `film` (`id`),
+    CONSTRAINT `filmgenre_id_genre_fk`
+        FOREIGN KEY (`id_genre`)
+        REFERENCES `genre` (`id`)
 )
 ENGINE = INNODB
 COMMENT 'Relación (0:N) de los Géneros en los que se clasifica una Película';
