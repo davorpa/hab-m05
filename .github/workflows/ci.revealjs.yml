@@ -1,6 +1,12 @@
 name: reveal js tests
 
-on: [push]
+on:
+  push:
+    paths:
+      # Include this workflow
+      - '.github/workflows/ci.revealjs.yml'
+      # Include target folder
+      - 'teacher-docs/**'
 
 jobs:
   build:
