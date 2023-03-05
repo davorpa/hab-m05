@@ -40,7 +40,7 @@
         "colors": "^1.4.0",
         "core-js": "^3.28.0",
         "fitty": "^2.3.6",
-        "glob": "^7.2.3",
+        "glob": "^9.2.1",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^8.0.0",
         "gulp-clean-css": "^4.2.0",
